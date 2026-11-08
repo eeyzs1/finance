@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>衍生品与金融工程 · 第 1 课：期货与套期保值 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「衍生品与金融工程」第 1 课《期货与套期保值》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">衍生品与金融工程</a><span class="sep">/</span>第 1 课</div>
+<header class="lesson-header"><div class="kicker">衍生品与金融工程 · Lesson 1</div><h1>期货与套期保值</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶</span><span>前置：08 行为金融学（衔接课）</span></div></header>
+
+<p class="lead">航空公司最怕的不是油价高，而是油价"不知道"。衍生品的第一个使命，就是让企业今天就把未来的价格定下来。这一课我们跟着一家三个月后要买 1000 吨航油的航空公司，学会远期、期货与套期保值——并亲手把成本曲线"熨平"。</p>
+
+<h2>衍生品：一张关于未来的合约</h2>
+<p><span class="term" data-def="价值取决于（衍生自）标的资产价格的合约，如远期、期货、期权、互换。">衍生品（derivative）</span>是一类特殊的合约：它本身不是资产，而是一份<strong>关于标的资产未来价格的约定</strong>。标的可以是石油、大豆、黄金、股票指数、利率，甚至天气与运费。</p>
+<p>理解衍生品有两把钥匙：</p>
+<ul>
+<li><strong>价值是"衍生"的</strong>：航油期货的价格步步紧跟航油现货——离开标的，合约一文不值；</li>
+<li><strong>市场是零和的</strong>：期货多头赚到的每一元，都来自空头的口袋。衍生品交易不创造新价值，它做的是<strong>转移风险与重新分配盈亏</strong>。</li>
+</ul>
+<p>衍生品家族有三大原件：远期/期货、期权（第 2 课主角）、<span class="term" data-def="约定在未来按规则交换现金流的合约，如固定利率换浮动利率。">互换（swap）</span>（本课程不展开，见分支首页的延伸路标）。本课先讲第一种。</p>
+
+<h2>远期与期货：同一条血脉，两种性格</h2>
+<p><span class="term" data-def="双方约定在未来某日按今天敲定的价格交割资产的定制合约，到期必须履约。">远期合约（forward contract）</span>是最古老的衍生品：买卖双方私下约定"三个月后，我按每吨 6000 元买你 1000 吨航油"。条款完全按需定制，到期必须履约。</p>
+<p><span class="term" data-def="交易所标准化、每日结算的远期合约；主要用途是套期保值与投机。">期货（futures contract）</span>就是"交易所版的远期"：合约被标准化——数量、质量、交割日期统一规定，谁跟谁交易都无所谓，交易所居中担保。两者的区别集中在四点：</p>
+<table class="data">
+<thead><tr><th>维度</th><th>远期合约</th><th>期货合约</th></tr></thead>
+<tbody>
+<tr><td>交易场所</td><td>场外（OTC），一对一谈判</td><td>交易所集中竞价</td></tr>
+<tr><td>合约条款</td><td>定制：数量、日期、品质可谈</td><td>标准化：交易所统一规定</td></tr>
+<tr><td>结算方式</td><td>到期一次性结算</td><td><span class="term" data-def="期货盈亏每天按结算价划转进保证金账户，亏损当日补足。">每日盯市（marking to market）</span>：盈亏当日入账</td></tr>
+<tr><td>履约保障</td><td>靠对手方信用，有违约风险</td><td><span class="term" data-def="期货交易存入的履约押金，亏损会扣减，不足需追加。">保证金（margin）</span>制度 + 清算所担保</td></tr>
+<tr><td>提前了结</td><td>困难，需对手方同意</td><td>随时可反向平仓</td></tr>
+</tbody>
+</table>
+<p>每日盯市是期货的灵魂：你今天以 6000 元/吨买入，若当日结算价涨到 6100 元，账户立刻入账 100 元/吨的浮盈；反之则立刻扣款，保证金不足还要追加。盈亏每天都"结清"，违约风险被压到极低——代价是你每天都要面对账户波动。</p>
+
+<h2>套期保值：航空公司的 1000 吨航油</h2>
+<p><span class="term" data-def="用衍生品建立与现有风险相反的头寸，把价格波动锁定的操作。">套期保值（hedging）</span>，俗称"对冲"，一句话：<strong>在期货市场建立一个与现货风险相反的头寸，让两边盈亏互相抵消</strong>。</p>
+<p>设定案例：某航空公司三个月后需要采购 1000 吨航油，今天现货价 6000 元/吨。它最怕油价暴涨。于是今天买入期货，建仓价 K = 6000 元/吨、数量 1000 吨。三个月后到期，看两个情景（期货盈亏 = 到期价 − 建仓价，按每吨计）：</p>
+
+<table class="data">
+<thead><tr><th>项目（每吨）</th><th>情景一：油价涨到 7000</th><th>情景二：油价跌到 5000</th></tr></thead>
+<tbody>
+<tr><td>现货市场买油成本</td><td class="bad">7,000 元</td><td class="good">5,000 元</td></tr>
+<tr><td>期货多头盈亏（建仓 6000）</td><td class="good">+1,000 元（7000−6000）</td><td class="bad">−1,000 元（5000−6000）</td></tr>
+<tr><td><strong>合并实际成本</strong></td><td><strong>7,000 − 1,000 = 6,000 元</strong></td><td><strong>5,000 + 1,000 = 6,000 元</strong></td></tr>
+<tr><td>1000 吨合计成本</td><td>600 万元</td><td>600 万元</td></tr>
+</tbody>
+</table>
+
+<p>逐步验算：情景一中现货每吨多付 1000 元，期货每吨赚回 1000 元（7000−6000），合并 7000−1000=6000 元；情景二中现货每吨省下 1000 元，期货每吨亏掉 1000 元，合并 5000+1000=6000 元。两条路都通向同一个数——<strong>对冲后的成本恒等于建仓价 6000 元/吨，与到期油价无关</strong>。</p>
+
+<div class="formula">对冲后每吨成本 = 现货价 S − 期货盈利 (S − K) = K
+<div class="formula-note"><b>解读</b>：S 为到期现货价，K 为期货建仓价。油价涨，现货多付的钱由期货赚回；油价跌，现货省下的钱被期货亏掉。套保不是"占便宜"，而是<b>用放弃意外收益，换掉意外损失</b>——这就是衍生品的核心功能：把未来价格今天锁定。</div></div>
+
+<div class="widget">
+  <div class="widget-title">🎛 套保模拟器 · 把航油成本锁进保险箱</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row"><label for="in-k">期货建仓价 K <span class="val" id="in-k-val"></span></label>
+        <input type="range" id="in-k" min="5000" max="7000" step="50" value="6000"></div>
+      <div class="slider-row"><label for="in-s">到期现货价 S <span class="val" id="in-s-val"></span></label>
+        <input type="range" id="in-s" min="4000" max="8000" step="100" value="7000"></div>
+    </div>
+    <div class="chart" id="hedge-chart"></div>
+    <div class="readout">
+      <span class="pill" id="ro-raw"></span>
+      <span class="pill" id="ro-hedged"></span>
+      <span class="pill" id="ro-diff"></span>
+    </div>
+    <p class="formula-note" style="margin-top:10px">红色虚线是"听天由命"的不套保成本（永远 = S），绿色实线是套保后的成本（锁定在 K）。拖动 S 看两条线如何互补；再拖 K，看"锁不同的价"各花什么代价。</p>
+  </div>
+</div>
+
+<h2>投机者：风险的搬运工接单了</h2>
+<p>航空公司想转出的风险，谁来接？答案是<strong>投机者</strong>。他们手里没有航油、也不需要航油，纯粹对价格下注：油价涨到 7000 的情景里，空头（多数是投机者）每吨亏 1000 元——这正是套保者赚走的。反过来，油价跌到 5000 时投机者赚钱，赚的是套保者"放弃的意外收益"。</p>
+<p>所以零和并非坏事：套保者花钱买"确定性"，投机者收钱卖"确定性"、赌方向。风险没有消失，只是从"扛不起的人"（航空公司靠卖机票吃饭，赌不起油价）转移到了"愿意扛的人"（投机者用闲钱下注）手里。没有投机者提供流动性，套保者的锁价单根本成交不了。</p>
+
+<div class="callout callout-warn">
+  <span class="callout-warn-title callout-title">⚠ 一句话风险提示</span>
+  <p>保证金自带杠杆：10% 的保证金意味着 10 倍杠杆，价格波动 5% 你的本金就波动 50%。2020 年"原油宝"事件中，投资者以为"油价跌这么低，抄底总安全"，却不懂保证金、杠杆与换月规则——WTI 原油 5 月合约结算价跌至 −37.63 美元/桶时，抄底者亏光本金甚至倒欠银行；2022 年伦镍"妖镍"逼空，镍价两个交易日从约 3 万美元/吨飙到 10 万美元/吨上方，空头巨亏穿仓。规则与最大亏损没弄懂之前，别碰衍生品。</p>
+</div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>远期是场外定制合约，期货是标准化 + 每日盯市 + 保证金版本的远期；</li>
+<li>套期保值 = 用反向头寸锁定未来价格：对冲后成本恒等于建仓价 K（本例 6000 元/吨）；</li>
+<li>套保是零和的风险转移：套保者买确定性，投机者卖确定性、提供流动性；</li>
+<li>杠杆是双刃剑：原油宝与妖镍事件的教训——先懂规则和最大亏损，再谈收益。</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">{
+  "title": "随堂测验 · 期货与套期保值",
+  "questions": [
+    {"q": "关于远期与期货的区别，下列说法最准确的是？", "options": ["远期在交易所交易，合约条款全部标准化", "期货标准化且每日盯市，远期是定制合约", "期货仅在到期日结算，远期需要每日盯市", "远期有保证金制度，期货不存在违约风险"], "answer": 1, "explain": "期货的本质是“交易所版的远期”：条款标准化、每日盯市、保证金与清算所担保履约；远期是场外定制合约，到期才一次性结算，靠对手方信用。"},
+    {"q": "航空公司以 6000 元/吨买入航油期货套保，到期现货价涨到 7000 元/吨。对冲后每吨实际采购成本是多少？", "options": ["5000 元/吨", "6500 元/吨", "7000 元/吨", "6000 元/吨"], "answer": 3, "explain": "现货每吨多付 1000 元，期货每吨赚回 1000 元（7000−6000），两者相抵：7000−1000=6000 元/吨，正是当初锁定的建仓价。"},
+    {"q": "套期保值的本质是什么？", "options": ["用反向头寸把价格波动锁定，消除不确定性", "用反向头寸降低成本，必然比不套保更便宜", "通过准确预测未来价格走势来低买高卖获利", "卖掉全部现货换成现金，从而规避价格风险"], "answer": 0, "explain": "套保是用反向头寸消除价格的不确定性：油价涨，现货多付的钱由期货赚回；油价跌，期货的亏损由现货的便宜补回。它锁定成本，但不保证比不套保更便宜——情景二里套保反而比不套保多付 1000 元/吨，买的是“睡得着觉”。"},
+    {"q": "2020 年“原油宝”事件给普通投资者的核心教训是什么？", "options": ["银行渠道的产品一定比券商渠道更加安全可靠", "期货价格不可能跌到负数，抄底没有亏损上限", "不理解杠杆与规则就抄底，可能亏光全部本金", "多买几个不同月份的合约，就能分散全部风险"], "answer": 2, "explain": "原油宝投资者大多不理解保证金杠杆与合约换月规则；WTI 原油 5 月合约结算价跌到 −37.63 美元/桶时，“抄底”者不仅亏光本金还倒欠钱。不懂规则与最大亏损之前，不要碰衍生品。"}
+  ]
+}</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（术语表锚点）：<a href="../reference/glossary.html#forward">远期合约</a> · <a href="../reference/glossary.html#futures">期货</a> · <a href="../reference/glossary.html#hedging">套期保值</a></li>
+<li>Investopedia：Futures（英文）— <a href="https://www.investopedia.com/terms/f/futures.asp">investopedia.com/terms/f/futures.asp</a></li>
+<li>Investopedia：Forward Contract（英文）— <a href="https://www.investopedia.com/terms/f/forwardcontract.asp">investopedia.com/terms/f/forwardcontract.asp</a></li>
+<li>Wikipedia：Futures contract — <a href="https://en.wikipedia.org/wiki/Futures_contract">en.wikipedia.org/wiki/Futures_contract</a></li>
+<li>Hull《期权、期货及其他衍生产品》条目页 — <a href="https://en.wikipedia.org/wiki/Options,_Futures_and_Other_Derivatives">en.wikipedia.org/wiki/Options,_Futures_and_Other_Derivatives</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+  <a href="index.html"><span class="nav-label">上一课</span><span class="nav-title">分支首页 · 衍生品与金融工程</span></a>
+  <a class="next" href="0002-期权收益结构.html"><span class="nav-label">下一课</span><span class="nav-title">期权收益结构</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>衍生品与金融工程 · 第 1 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var kIn = document.getElementById("in-k"), sIn = document.getElementById("in-s");
+  if (!kIn || !sIn || typeof FChart === "undefined") return;
+  kIn._out = document.getElementById("in-k-val");
+  sIn._out = document.getElementById("in-s-val");
+  var chart = new FChart(document.getElementById("hedge-chart"), {
+    height: 360,
+    x: { min: 4000, max: 8000, label: "到期现货价 S（元/吨）", ticks: [4000, 5000, 6000, 7000, 8000] },
+    y: { min: 4000, max: 8000, label: "每吨实际成本（元）", ticks: [4000, 5000, 6000, 7000, 8000] },
+    title: "不套保成本随油价漂移，套保成本锁定在 K"
+  });
+  function n(v) { return Math.round(v).toLocaleString("zh-CN"); }
+  function update() {
+    var K = FChart.slider(kIn, function (v) { return n(v) + " 元/吨"; });
+    var S = FChart.slider(sIn, function (v) { return n(v) + " 元/吨"; });
+    chart.clear();
+    chart.path([[4000, 4000], [8000, 8000]], { color: "#b3372f", width: 2.5, dash: "7 5" });
+    chart.path([[4000, K], [8000, K]], { color: "#0d5c4f", width: 3 });
+    chart.vline(S, { color: "#a3701a", width: 1.2 });
+    chart.scatter([[S, S, "#b3372f", "不套保 " + n(S)], [S, K, "#0d5c4f", "套保 " + n(K)]], { r: 6 });
+    chart.legend([{ color: "#b3372f", text: "不套保：成本 = S", dash: "7 5" }, { color: "#0d5c4f", text: "套保后：成本 = K" }]);
+    var d = S - K;
+    document.getElementById("ro-raw").innerHTML = "不套保成本：<b>" + n(S) + " 元/吨</b>（1000 吨共 " + n(S / 10) + " 万元）";
+    document.getElementById("ro-hedged").innerHTML = "套保后成本：<b>" + n(K) + " 元/吨</b>（1000 吨共 " + n(K / 10) + " 万元）";
+    var diffEl = document.getElementById("ro-diff");
+    if (d > 0) diffEl.innerHTML = "套保效果：<b>节省 " + n(d) + " 元/吨</b>（共 " + n(d / 10) + " 万元）";
+    else if (d < 0) diffEl.innerHTML = "套保效果：<b>多付 " + n(-d) + " 元/吨</b>（共 " + n(-d / 10) + " 万元）——多付的是“确定性”的价格";
+    else diffEl.innerHTML = "套保效果：<b>不赚不亏</b>，成本恰好等于 K";
+  }
+  kIn.addEventListener("input", update);
+  sIn.addEventListener("input", update);
+  update();
+})();
+</script></body></html>

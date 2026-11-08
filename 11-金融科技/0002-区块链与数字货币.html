@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>金融科技 · 第 2 课：区块链与数字货币 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「金融科技」第 2 课《区块链与数字货币》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+/* 本课示教器私有样式（不改动公共样式表） */
+.bc-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.bc-btn{border:none;border-radius:6px;padding:8px 14px;font-size:14px;cursor:pointer;color:#fff;background:#0d5c4f;}
+.bc-btn.warn{background:#b3372f;}
+.bc-btn.ghost{background:#5d5749;}
+.bc-btn:disabled{opacity:.4;cursor:not-allowed;}
+#bc-input{flex:1;min-width:220px;padding:8px 10px;border:1px solid #5d5749;border-radius:6px;font-size:14px;font-family:inherit;}
+.bc-block{border:2px solid #0d5c4f;border-radius:10px;padding:10px 14px;background:rgba(13,92,79,.05);}
+.bc-link{text-align:center;color:#5d5749;font-size:12px;line-height:1;margin:5px 0;}
+.bc-mono{font-family:Consolas,'Courier New',monospace;font-size:13px;color:#5d5749;}
+.bc-badge{font-size:12px;border-radius:999px;padding:2px 10px;font-weight:600;white-space:nowrap;}
+.bc-warnbox{display:none;border:2px dashed #b3372f;border-radius:10px;padding:12px 14px;margin:12px 0 0;background:rgba(179,55,47,.08);color:#7c231d;font-size:14px;line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">金融科技</a><span class="sep">/</span>第 2 课</div>
+<header class="lesson-header">
+<div class="kicker">金融科技 · Lesson 2</div>
+<h1>区块链与数字货币</h1>
+<div class="meta"><span class="tag">预计 18 分钟</span><span>难度：进阶入门</span><span>前置：第 1 课</span></div>
+</header>
+<p class="lead">「区块链」三个字你大概听了无数遍，但很少有人讲清它到底解决什么问题。这一课不谈炒币，只用一间教室的账本游戏，把分布式账本、哈希指针、共识机制一次讲透——最后再冷静地清点一下风险。</p>
+
+<h2>一、两本账：银行记，还是大家记</h2>
+<p>先从你最熟悉的场景说起。银行卡里的余额，本质上是银行数据库里的一行数字：银行记账，你查账。它凭什么不会记错、不会赖账？因为背后有牌照、监管和法律替你兜着——你信任的是这家机构。这就是<strong>中心化账本</strong>：一家维护，众人信任。</p>
+<p><span class="term" data-def="多方各存一份、靠密码学互相校验的分布式账本">区块链（blockchain）</span>给出了另一种答案：让所有参与者<strong>各存一份完全相同的账本</strong>。每一笔新交易广播全网，大家各自记下、互相校验；第二天有人偷偷改了自己那本，其余人的账本立刻把他拆穿。妙处在于：参与者彼此并不需要信任，也能对出一本一致的账——<strong>互不信任也能对账</strong>。</p>
+<div class="callout callout-tip"><span class="callout-title">一句口诀</span><p>去中心化不是「没人管」，而是「没有任何一方能单方面改账」。</p></div>
+<table class="data">
+<thead><tr><th>对比维度</th><th>银行账本（中心化）</th><th>区块链账本（分布式）</th></tr></thead>
+<tbody>
+<tr><td>谁来记账</td><td>银行一家记，客户只能查自己的</td><td class="good">全网节点各记一份，人人可对账</td></tr>
+<tr><td>信任从哪来</td><td>信任机构、监管与法律</td><td>信任规则与密码学，无需互信</td></tr>
+<tr><td>单点故障</td><td class="bad">中心系统宕机，服务受影响</td><td class="good">任一节点下线，其他节点仍有完整账本</td></tr>
+<tr><td>改账难度</td><td class="bad">有权限的内部人理论上可改</td><td class="good">改一块需重做其后所有块，并压倒多数节点</td></tr>
+</tbody>
+</table>
+
+<h2>二、区块与哈希指针：为什么改一块等于重做全部</h2>
+<p>区块链把一段时间内的交易打包成一个「区块」，像账本里的一页。每一页记三样东西：这一批<strong>交易记录</strong>、打包时的<strong>时间戳</strong>，以及上一个区块的<span class="term" data-def="把任意数据算成固定长度指纹的函数，改一个字结果全变">哈希（hash）</span>——最后这根线叫「哈希指针」。</p>
+<p>哈希函数像一台榨汁机：无论丢进去一部小说还是一个数字，吐出来的都是固定长度的「指纹」；原文哪怕只改一个标点，指纹就面目全非；而且无法从指纹反推原文。</p>
+<div class="formula">区块哈希 = H（本区块交易记录 ‖ 时间戳 ‖ 前块哈希）<div class="formula-note">H 为哈希函数，‖ 表示内容拼接。真实区块链（如比特币）使用 SHA-256，输出 64 位十六进制；下方示教器改用 8 位简化哈希，便于肉眼观察。</div></div>
+<p>于是区块一环扣一环：第 2 块记着第 1 块的指纹，第 3 块记着第 2 块的指纹……你偷改第 1 块里的一个字，第 1 块的哈希当场改变；而第 2 块里记的「前块哈希」还是旧值，立刻对不上号——从第 2 块起，整条链连锁暴露。动手试试：</p>
+
+<div class="widget">
+<div class="widget-title">🔗 交互一：区块链示教器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="bc-row">
+<label for="bc-input" style="font-weight:600;color:#5d5749;">交易内容</label>
+<input type="text" id="bc-input" value="王五 → 赵六：转账 5 元" placeholder="随便写一笔交易，例如：王五 → 赵六 转账 5 元">
+<button type="button" id="bc-add" class="bc-btn">打包新区块</button>
+<button type="button" id="bc-tamper" class="bc-btn warn">篡改第 1 块</button>
+<button type="button" id="bc-reset" class="bc-btn ghost">重置演示</button>
+</div>
+<p style="margin:10px 0 0;font-size:13px;color:#5d5749;">示教器采用 djb2 变体的简化哈希（8 位十六进制）；真实区块链使用 SHA-256。前块哈希 = 上一区块的哈希，逐块相扣。</p>
+</div>
+<div id="bc-chain" aria-live="polite"></div>
+<div id="bc-warn" class="bc-warnbox"></div>
+<div class="readout"><span class="pill" id="bc-status">链状态：✅ 有效</span><span class="pill" id="bc-count">区块数：3</span></div>
+</div>
+</div>
+
+<div class="callout callout-key"><span class="callout-title">「不可篡改」的真义</span><p>准确表述是「篡改成本极高」，而非绝对不可能：攻击者必须重做被改区块之后的全部区块，并控制全网多数记账节点（例如压倒 51% 的算力），改写的链才可能被网络接受。网络越小越脆弱，越大越接近不可篡改——小型网络遭遇多数算力攻击的案例确实发生过。</p></div>
+
+<h2>三、共识机制：账本听谁的</h2>
+<p>新问题来了：人人都记账，到底以谁的账为准？决定这件事的规则叫<span class="term" data-def="分布式网络就『谁记的账有效』达成一致的规则">共识机制（consensus mechanism）</span>。最常见的两种：</p>
+<p><span class="term" data-def="靠算力竞争记账权的共识机制，耗电量大">工作量证明（proof of work）</span>（PoW）：全网比拼算力解一道没有捷径的难题，先解出者打包下一个区块并领取奖励——用真金白银的电费换取记账权，比特币采用。</p>
+<p><strong>权益证明（proof of stake，PoS）</strong>：按质押持币的数量与时长抽签获得记账权，作恶会被罚没质押——能耗显著更低，代价是持币多者话语权更大。以太坊已于 2022 年 9 月由 PoW 转向 PoS。</p>
+<div class="callout callout-info"><span class="callout-title">一句话记住</span><p>PoW 用电费买信任，PoS 用持币量做担保。</p></div>
+
+<h2>四、加密资产光谱：别把三种东西混为一谈</h2>
+<p>「跑在区块链上的资产」常被一股脑叫作「币」，其实它们处在一条光谱上：一端是完全去中心化发行的比特币，另一端是国家信用背书的央行数字货币，中间是锚定法币的<span class="term" data-def="锚定法币等资产、力求价格稳定的加密资产">稳定币（stablecoin）</span>。</p>
+<table class="data">
+<thead><tr><th>加密资产</th><th>发行与信用基础</th><th>关键特征</th><th>常见定位</th></tr></thead>
+<tbody>
+<tr><td>比特币（BTC）</td><td>去中心化网络按预设规则发行，无中央发行方</td><td>总量上限 2100 万枚，新增量约每四年减半</td><td>「数字黄金」叙事：押注稀缺性，价格波动剧烈</td></tr>
+<tr><td>稳定币（如 USDT、USDC）</td><td>私人机构发行，声称以储备资产支撑</td><td>锚定法币（如 1 枚 ≈ 1 美元），价格力求稳定</td><td>加密市场的「现金跑道」与出入金媒介</td></tr>
+<tr><td>央行数字货币（CBDC，如数字人民币）</td><td class="good">中央银行发行，国家信用背书</td><td>定位 M0：流通中现金的数字形态（<a href="../02-货币银行学/index.html">详见「货币银行学」分支</a>）</td><td>法定货币的数字化形态</td></tr>
+</tbody>
+</table>
+<p>比特币的「稀缺」写死在协议里：总量上限 2100 万枚，区块奖励约每四年减半，发行速度是一条不断放缓、无限逼近上限的渐近线：</p>
+<div class="chart" id="chart1"></div>
+<p style="font-size:13px;color:#5d5749;">（按「每约 4 年产量减半」的理想化模型绘制，横轴为比特币上线后的年数；真实出块节奏略有浮动，总量到 2140 年前后才基本发完。）</p>
+
+<h2>五、风险清单：区块链 ≠ 稳赚</h2>
+<p>原理讲完，必须泼三盆冷水。普通人接触「链上资产」的真实风险，至少有这么几条：</p>
+<div class="callout callout-warn"><span class="callout-title">三盆冷水</span><p>① 价格剧烈波动：比特币单日涨跌 10% 并不罕见，别用下个月要用的钱参与；② 监管不确定：各司法辖区政策差异大且持续变化，资产的合规状态可能随时改变；③ 平台与骗局：交易所被盗、跑路、假币与「保本高收益」骗局层出不穷——链上转账不可逆，私钥丢失无法挂失。一句话：区块链 ≠ 稳赚。</p></div>
+<div class="callout callout-info"><span class="callout-title">技术是中性的</span><p>分布式账本本身正被用于贸易结算、供应链追溯、债券登记等正经场景。把「账本技术」与「炒币」分开看，你会冷静得多。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>看懂两种账本的本质区别：中心化靠信任机构，分布式靠规则与密码学，互不信任也能对账</li>
+<li>能解释区块如何靠「前块哈希」链式相扣，以及为什么改一块等于要重做全部</li>
+<li>一句话说清 PoW 与 PoS：一个用电费买信任，一个用持币量做担保</li>
+<li>会把比特币、稳定币、央行数字货币放进同一条光谱，而不是混为一谈</li>
+<li>记住三条风险：波动大、监管在变、平台与骗局——区块链 ≠ 稳赚</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"区块里记录的「前一块哈希」（哈希指针）主要作用是什么？","options":["记录本块的交易明细","把本块与上一块绑定","压缩数据以节省空间"],"answer":1,"explain":"前块哈希像一枚封条：上一块内容哪怕只改一个字，其哈希就变，本块记录的指针立刻对不上号，篡改当场暴露。"},
+{"q":"关于区块链的「不可篡改」，哪种说法最准确？","options":["篡改成本极高到几乎不可行","账本一旦写入就永远改不了","拿到私钥就能随意篡改账本"],"answer":0,"explain":"不可篡改的准确含义是篡改成本极高：改一块必须重做其后所有区块，并压倒全网多数记账权；它不是物理上绝对不可能，小型网络遭多数算力攻击的案例确实发生过。"},
+{"q":"PoW 与 PoS 争夺记账权的方式有何不同？","options":["比拼手续费与网速快慢","比拼注册时间与信用分","比拼算力规模与持币量","比拼账户余额与粉丝数"],"answer":2,"explain":"工作量证明（PoW）比拼算力、靠耗电竞争记账权；权益证明（PoS）按质押持币的数量与时间分配记账权，能耗显著更低。"},
+{"q":"央行数字货币（如数字人民币）与比特币最本质的差异是？","options":["发行去中心化总量上限恒定","价格更稳定转账速度更加快","可以随时兑换成黄金或美元","由央行发行有国家信用背书"],"answer":3,"explain":"数字人民币由中国人民银行发行、有国家信用背书，定位是 M0（数字形态的现金）；比特币由去中心化网络按规则发行，总量上限 2100 万枚，价格波动剧烈。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#blockchain">区块链</a> · <a href="../reference/glossary.html#hash">哈希</a> · <a href="../reference/glossary.html#consensus-mechanism">共识机制</a> · <a href="../reference/glossary.html#proof-of-work">工作量证明</a> · <a href="../reference/glossary.html#stablecoin">稳定币</a></li>
+
+<li>维基百科：「区块链」词条（中文） — <a href="https://zh.wikipedia.org/wiki/区块链">zh.wikipedia.org/wiki/区块链</a></li>
+<li>Investopedia：Blockchain — <a href="https://www.investopedia.com/terms/b/blockchain.asp">investopedia.com/terms/b/blockchain.asp</a></li>
+<li>中国人民银行官网（站内检索「数字人民币」了解央行数字货币） — <a href="http://www.pbc.gov.cn/">pbc.gov.cn</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0001-支付与清算的演进.html"><span class="nav-label">上一课</span><span class="nav-title">支付与清算的演进</span></a>
+<a href="0003-智能投顾与大数据风控.html" class="next"><span class="nav-label">下一课</span><span class="nav-title">智能投顾与大数据风控</span></a>
+</nav>
+<footer class="lesson-footer"><span>金融科技 · 第 2 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- 简化哈希：djb2 变体，输出 8 位十六进制 ---------- */
+  function simHash(str) {
+    var h1 = 5381, h2 = 52711, i, c;
+    for (i = 0; i < str.length; i++) {
+      c = str.charCodeAt(i);
+      h1 = ((h1 << 5) + h1 + c) >>> 0;
+      h2 = ((h2 << 5) + h2 + c + i) >>> 0;
+    }
+    return ('000' + h1.toString(16)).slice(-4) + ('000' + h2.toString(16)).slice(-4);
+  }
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function nowStr() {
+    var d = new Date(), p = function (n) { return (n < 10 ? '0' : '') + n; };
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds());
+  }
+
+  var blocks = [], tampered = false, MAXB = 8;
+  var inputEl = document.getElementById('bc-input');
+  var addBtn = document.getElementById('bc-add');
+  var tamperBtn = document.getElementById('bc-tamper');
+  var resetBtn = document.getElementById('bc-reset');
+  var chainEl = document.getElementById('bc-chain');
+  var warnEl = document.getElementById('bc-warn');
+  var statusEl = document.getElementById('bc-status');
+  var countEl = document.getElementById('bc-count');
+
+  function calcHash(b) { return simHash(b.index + '|' + b.prevHash + '|' + b.content + '|' + b.ts); }
+  function pushBlock(content, ts) {
+    var prev = blocks.length ? blocks[blocks.length - 1].hash : '00000000';
+    var b = { index: blocks.length + 1, content: content, prevHash: prev, ts: ts || nowStr() };
+    b.hash = calcHash(b);
+    blocks.push(b);
+  }
+  function badge(state) {
+    if (state === 'tampered') return '<span class="bc-badge" style="background:rgba(163,112,26,.15);color:#a3701a;">已被篡改</span>';
+    if (state === 'invalid') return '<span class="bc-badge" style="background:rgba(179,55,47,.15);color:#b3372f;">失效</span>';
+    return '<span class="bc-badge" style="background:rgba(13,92,79,.12);color:#0d5c4f;">有效</span>';
+  }
+  function render() {
+    chainEl.innerHTML = '';
+    blocks.forEach(function (b, i) {
+      if (i > 0) {
+        var link = document.createElement('div');
+        link.className = 'bc-link';
+        link.textContent = '▼ 前块哈希相扣';
+        chainEl.appendChild(link);
+      }
+      var state = 'valid';
+      if (tampered && i === 0) state = 'tampered';
+      else if (tampered && i > 0) state = 'invalid';
+      var border = state === 'invalid' ? '#b3372f' : (state === 'tampered' ? '#a3701a' : '#0d5c4f');
+      var bg = state === 'invalid' ? 'rgba(179,55,47,.08)' : (state === 'tampered' ? 'rgba(163,112,26,.10)' : 'rgba(13,92,79,.05)');
+      var note = '';
+      if (tampered && i > 0 && blocks[i - 1].hash !== b.prevHash) {
+        note = ' <span style="color:#b3372f;font-weight:600;">← 与上一块的新哈希 ' + blocks[i - 1].hash + ' 对不上！</span>';
+      }
+      var card = document.createElement('div');
+      card.className = 'bc-block';
+      card.style.borderColor = border;
+      card.style.background = bg;
+      card.innerHTML =
+        '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">' +
+          '<strong style="color:#0d5c4f;">区块 #' + b.index + '</strong>' +
+          '<span style="font-size:12px;color:#5d5749;">时间戳：' + esc(b.ts) + '</span>' +
+          badge(state) +
+        '</div>' +
+        '<div style="margin:6px 0;font-size:14px;">内容：<strong>' + esc(b.content) + '</strong></div>' +
+        '<div class="bc-mono">本块哈希　<b style="color:#0d5c4f;">' + b.hash + '</b></div>' +
+        '<div class="bc-mono">前块哈希　<b>' + b.prevHash + '</b>' + note + '</div>';
+      chainEl.appendChild(card);
+    });
+    countEl.textContent = '区块数：' + blocks.length;
+    addBtn.disabled = tampered;
+    tamperBtn.disabled = tampered;
+    if (tampered) {
+      statusEl.textContent = '链状态：❌ 已断裂';
+      statusEl.style.background = '#b3372f';
+      statusEl.style.color = '#fff';
+    } else {
+      statusEl.textContent = '链状态：✅ 有效';
+      statusEl.style.background = '#0d5c4f';
+      statusEl.style.color = '#fff';
+    }
+  }
+
+  addBtn.addEventListener('click', function () {
+    if (tampered) return;
+    if (blocks.length >= MAXB) {
+      statusEl.textContent = '链已达演示上限，请先重置';
+      statusEl.style.background = '#a3701a';
+      statusEl.style.color = '#fff';
+      return;
+    }
+    pushBlock(inputEl.value.trim() || '示例交易：红包 88 元');
+    render();
+  });
+  inputEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') addBtn.click(); });
+  tamperBtn.addEventListener('click', function () {
+    if (tampered || blocks.length < 2) return;
+    tampered = true;
+    blocks[0].content = '给我打 100 万';
+    blocks[0].hash = calcHash(blocks[0]);
+    warnEl.style.display = 'block';
+    warnEl.innerHTML = '<strong>⚠ 后续所有区块全部失效：这就是不可篡改。</strong>第 1 块内容被改 → 它的哈希当场改变 → 之后每一块的「前块哈希」都对不上、整条链连锁断裂。想瞒过网络？除非把后面每一块全部重做，并控制全网多数记账节点——篡改成本极高，而非绝对不可能。';
+    render();
+  });
+  resetBtn.addEventListener('click', function () {
+    warnEl.style.display = 'none';
+    resetChain();
+  });
+
+  function resetChain() {
+    tampered = false;
+    blocks = [];
+    pushBlock('创世区块：链的起点', '2018-06-30 09:15:01');
+    pushBlock('张三 → 李四：转账 50 元', '2018-06-30 09:16:20');
+    pushBlock('李四 → 王五：转账 20 元', '2018-06-30 09:17:43');
+    render();
+  }
+  resetChain();
+
+  /* ---------- 比特币累计发行量（理想化示意） ---------- */
+  if (typeof FChart === 'function' && document.getElementById('chart1')) {
+    var c1 = new FChart(document.getElementById('chart1'), {
+      height: 340,
+      x: { min: 0, max: 116, label: '上线后年数（年）' },
+      y: { min: 0, max: 24, label: '累计发行量（百万枚）' }
+    });
+    var supply = function (x) { return 21 * (1 - Math.pow(0.5, x / 4)); };
+    c1.area(supply, { fill: '#0d5c4f', fillOpacity: 0.15, y0: 0, color: '#0d5c4f', width: 2.5 });
+    c1.hline(21, { label: '总量上限 2100 万枚', color: '#a3701a' });
+    c1.text(7, 4.5, '每约 4 年新产量减半', { dx: 8 });
+    c1.legend([{ color: '#0d5c4f', text: '比特币累计发行量（理想化示意）' }]);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>国际金融 · 第 2 课：什么决定汇率 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「国际金融」第 2 课《什么决定汇率》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">国际金融</a><span class="sep">/</span>第 2 课</div>
+<header class="lesson-header">
+<div class="kicker">国际金融 · Lesson 2</div>
+<h1>什么决定汇率</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶</span><span>前置：第 1 课</span></div>
+</header>
+<p class="lead">上一课我们学会了「读」汇率：升贬值、买入价与卖出价。这一课回答更根本的问题：汇率由什么决定？答案取决于你看得多远——短期，汇率是被资金流推着走的资产价格；长期，它终将向商品与服务的购买力回归。</p>
+
+<div class="callout callout-key"><span class="callout-title">一句话框架</span><p><strong>短期看资本流动与利差，长期向购买力回归。</strong>记住这句话，任何汇率新闻都能放回正确的格子：央行的利率决议是短期消息，一国的通胀趋势才是长期消息。</p></div>
+
+<h2>一、购买力平价：长期之锚</h2>
+<p>想象一件完全相同的商品在全球自由流通，套利者会搬平一切差价：若它在 A 国贵、B 国便宜，商人就会从 B 国买入运到 A 国卖出，直到折成同一种货币后价格一致。这就是<span class="term" data-def="同一件商品在允许自由贸易、忽略运输成本与壁垒时，各国折算后的价格应当相同">一价定律（law of one price）</span>。</p>
+<p>把「一件商品」扩展成「同一篮子商品」，就得到<span class="term" data-def="认为长期汇率会趋向两国物价水平之比，使同一篮子商品在各国价格趋同的理论">购买力平价（purchasing power parity, PPP）</span>：两国汇率的长期合理水平，约等于两国物价水平之比。通胀更高的货币，购买力缩水更快，长期趋于贬值。</p>
+<p>怎么验证？《经济学人》从 1986 年起用一个巧妙（也调皮）的「标准商品篮子」：<span class="term" data-def="《经济学人》编制，用各国巨无霸价格之比粗略估算购买力平价汇率的通俗指标">巨无霸指数（Big Mac Index）</span>。巨无霸全球配方几乎一致，又同时包含当地房租、人工与原料，像个迷你「物价篮子」。拖动下面的滑块，自己算一遍：</p>
+
+<div class="widget">
+<div class="widget-title">交互：巨无霸指数推演</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>中国巨无霸价格（元）<span class="val" id="price-val">25.5</span><input type="range" id="price-input" min="15" max="35" step="0.5" value="25.5"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill">隐含 PPP 汇率：<b id="implied-out">4.47</b> 元/美元</span>
+<span class="pill">相对实际 7.2 偏离：<b id="dev-out">+38%</b></span>
+<span class="pill" id="verdict">结论：购买力被低估</span>
+</div>
+</div>
+</div>
+
+<p>验算默认情形：美国巨无霸约 5.7 美元，中国巨无霸 25.5 元，隐含 PPP 汇率 = 25.5 ÷ 5.7 ≈ <strong>4.47</strong> 元/美元，而实际汇率约 7.2。隐含值比实际低了 (7.2 − 4.47) ÷ 7.2 ≈ <strong>38%</strong>，于是得到那个著名的粗糙推论：人民币购买力被「低估」。想让隐含汇率追上 7.2，中国巨无霸得卖到 5.7 × 7.2 ≈ 41 元——远在滑块范围之外，直觉上就该起疑了。</p>
+
+<div class="callout callout-warn"><span class="callout-title">巨无霸指数的局限</span><p>它是教具，不是交易信号：①房租、人工等<strong>非贸易品</strong>占巨无霸成本的大头，无法跨国搬平；②各国口味与竞争强度不同，定价策略不同；③税费差异巨大。专业 PPP 测算要用成百上千种商品，结论仍与实际汇率有明显出入——「低估 38%」要打个大折扣再听。</p></div>
+
+<h2>二、利率平价：短中期之锚</h2>
+<p>资金天生追逐利差。若美元利率 5%、人民币利率 2%，借入人民币换成美元「吃利息」，一年似乎白赚 3 个百分点？天下没有这种免费午餐：你今天锁定汇率风险的方式，是同时签一份按<span class="term" data-def="今天约定、未来某一日期交割外汇所用的汇率">远期汇率（forward rate）</span>结汇的合约，而市场会通过远期的升贴水把套利空间填平。</p>
+<p><span class="term" data-def="描述汇率与利差的关系：抛补套利使高息货币的远期汇率贴水，直至无套利利润">利率平价（interest rate parity, IRP）</span>说的正是这件事：<strong>高息货币远期贴水，低息货币远期升水</strong>。抛补套利者一边吃利差、一边锁远期，只要两者没对齐就会有人进场，直到利润归零。</p>
+
+<div class="formula">
+远期汇率 F ＝ 即期汇率 S × (1 ＋ r<sub>报价货币</sub>) ÷ (1 ＋ r<sub>基础货币</sub>)
+<div class="formula-note">对 USD/CNY（1 美元值多少人民币）：基础货币是美元，报价货币是人民币。远期一旦按此定价，抛补套利便无利可图——持有高息美元的超额收益，被远期贴水恰好吃掉。</div>
+</div>
+
+<p>代入数字验算：即期 USD/CNY = 7.2，美元利率 5%，人民币利率 2%：</p>
+<p><strong>F ＝ 7.2 × (1 + 2%) ÷ (1 + 5%) ＝ 7.344 ÷ 1.05 ≈ 6.99</strong>。远期价格低于即期 7.2，即美元<strong>远期贴水</strong>：今天锁定一年后的美元，只能换到更少的人民币。你多吃的那 3 个百分点利差，恰好被贴水吐了出来——这正是「免费午餐不存在」的汇率版本。</p>
+
+<div class="callout callout-tip"><span class="callout-title">把两个平价装进一张时间表</span><p>PPP 管长期（数年）：物价之比划定汇率中枢；IRP 管短中期（数月至一年）：利差决定远期与套息资金的去向。而日常新闻里那些上蹿下跳，更多来自下一节说的「资本流动与预期」。</p></div>
+
+<h2>三、四个因素，一张地图</h2>
+<p>把汇率想象成一架天平，两端压着的是两种货币的吸引力。压舱的砝码主要有四块：</p>
+
+<table class="data">
+<thead><tr><th>因素</th><th>作用机制</th><th>时间尺度</th><th>一句话例子</th></tr></thead>
+<tbody>
+<tr><td><strong>利差</strong></td><td>高息货币吸引跨境资金流入，短期推升其汇率</td><td>短期</td><td>美联储激进加息，美元指数走强</td></tr>
+<tr><td><strong>通胀差</strong></td><td>通胀更高的货币购买力缩水更快，长期趋于贬值</td><td>长期</td><td>高通胀年份的土耳其里拉、阿根廷比索</td></tr>
+<tr><td><strong>增长与贸易</strong></td><td>增长快、顺差大的经济体，对其货币需求更旺</td><td>中长期</td><td>出口高峰期的人民币升值压力</td></tr>
+<tr><td><strong>资本流动与预期</strong></td><td>预期自我实现：资金涌向「会涨」的货币，踩踏时反向</td><td>短促剧烈</td><td>避险情绪升温时的美元与日元</td></tr>
+</tbody>
+</table>
+
+<p>四块砝码经常互相打架：利差推着美元涨、双赤字推着它跌，谁赢看当下市场更信哪一票。这也是为什么「汇率短期是投票机，长期是称重机」。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div>
+<ul>
+<li>框架：<strong>短期看资本流动与利差，长期向购买力回归</strong>。</li>
+<li>PPP：隐含汇率 = 中国价格 ÷ 美国价格；巨无霸 25.5 ÷ 5.7 ≈ 4.47，低于实际 7.2 约 38%——「低估」是个要打折扣的粗糙推论。</li>
+<li>IRP：F = S × (1 + r<sub>报价</sub>) ÷ (1 + r<sub>基础</sub>)；7.2 × 1.02 ÷ 1.05 ≈ 6.99，高息美元远期贴水，套利空间被封死。</li>
+<li>四因素地图：利差、通胀差、增长与贸易、资本流动与预期。</li>
+</ul>
+</div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"按照购买力平价（PPP）理论，两国汇率的长期水平主要取决于什么？","options":["两国同一篮子商品的价格之比","两国中央银行的政策利率之差","两国资本市场的开放程度高低","两国财政赤字的整体规模大小"],"answer":0,"explain":"PPP 的核心是一价定律：同一篮子商品在各国折算后的价格应趋同，因此长期汇率趋向两国物价水平之比。利差更多决定短期与远期价格，不是长期之锚。"},
+{"q":"美国巨无霸 5.7 美元，中国巨无霸 22.8 元，隐含 PPP 汇率是多少？","options":["5.7 元","6.0 元","4.0 元","7.2 元"],"answer":2,"explain":"隐含 PPP 汇率 = 中国价格 ÷ 美国价格 = 22.8 ÷ 5.7 = 4.0（元/美元）。"},
+{"q":"美元利率 5%、人民币利率 2%，即期 USD/CNY=7.2。按利率平价，12 个月远期约为多少、方向如何？","options":["约7.41，美元远期升水","约6.99，美元远期贴水","约7.20，远期等于即期","约6.80，美元双向波动"],"answer":1,"explain":"F = 7.2 × (1 + 2%) ÷ (1 + 5%) = 7.344 ÷ 1.05 ≈ 6.99，低于即期 7.2，即高息的美元在远期贴水——利差优势被贴水恰好吃掉。"},
+{"q":"从几天到几个月的尺度看，汇率波动最主要的驱动是什么？","options":["各国物价水平的差异","黄金储备数量的多寡","财政赤字的相对大小","跨境资本流动与利差"],"answer":3,"explain":"短期汇率是资产价格，由跨境资金的流动、利差与预期主导；物价之差是长期变量，变化太慢，解释不了日常波动。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div>
+<ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#law-of-one-price">一价定律</a> · <a href="../reference/glossary.html#ppp">购买力平价</a> · <a href="../reference/glossary.html#big-mac-index">巨无霸指数</a> · <a href="../reference/glossary.html#forward-rate">远期汇率</a> · <a href="../reference/glossary.html#irp">利率平价</a></li>
+
+<li><a href="https://www.economist.com/big-mac-index">《经济学人》巨无霸指数</a>——原始数据与历年更新</li>
+<li><a href="https://www.investopedia.com/terms/p/purchasingpowerparity.asp">Investopedia：购买力平价</a>——概念详解与局限讨论</li>
+<li><a href="https://www.investopedia.com/terms/i/interestrateparity.asp">Investopedia：利率平价</a>——公式推导与套利案例</li>
+</ul>
+</div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0001-汇率与货币升降值.html"><span class="nav-label">上一课</span><span class="nav-title">汇率与货币升降值</span></a>
+<a class="next" href="0003-国际收支与资本流动.html"><span class="nav-label">下一课</span><span class="nav-title">国际收支与资本流动</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>国际金融 · 第 2 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var US = 5.7, SPOT = 7.2;
+  var el = document.getElementById('chart1');
+  var input = document.getElementById('price-input');
+  var val = document.getElementById('price-val');
+  var outImplied = document.getElementById('implied-out');
+  var outDev = document.getElementById('dev-out');
+  var verdict = document.getElementById('verdict');
+
+  function draw(p) {
+    var implied = p / US;
+    var c = new FChart(el, {height: 340, x: {min: 15, max: 35, label: '中国巨无霸价格（元）'}, y: {min: 2, max: 8, label: '汇率（元/美元）'}});
+    c.path([[15, 15 / US], [35, 35 / US]], {color: '#0d5c4f', width: 2.5});
+    c.hline(SPOT, {label: '实际汇率 7.2'});
+    c.vline(p, {color: '#a3701a', label: '当前价格 ' + p.toFixed(1)});
+    c.scatter([[p, implied, '#a3701a', '隐含 ' + implied.toFixed(2)]], {r: 5});
+    c.legend([{color: '#0d5c4f', text: '隐含 PPP = 价格 ÷ 5.7'}, {color: '#5d5749', text: '实际汇率 7.2'}]);
+    var dev = (SPOT - implied) / SPOT * 100;
+    outImplied.textContent = implied.toFixed(2);
+    outDev.textContent = (dev >= 0 ? '+' : '') + dev.toFixed(0) + '%';
+    if (dev > 5) { verdict.textContent = '结论：购买力被低估'; }
+    else if (dev < -5) { verdict.textContent = '结论：购买力被高估'; }
+    else { verdict.textContent = '结论：大致均衡'; }
+  }
+
+  input.addEventListener('input', function () {
+    var p = parseFloat(input.value);
+    val.textContent = p.toFixed(1);
+    draw(p);
+  });
+
+  val.textContent = parseFloat(input.value).toFixed(1);
+  draw(parseFloat(input.value));
+})();
+</script>
+</body>
+</html>

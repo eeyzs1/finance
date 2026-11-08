@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>保险与精算 · 第 2 课：保费是怎么算出来的 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「保险与精算」第 2 课《保费是怎么算出来的》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">保险与精算</a><span class="sep">/</span>第 2 课</div>
+<header class="lesson-header">
+<div class="kicker">保险与精算 · Lesson 2</div>
+<h1>保费是怎么算出来的</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶入门</span><span>前置：第 1 课</span></div>
+</header>
+<p class="lead">上一课我们看到，把许多人的风险放进同一个池子，个体的不确定就被抹平成了可计算的期望。这一课回答一个更实际的问题：保险公司到底怎么给你标价？答案是一个朴素的加法——保费 ＝ 预期赔付 ＋ 成本 ＋ 利润。看懂这个加法，你就能拆开任何一张保单的价格，也能明白为什么同一份保障，有人便宜有人贵。</p>
+
+<h2>第一块：纯保费——为「预期的赔付」收钱</h2>
+<p>保费中最大的一块，要留着将来赔出去，这部分叫<span class="term" data-def="保费中用于覆盖预期赔付的部分，等于保额乘以出险概率。">纯保费（pure premium）</span>。它就是第 1 课期望值的直接应用：用出险概率，乘以一旦出险要赔的钱。</p>
+<div class="formula">纯保费 ＝ 保额 × 出险概率
+<div class="formula-note">算例：保额 100 万元，年出险概率 0.3%，纯保费 ＝ 100 万 × 0.3% ＝ 3000 元／年。</div>
+</div>
+<p>验算这个数字从哪来：假设 1 万人投保，每人出险概率 0.3%，期望有 1 万 × 0.3% ＝ 30 人出险，每人赔 100 万元，共需 3000 万元；平摊到 1 万人头上，正好每人 3000 元。所以保费不是拍脑袋定的，它就是「全池子的预期赔款 ÷ 人数」。</p>
+<div class="callout callout-key"><span class="callout-title">核心直觉</span><p>保险公司卖的不是「不出事」的承诺，而是把大家的小额确定支出（保费），换成少数人的大额不确定损失（赔款）。纯保费，就是这个互换的公允价。</p></div>
+
+<h2>第二块：附加保费——成本、利润与安全垫</h2>
+<p>只收纯保费，公司一分钱剩不下：要付工资房租、要做广告、要给销售渠道佣金、要留利润，还要为「今年出险比预期多」留一层缓冲。这些都打包进<span class="term" data-def="保费中覆盖运营成本、利润与风险储备的部分，常按纯保费的一定比例收取。">附加保费（loading）</span>。</p>
+<div class="formula">总保费 ＝ 纯保费 ＋ 附加保费
+<div class="formula-note">附加保费 ＝ 运营成本 ＋ 利润 ＋ 风险储备，实务中常简化为纯保费的一个比例。例：附加率 25% 时，总保费 ＝ 3000 × (1 ＋ 25%) ＝ 3750 元／年。</div>
+</div>
+<div class="callout callout-tip"><span class="callout-title">渠道与佣金，一句话</span><p>判断一份保险贵不贵，先看保障责任，再看总保费，最后才看「能返还多少」——返还型产品的附加保费通常高得多，你多交的钱，往往只是被拿去滚了个很低的收益再还给你。</p></div>
+
+<h2>风险分类：为什么吸烟者、高龄者的保费更贵</h2>
+<p>同一个产品，为什么有人便宜有人贵？因为保险公司在做<span class="term" data-def="按出险概率高低把投保人分组、分组定价的做法。">风险分类（risk classification）</span>：把风险相近的人放进同一个池，各组按各自的出险概率算纯保费。吸烟者、高龄者的身故概率显著更高，纯保费自然更高——这不是歧视，而是让每个人支付接近自己真实风险的「公平保费」。</p>
+<p>反过来想：如果保险公司对所有人按平均风险收一个价，健康的人就在补贴高风险的人。健康人觉得不划算会退出，池子里高风险占比升高，保费只能涨——这正是下一课的主角：<span class="term" data-def="高风险者更愿意投保、低风险者退出，导致风险池不断恶化的现象。">逆向选择（adverse selection）</span>。风险分类，正是它的第一道防线。</p>
+
+<h2>免赔额与共付：自己扛一点，保费降一截</h2>
+<p><span class="term" data-def="出险后由被保险人自行承担、保险人不赔的金额。">免赔额（deductible）</span>，是出险后你自己先扛的部分；<span class="term" data-def="超出免赔额的损失，由双方按比例分担的自担比例。">共付比例（coinsurance）</span>，是剩下部分里你自己分担的百分比。它们都能直接降低纯保费——因为你只把「扛不住的那一段」转移给了保险公司：</p>
+<div class="formula">扣减免赔后的纯保费 ＝ (保额 − 免赔额) × 出险概率
+<div class="formula-note">例：免赔额 5 万元时，(100 万 − 5 万) × 0.3% ＝ 2850 元／年，比不设免赔省 150 元。</div>
+</div>
+<p>更妙的是副作用：小额损失是自己掏钱，「反正有保险」的小病小修就被抑制了——每花一块钱，先是自己的一块钱。这正是下一课「<span class="term" data-def="投保后行为改变、变得更大意或更爱索赔的倾向。">道德风险（moral hazard）</span>」的提前预告。</p>
+<div class="callout callout-warn"><span class="callout-title">别选过头</span><p>免赔额应该选在你「轻松拿得出」的范围里。保险保的是不可承受的风险；为了省小钱把免赔额抬到会伤筋动骨的水平，就本末倒置了。</p></div>
+
+<div class="widget">
+<div class="widget-title">保费计算器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label for="amt">保额<span class="val" id="amt-val">100 万元</span></label><input type="range" id="amt" min="10" max="300" step="5" value="100"></div>
+<div class="slider-row"><label for="prob">年出险概率<span class="val" id="prob-val">0.3%</span></label><input type="range" id="prob" min="0.05" max="3" step="0.05" value="0.3"></div>
+<div class="slider-row"><label for="load">费用与利润附加率（占纯保费）<span class="val" id="load-val">25%</span></label><input type="range" id="load" min="10" max="50" step="1" value="25"></div>
+<div class="slider-row"><label for="ded">免赔额<span class="val" id="ded-val">0 万元</span></label><input type="range" id="ded" min="0" max="5" step="0.5" value="0"></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill">纯保费 ＝ 保额×概率：<b id="out-pure">3,000 元</b></span>
+<span class="pill">免赔后纯保费 ＝ (保额−免赔)×概率：<b id="out-ded">3,000 元</b></span>
+<span class="pill">总保费 ＝ 免赔后纯×(1＋附加率)：<b id="out-total">3,750 元</b></span>
+<span class="pill">免赔一年省下：<b id="out-gap">0 元</b></span>
+</div>
+</div>
+</div>
+<p>拖动「免赔额」滑块，看三根柱子一起下降：你自担得越多，转移给保险公司的期望赔款就越少，保费随之变便宜。再把「出险概率」拉高，体会风险分类的意义——概率翻倍，纯保费翻倍。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>会把总保费拆成「纯保费＋附加保费」，并自己算出 100 万保额、0.3% 概率对应 3000 元的纯保费；</li>
+<li>知道附加保费覆盖运营成本、利润与风险储备，看保单先看保障责任，别只看「返还」；</li>
+<li>理解免赔额与共付比例的双重作用：保费更便宜、小病不滥用；</li>
+<li>明白风险分类是让保费匹配风险，不是歧视，也是拦截逆向选择的第一道防线。</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"50 万元保额、年出险概率 0.4%，纯保费是多少？","options":["2500 元","2000 元","5000 元"],"answer":1,"explain":"纯保费＝保额×出险概率：50 万×0.4%＝2000 元／年。"},
+{"q":"附加保费主要用来覆盖什么？","options":["运营成本与利润","风险赔付的金额","保单的现金价值"],"answer":0,"explain":"附加保费覆盖运营成本、利润与风险储备；赔付本身由纯保费承担。"},
+{"q":"免赔额的双重作用是？","options":["提保费并增加赔付","增成本并扩大保障","降保费并减少滥用"],"answer":2,"explain":"自己先扛小额损失，纯保费随之下降；同时花小钱是自己的钱，抑制小病滥用。"},
+{"q":"按风险分类定价的主要目的？","options":["把高风险者拒之门外","让保费匹配各自风险","让产品价格更难理解"],"answer":1,"explain":"分组定价让每组支付接近自身风险的公平保费，避免健康人补贴高风险者。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#pure-premium">纯保费</a> · <a href="../reference/glossary.html#loading">附加保费</a> · <a href="../reference/glossary.html#risk-classification">风险分类</a> · <a href="../reference/glossary.html#adverse-selection">逆向选择</a> · <a href="../reference/glossary.html#deductible">免赔额</a> · <a href="../reference/glossary.html#coinsurance">共付比例</a> · <a href="../reference/glossary.html#moral-hazard">道德风险</a></li>
+
+<li><a href="https://www.investopedia.com/terms/i/insurance-premium.asp">Investopedia：Insurance Premium（保险保费）</a>——保费的构成与影响定价的因素。</li>
+<li><a href="https://www.investopedia.com/terms/d/deductible.asp">Investopedia：Deductible（免赔额）</a>——免赔额如何压低保费、转移部分风险。</li>
+<li><a href="https://zh.wikipedia.org/wiki/精算师">维基百科：精算师</a>——保费与准备金计算背后的职业。</li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0001-大数法则与风险汇聚.html"><span class="nav-label">上一课</span><span class="nav-title">大数法则与风险汇聚</span></a>
+<a class="next" href="0003-逆向选择与道德风险.html"><span class="nav-label">下一课</span><span class="nav-title">逆向选择与道德风险</span></a>
+</nav>
+<footer class="lesson-footer"><span>保险与精算 · 第 2 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var amtEl = document.getElementById('amt');
+  var probEl = document.getElementById('prob');
+  var loadEl = document.getElementById('load');
+  var dedEl = document.getElementById('ded');
+  var amtVal = document.getElementById('amt-val');
+  var probVal = document.getElementById('prob-val');
+  var loadVal = document.getElementById('load-val');
+  var dedVal = document.getElementById('ded-val');
+  var box = document.getElementById('chart1');
+  var outPure = document.getElementById('out-pure');
+  var outDed = document.getElementById('out-ded');
+  var outTotal = document.getElementById('out-total');
+  var outGap = document.getElementById('out-gap');
+  function fmt(n) { return Math.round(n).toLocaleString('zh-CN'); }
+  function render() {
+    var amt = parseFloat(amtEl.value) * 10000;
+    var prob = parseFloat(probEl.value) / 100;
+    var load = parseFloat(loadEl.value) / 100;
+    var ded = parseFloat(dedEl.value) * 10000;
+    amtVal.textContent = amtEl.value + ' 万元';
+    probVal.textContent = probEl.value + '%';
+    loadVal.textContent = loadEl.value + '%';
+    dedVal.textContent = dedEl.value + ' 万元';
+    var pure = amt * prob;
+    var adj = (amt - ded) * prob;
+    var loadAmt = adj * load;
+    var total = adj + loadAmt;
+    outPure.textContent = fmt(pure) + ' 元';
+    outDed.textContent = fmt(adj) + ' 元';
+    outTotal.textContent = fmt(total) + ' 元';
+    outGap.textContent = fmt(pure * (1 + load) - total) + ' 元';
+    var ymax = Math.max(4000, Math.ceil(total * 1.3 / 1000) * 1000);
+    box.innerHTML = '';
+    var c = new FChart(box, { height: 340, x: { min: 0, max: 4, label: '保费构成' }, y: { min: 0, max: ymax, label: '元／年' } });
+    c.bars([
+      { x0: 0.7, x1: 1.3, y: adj, color: '#0d5c4f', label: '纯保费（免赔后）' },
+      { x0: 1.7, x1: 2.3, y: loadAmt, color: '#a3701a', label: '附加保费' },
+      { x0: 2.7, x1: 3.3, y: total, color: '#5d5749', label: '总保费' }
+    ], { y0: 0 });
+    c.text(1, adj + ymax * 0.03, fmt(adj) + ' 元', { dx: 8 });
+    c.text(2, loadAmt + ymax * 0.03, fmt(loadAmt) + ' 元', { dx: 8 });
+    c.text(3, total + ymax * 0.03, fmt(total) + ' 元', { dx: 8 });
+    if (ded > 0) { c.hline(pure, { label: '未扣免赔的纯保费 ' + fmt(pure) + ' 元' }); }
+    c.legend([
+      { color: '#0d5c4f', text: '纯保费（免赔后）' },
+      { color: '#a3701a', text: '附加保费' },
+      { color: '#5d5749', text: '总保费' }
+    ]);
+  }
+  [amtEl, probEl, loadEl, dedEl].forEach(function (el) { el.addEventListener('input', render); });
+  render();
+})();
+</script>
+</body>
+</html>

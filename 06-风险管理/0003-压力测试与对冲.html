@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>风险管理 · 第 3 课：压力测试与对冲 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「风险管理」第 3 课《压力测试与对冲》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.scen-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 2px}
+.scen-btn{font:inherit;font-size:14px;padding:6px 14px;border:1px solid #0d5c4f;border-radius:999px;background:#fff;color:#0d5c4f;cursor:pointer}
+.scen-btn:hover{opacity:.85}
+.scen-btn.active{background:#0d5c4f;color:#fff}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">风险管理</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header"><div class="kicker">风险管理 · Lesson 3</div><h1>压力测试与对冲</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶</span><span>前置：第 2 课</span></div></header>
+<p class="lead">VaR 告诉你的是「平静日子里，95% 的情况下最多亏多少」。可真正杀死组合的，恰恰是剩下的那 5%。本课学习主动想象最坏情况——压力测试——并配齐四件应对工具：分散、对冲、保险、资本缓冲。</p>
+
+<h2>VaR 的盲区：看不见的尾部</h2>
+<div class="callout callout-warn"><span class="callout-title">尾部事件落在置信区间之外</span><p>VaR 有两个软肋。其一，它天然只关心「区间之内」，而 2008 年金融危机、2020 年 3 月疫情熔断这类<strong>尾部事件</strong>恰好落在置信区间之外——模型说「95% 置信下最多亏 X」，剩下 5% 里藏着无上限的亏损。其二，它依赖历史数据拟合出的分布，而最猛烈的行情往往是历史上没有的形态，「百年一遇」可能十年里来两次。组合从高点跌下来的幅度，称为<span class="term" data-def="组合价值从高点回落的最大幅度，衡量最疼的一段亏损">回撤（drawdown）</span>：2008 年全球股市普遍回撤约 50%，2020 年 3 月标普 500 也在一个多月里回撤约 34%。</p></div>
+
+<h2>压力测试：直接假设最坏情况</h2>
+<p><span class="term" data-def="假设极端但合理的情景，直接计算组合损失，而不依赖概率分布">压力测试（stress testing）</span>绕开概率与置信度，直接问一个问题：「如果 X 发生，我会亏多少？」它不预测 X 会不会发生，只保证 X 真发生时你不至于当场出局。构造情景通常走两条路，合称<span class="term" data-def="选取或构造具体情景，逐项假设资产价格并计算组合损益">情景分析（scenario analysis）</span>：</p>
+<p><strong>历史情景</strong>：把真实发生过的极端时期直接搬过来重演。例如 2008 年金融危机（股票约 −50%、国债因避险约 +5%）、2020 年疫情熔断（股票约 −34%、信用债也被抛售约 −5%）。<strong>假设情景</strong>：自问「如果……会怎样」，例如利率 +200bp（加息 2 个百分点）：债券价格下跌、存量浮动利率房贷月供上升、高估值成长股承压。</p>
+<h3>个人版压力测试</h3>
+<p>机构做压力测试，家庭也需要。问自己两个问题：失业 6 个月，账上的钱能撑住房租/房贷与生活开支吗？收入减半，还款与既有计划还能不能继续？如果答案让你不安，你需要的不是更高的收益，而是更厚的缓冲——<strong>3–6 个月家庭支出的应急金，就是家庭的风险资本</strong>。</p>
+
+<h2>应对工具箱：四件套</h2>
+<table class="data">
+<thead><tr><th>工具</th><th>怎么做</th><th>针对什么风险</th><th>一句话点评</th></tr></thead>
+<tbody>
+<tr><td>分散配置</td><td>跨资产、跨市场、跨借款人分散</td><td>集中度风险</td><td class="good">鸡蛋不放进同一个篮子</td></tr>
+<tr><td>风险对冲</td><td>用衍生品建立反向头寸（<a href="../05-衍生品与金融工程/0001-期货与套期保值.html">详见衍生品分支第 1 课</a>）</td><td>系统性下跌</td><td class="good">付出小成本，抵消大部分跌幅</td></tr>
+<tr><td>保险</td><td>定期缴保费，换取约定事故的大额赔付</td><td>小概率、大损失</td><td>把无法承受的风险转移出去</td></tr>
+<tr><td>资本缓冲</td><td>现金、货币基金、应急金等高流动性资产</td><td>流动性紧张与回撤</td><td class="good">撑得住波动，才不会被迫割肉</td></tr>
+</tbody>
+</table>
+<p>上表的最后一行正是个人版压力测试的答案：预留的应急金不追求收益，而是在冲击来临时吸收损失——它就是家庭的<span class="term" data-def="现金等高流动性资产构成的损失吸收层，用于扛住冲击、避免被迫卖出">资本缓冲（capital buffer）</span>。</p>
+
+<h2>回本数学：防大亏比追高收益更重要</h2>
+<p>亏损与收益天然不对称：跌下去容易，爬起来难。跌 x 之后要涨回原点，所需涨幅是：</p>
+<div class="formula">回本所需涨幅 = 跌幅 ÷（1 − 跌幅）<div class="formula-note">验算：跌 50% → 0.5 ÷ 0.5 = 100%；跌 33.4% → 0.334 ÷ 0.666 ≈ 50.2%；跌 20% → 0.2 ÷ 0.8 = 25%；跌 10% → 约 11.1%；跌 90% → 0.9 ÷ 0.1 = 900%。跌幅越深，回本所需的涨幅呈加速放大——所以控制回撤的优先级高于追逐收益。</div></div>
+<p>这就是「防大亏优先」的数学根据：一个每年 +10% 的稳健组合，长期跑赢一个大起大落、偶尔腰斩的组合，因为 −50% 需要 +100% 才能扳平。</p>
+
+<h2>互动：组合压力模拟器</h2>
+<p>默认组合为股 60% / 债 30% / 现金 10%。三个滑块设定的是<strong>相对比例</strong>，程序会自动按比例归一化成实际权重。点选情景按钮，四根柱子实时显示当前配置在四个压力情景下的组合收益率；下方读数给出 100 万组合的亏损金额与回本所需涨幅。先验算默认值（2008 金融危机）：60% ×（−50%）+ 30% ×（+5%）+ 10% × 0 = −28.5% → 亏 28.5 万，回本需涨 28.5 ÷ 71.5 ≈ 39.9%。</p>
+<div class="widget">
+<div class="widget-title">组合压力模拟器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>股票（相对比例）<span class="val" id="eq-val">60.0%</span><input type="range" id="eq" min="0" max="100" step="1" value="60"></label></div>
+<div class="slider-row"><label>债券（相对比例）<span class="val" id="bd-val">30.0%</span><input type="range" id="bd" min="0" max="100" step="1" value="30"></label></div>
+<div class="slider-row"><label>现金（相对比例）<span class="val" id="cs-val">10.0%</span><input type="range" id="cs" min="0" max="100" step="1" value="10"></label></div>
+<div class="scen-row">
+<button type="button" class="scen-btn" data-s="0">温和回调</button>
+<button type="button" class="scen-btn active" data-s="1">2008 金融危机</button>
+<button type="button" class="scen-btn" data-s="2">2020 疫情</button>
+<button type="button" class="scen-btn" data-s="3">滞胀假设</button>
+</div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pill-scen">情景：2008 金融危机</span><span class="pill" id="pill-dd">组合回撤：−28.5%</span><span class="pill" id="pill-loss">100 万组合亏损：28.5 万元</span><span class="pill" id="pill-rec">回本需涨：39.9%</span></div>
+</div>
+</div>
+<p>把股票滑块拉到 100 再点「2008 金融危机」，你会看到 −50% 的回撤需要 +100% 才能回本——这就是上一节「回本数学」的亲身实验。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>说清 VaR 的盲区：尾部事件在置信区间之外，且模型依赖历史分布</li>
+<li>会用历史情景与假设情景做压力测试，包括个人版（失业 6 个月、收入减半）</li>
+<li>记住回本数学：回本涨幅 = 跌幅 ÷（1 − 跌幅），防大亏优先</li>
+<li>配齐四件套：分散配置、风险对冲、保险、资本缓冲（应急金即家庭风险资本）</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[{"q":"压力测试最主要的目的？","options":["估算最可能的中位收益","测算极端情景下的损失","预测下一个交易日涨跌","把置信区间调到九成九"],"answer":1,"explain":"压力测试绕开概率与置信度，直接假设极端但合理的情景并计算损失，弥补 VaR 对尾部事件的盲区。"},{"q":"组合回撤 25% 后，要涨多少才能回到原点？","options":["25.0%","50.0%","75.0%","33.3%"],"answer":3,"explain":"回本涨幅 = 0.25 ÷（1 − 0.25）= 33.3%。跌得越深，回本所需涨幅越大，亏损与收益天然不对称。"},{"q":"持有股票的同时用股指期货做空，属于工具箱中的哪一类？","options":["分散配置","保险转移","风险对冲","资本缓冲"],"answer":2,"explain":"用期货、期权等衍生品建立反向头寸以抵消下跌损失，属于对冲，详见衍生品分支第 1 课。"},{"q":"预留 3–6 个月支出的应急金，最接近工具箱中的哪一类？","options":["资本缓冲","风险对冲","保险转移","分散配置"],"answer":0,"explain":"应急金不追求收益，而是在冲击来临时吸收损失、避免被迫割肉，本质是家庭版的资本缓冲。"}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#drawdown">回撤</a> · <a href="../reference/glossary.html#stress-test">压力测试</a> · <a href="../reference/glossary.html#scenario-analysis">情景分析</a> · <a href="../reference/glossary.html#capital-buffer">资本缓冲</a></li>
+
+<li><a href="https://www.investopedia.com/terms/s/stresstest.asp">Investopedia：Stress Test</a> —— 压力测试的定义与用途</li>
+<li><a href="https://www.bis.org/">BIS 国际清算银行</a> —— 银行体系压力测试的官方研究</li>
+<li><a href="https://www.federalreserve.gov/">美联储（Federal Reserve）</a> —— 监管压力测试与 CCAR 计划的一手资料</li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0002-信用风险与预期损失.html"><span class="nav-label">上一课</span><span class="nav-title">信用风险与预期损失</span></a>
+<a class="next" href="../07-国际金融/index.html"><span class="nav-label">下一分支</span><span class="nav-title">国际金融</span></a>
+</nav>
+<footer class="lesson-footer"><span>风险管理 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var SCEN=[
+    {name:'温和回调',eq:-10,bd:-2},
+    {name:'2008 金融危机',eq:-50,bd:5},
+    {name:'2020 疫情',eq:-34,bd:-5},
+    {name:'滞胀假设',eq:-20,bd:-12}
+  ];
+  var cur=1;
+  var eqS=document.getElementById('eq'),bdS=document.getElementById('bd'),csS=document.getElementById('cs');
+  var eqV=document.getElementById('eq-val'),bdV=document.getElementById('bd-val'),csV=document.getElementById('cs-val');
+  var pSc=document.getElementById('pill-scen'),pDd=document.getElementById('pill-dd'),pLo=document.getElementById('pill-loss'),pRe=document.getElementById('pill-rec');
+  var chartEl=document.getElementById('chart1');
+  function sign(x,d){return (x>=0?'+':'−')+Math.abs(x).toFixed(d)+'%';}
+  function draw(){
+    var a=parseFloat(eqS.value),b=parseFloat(bdS.value),cc=parseFloat(csS.value);
+    var s=a+b+cc,w=s>0?[a/s,b/s,cc/s]:[0,0,0];
+    eqV.textContent=(w[0]*100).toFixed(1)+'%';
+    bdV.textContent=(w[1]*100).toFixed(1)+'%';
+    csV.textContent=(w[2]*100).toFixed(1)+'%';
+    var rets=SCEN.map(function(sc){return w[0]*sc.eq+w[1]*sc.bd;});
+    pSc.textContent='情景：'+SCEN[cur].name;
+    if(s<=0){
+      pDd.textContent='组合回撤：—';
+      pLo.textContent='100 万组合亏损：—';
+      pRe.textContent='回本需涨：—';
+    }else{
+      var r=rets[cur];
+      pDd.textContent='组合回撤：'+(r<0?'−'+(-r).toFixed(1)+'%':'0.0%（未亏损）');
+      pLo.textContent=r<0?'100 万组合亏损：'+(-r).toFixed(1)+' 万元':'100 万组合亏损：0 万元（该情景收益 '+sign(r,1)+'）';
+      pRe.textContent=r<0?'回本需涨：'+((-r)/(100+r)*100).toFixed(1)+'%':'回本需涨：0.0%';
+    }
+    if(!window.FChart){return;}
+    var lo=Math.min(0,Math.min.apply(null,rets)),hi=Math.max(0,Math.max.apply(null,rets));
+    var c=new FChart(chartEl,{height:340,x:{min:0,max:4,label:'压力情景（左→右：温和回调 / 2008 / 2020 / 滞胀）'},y:{min:lo<0?lo*1.15-1:-5,max:hi>0?hi*1.15+1:5,label:'组合收益率（%）'}});
+    c.bars(rets.map(function(r,i){return {x0:i+0.12,x1:i+0.88,y:r,color:i===cur?'#b3372f':'#5d5749',label:SCEN[i].name};}),{y0:0});
+    for(var i=0;i<rets.length;i++){c.text(i+0.5,rets[i],sign(rets[i],1),{dx:8});}
+    c.legend([{color:'#b3372f',text:'当前情景'},{color:'#5d5749',text:'其他情景'}]);
+  }
+  var btns=Array.prototype.slice.call(document.querySelectorAll('.scen-btn'));
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      cur=parseInt(btn.getAttribute('data-s'),10);
+      btns.forEach(function(x){x.classList.remove('active');});
+      btn.classList.add('active');
+      draw();
+    });
+  });
+  [eqS,bdS,csS].forEach(function(sl){sl.addEventListener('input',draw);});
+  draw();
+})();
+</script>
+</body></html>

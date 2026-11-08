@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>金融科技 · 第 3 课：智能投顾与大数据风控 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「金融科技」第 3 课《智能投顾与大数据风控》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+/* 本课交互组件私有样式（不改动公共样式表） */
+.ra-q{margin-bottom:12px;}
+.ra-qtitle{font-weight:600;color:#3a362c;margin-bottom:6px;}
+.ra-q label{display:inline-flex;align-items:center;gap:6px;margin:0 14px 6px 0;cursor:pointer;font-size:14px;color:#3a362c;}
+.ra-btn{border:none;border-radius:6px;padding:9px 18px;font-size:14px;cursor:pointer;color:#fff;background:#0d5c4f;}
+.ra-flex{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:14px;}
+#ra-pie{flex:0 0 220px;max-width:100%;}
+#ra-legend{flex:1;min-width:180px;}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">金融科技</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header">
+<div class="kicker">金融科技 · Lesson 3</div>
+<h1>智能投顾与大数据风控</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶入门</span><span>前置：第 2 课</span></div>
+</header>
+<p class="lead">前两课我们看了钱怎么搬、账怎么记。这一课看算法接管金融的两个现场：一边是帮你管钱的智能投顾，一边是决定借不借你钱的大数据风控。它们便宜、飞快、无处不在——但也带来了新的问题。</p>
+
+<h2>一、智能投顾：把顾问装进算法</h2>
+<p>传统投资顾问按资产规模收费，人工服务成本高，通常只伺候得起大客户。<span class="term" data-def="用算法完成测评、配置、执行与再平衡的投资服务">智能投顾（robo-advisor）</span>把一套标准化流程整个交给算法：你答问卷，它配组合，系统自动执行买卖，再定期把比例调回目标——门槛低到几百元也能开工。</p>
+<table class="data">
+<thead><tr><th>步骤</th><th>你做什么</th><th>算法做什么</th></tr></thead>
+<tbody>
+<tr><td>1 · 风险测评</td><td>如实填写年龄、期限、目标与能扛的亏损</td><td>评定风险等级，匹配股债比例</td></tr>
+<tr><td>2 · 推荐组合</td><td>查看并确认方案</td><td class="good">给出股债组合，多为低成本指数基金</td></tr>
+<tr><td>3 · 自动执行</td><td>绑卡入金，设置定投</td><td>按目标比例下单建仓</td></tr>
+<tr><td>4 · 定期再平衡</td><td>基本不用管</td><td class="good">涨多的卖一点、跌多的补一点，回到目标比例</td></tr>
+</tbody>
+</table>
+<div class="callout callout-tip"><span class="callout-title">组合的灵魂是股债比例</span><p>为什么这样配、随生命周期怎么变，见「个人理财」分支的<a href="../10-个人理财/0002-资产配置与生命周期.html">《资产配置与生命周期》</a>一课。再平衡本质上是纪律化的「高抛低吸」，由系统执行，帮你克服追涨杀跌的手痒。</p></div>
+
+<div class="widget">
+<div class="widget-title">🤖 交互一：迷你智能投顾</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="ra-q">
+<div class="ra-qtitle">① 你的年龄段？</div>
+<label><input type="radio" name="ra-age" value="0">30 岁以下</label>
+<label><input type="radio" name="ra-age" value="1">30–45 岁</label>
+<label><input type="radio" name="ra-age" value="2">46–60 岁</label>
+<label><input type="radio" name="ra-age" value="3">60 岁以上</label>
+</div>
+<div class="ra-q">
+<div class="ra-qtitle">② 一年内亏多少会让你睡不着？</div>
+<label><input type="radio" name="ra-loss" value="0">亏 5% 以内</label>
+<label><input type="radio" name="ra-loss" value="1">亏 5%–20%</label>
+<label><input type="radio" name="ra-loss" value="2">跌 20% 也扛得住</label>
+</div>
+<div class="ra-q">
+<div class="ra-qtitle">③ 这笔钱的主要目标？</div>
+<label><input type="radio" name="ra-goal" value="0">稳稳保值</label>
+<label><input type="radio" name="ra-goal" value="1">稳步增值</label>
+<label><input type="radio" name="ra-goal" value="2">冲刺收益</label>
+</div>
+<button type="button" id="ra-go" class="ra-btn">生成我的组合</button>
+</div>
+<div id="ra-result" style="display:none;">
+<div id="ra-name" style="font-size:18px;font-weight:700;color:#0d5c4f;margin-bottom:8px;"></div>
+<div class="ra-flex">
+<svg id="ra-pie" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="资产配置饼图"></svg>
+<div id="ra-legend"></div>
+</div>
+<p id="ra-note" style="margin:10px 0 0;font-size:14px;line-height:1.7;"></p>
+<p style="margin:6px 0 0;font-size:12px;color:#5d5749;">教学演示，非投资建议；真实产品的适当性匹配远比这三道题复杂。</p>
+</div>
+<div class="readout"><span class="pill" id="ra-pill">等待作答…</span></div>
+</div>
+</div>
+
+<h2>二、为什么便宜：边际成本的故事</h2>
+<p>人工顾问服务 1000 个客户，成本大致线性增加；算法服务第 10000 个客户的<strong>边际成本接近于零</strong>，又砍掉了柜台与人力，价格自然能压低。常见区间：智能投顾年费约 <strong>0.2%–0.5%</strong>，传统人工渠道常在 <strong>1% 以上</strong>（均为常见区间，随平台、地区与资产规模差异很大，不是精确值）。</p>
+<p>别小看这零点几个百分点——复利会把费差放大成一辆车的钱：</p>
+
+<div class="widget">
+<div class="widget-title">💰 交互二：费率复利计算器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row">
+<label>传统渠道年费 <span class="val" id="fee-val">1%</span>
+<input type="range" id="fee" min="0.5" max="2" step="0.05" value="1">
+</label>
+</div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill" id="fee-pill">20 年费差：…</span>
+<span class="pill">假设毛收益 5%/年 · 本金 10 万 · 不含税费 · 教学示意</span>
+</div>
+</div>
+</div>
+
+<div class="callout callout-tip"><span class="callout-title">两点提醒</span><p>低费率不等于高收益，费率只决定你「被扣走多少」；智能投顾费之外，底层指数基金自身还收管理费，两项都要看。</p></div>
+
+<h2>三、大数据风控：秒批背后的模型</h2>
+<p>十年前申请贷款，要带工资流水、单位证明甚至抵押物；今天在手机上点几下，几秒钟就出额度。变化不在银行变勤快了，而在风控换了引擎。<span class="term" data-def="用模型给借款人违约可能性打分的体系">信贷评分（credit scoring）</span>用模型给「你按时还钱的概率」打分；<span class="term" data-def="传统流水抵押之外的新数据源，如消费与行为记录">替代数据（alternative data）</span>则在征信流水之外补充画像：电商消费、缴费记录、历史产品的履约情况、使用行为特征……模型几毫秒跑完传统信贷员一周的活。</p>
+<div class="callout callout-info"><span class="callout-title">谁受益最大？</span><p>替代数据的最大价值，是让没有信用卡、没有房贷的「信用白户」第一次可以被评估——秒批的额度，就是模型给出的分数。</p></div>
+
+<div class="widget">
+<div class="widget-title">📊 交互三：信贷评分因子条形图</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row">
+<label>按时还款月数 <span class="val" id="pay-val">24</span>
+<input type="range" id="pay" min="0" max="36" step="1" value="24">
+</label>
+</div>
+</div>
+<div class="chart" id="chart2"></div>
+<div class="readout">
+<span class="pill" id="score-pill">示意评分：603</span>
+<span class="pill">基准 600 分 · 因子与权重均为教学示意</span>
+</div>
+</div>
+</div>
+<p style="font-size:13px;color:#5d5749;">说明：上图的因子与权重（按时还款 +35、负债率高 −25、查询频繁 −10、账户历史长 +15）均为教学示意，并非任何真实评分卡的权重；不同机构的模型差异极大，也从不对外公开。</p>
+
+<h2>四、算法的阴影：便宜与快捷的代价</h2>
+<p>算法不是中立的裁判。讨论最多的是<span class="term" data-def="模型延续甚至放大训练数据中历史歧视的现象">算法偏见（algorithmic bias）</span>：如果历史上的贷款数据本身带有歧视（某些群体长期更难获贷），模型会把这种模式当成「规律」学走，在未来的审批中延续甚至放大。</p>
+<div class="callout callout-warn"><span class="callout-title">四个阴影</span><p>① 算法偏见：训练数据里的历史歧视被模型延续，被拒的人甚至不知道自己被贴了标签；② 隐私边界：一次授权等于永久授权吗？数据被共享给了谁？③ 黑箱：模型拒贷时常给不出人能理解的原因，申诉与纠错困难；④ 大数据杀熟：同一商品或服务对不同人显示不同价格，老用户反而更贵。</p></div>
+<p>所以「用数据决策」并不自动等于「更公平」——数据是历史的孩子，而历史并不总是干净的。</p>
+
+<h2>五、一句话看监管科技</h2>
+<p>算法在金融里跑得多快，监管就得追得多快。<strong>监管科技</strong>指的是监管机构也在用算法监管算法：实时监测可疑交易、自动报送与识别违规。机器盯机器，正在成为常态——技术从不只属于金融机构一边。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>能复述智能投顾四步：测评 → 组合 → 执行 → 再平衡</li>
+<li>理解低价的来源：算法边际成本近零 + 砍掉人工，并用复利直觉感受费差的分量</li>
+<li>知道「秒批」背后是信贷评分模型与替代数据</li>
+<li>会警惕算法的四个阴影：偏见、隐私、黑箱、杀熟——遇到「智能」决策多问一句为什么</li>
+<li>记住监管科技：机器盯机器正在成为常态</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"智能投顾的标准流程，第一步通常是什么？","options":["全仓买入热门股票","挑选明星基金经理","填写风险测评问卷"],"answer":2,"explain":"智能投顾四步：风险测评问卷 → 推荐股债组合（多为指数基金）→ 自动执行 → 定期再平衡；一切从了解你能扛多大风险开始。"},
+{"q":"智能投顾的费率能比传统人工顾问低，主要因为什么？","options":["底层基金完全不收费用","算法服务边际成本近零","它承诺收益永远会更高"],"answer":1,"explain":"算法每多服务一位客户的边际成本接近于零，还省下了人工顾问的人力成本；常见年费约 0.2%–0.5%（区间随平台而异），底层基金费用仍需另算。"},
+{"q":"以下哪一项属于信贷风控中的「替代数据」？","options":["房产抵押物评估价值","银行流水和工资单据","央行的征信报告记录","消费行为的数字足迹"],"answer":3,"explain":"抵押物、流水、征信报告都是传统信贷数据；消费、行为等数字足迹属于替代数据，用来帮助评估缺少传统信用记录的人。"},
+{"q":"「算法偏见」指的是什么？","options":["历史歧视被模型延续","计算机偶尔算错数字","程序员故意编写偏见"],"answer":0,"explain":"算法偏见指模型从训练数据里学到了历史上已有的歧视模式，并在信贷等决策中延续甚至放大——它常常不是有人故意作恶，而是数据留下的影子。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#robo-advisor">智能投顾</a> · <a href="../reference/glossary.html#credit-scoring">信贷评分</a> · <a href="../reference/glossary.html#alternative-data">替代数据</a> · <a href="../reference/glossary.html#algorithmic-bias">算法偏见</a></li>
+
+<li>Investopedia：Robo-Advisor — <a href="https://www.investopedia.com/terms/r/roboadvisor-roboadviser.asp">investopedia.com/terms/r/roboadvisor-roboadviser.asp</a></li>
+<li>Investopedia：Credit Scoring — <a href="https://www.investopedia.com/terms/c/credit_scoring.asp">investopedia.com/terms/c/credit_scoring.asp</a></li>
+<li>Investopedia：Algorithmic Bias — <a href="https://www.investopedia.com/terms/a/algorithmic-bias.asp">investopedia.com/terms/a/algorithmic-bias.asp</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0002-区块链与数字货币.html"><span class="nav-label">上一课</span><span class="nav-title">区块链与数字货币</span></a>
+<a href="../index.html" class="next"><span class="nav-label">学习路径终点</span><span class="nav-title">返回课程总目录</span></a>
+</nav>
+<footer class="lesson-footer"><span>金融科技 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  'use strict';
+  function $(id) { return document.getElementById(id); }
+  function pick(name) {
+    var r = document.querySelector('input[name="' + name + '"]:checked');
+    return r ? parseInt(r.value, 10) : null;
+  }
+
+  /* ---------- 交互一：迷你智能投顾（SVG 饼图） ---------- */
+  var AGE_PTS = [3, 2, 1, 0];
+  var LOSS_PTS = [0, 1, 2];
+  var GOAL_PTS = [0, 1, 2];
+  var TYPES = {
+    conservative: { name: '保守', alloc: [20, 65, 15], note: '债券与现金打底求稳，少量股票用于抵御通胀：波动小，长期预期收益也相对较低。' },
+    balanced: { name: '平衡', alloc: [50, 40, 10], note: '股债大体均衡：进攻靠股票基金，防守靠债券，波动与预期收益都居中。' },
+    growth: { name: '进取', alloc: [75, 20, 5], note: '股票基金为主：短期波动大，适合期限长、亏了也拿得住的钱；现金只留应急零头。' }
+  };
+  function piePath(cx, cy, r, a0, a1) {
+    var x0 = cx + r * Math.cos(a0), y0 = cy + r * Math.sin(a0);
+    var x1 = cx + r * Math.cos(a1), y1 = cy + r * Math.sin(a1);
+    var large = (a1 - a0) > Math.PI ? 1 : 0;
+    return 'M ' + cx + ' ' + cy + ' L ' + x0.toFixed(1) + ' ' + y0.toFixed(1) +
+      ' A ' + r + ' ' + r + ' 0 ' + large + ' 1 ' + x1.toFixed(1) + ' ' + y1.toFixed(1) + ' Z';
+  }
+  function drawPie(alloc) {
+    var items = [
+      { name: '股票基金', pct: alloc[0], color: '#b3372f' },
+      { name: '债券基金', pct: alloc[1], color: '#0d5c4f' },
+      { name: '现金类', pct: alloc[2], color: '#a3701a' }
+    ];
+    var cx = 110, cy = 110, r = 92, a = -Math.PI / 2, parts = [];
+    items.forEach(function (it) {
+      var a2 = a + it.pct / 100 * Math.PI * 2;
+      parts.push('<path d="' + piePath(cx, cy, r, a, a2) + '" fill="' + it.color + '" stroke="#fdfcf7" stroke-width="2"></path>');
+      if (it.pct >= 8) {
+        var mid = (a + a2) / 2;
+        parts.push('<text x="' + (cx + r * 0.62 * Math.cos(mid)).toFixed(1) + '" y="' + (cy + r * 0.62 * Math.sin(mid)).toFixed(1) + '" dy="0.35em" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">' + it.pct + '%</text>');
+      }
+      a = a2;
+    });
+    $('ra-pie').innerHTML = parts.join('');
+    $('ra-legend').innerHTML = items.map(function (it) {
+      return '<div style="display:flex;align-items:center;gap:8px;margin:4px 0;"><span style="width:12px;height:12px;border-radius:3px;background:' + it.color + ';display:inline-block;"></span><span style="font-size:14px;color:#3a362c;">' + it.name + ' ' + it.pct + '%</span></div>';
+    }).join('');
+  }
+  $('ra-go').addEventListener('click', function () {
+    var a = pick('ra-age'), l = pick('ra-loss'), g = pick('ra-goal');
+    var pill = $('ra-pill');
+    if (a === null || l === null || g === null) {
+      pill.textContent = '请先答完 3 道快问';
+      pill.style.background = '#a3701a';
+      pill.style.color = '#fff';
+      $('ra-result').style.display = 'none';
+      return;
+    }
+    var score = AGE_PTS[a] + LOSS_PTS[l] + GOAL_PTS[g];
+    var t;
+    if (l === 0) t = TYPES.conservative;
+    else if (score >= 5) t = TYPES.growth;
+    else if (score >= 3) t = TYPES.balanced;
+    else t = TYPES.conservative;
+    drawPie(t.alloc);
+    $('ra-name').textContent = '你的组合：' + t.name + '型';
+    $('ra-note').textContent = t.note + (l === 0 && score >= 3 ? '（提示：你选了「亏 5% 以内就睡不着」，组合自动降档为保守——适当性优先。）' : '');
+    $('ra-result').style.display = 'block';
+    pill.textContent = '风险得分 ' + score + '/7 → ' + t.name + '型';
+    pill.style.background = '#0d5c4f';
+    pill.style.color = '#fff';
+  });
+
+  /* ---------- 交互二：费率复利计算器 ---------- */
+  var PRINCIPAL = 100000, GROSS = 0.05, ROBO_FEE = 0.0035;
+  function bal(t, fee) { return PRINCIPAL * Math.pow(1 + GROSS - fee, t); }
+  var feeEl = $('fee'), feeChart = null;
+  function drawFee() {
+    if (typeof FChart !== 'function' || !$('chart1')) return;
+    var v = parseFloat(feeEl.value);
+    $('fee-val').textContent = (+v.toFixed(2)) + '%';
+    if (!feeChart) {
+      feeChart = new FChart($('chart1'), {
+        height: 340,
+        x: { min: 0, max: 20, label: '持有年数（年）' },
+        y: { min: 80000, max: 280000, label: '账户市值（元）' }
+      });
+    }
+    feeChart.clear();
+    feeChart.path(function (x) { return bal(x, ROBO_FEE); }, { color: '#0d5c4f', width: 2.5 });
+    feeChart.path(function (x) { return bal(x, v / 100); }, { color: '#b3372f', width: 2.5 });
+    feeChart.hline(PRINCIPAL, { label: '本金 10 万', color: '#5d5749' });
+    feeChart.legend([
+      { color: '#0d5c4f', text: '智能投顾 0.35%（示意）' },
+      { color: '#b3372f', text: '传统渠道 ' + (+v.toFixed(2)) + '%（可调）' }
+    ]);
+    var diff = bal(20, ROBO_FEE) - bal(20, v / 100);
+    $('fee-pill').textContent = '20 年费差：约 ' + Math.round(diff).toLocaleString('zh-CN') + ' 元';
+  }
+  feeEl.addEventListener('input', drawFee);
+  drawFee();
+
+  /* ---------- 交互三：评分因子条形图 ---------- */
+  var payEl = $('pay'), months = 24, scoreChart = null;
+  function factors() {
+    return [
+      { label: '按时还款', v: +(months / 36 * 35).toFixed(1), color: '#0d5c4f' },
+      { label: '账户历史长', v: 15, color: '#0d5c4f' },
+      { label: '负债率高', v: -25, color: '#b3372f' },
+      { label: '查询频繁', v: -10, color: '#b3372f' }
+    ];
+  }
+  function drawScore() {
+    if (typeof FChart !== 'function' || !$('chart2')) return;
+    if (!scoreChart) {
+      scoreChart = new FChart($('chart2'), {
+        height: 340,
+        x: { min: 0, max: 4, label: '', ticks: [], fmt: function () { return ''; } },
+        y: { min: -35, max: 45, label: '对示意评分的影响（分）' }
+      });
+    }
+    scoreChart.clear();
+    scoreChart.hline(0, { color: '#5d5749' });
+    var fs = factors();
+    scoreChart.bars(fs.map(function (f, i) {
+      return { x0: i + 0.18, x1: i + 0.82, y: f.v, color: f.color, label: f.label };
+    }), { y0: 0 });
+    var total = 600;
+    fs.forEach(function (f) { total += f.v; });
+    $('score-pill').textContent = '示意评分：' + Math.round(total);
+  }
+  payEl.addEventListener('input', function () {
+    months = parseFloat(payEl.value);
+    $('pay-val').textContent = months;
+    drawScore();
+  });
+  drawScore();
+})();
+</script>
+</body>
+</html>

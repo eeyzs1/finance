@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>保险与精算 · 第 3 课：逆向选择与道德风险 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「保险与精算」第 3 课《逆向选择与道德风险》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">保险与精算</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header">
+<div class="kicker">保险与精算 · Lesson 3</div>
+<h1>逆向选择与道德风险</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶入门</span><span>前置：第 2 课</span></div>
+</header>
+<p class="lead">第 2 课结尾留了个扣子：如果保险公司对所有人收一个价，健康的人就在补贴高风险的人——然后呢？这一课是整个保险分支的心脏：保险生意的成败，几乎都取决于能不能管住两个由「信息不对称」引起的问题。学完你会明白：为什么医保必须强制参保、为什么车险有无赔款优待、为什么买保险要趁健康。</p>
+
+<h2>信息不对称：保险公司知道的比你少</h2>
+<p>你比任何保险公司都更清楚自己的身体、驾驶习惯、家里门锁结不结实。交易双方掌握的信息不一样多，这就是<span class="term" data-def="交易双方掌握的信息量不同，信息多的一方可据此占便宜。">信息不对称（information asymmetry）</span>。第 2 课的定价公式默认「出险概率已知」，而信息不对称意味着真实概率只有你自己知道——公式的地基被抽走了。</p>
+<p>它惹的祸按时间分两类：签约之前一类，叫逆向选择；签约之后一类，叫道德风险。</p>
+
+<h2>逆向选择：签约之前就埋下的雷</h2>
+<p>事前的问题是<span class="term" data-def="高风险者更愿意投保、低风险者更可能放弃，使风险池持续变差的选择效应。">逆向选择（adverse selection）</span>：最想买保险的，往往是知道自己风险最高的人。当公司按平均风险统一定价，健康人觉得贵、陆续退出；高风险者觉得划算、踊跃留下——池子悄悄变差，价格却还停在原地。</p>
+<div class="callout callout-warn"><span class="callout-title">死亡螺旋</span><p>低风险者退出 → 高风险占比上升 → 人均赔付成本上升 → 保费只能上涨 → 更多低风险者退出 → ……这个自我强化的循环，叫<span class="term" data-def="风险池持续恶化、保费持续上涨直至市场瓦解的自我强化循环。">死亡螺旋（death spiral）</span>。</p></div>
+<p>经典出处：经济学家阿克洛夫 1970 年的「柠檬市场」论文——二手车市场上卖家知道车况而买家不知道，买家只肯出平均价，好车退出市场，剩下的越来越「柠檬」。他凭这一思想获得 2001 年诺贝尔经济学奖。保险市场，是同一个故事的重演。</p>
+<h3>保险公司的三件武器</h3>
+<ul>
+<li><strong>强制参保</strong>：全民医保让健康人也留在池里。医保必须强制，是经济学理由，不是官僚习惯；</li>
+<li><strong>团体保险</strong>：公司全员统一投保，好坏搭配，池子天然稳定；</li>
+<li><strong>核保体检</strong>：<span class="term" data-def="保险公司承保前审核健康状况、职业等风险信息，决定是否承保与费率的过程。">核保（underwriting）</span>在投保前把高风险识别出来，加费、除外或婉拒。</li>
+</ul>
+
+<h2>道德风险：签完约之后你变了</h2>
+<p>事后的问题是<span class="term" data-def="投保后行为改变、变得更大意或更爱索赔的倾向。">道德风险（moral hazard）</span>：装了防盗险就不锁门？买了医疗险就想多开点药？损失不再完全由自己承担，行为就悄悄改变——注意，多数人不是故意骗保，只是不再那么小心翼翼。</p>
+<p>车险的「无赔款优待（NCD）」就是专门的设计：连续不出险，次年保费打折；一出险，次年涨价——把「小心驾驶」变成一件有现金回报的事。同类工具还有第 2 课讲过的免赔额、共付比例，加上奖惩费率，共同点只有一个：让你始终承担一部分后果，行为就不会走样。</p>
+
+<h2>一张表分清两者</h2>
+<table class="data">
+<thead><tr><th>维度</th><th>逆向选择</th><th>道德风险</th></tr></thead>
+<tbody>
+<tr><td>时间点</td><td>签约前——隐藏信息</td><td>签约后——隐藏行为</td></tr>
+<tr><td>发生了什么</td><td>高风险者混进池子</td><td>投保人行为悄悄改变</td></tr>
+<tr><td>典型例子</td><td>带病投保、健康人退保</td><td>不锁门、小病大看</td></tr>
+<tr><td>应对工具</td><td class="good">强制参保、团体保险、核保体检</td><td class="good">免赔额、共付、奖惩费率（NCD）</td></tr>
+</tbody>
+</table>
+
+<h2>亲手推演：风险池劣化模拟器</h2>
+<p>设定：池子初始 1000 人，其中高风险 20%（期望年赔付 6000 元）、低风险 80%（期望年赔付 1500 元）。首年人均成本 ＝ 0.2×6000 ＋ 0.8×1500 ＝ 1200 ＋ 1200 ＝ 2400 元。此后每年保费按「上年池子的人均成本」定价，低风险者按退出率流失（高风险者不走）。点「推演 10 年」，看默认 8% 退出率下保费的螺旋上升；再勾选强制参保，看曲线应声走平。</p>
+
+<div class="widget">
+<div class="widget-title">风险池劣化模拟器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label for="exit">低风险者年退出率<span class="val" id="exit-val">8%</span></label><input type="range" id="exit" min="0" max="30" step="1" value="8"></div>
+<div class="slider-row"><label><input type="checkbox" id="mandate"> 开启强制参保（低风险者不再退出）</label></div>
+<div class="slider-row"><button type="button" id="run-btn">推演 10 年</button></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="chart" id="chart2"></div>
+<div class="readout">
+<span class="pill">首年人均成本 ＝ 0.2×6000＋0.8×1500：<b>2,400 元</b></span>
+<span class="pill">第 10 年人均保费：<b id="r-prem">3,058 元</b></span>
+<span class="pill">第 10 年高风险占比：<b id="r-share">36.5%</b></span>
+<span class="pill">剩余低风险者：<b id="r-low">348 人</b></span>
+</div>
+<table class="data">
+<thead><tr><th>年份</th><th>低风险人数</th><th>高风险占比</th><th>人均保费</th></tr></thead>
+<tbody id="pool-tbody"></tbody>
+</table>
+</div>
+</div>
+<p>把退出率拉到 20% 以上，看螺旋怎么加速：保费曲线越来越陡，池子十年内就被高风险者主导。这就是为什么自愿投保的单一价格池很难长期存活——要么分类定价，要么强制参保，要么接受螺旋。</p>
+
+<h2>给个人的启示</h2>
+<div class="callout callout-key"><span class="callout-title">两条黄金法则</span><p>① 买保险要趁健康：等体检查出问题再想买，核保可能通不过，或要加费、除外——保险是唯一「越不需要时越买得到」的商品。② 只保「不可承受」的风险：可自担的小风险，用免赔额自留更便宜，把保费预算集中到真正会击穿你财务的损失上。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>用「签约前隐藏信息／签约后隐藏行为」一句话区分逆向选择与道德风险；</li>
+<li>亲手推演出死亡螺旋：池子恶化 → 涨价 → 更多人退出 → 继续恶化；</li>
+<li>看懂保险公司的武器库：强制参保、团体保险、核保体检，以及免赔额、共付、奖惩费率（NCD）；</li>
+<li>记住个人启示：趁健康尽早投保，只把不可承受的风险交给保险。</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"逆向选择发生在什么时点？","options":["签约之前的隐藏信息","签约之后的隐藏行为","理赔之后的拖延扯皮"],"answer":0,"explain":"签约前隐藏信息是逆向选择；签约后隐藏行为是道德风险。"},
+{"q":"死亡螺旋的正确链条是？","options":["健康人进来，保费上涨，高风险退出","高风险进来，保费上涨，健康人退出","保费下降，池子改善，人人都来参保"],"answer":1,"explain":"高风险占比升→人均成本升→保费涨→健康人退出→池子更差，循环自我强化。"},
+{"q":"对付投保后的道德风险，最对症的工具是？","options":["强制参保与核保体检","团体保险与税收补贴","免赔额与共付的比例"],"answer":2,"explain":"免赔额、共付、奖惩费率让投保人自担部分后果；强制参保与核保对付的是逆向选择。"},
+{"q":"对个人最有用的启示是？","options":["风险全部交给保险","趁健康时尽早投保","保费越贵越是好货"],"answer":1,"explain":"核保通不过就买不了；可自担的小风险自留更便宜，保险要留给不可承受的损失。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#information-asymmetry">信息不对称</a> · <a href="../reference/glossary.html#adverse-selection">逆向选择</a> · <a href="../reference/glossary.html#death-spiral">死亡螺旋</a> · <a href="../reference/glossary.html#underwriting-2">核保</a> · <a href="../reference/glossary.html#moral-hazard">道德风险</a></li>
+
+<li><a href="https://www.investopedia.com/terms/a/adverseselection.asp">Investopedia：Adverse Selection（逆向选择）</a>——定义、例子与保险市场的应用。</li>
+<li><a href="https://www.investopedia.com/terms/m/moralhazard.asp">Investopedia：Moral Hazard（道德风险）</a>——定义与典型情境。</li>
+<li><a href="https://zh.wikipedia.org/wiki/柠檬市场">维基百科：柠檬市场</a>——阿克洛夫 1970 年论文与信息经济学的起点。</li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0002-保费是怎么算出来的.html"><span class="nav-label">上一课</span><span class="nav-title">保费是怎么算出来的</span></a>
+<a class="next" href="../11-金融科技/index.html"><span class="nav-label">下一分支：金融科技</span><span class="nav-title">金融科技</span></a>
+</nav>
+<footer class="lesson-footer"><span>保险与精算 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var exitEl = document.getElementById('exit');
+  var exitVal = document.getElementById('exit-val');
+  var mandEl = document.getElementById('mandate');
+  var runBtn = document.getElementById('run-btn');
+  var c1 = document.getElementById('chart1');
+  var c2 = document.getElementById('chart2');
+  var rPrem = document.getElementById('r-prem');
+  var rShare = document.getElementById('r-share');
+  var rLow = document.getElementById('r-low');
+  var tbody = document.getElementById('pool-tbody');
+  function fmt(n) { return Math.round(n).toLocaleString('zh-CN'); }
+  function simulate() {
+    var r = mandEl.checked ? 0 : parseFloat(exitEl.value) / 100;
+    var low = 800, high = 200;
+    var premium = (low * 1500 + high * 6000) / (low + high);
+    var rows = [];
+    for (var y = 0; y <= 10; y++) {
+      var pool = low + high;
+      var cost = (low * 1500 + high * 6000) / pool;
+      rows.push({ y: y, low: low, share: high / pool * 100, prem: premium });
+      low = low * (1 - r);
+      premium = cost;
+    }
+    return rows;
+  }
+  function fillTable(rows) {
+    var html = '';
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      var premCell;
+      if (i === rows.length - 1) {
+        var cls = r.prem > 2400 * 1.1 ? 'bad' : 'good';
+        premCell = '<td class="' + cls + '">' + fmt(r.prem) + ' 元</td>';
+      } else {
+        premCell = '<td>' + fmt(r.prem) + ' 元</td>';
+      }
+      html += '<tr><td>' + r.y + '</td><td>' + fmt(r.low) + '</td><td>' + r.share.toFixed(1) + '%</td>' + premCell + '</tr>';
+    }
+    tbody.innerHTML = html;
+  }
+  function paint(rows, t) {
+    var k = Math.min(Math.floor(t), 10);
+    var f = t - k;
+    function take(fn) {
+      var pts = rows.map(fn);
+      var arr = pts.slice(0, k + 1);
+      if (k < 10 && f > 0) {
+        arr.push([k + f, pts[k][1] + (pts[k + 1][1] - pts[k][1]) * f]);
+      }
+      return arr;
+    }
+    var prem = take(function (r) { return [r.y, r.prem]; });
+    var share = take(function (r) { return [r.y, r.share]; });
+    var maxPrem = 0, maxShare = 0, i;
+    for (i = 0; i <= 10; i++) {
+      if (rows[i].prem > maxPrem) { maxPrem = rows[i].prem; }
+      if (rows[i].share > maxShare) { maxShare = rows[i].share; }
+    }
+    var lastP = prem[prem.length - 1];
+    var lastS = share[share.length - 1];
+    c1.innerHTML = '';
+    var g1 = new FChart(c1, { height: 340, x: { min: 0, max: 10.8, label: '年' }, y: { min: 0, max: Math.ceil(maxPrem * 1.15 / 500) * 500, label: '人均保费（元）' } });
+    g1.hline(2400, { label: '首年 2400 元' });
+    g1.path(prem, { color: '#0d5c4f', width: 2.5 });
+    g1.text(lastP[0], lastP[1], fmt(lastP[1]) + ' 元', { dx: 8 });
+    g1.legend([{ color: '#0d5c4f', text: '人均保费（按上年池子定价）' }]);
+    c2.innerHTML = '';
+    var g2 = new FChart(c2, { height: 340, x: { min: 0, max: 10.8, label: '年' }, y: { min: 0, max: Math.max(40, Math.ceil(maxShare * 1.15 / 10) * 10), label: '高风险占比（%）' } });
+    g2.hline(20, { label: '初始 20%' });
+    g2.path(share, { color: '#a3701a', width: 2.5 });
+    g2.text(lastS[0], lastS[1], lastS[1].toFixed(1) + '%', { dx: 8 });
+    g2.legend([{ color: '#a3701a', text: '高风险占比（%）' }]);
+  }
+  function run(animate) {
+    var rows = simulate();
+    fillTable(rows);
+    rPrem.textContent = fmt(rows[10].prem) + ' 元';
+    rShare.textContent = rows[10].share.toFixed(1) + '%';
+    rLow.textContent = fmt(rows[10].low) + ' 人';
+    if (animate) {
+      FChart.tween(0, 10, 900, function (t) { paint(rows, t); });
+    } else {
+      paint(rows, 10);
+    }
+  }
+  exitEl.addEventListener('input', function () { exitVal.textContent = exitEl.value + '%'; });
+  exitEl.addEventListener('change', function () { run(false); });
+  mandEl.addEventListener('change', function () { run(true); });
+  runBtn.addEventListener('click', function () { run(true); });
+  run(true);
+})();
+</script>
+</body>
+</html>

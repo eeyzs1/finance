@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>行为金融学 · 第 1 课：损失厌恶与前景理论 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「行为金融学」第 1 课《损失厌恶与前景理论》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.exp-progress{color:#5d5749;font-size:14px;margin:0 0 6px}
+.exp-q{font-weight:700;margin:8px 0 4px}
+.exp-opts{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+.exp-opts button{font:inherit;padding:10px 16px;border:1px solid #0d5c4f;border-radius:8px;background:#fff;color:#0d5c4f;cursor:pointer}
+.exp-opts button:hover{background:#0d5c4f;color:#fff}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">行为金融学</a><span class="sep">/</span>第 1 课</div>
+<header class="lesson-header">
+<div class="kicker">行为金融学 · Lesson 1</div>
+<h1>损失厌恶与前景理论：亏 100 元为什么这么痛</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：入门</span><span>前置：建议先学 04 投资学</span></div>
+</header>
+<p class="lead">同样是 100 元：捡到时的高兴，和丢掉时的心疼，强度差得很远。1979 年，两位心理学家丹尼尔·卡尼曼与阿莫斯·特沃斯基用几道小学生都会算的选择题，掀翻了金融学"理性人"的假设，直接催生了行为金融学（卡尼曼因此获得 2002 年诺贝尔经济学奖）。这一课，你会亲手做他们当年的选择题、拖动滑块看见自己的"痛感倍数"，并提前看懂大多数散户"拿不住盈利、割不掉亏损"的心理机制。</p>
+
+<h2>一、1979 年：一场针对"理性人"的革命</h2>
+<p>传统金融学的宏伟大厦——从组合理论到期权定价——都站在一块基石上：<b>期望效用理论</b>。它假设人是理性的：按"最终财富的期望效用"做选择，概率乘以结果、加权求和，谁的期望值大选谁。这个模型很优雅，但有一个致命问题：真实的人不是这么做的。</p>
+<p>1979 年，卡尼曼（Daniel Kahneman）与特沃斯基（Amos Tversky）在经济学顶刊《Econometrica》发表论文《前景理论：风险决策分析》。他们用一系列课堂选择题证明：人对理性的偏离不是随机噪音，而是<b>系统性的、可预测的</b>——有方向、有规律、可复现。特沃斯基于 1996 年英年早逝，卡尼曼于 2002 年因这项研究获得诺贝尔经济学奖（诺奖不追授逝者）。</p>
+<div class="callout callout-key"><span class="callout-title">一句话版本</span><p>人不是围绕"我最后有多少钱"做决策，而是围绕"我相对某个基准是赚了还是亏了"做决策——而且对"亏"格外过敏。这就是<span class="term" data-def="卡尼曼与特沃斯基 1979 年提出的风险决策理论：人相对参照点评估得失，对损失更敏感，且对小概率加权失真">前景理论（prospect theory）</span>。</p></div>
+
+<h2>二、先做题：两道经典选择题</h2>
+<h3>收益版：确定拿 3000，还是赌一把拿 4000？</h3>
+<p>A：确定得到 3000 元。B：80% 的概率得到 4000 元，20% 的概率什么都得不到。</p>
+<p>先算期望值：B = 0.8 × 4000 = <b>3200 元</b>，比 A 高出 200 元。按"理性人"假设应该选 B，但在卡尼曼与特沃斯基的实验里，<b>约 80% 的被试选了确定的 3000 元</b>（原论文 Problem 2 数据，95 名被试）。人们系统性高估"百分之百确定"的分量，宁可放弃更高的期望值——这叫<span class="term" data-def="人们系统性高估百分之百确定的结果，为求确定而放弃期望值更高的不确定选项">确定性效应（certainty effect）</span>。</p>
+<h3>损失版：只改一个符号，答案全变了</h3>
+<p>C：确定损失 3000 元。D：80% 的概率损失 4000 元，20% 的概率什么都不损失。</p>
+<p>D 的期望值 = 0.8 × (−4000) = <b>−3200 元</b>，比 C 更差。按"理性"应选 C 少亏，可这一次<b>约 92% 的被试选了 D</b>（原论文 Problem 2′ 数据，95 名被试）：面对损失，人从求稳变成求赌，希望"搏一把不亏"。同一个人，符号一换、风险态度就 180 度翻转——期望效用理论解释不了，前景理论可以。</p>
+<p>下面把这四道题（含上面的两道原题与两道同模式改编题）组成一次小实验。<b>凭第一直觉按，别计算</b>——原实验也不让算。</p>
+
+<div class="widget">
+<div class="widget-title">互动实验 · 四道决策题：你的风险偏好会翻转吗</div>
+<div class="widget-body">
+<div id="exp-area"></div>
+</div>
+</div>
+
+<h2>三、前景理论三要素</h2>
+<h3>1. 参照点：你评估的不是财富，是落差</h3>
+<p>前景理论的第一公理：人衡量得与失，是相对<span class="term" data-def="衡量得与失的比较基准：通常是预期、现状或买入成本，而不是最终财富水平">参照点（reference point）</span>，而不是相对最终财富。例子：你年薪 20 万元，入职前的预期是 25 万元——按前景理论，你的主观感受是"亏了 5 万"，尽管客观上你赚了不少。参照点可以是预期、是买入成本、是邻居的收益，它一变，同一笔钱的感受就全变。这解释了为什么"明明赚钱还不开心"如此普遍。</p>
+<h3>2. 损失厌恶：痛比爽强烈得多</h3>
+<p>第二公理：<span class="term" data-def="同额损失带来的痛感约为同额收益快感的 2–2.5 倍，实证估计 λ≈2.25">损失厌恶（loss aversion）</span>。同样 100 元，丢掉的"痛"大约是捡到的"爽"的 2–2.5 倍。Tversky 与 Kahneman 在 1992 年的后续研究中估计损失厌恶系数 λ ≈ 2.25。它解释了一连串现象：为什么很多人不敢打开亏损的账户、为什么止损这么难、为什么"回本就卖"的执念这么强。</p>
+<h3>3. 概率权重：大脑不是计算器</h3>
+<p>第三公理：人对概率的"心理加权"不等于客观概率——<b>极小概率被明显高估</b>，接近确定的概率被低估。所以 5%、0.1% 这类小概率事件在感觉上远比实际更常发生。两条生意同时成立：彩票（小概率大奖，原论文 Problem 7 中 72% 的被试选了 0.1% 概率赢 5000 元，而不是确定拿 5 元）和保险（0.1% 概率损失 5000 元 vs 确定掏 5 元保费，92% 选后者）——同一种心理偏差，撑起了两个方向的市场。</p>
+
+<h2>四、S 形价值函数：把三要素画成一条线</h2>
+<div class="formula">v(x) = x<sup>0.88</sup>（x ≥ 0）　　v(x) = −λ·(−x)<sup>0.88</sup>（x &lt; 0），λ ≈ 2.25</div>
+<div class="formula-note">x 为相对参照点的得失（元）；指数 0.88 让收益段内凹、损失段外凸（Tversky &amp; Kahneman, 1992 的估计）；λ 为损失厌恶系数，决定损失段比收益段陡多少。</div>
+<p>这条曲线有三个特征，每一个都对应一种投资行为：</p>
+<p><b>① 收益段是凹的</b>：已赚 50 元时再多赚 50 元，快感增量变小——"见好就收"的数学根源。<b>② 损失段是凸的</b>：已亏 50 元时再多亏 50 元，痛感增量也变小——"反正都亏了，再等等"的数学根源。<b>③ 损失段更陡</b>：斜率约为收益段的 λ ≈ 2.25 倍——亏 100 元的痛，要赚约 225 元的爽才能抵消。</p>
+<div class="callout callout-tip"><span class="callout-title">看图三步法</span><p>第一步看<b>凹凸</b>：绿段弯向右（边际快感递减），红段弯向下（边际痛感递减）；第二步看<b>陡峭</b>：红段比绿段陡多少，就是你的 λ；第三步<b>拖动滑块</b>：把 λ 拖到 1，两段完全对称——那是"无痛感差异"的理性人世界。</p></div>
+
+<div class="widget">
+<div class="widget-title">交互画板 · S 形价值函数：拖动 λ，看见"痛感倍数"</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>损失厌恶系数 λ（1–3）<span class="val" id="lam-val">2.25</span><input type="range" id="lam" min="1" max="3" step="0.05" value="2.25"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill" id="lam-pill">λ = 2.25</span>
+<span class="pill" id="pain-pill">亏 100 的痛 ≈ 赚 225 的爽</span>
+<span class="pill">提示：把 λ 拖到 1，两段曲线完全对称</span>
+</div>
+</div>
+</div>
+
+<h2>五、金融含义：处置效应预告</h2>
+<p>把价值函数搬到股市上，答案一目了然。卖出盈利的股票 = 在凹的收益段"落袋为安"，心理上是兑现快感；卖出亏损的股票 = 把凸损失段上的"纸面浮亏"变成盖章确认的痛。于是大多数散户系统性地<b>拿不住盈利、割不掉亏损</b>——这就是<span class="term" data-def="投资者倾向于过早卖出盈利的持仓、过久持有亏损的持仓，由 Shefrin 与 Statman 于 1985 年命名">处置效应（disposition effect）</span>。Odean（1998）分析了某大型券商约 1 万个散户账户：投资者卖出盈利股票的倾向，约为卖出亏损股票的 1.5 倍。</p>
+<div class="callout callout-warn"><span class="callout-title">知道偏差 ≠ 免疫偏差</span><p>实验研究反复发现：仅仅"知道"偏差存在，只能小幅削弱它，无法消除。所以防偏差靠的不是意志力，而是<b>事先写好的规则</b>——比如"买入时同时写好止损价与再平衡日"。第 2 课《认知偏差图鉴》会给出完整的偏差清单与对应规则。</p></div>
+<p>带着问题进入下一课：既然每个人都有偏差，为什么亏损的总是你，而市场大多数时候还"基本正确"？答案在于：个体偏差会相互抵消，也会在某些条件下<b>聚合成同方向的洪流</b>——那就是第 3 课的泡沫故事。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>会算期望值，并能解释"期望值更高 ≠ 多数人会选"（0.8×4000=3200 仍输给确定拿 3000）</li>
+<li>能说清前景理论三要素：参照点、损失厌恶（λ≈2.25）、概率权重（高估小概率）</li>
+<li>会读 S 形价值函数：收益段凹→见好就收，损失段凸→死扛，损失段更陡→亏更痛</li>
+<li>理解它如何预告处置效应："拿不住盈利、割不掉亏损"，下一课展开解药</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[{"q":"「80% 概率得到 4000 元」这个选项的期望值是多少？","options":["2400元","3000元","3200元"],"answer":2,"explain":"期望值 = 概率 × 金额 = 0.8 × 4000 = 3200 元，比确定得到 3000 元还高 200 元；但实验中约 80% 的人仍选确定项——这就是确定性效应。"},{"q":"多数人放弃期望值 3200 元的赌局，选择确定得到 3000 元。对这种现象，最准确的解释是：","options":["人们高估确定的结果，为求稳放弃更高期望值","人们低估确定的结果，总是追求期望值最大化","人们高估亏损的痛苦，更敢于承担更大的风险"],"answer":0,"explain":"这就是确定性效应：百分之百确定的结果被系统性高估，于是人们宁可要确定到手的较小收益，也放弃期望值更高的不确定选项——期望效用理论无法解释这一点。"},{"q":"你年薪 20 万元，入职前的预期是 25 万元。按前景理论，你的主观感受更接近：","options":["赚了五万","亏了五万","不赚不亏"],"answer":1,"explain":"前景理论以参照点（你的预期 25 万元）衡量得失，而不是最终财富：20 − 25 = −5，所以明明是高薪，主观感受却是「亏了 5 万」。"},{"q":"前景理论中，损失厌恶系数 λ≈2.25 的含义是：","options":["赚100元的快感约等于亏225元的痛感","亏100元的痛感约等于赚225元的快感","亏100元的痛感约等于赚100元的快感"],"answer":1,"explain":"λ 是损失段与收益段的斜率之比：亏 100 元的主观痛感，约等于赚 225 元（100×2.25）带来的快感，所以人会对亏损过度敏感、迟迟不肯止损。"}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#prospect-theory">前景理论</a> · <a href="../reference/glossary.html#certainty-effect">确定性效应</a> · <a href="../reference/glossary.html#reference-point">参照点</a> · <a href="../reference/glossary.html#loss-aversion">损失厌恶</a> · <a href="../reference/glossary.html#disposition-effect">处置效应</a></li>
+
+<li><a href="https://www.nobelprize.org/prizes/economic-sciences/2002/kahneman/facts/">Nobel Prize 官方页面：Daniel Kahneman，2002 年诺贝尔经济学奖</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/前景理论">维基百科：前景理论（Prospect Theory）</a></li>
+<li><a href="https://www.investopedia.com/terms/l/lossaversion.asp">Investopedia：Loss Aversion（损失厌恶）</a></li>
+<li>原文：Kahneman, D. &amp; Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk. <i>Econometrica</i>, 47(2), 263–291.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">上一课</span><span class="nav-title">分支导论</span></a><a class="next" href="0002-认知偏差图鉴.html"><span class="nav-label">下一课</span><span class="nav-title">认知偏差图鉴</span></a></nav>
+<footer class="lesson-footer"><span>行为金融学 · 第 1 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+/* 交互一：S 形价值函数画板 */
+(function(){
+  var el=document.getElementById('chart1');
+  var lamEl=document.getElementById('lam');
+  var lamVal=document.getElementById('lam-val');
+  var lamPill=document.getElementById('lam-pill');
+  var painPill=document.getElementById('pain-pill');
+  function draw(){
+    var lam=parseFloat(lamEl.value);
+    lamVal.textContent=lam.toFixed(2);
+    lamPill.textContent='λ = '+lam.toFixed(2);
+    painPill.textContent='亏 100 的痛 ≈ 赚 '+Math.round(100*lam)+' 的爽';
+    var c=new FChart(el,{height:340,x:{min:-115,max:115,label:'相对参照点的得失（元）'},y:{min:-190,max:70,label:'主观价值 v(x)'}});
+    var gain=[],loss=[],i;
+    for(i=0;i<=100;i+=2.5){gain.push([i,Math.pow(i,0.88)]);}
+    for(i=0;i>=-100;i-=2.5){loss.push([i,-lam*Math.pow(-i,0.88)]);}
+    c.hline(0,{color:'#5d5749',label:''});
+    c.path(loss,{color:'#b3372f',width:2.5});
+    c.path(gain,{color:'#0d5c4f',width:2.5});
+    c.vline(0,{color:'#5d5749',label:'参照点'});
+    c.text(38,40,'收益段凹：见好就收',{dx:8});
+    c.text(-108,-38,'损失段凸且更陡：死扛 + 更痛',{dx:8});
+    c.legend([{color:'#0d5c4f',text:'收益段 v(x)=x^0.88'},{color:'#b3372f',text:'损失段 v(x)=−λ·(−x)^0.88'}]);
+  }
+  lamEl.addEventListener('input',draw);
+  window.addEventListener('resize',draw);
+  draw();
+})();
+
+/* 交互二：四道决策实验 */
+(function(){
+  var area=document.getElementById('exp-area');
+  var qs=[
+    {scene:'收益区 · 80% 赢面',opts:['A：确定得到 3000 元','B：80% 概率得到 4000 元'],ev:'A 期望 3000 元 ／ B 期望 3200 元',maj:'A（约 80%，原论文 Problem 2）',majIdx:0,phen:'确定性效应：为"稳"放弃更高期望值'},
+    {scene:'损失区 · 80% 输面',opts:['C：确定损失 3000 元','D：80% 概率损失 4000 元'],ev:'C 期望 −3000 元 ／ D 期望 −3200 元',maj:'D（约 92%，原论文 Problem 2′）',majIdx:1,phen:'反射效应：面对损失翻转为赌徒'},
+    {scene:'收益区 · 20% 赢面',opts:['A：确定得到 3000 元','B：20% 概率得到 8000 元'],ev:'A 期望 3000 元 ／ B 期望 1600 元',maj:'A（模式与原论文收益区一致）',majIdx:0,phen:'收益区风险规避：确定优先'},
+    {scene:'小概率 · 巨额奖金',opts:['A：确定得到 2200 元','B：5% 概率得到 50000 元'],ev:'A 期望 2200 元 ／ B 期望 2500 元',maj:'B（选赌；原论文 Problem 7 中 72% 选小概率赌局）',majIdx:1,phen:'高估小概率：彩票心理'}
+  ];
+  var ans=[];
+  function render(){
+    var i=ans.length;
+    if(i<qs.length){
+      var q=qs[i];
+      var h='<p class="exp-progress">第 '+(i+1)+' / '+qs.length+' 题 · 凭直觉选</p>';
+      h+='<p class="exp-q">'+q.scene+'</p>';
+      h+='<p>'+q.opts[0]+'，还是 '+q.opts[1]+'？</p>';
+      h+='<div class="exp-opts"><button data-k="0">'+q.opts[0]+'</button><button data-k="1">'+q.opts[1]+'</button></div>';
+      area.innerHTML=h;
+      var btns=area.querySelectorAll('button'),j;
+      for(j=0;j<btns.length;j++){
+        btns[j].addEventListener('click',function(){ans.push(parseInt(this.getAttribute('data-k'),10));render();});
+      }
+    }else{
+      showResult();
+    }
+  }
+  function showResult(){
+    var same=0,i,q,ok;
+    var h='<p class="exp-q">结果：你的选择 vs 卡尼曼实验中的多数人</p>';
+    h+='<table class="data"><thead><tr><th>#</th><th>情境</th><th>你的选择</th><th>期望值对比</th><th>多数人（实验）</th><th>现象</th></tr></thead><tbody>';
+    for(i=0;i<qs.length;i++){
+      q=qs[i];ok=(ans[i]===q.majIdx);
+      if(ok){same++;}
+      h+='<tr><td>'+(i+1)+'</td><td>'+q.scene+'</td><td>'+q.opts[ans[i]]+'</td><td>'+q.ev+'</td><td class="'+(ok?'good':'bad')+'">'+(ok?'一致':'相反')+'：'+q.maj+'</td><td>'+q.phen+'</td></tr>';
+    }
+    h+='</tbody></table>';
+    h+='<p>多数人模式：<b>1A → 2D → 3A → 4 赌</b>——收益区求稳、损失区求赌、小概率大额时又忍不住搏一把。你与多数人一致 '+same+' / 4 题。风险偏好不是性格，而是随"处在收益区还是损失区"系统性翻转，这正是前景理论的核心预言。</p>';
+    h+='<p>注：80% 与 92% 为 Kahneman &amp; Tversky（1979）原论文数据（Problem 2 与 2′，各 95 名被试）；第 3 题为同模式改编题；第 4 题的 72% 对应原论文 Problem 7（0.1% 概率赢 5000 元 vs 确定得 5 元）。</p>';
+    h+='<div class="exp-opts"><button id="exp-reset">重新做一遍</button></div>';
+    area.innerHTML=h;
+    document.getElementById('exp-reset').addEventListener('click',function(){ans=[];render();});
+  }
+  render();
+})();
+</script>
+</body>
+</html>

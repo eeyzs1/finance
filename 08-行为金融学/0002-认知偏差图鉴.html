@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>行为金融学 · 第 2 课：认知偏差图鉴 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「行为金融学」第 2 课《认知偏差图鉴》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">行为金融学</a><span class="sep">/</span>第 2 课</div>
+<header class="lesson-header"><div class="kicker">行为金融学 · Lesson 2</div><h1>认知偏差图鉴</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：入门</span><span>前置：第 1 课</span></div></header>
+<p class="lead">第 1 课讲到，人脑习惯用「快思考」处理复杂问题，于是付出系统性的偏误作为代价。这一课把投资者最常见的六种认知偏差编成一份「图鉴」：每一种都配一个小故事、一个金融场景和一句对策。目标不是消灭偏差——它们消灭不了——而是让你在下单前多问一句：「我现在是不是正在犯其中之一？」</p>
+
+<h2>一、开场实验：先亲眼看看「锚定」有多强</h2>
+<p>在认识六种偏差之前，先做一个小实验。它复刻自卡尼曼与特沃斯基 1974 年发表在《科学》（Science）杂志的经典研究：一个转出随机数字的幸运轮，和一道与轮盘毫无关系的常识题。</p>
+
+<div class="widget">
+  <div class="widget-title">锚定小实验：幸运轮与联合国</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <button id="spin-btn" type="button" style="padding:8px 18px;font-size:16px;background:#0d5c4f;color:#fff;border:none;border-radius:6px;cursor:pointer;">🎲 转动幸运轮</button>
+    </div>
+    <div id="anchor-num" style="display:none;text-align:center;font-size:64px;font-weight:700;color:#0d5c4f;line-height:1.2;margin:12px 0 4px;">10</div>
+    <p id="anchor-note" style="display:none;text-align:center;color:#5d5749;">轮盘停在了这个数字上。请记住它，然后回答下面的问题——它与正确答案毫无关系。</p>
+    <div id="step2" style="display:none;margin-top:10px;">
+      <p style="margin:6px 0;"><label for="guess-input">你认为：非洲国家在联合国会员国中占比约百分之几？（0–100）</label></p>
+      <p style="margin:6px 0;"><input type="number" id="guess-input" min="0" max="100" step="1" placeholder="请输入 0–100 的数字" style="padding:6px 10px;font-size:16px;width:220px;">
+      <button id="submit-btn" type="button" style="padding:8px 18px;font-size:16px;background:#a3701a;color:#fff;border:none;border-radius:6px;cursor:pointer;">提交估计</button></p>
+      <p id="err-msg" style="color:#b3372f;margin:4px 0;"></p>
+    </div>
+    <div id="result" style="display:none;margin-top:12px;">
+      <div class="readout">
+        <span class="pill" id="pill-anchor"></span>
+        <span class="pill" id="pill-guess"></span>
+      </div>
+      <p id="kt-result" style="margin:10px 0 6px;"></p>
+      <p id="interp" style="margin:6px 0;"></p>
+      <button id="reset-btn" type="button" style="padding:6px 16px;font-size:14px;background:#5d5749;color:#fff;border:none;border-radius:6px;cursor:pointer;">🔄 换个数字再来一次</button>
+    </div>
+  </div>
+</div>
+
+<p>无论轮子转出 10 还是 65，数字都是随机的、与题目无关的——可两组人的估计仍被它明显拖动了。这就是本课的第一种偏差：<span class="term" data-def="最初出现的数字或信息会拖动后续判断的现象">锚定效应（Anchoring）</span>。放到投资里，你的买入成本就是那个「幸运轮数字」：它不改变股票的价值，却牢牢锚住了你「回本才卖」的决定。</p>
+
+<h2>二、六大偏差速查表</h2>
+<table class="data">
+  <thead><tr><th>偏差</th><th>一句话表现</th><th>典型金融场景</th><th>对策</th></tr></thead>
+  <tbody>
+    <tr><td>锚定效应</td><td>最初的数字拖住判断</td><td>买入成本成为「回本」锚：「不回本不卖」</td><td>用与成本无关的规则做决策</td></tr>
+    <tr><td>可得性启发</td><td>好记的例子被当成常态</td><td>涨停新闻好记，高估炒股赚钱的比例</td><td>查长期统计，不信个案</td></tr>
+    <tr><td>过度自信</td><td>高估自己的判断力</td><td>频繁交易、重仓单一标的</td><td>限定交易频率，记录对错</td></tr>
+    <tr><td>确认偏差</td><td>只收集支持自己的证据</td><td>持仓后只看多方观点</td><td>强制写下反方理由</td></tr>
+    <tr><td>心理账户</td><td>给钱贴上不同标签</td><td>工资舍不得动、奖金随手花；对本金与浮盈风险偏好不同</td><td>合并看待全部资产</td></tr>
+    <tr><td>处置效应</td><td>卖盈持亏</td><td>浮亏不卖＝「不实现」亏损的自我欺骗</td><td>预设卖出条件，到点执行</td></tr>
+  </tbody>
+</table>
+
+<h2>三、逐个认识：六个小故事</h2>
+
+<h3>1. 锚定效应：市场不知道你的成本价</h3>
+<p>小林在 32 元买了一只热门股，随后跌到 21 元。朋友问打算怎么办，他说：「回到 32 元我一定卖，不回本绝不卖。」问题在于：32 这个数字对市场毫无意义，它只是小林自己的成本——他心里那个随机转出来的「轮盘数字」。股票值多少钱，取决于公司未来的现金流，而不是任何人的买入价。</p>
+<p><strong>对策：</strong>预设买卖条件——把「卖不卖」挂在基本面变化或估值分位这类与成本无关的指标上，写进投资日志，到点执行。</p>
+
+<h3>2. 可得性启发：晒单的都是幸存者</h3>
+<p><span class="term" data-def="用容易想起来的例子来估计概率的思维捷径">可得性启发（Availability Heuristic）</span>让我们用「容易想起来的例子」估计概率。老张的同事连着两天晒涨停截图，群里一片「财务自由」，老张心想：炒股赚钱的人真多啊。可他看不到的是：晒单的是幸存者，亏钱的人大多沉默。中文市场长期流传的「七亏二平一赚」——约七成亏损、两成打平、一成赚钱——描述的才是参与者的整体面貌。</p>
+<p><strong>对策：</strong>用长期统计对抗好记的故事。写投资日志时记录每一笔的盈亏与理由，年底算总账，让自己成为自己的「统计源」。</p>
+
+<h3>3. 过度自信：交易越多，赚得越少</h3>
+<p><span class="term" data-def="高估自己判断的准确性与信息质量的倾向">过度自信（Overconfidence）</span>的标志是：连续做对三笔之后，觉得自己「有盘感」。小周就是这样开通融资、天天追热点的。Barber 与 Odean 对 66,465 个券商个人账户（1991–1996 年）的研究发现：换手率最高的一组，年均净收益比换手率最低的一组低约 7 个百分点；后续研究还发现，男性比女性交易更频繁，净收益也更差（Barber &amp; Odean，2000/2001）。研究结论一句话：交易越频繁，净收益越差，男性尤甚。</p>
+<p><strong>对策：</strong>规则化交易频率——例如每季度只在再平衡时动手，其余时间不许看盘下单。</p>
+
+<h3>4. 确认偏差：持仓之后，眼里只剩利好</h3>
+<p><span class="term" data-def="只寻找和记住支持既有观点的证据的倾向">确认偏差（Confirmation Bias）</span>让人在形成观点后只收集支持自己的证据。小吴重仓某新能源股后，关注列表里清一色是看多的大 V，看到看空报告就划走，还安慰自己「这些人不懂行业」。半年后利空兑现，他才发现反方证据一直都在，只是自己从未认真读。</p>
+<p><strong>对策：</strong>写投资日志时强制增加一栏「反方最有力的理由」；每次想加仓前，先主动找一篇高质量的看空文章读完再决定。</p>
+
+<h3>5. 心理账户：同样是 1 万元，命运却不同</h3>
+<p><span class="term" data-def="在心里给不同来源的钱贴上标签、区别对待的倾向">心理账户（Mental Accounting）</span>是说，钱在心里被贴上了不同标签。同样 1 万元：工资挣来的，放在卡里舍不得动；年终奖发的，随手就买了新手机。投资里更常见——本金亏 5% 心疼得睡不着，「浮盈」回撤 20% 却毫不在意，于是浮盈被单独划出来「搏一把」。可对总资产而言，浮盈亏掉的和本金亏掉的，一块钱就是一块钱。</p>
+<p><strong>对策：</strong>把所有账户合并成一张资产负债表统一管理，只评估组合整体的风险与收益，不给任何一笔钱「特殊待遇」。</p>
+
+<h3>6. 处置效应：卖盈持亏的自我欺骗</h3>
+<p>小郑的两只股票，一只浮盈 15%，一只浮亏 20%。他卖掉赚钱的那只「落袋为安」，留着亏的那只「等它回来」——这就是处置效应：急于卖出盈利、死守亏损。它是第 1 课损失厌恶的直接产物：只要不卖，亏损就还没「实现」，心理上仿佛不存在——这是一种自我欺骗，账户市值却诚实地每天结算。</p>
+<p><strong>对策：</strong>预设买卖条件，并只用一个问题检验持仓：「如果今天空仓，我还愿意按这个价格买它吗？」答案是否，就与成本无关地卖掉。</p>
+
+<div class="callout callout-info"><span class="callout-title">偏差 ≠ 愚蠢</span><p>这些捷径在日常大多省力又有效，聪明人照犯不误——它们是「系统 1」的默认工作方式。认识偏差的目标不是把系统 1 关掉，而是在大额决策前刻意调用系统 2 核查一遍。三件通用武器：规则化、写投资日志、预设买卖条件。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>能说出六种常见认知偏差的名字、表现与对应金融场景</li>
+<li>亲手复刻锚定实验，理解「无关数字也会拖动判断」</li>
+<li>记住经验证据：对数万个账户的研究表明交易越频繁净收益越差</li>
+<li>掌握三条通用对策：规则化、写投资日志、预设买卖条件</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"小王以 50 元买入某股票，跌到 35 元后宣布「不回本绝不卖」。他最主要受到了哪种偏差的影响？","options":["确认偏差","锚定效应","心理账户","过度自信"],"answer":1,"explain":"买入成本成了「回本」的锚：锚定效应让人把成本价这个无关数字当成合理价格的参照，而市场本身并不知道他的成本。"},
+{"q":"反复强调「七亏二平一赚」的长期统计，最能有效纠正下面哪种想法？","options":["身边人赚钱故事听多了","自己分析能力高人一等","买入成本就是合理价格","浮盈与本金要区别对待"],"answer":0,"explain":"可得性启发让人用容易想起的例子估计概率：涨停截图随处可见，亏钱者大多沉默；长期整体统计纠正的正是这种以偏概全。"},
+{"q":"处置效应（卖盈持亏）最直接的心理根源是什么？","options":["过度自信","心理账户","确认偏差","损失厌恶"],"answer":3,"explain":"卖出浮亏仓位等于把亏损「实现」，这在第 1 课的价值函数里等价于确认损失——损失厌恶让人宁可继续持有、假装亏损不存在。"},
+{"q":"下面哪种做法最能系统地约束认知偏差？","options":["跟着群友一起满仓","每天频繁进出追涨","预设买卖条件下单","只看利好坚定持有"],"answer":2,"explain":"预设买卖条件、写投资日志、把决策规则化，都是把容易受情绪影响的临场判断，换成事前写好的规则。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#anchoring">锚定效应</a> · <a href="../reference/glossary.html#availability-heuristic">可得性启发</a> · <a href="../reference/glossary.html#overconfidence">过度自信</a> · <a href="../reference/glossary.html#confirmation-bias">确认偏差</a> · <a href="../reference/glossary.html#mental-accounting">心理账户</a></li>
+
+<li>维基百科：《思考，快与慢》条目（卡尼曼关于双系统与偏差的科普著作）：<a href="https://zh.wikipedia.org/wiki/思考，快与慢">zh.wikipedia.org/wiki/思考，快与慢</a></li>
+<li>Investopedia：Anchoring Bias（锚定偏差）：<a href="https://www.investopedia.com/terms/a/anchoring-bias.asp">investopedia.com/terms/a/anchoring-bias.asp</a></li>
+<li>Investopedia：Overconfidence Bias（过度自信偏差）：<a href="https://www.investopedia.com/terms/o/overconfidence-bias.asp">investopedia.com/terms/o/overconfidence-bias.asp</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0001-损失厌恶与前景理论.html"><span class="nav-label">上一课</span><span class="nav-title">损失厌恶与前景理论</span></a>
+<a class="next" href="0003-泡沫与市场异象.html"><span class="nav-label">下一课</span><span class="nav-title">泡沫与市场异象</span></a>
+</nav>
+<footer class="lesson-footer"><span>行为金融学 · 第 2 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var spinBtn=document.getElementById("spin-btn");
+  var anchorNum=document.getElementById("anchor-num");
+  var anchorNote=document.getElementById("anchor-note");
+  var step2=document.getElementById("step2");
+  var guessInput=document.getElementById("guess-input");
+  var submitBtn=document.getElementById("submit-btn");
+  var resultBox=document.getElementById("result");
+  var pillAnchor=document.getElementById("pill-anchor");
+  var pillGuess=document.getElementById("pill-guess");
+  var ktText=document.getElementById("kt-result");
+  var interpText=document.getElementById("interp");
+  var resetBtn=document.getElementById("reset-btn");
+  var errMsg=document.getElementById("err-msg");
+  var anchor=null;
+  function spin(){
+    anchor=Math.random()<0.5?10:65;
+    anchorNum.textContent=String(anchor);
+    anchorNum.style.display="block";
+    anchorNote.style.display="block";
+    step2.style.display="block";
+    resultBox.style.display="none";
+    guessInput.value="";
+    errMsg.textContent="";
+    guessInput.focus();
+  }
+  function submit(){
+    var g=parseFloat(guessInput.value);
+    if(isNaN(g)||g<0||g>100){errMsg.textContent="请输入 0–100 之间的数字。";return;}
+    errMsg.textContent="";
+    g=Math.round(g);
+    pillAnchor.textContent="轮盘数字："+anchor;
+    pillGuess.textContent="你的估计："+g+"%";
+    var other=(anchor===10)?65:10;
+    var mine=(anchor===10)?"约 25%":"约 45%";
+    var theirs=(anchor===10)?"约 45%":"约 25%";
+    ktText.innerHTML="卡尼曼与特沃斯基 1974 年原实验的结果：看到 "+anchor+" 的这组受试者，平均估计"+mine+"；看到 "+other+" 的另一组，平均估计"+theirs+"（以上为原实验报告的数据）。真实答案约在 30% 上下，与轮盘数字毫无关系。";
+    interpText.innerHTML="一个随机转出来的数字，与答案毫无关系，却把两组人的估计拉开了约 20 个百分点——这就是锚定。放到投资里：你的买入成本，就是那个「幸运轮数字」。它不改变股票的价值，却牢牢锚住了「不回本不卖」的决定。市场不知道、也不关心你的成本价。";
+    resultBox.style.display="block";
+  }
+  function reset(){
+    anchor=null;
+    anchorNum.style.display="none";
+    anchorNote.style.display="none";
+    step2.style.display="none";
+    resultBox.style.display="none";
+    guessInput.value="";
+    errMsg.textContent="";
+  }
+  spinBtn.addEventListener("click",spin);
+  submitBtn.addEventListener("click",submit);
+  resetBtn.addEventListener("click",reset);
+  guessInput.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();submit();}});
+})();
+</script>
+</body></html>

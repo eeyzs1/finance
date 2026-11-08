@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>货币银行学 · 第 2 课：部分准备金与货币创造 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「货币银行学」第 2 课《部分准备金与货币创造》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+</head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">货币银行学</a><span class="sep">/</span>第 2 课</div>
+<header class="lesson-header"><div class="kicker">货币银行学 · Lesson 2</div><h1>部分准备金与货币创造</h1><div class="meta"><span class="tag">预计 20 分钟</span><span>难度：入门</span><span>前置：第 1 课 货币的本质与度量</span></div></header>
+
+<p class="lead">把 1000 元存进银行，银行不会把它锁进保险柜。经过一轮又一轮「放贷——回流——再放贷」，整个银行体系最多能凭这 1000 元「变出」5000 元存款货币。本课逐步拆解这个既容易被误解、又极其重要的机制：部分准备金制度下的货币创造。</p>
+
+<h2>一、银行不是金库</h2>
+<p>许多人的想象：银行收下存款，放进保险库，等你来取——银行只是「资金的保管员」。现实是：现代商业银行更像一台「资金的中转与创造机器」。它收到存款后，只按<span class="term" data-def="法律要求银行按存款的一定比例留存、不能贷出的准备金占存款的比率">存款准备金率（required reserve ratio）</span>留一小部分作为准备金，其余的钱放贷出去；借款人把钱花掉后，这笔钱并不会消失，而是流回另一家（或同一家）银行，变成一笔新的存款；新存款又被留下准备金、放出贷款……如此循环往复。</p>
+<div class="callout callout-key"><span class="callout-title">核心机制</span><p>在部分准备金制度下，「贷款创造存款」：银行放出的贷款会变成新的存款，新存款又能支撑新的贷款。整个银行体系的存款总量，最终远大于最初流入的现金。</p></div>
+
+<h2>二、逐轮拆解：100 元如何滚成 500 元</h2>
+<p>设初始存款 100 元、准备金率 20%。第 1 轮：银行收下 100 元，留 20 元准备金，放贷 80 元；第 2 轮：80 元流回银行成为新存款，留 16 元，放贷 64 元；第 3 轮：64 元回流，留 12.8 元，放贷 51.2 元……由贷款回流形成的存款（相对最初的原始存款），叫做<span class="term" data-def="由银行放贷后回流形成的存款，与最初存入的原始存款相对">派生存款（derivative deposit）</span>。</p>
+<table class="data">
+<thead><tr><th>轮次</th><th>新增存款</th><th>留存准备金（20%）</th><th>本轮放贷</th><th>累计存款</th></tr></thead>
+<tbody>
+<tr><td>第 1 轮</td><td>100.00</td><td>20.00</td><td>80.00</td><td>100.00</td></tr>
+<tr><td>第 2 轮</td><td>80.00</td><td>16.00</td><td>64.00</td><td>180.00</td></tr>
+<tr><td>第 3 轮</td><td>64.00</td><td>12.80</td><td>51.20</td><td>244.00</td></tr>
+<tr><td>第 4 轮</td><td>51.20</td><td>10.24</td><td>40.96</td><td>295.20</td></tr>
+<tr><td>第 5 轮</td><td>40.96</td><td>8.19</td><td>32.77</td><td>336.16</td></tr>
+<tr><td>第 6 轮</td><td>32.77</td><td>6.55</td><td>26.21</td><td>368.93</td></tr>
+<tr><td>……</td><td>……</td><td>……</td><td>……</td><td>……</td></tr>
+<tr><td>第 n 轮</td><td>100×0.8ⁿ⁻¹</td><td>新增存款×20%</td><td>100×0.8ⁿ</td><td>100×(1−0.8ⁿ)÷0.2</td></tr>
+<tr><td>n→∞</td><td>趋近 0</td><td>——</td><td>趋近 0</td><td class="good">500.00</td></tr>
+</tbody>
+</table>
+<p>累计存款是一个公比为 0.8 的等比数列之和：</p>
+<div class="formula">累计存款 = 100 + 100×0.8 + 100×0.8² + 100×0.8³ + …<br>= 100 × (1 + 0.8 + 0.8² + …) = 100 × 1/(1−0.8) = 100 ÷ 0.2 = <strong>500 元</strong></div>
+<div class="formula-note">无穷等比数列求和公式 S = a₁÷(1−q)，公比 q = 0.8。验算（有限项公式 Sₙ = a₁×(1−qⁿ)÷(1−q)）：S₅ = 100×(1−0.8⁵)÷0.2 = 500×(1−0.32768) = 336.16，与上表第 5 轮累计完全一致；S₁₀ = 446.31，S₂₀ = 494.24，一路逼近 500。</div>
+
+<h2>三、货币乘数：理论上能放大多少倍</h2>
+<p>每 1 元初始存款最终「放大」的倍数，叫做<span class="term" data-def="每 1 元基础货币最终派生出的存款货币倍数，理论上限为 1÷准备金率">货币乘数（money multiplier）</span>。循环起点的现金与银行准备金合称<span class="term" data-def="央行发行的现钞加上银行存放在央行的准备金，是货币创造的原始弹药">基础货币（monetary base）</span>，它是整个派生过程的「原始弹药」。</p>
+<div class="formula">货币乘数 m = 1 ÷ 准备金率 rr　　存款扩张上限 = 初始存款 × m</div>
+<div class="formula-note">注意：这是<strong>理论上限</strong>。它假设贷款全部回流银行体系、银行不持有超额准备金、且每一轮都有足够的贷款需求——现实中三者很少同时成立（见下节）。</div>
+<p>代入验算：准备金率 20% 时 m = 1÷0.2 = 5，故 100 元 → 500 元；准备金率 10% 时 m = 10，100 元 → 1000 元；准备金率升到 50%，m 就只有 2。准备金率越高，「漏出」循环的钱越多，放大倍数越小——这正是央行调节货币供应的杠杆之一（下一课展开）。</p>
+
+<div class="widget">
+<div class="widget-title">货币创造模拟器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label for="mc-dep">初始存款（元）<span class="val" id="mc-dep-val">1000</span></label><input type="range" id="mc-dep" min="100" max="5000" step="100" value="1000"></div>
+<div class="slider-row"><label for="mc-rr">准备金率<span class="val" id="mc-rr-val">20%</span></label><input type="range" id="mc-rr" min="5" max="50" step="1" value="20"></div>
+<button type="button" class="fbtn" id="mc-run">开始逐轮放贷</button>
+</div>
+<div id="chart1" class="chart"></div>
+<div class="readout">
+<span class="pill">累计存款 <b id="mc-out-dep">—</b></span>
+<span class="pill">累计贷款 <b id="mc-out-loan">—</b></span>
+<span class="pill">实际乘数（累计÷初始） <b id="mc-out-mm">—</b></span>
+<span class="pill">理论乘数 1/rr <b id="mc-out-tm">—</b></span>
+</div>
+</div>
+</div>
+<p>用默认参数验算：初始存款 1000 元、准备金率 20%，15 轮后累计存款 = 1000×(1−0.8¹⁵)÷0.2 ≈ 4824.08 元，已达到理论上限 1000÷0.2 = 5000 元的 96.5%；累计贷款 = 4824.08×0.8 ≈ 3859.26 元。轮数趋于无穷时，累计存款恰好等于 5000 元——柱子一轮比一轮矮，金色累计曲线则无限逼近灰色虚线。</p>
+
+<h2>四、现实修正：实际乘数为何小得多</h2>
+<div class="callout callout-info"><span class="callout-title">三个「漏出口」</span><p>① 现金漏损：人们会把一部分钱以现金持有，不再回流银行；② 超额准备金：银行为安全起见，持有高于法定要求的准备金；③ 贷款需求不足：经济低迷时银行想贷、没人愿借，循环半途而废。三者都会让实际的货币创造大打折扣。</p></div>
+<p>把现金漏损率与超额准备金率合并记为 c，实际乘数约为 1÷(rr+c)。举例：法定准备金率 10%，若漏损与超额准备金合计 15%，则实际乘数 ≈ 1÷(0.10+0.15) = 4，远小于理论的 10。这也是为什么观察现实中的货币供应量（M2）时，不能直接拿 1/rr 套算。</p>
+
+<h2>五、关键澄清：银行不能「凭空印钱给自己花」</h2>
+<div class="callout callout-warn"><span class="callout-title">最常见的误解</span><p>「银行创造货币」≠「银行印钱给自己花」。银行每放出 1 元贷款，同时在负债端记下 1 元存款——资产与负债同时增加，银行自己的净资产并没有凭空多出一分钱。银行创造的是「存款货币」（你可以转账支付的账面上的钱），它的利润只能来自存贷利差，并且始终受准备金、流动性与监管的约束。真正能「凭空」创造基础货币的只有中央银行——这是下一课的主角。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>理解「贷款创造存款」的多轮循环机制</li>
+<li>会用等比数列推导存款扩张上限（100 元 → 500 元）</li>
+<li>记住货币乘数 = 1÷准备金率，且只是理论上限</li>
+<li>能说出实际乘数偏低的三个原因：现金漏损、超额准备金、贷款需求不足</li>
+<li>澄清「银行凭空印钱给自己花」的误解</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"法定准备金率为 10% 时，理论货币乘数是多少？","options":["20 倍","10 倍","50 倍"],"answer":1,"explain":"货币乘数 = 1÷准备金率 = 1÷0.1 = 10。注意别把倒数算成乘积（0.1×10 的口误会得出 1），也别与 20% 情形下的 5 倍混淆。"},
+{"q":"初始存款 100 元、准备金率 20%，第 3 轮新增的存款是多少？","options":["80.00元","51.20元","64.00元"],"answer":2,"explain":"每轮新增存款 = 100×0.8^(轮数−1)：第 1 轮 100，第 2 轮 80，第 3 轮 64，第 4 轮才是 51.2。"},
+{"q":"说「银行能创造货币」，最准确的理解是？","options":["放贷同时新增存款负债与存款货币","银行可以私自印发现钞给自己乱花","银行把储户的存款利息全部私吞了"],"answer":0,"explain":"银行放贷时资产（贷款）与负债（存款）同时增加，创造的是存款货币；它不能印现钞给自己花，利润来自存贷利差。"},
+{"q":"现实货币乘数通常远小于理论上限，以下哪项【不是】原因？","options":["各银行持有超额准备金","银行必须遵守准备金率","公众提现留存部分现金"],"answer":1,"explain":"遵守法定准备金率正是货币乘数形成的机制；现金漏损与超额准备金（以及贷款需求不足）才会让实际值低于 1/rr。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#reserve-ratio">存款准备金率</a> · <a href="../reference/glossary.html#derivative-deposit">派生存款</a> · <a href="../reference/glossary.html#money-multiplier">货币乘数</a> · <a href="../reference/glossary.html#monetary-base">基础货币</a></li>
+
+<li><a href="https://www.investopedia.com/terms/m/multiplier-effect.asp">Investopedia · Multiplier Effect / Money Multiplier</a>——英文定义与实例讲解</li>
+<li><a href="https://zh.wikipedia.org/wiki/货币乘数">维基百科 · 货币乘数</a>——中文词条，含公式推导</li>
+<li><a href="https://en.wikipedia.org/wiki/The_Economics_of_Money,_Banking,_and_Financial_Markets">米什金《货币金融学》原著条目（Wikipedia）</a>——货币银行学经典教材</li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0001-货币的本质与度量.html"><span class="nav-label">上一课</span><span class="nav-title">货币的本质与度量</span></a>
+<a class="next" href="0003-中央银行与货币政策.html"><span class="nav-label">下一课</span><span class="nav-title">中央银行与货币政策</span></a>
+</nav>
+<footer class="lesson-footer"><span>货币银行学 · 第 2 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+/* 本课交互：货币创造模拟器 */
+(function () {
+  var elD = document.getElementById('mc-dep'), elR = document.getElementById('mc-rr');
+  var vD = document.getElementById('mc-dep-val'), vR = document.getElementById('mc-rr-val');
+  var box = document.getElementById('chart1');
+  var oDep = document.getElementById('mc-out-dep'), oLoan = document.getElementById('mc-out-loan');
+  var oMm = document.getElementById('mc-out-mm'), oTm = document.getElementById('mc-out-tm');
+  var runBtn = document.getElementById('mc-run');
+  var ROUNDS = 15, c = null, token = 0;
+
+  function fmt(n) { return Math.round(n).toLocaleString('zh-CN'); }
+  function params() { return { D: parseFloat(elD.value), rr: parseFloat(elR.value) / 100 }; }
+  function series(p) {
+    var dep = [], cum = [], loan = [], s = 0, L = 0;
+    for (var k = 0; k < ROUNDS; k++) {
+      var d = p.D * Math.pow(1 - p.rr, k);
+      s += d; L += d * (1 - p.rr);
+      dep.push(d); cum.push(s); loan.push(L);
+    }
+    return { D: p.D, rr: p.rr, dep: dep, cum: cum, loan: loan, total: p.D / p.rr };
+  }
+  function build(st) {
+    // 复用同一个 FChart 实例：滑块高频触发时只重建坐标轴，不重建整个 SVG
+    var ymax = st.total * 1.08;
+    if (c) { c.setScale(0.5, 15.5, 0, ymax); return; }
+    c = new FChart(box, {
+      height: 340,
+      x: { min: 0.5, max: 15.5, label: '轮次（1–15）', ticks: [1, 3, 5, 7, 9, 11, 13, 15] },
+      y: { min: 0, max: ymax, label: '金额（元）' }
+    });
+  }
+  function draw(st, t) {
+    c.clear();
+    var full = Math.floor(t), f = t - full, k;
+    var bars = [];
+    for (k = 0; k < full && k < ROUNDS; k++) {
+      bars.push({ x0: k + 0.62, x1: k + 1.38, y: st.dep[k], color: '#0d5c4f' });
+    }
+    if (full < ROUNDS && f > 0.001) {
+      bars.push({ x0: full + 0.62, x1: full + 1.38, y: st.dep[full] * f, color: '#0d5c4f', opacity: 0.45 });
+    }
+    c.bars(bars, { y0: 0 });
+    var cd = 0, cl = 0, pts = [];
+    for (k = 0; k < full && k < ROUNDS; k++) { cd = st.cum[k]; cl = st.loan[k]; pts.push([k + 1, cd]); }
+    if (full < ROUNDS && f > 0.001) {
+      cd += st.dep[full] * f;
+      cl += st.dep[full] * (1 - st.rr) * f;
+      pts.push([t, cd]);
+    }
+    if (pts.length > 1) c.path(pts, { color: '#a3701a', width: 2.5 });
+    c.hline(st.total, { color: '#5d5749' });
+    c.text(1, st.total, '理论上限 ' + fmt(st.total) + ' 元（D÷rr）', { dx: 6, dy: -8, color: '#5d5749' });
+    c.legend([{ color: '#0d5c4f', text: '每轮新增存款' }, { color: '#a3701a', text: '累计存款' }]);
+    oDep.textContent = fmt(cd) + ' 元';
+    oLoan.textContent = fmt(cl) + ' 元';
+    oMm.textContent = (cd / st.D).toFixed(2);
+    oTm.textContent = (1 / st.rr).toFixed(2);
+  }
+  function renderFinal() {
+    token++;
+    var st = series(params());
+    build(st);
+    draw(st, ROUNDS);
+  }
+  function animate() {
+    var my = ++token;
+    var st = series(params());
+    build(st);
+    draw(st, 0.3);
+    FChart.tween(0.3, ROUNDS, ROUNDS * 240, function (v) {
+      if (my === token) draw(st, v);
+    }, function () {
+      if (my === token) draw(st, ROUNDS);
+    });
+  }
+  function onSlide() {
+    vD.textContent = fmt(parseFloat(elD.value));
+    vR.textContent = elR.value + '%';
+    renderFinal();
+  }
+  elD.addEventListener('input', onSlide);
+  elR.addEventListener('input', onSlide);
+  runBtn.addEventListener('click', animate);
+  onSlide();
+})();
+</script>
+</body></html>

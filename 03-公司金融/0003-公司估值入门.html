@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>公司金融 · 第 3 课：公司估值入门 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「公司金融」第 3 课《公司估值入门》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">公司金融</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header"><div class="kicker">公司金融 · Lesson 3</div><h1>公司估值入门</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶入门</span><span>前置：第 2 课 资本结构</span></div></header>
+<p class="lead">一家公司到底值多少钱？<span class="term" data-def="把公司未来的回报与风险折算成今天的价格">估值（valuation）</span>不是猜明天的股价，而是把"未来能挣多少"和"要担多大风险"这两件事，折算成今天愿意付的一个数。本课给你两把尺子：和别人比的<strong>相对估值</strong>，和自己算的<strong>绝对估值</strong>——并让你亲眼看到"假设动一点，估值动一片"。</p>
+
+<h2>一、相对估值：P/E——"几年回本"的直觉</h2>
+<p>最常用的相对估值指标是<span class="term" data-def="股价除以每股收益，衡量按当前盈利几年回本">市盈率（P/E）</span>：<strong>P/E = 股价 ÷ 每股收益（EPS）</strong>。直觉很好懂——按现在的盈利水平，几年"回本"？20 倍 P/E 大约就是"20 年回本"（不考虑增长的话）。</p>
+<p><strong>算例</strong>：某公司 EPS 为 2 元，行业合理 P/E 为 20 倍，则合理股价约 20 × 2 = <strong>40 元</strong>。验算：40 ÷ 2 = 20 倍，成立。反过来，若现价 60 元，P/E = 30 倍，明显贵过行业，除非你有理由相信它比同行增长更快。</p>
+<div class="callout callout-warn"><span class="callout-title">P/E 三大失真情形</span><p>①<strong>亏损公司没有 P/E</strong>——分母是负数，指标直接失效；②<strong>周期股顶部的低 P/E 是"假便宜"</strong>——景气顶点盈利异常高，把分母撑大，P/E 显得很低，等盈利回落，"便宜"原形毕露；③<strong>高增长公司理应高 P/E</strong>——增长会大幅缩短真实回本年限，拿 20 倍去套一家高速成长公司，往往会错杀。</p></div>
+<h3>市净率（P/B）：花几块钱买 1 块钱账面资产</h3>
+<p><span class="term" data-def="股价除以每股净资产，衡量为账面 1 元净资产付出的价格">市净率（P/B）</span> = 股价 ÷ 每股净资产。适合银行、钢铁、电力等重资产行业——资产就是生意的本体。但轻资产公司（品牌、软件、专利）的盈利能力远超账面净资产，P/B 常年偏高，用它比较反而失真。</p>
+<h3>EV/EBITDA：把资本结构和折旧政策抹平</h3>
+<p><span class="term" data-def="企业价值除以息税折旧摊销前利润，跨公司比较更公平的估值尺">EV/EBITDA</span> = 企业价值（市值 + 净负债）÷ 息税折旧摊销前利润。分子把债也算进来、分母把利息税金折旧都剔出去，尽量抹平资本结构与会计政策的差异，跨公司、跨国比较时比 P/E 更公平，是并购与投行的宠儿。</p>
+
+<div class="widget">
+<div class="widget-title">交互实验室 · P/E 估值器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>每股收益 EPS <span class="val" id="eps-val">2.0 元</span><input type="range" id="eps" min="0.5" max="10" step="0.1" value="2"></label></div>
+<div class="slider-row"><label>行业基准 P/E <span class="val" id="pe-val">20 倍</span><input type="range" id="pe" min="8" max="60" step="1" value="20"></label></div>
+<div class="slider-row"><label>个股溢价 <span class="val" id="prem-val">+0%</span><input type="range" id="prem" min="-30" max="50" step="1" value="0"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pe-lo"></span><span class="pill" id="pe-mid"></span><span class="pill" id="pe-hi"></span></div>
+<p>价值 = EPS × P/E，是一条过原点的直线；金色竖线是行业基准，红点是"基准 ×（1+溢价）"下的当前定价。三档区间：悲观 = 基准 × 0.75，中性 = 基准，乐观 = 基准 ×（1 + 溢价）。拖动滑块感受 EPS 与 P/E 谁的影响更直观。</p>
+</div>
+</div>
+
+<h2>二、绝对估值：DCF 与戈登增长模型</h2>
+<p>相对估值是"和别人比"，绝对估值是"和自己算"：<span class="term" data-def="把未来自由现金流逐期折现加总，求得公司今天的价值">现金流折现（DCF）</span>认为，公司价值 = 未来所有自由现金流折到今天的总和——正是第 1 课 NPV 思想套在整家公司身上。对分红稳定增长的公司，无穷期折现可以浓缩成一个优雅的公式——<span class="term" data-def="稳定增长股利的无穷折现公式 V=D1/(r−g)">戈登增长模型（Gordon growth model）</span>：</p>
+<div class="formula">V = D₁ ÷（r − g）<div class="formula-note">D₁ = 下一年股利；r = 折现率（股东要求的回报，常以第 2 课的 WACC 为基准）；g = 股利永续增长率；公式要求 r 恒大于 g。</div></div>
+<p><strong>算例</strong>：D₁ = 5 元、r = 10%、g = 4%：V = 5 ÷（0.10 − 0.04）= 5 ÷ 0.06 ≈ <strong>83.3 元</strong>。</p>
+<p><strong>r 与 g 的拔河才是主角</strong>：g 从 4% 提到 5%，分母从 0.06 缩到 0.05，V 从 83.3 跳到 5 ÷ 0.05 = <strong>100 元</strong>——假设只动了 1 个百分点，估值涨了 20%（验算：100 ÷ 83.3 = 1.2）。</p>
+<div class="callout callout-key"><span class="callout-title">假设动一点，估值动一片</span><p>DCF 的数学永远正确，问题永远在假设：g 和 r 都是估计值，分母 r − g 又那么小，估值对它们极其敏感。看到"目标价 100 元"时，先问：它喂了什么假设？</p></div>
+
+<div class="widget">
+<div class="widget-title">交互实验室 · 戈登敏感线</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>折现率 r <span class="val" id="r-val">10.0%</span><input type="range" id="r" min="8" max="12" step="0.1" value="10"></label></div>
+<div class="slider-row"><label>永续增长率 g <span class="val" id="g-val">4.0%</span><input type="range" id="g" min="2" max="6" step="0.1" value="4"></label></div>
+</div>
+<div class="chart" id="chart2"></div>
+<div class="readout"><span class="pill" id="g-now"></span><span class="pill" id="g-next"></span></div>
+<p>D₁ 固定为 5 元，曲线是 V = 5 ÷（r − g）：绿点为当前 g 下的 V，金点为"g 提高 1 个百分点"后的 V。注意曲线越往右越陡——g 越接近 r，同样 1 个百分点的假设变化掀起的估值波澜越大（代码强制 g ≤ r − 1%）。</p>
+</div>
+</div>
+
+<h2>三、为什么"故事"重要</h2>
+<p>你可能已经发现：g 和 r 都不是从行情软件里"查"出来的，而是从公司的<strong>故事</strong>里推出来的——产品渗透率、提价能力、竞争壁垒决定 g；利率环境、业务风险、股东耐心决定 r。故事一变，假设就变，估值就天翻地覆。这就是为什么同一家公司在牛市与熊市的"合理价"能差一倍：变的不只是价格，更是叙事。</p>
+<div class="callout callout-tip"><span class="callout-title">健康的工作流</span><p>用模型整理逻辑，用故事检验假设，用市场价格检验两者。当三者打架时，不是灾难，而是研究的起点。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>P/E 的"几年回本"直觉，算例 20 × 2 = 40 元，以及三大失真情形</li>
+<li>P/B 适配重资产行业；EV/EBITDA 抹平资本结构与折旧差异</li>
+<li>DCF 思想与戈登模型 V = D₁ ÷（r − g），5 ÷ 0.06 ≈ 83.3 元的验算</li>
+<li>敏感性直觉：g 动 1 个百分点、估值涨 20%；估值的科学在公式，艺术在假设</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[{"q":"某公司股价 48 元，每股收益（EPS）3 元，市盈率是多少？","options":["12 倍","16 倍","20 倍","24 倍"],"answer":1,"explain":"P/E = 股价 ÷ EPS = 48 ÷ 3 = 16 倍，相当于按当前盈利 16 年“回本”。"},{"q":"下列哪种情形的低市盈率最可能是“假便宜”？","options":["稳定经营的公用事业","高速成长的科技新贵","长期亏损的初创企业","周期股处于盈利顶点"],"answer":3,"explain":"周期股顶部盈利异常高，把 P/E 的分母撑得很大，显得便宜；一旦盈利回落，P/E 反而飙升——正是“周期股顶部低 P/E 假便宜”。长期亏损的公司则是根本没有可用的 P/E。"},{"q":"戈登模型：D₁=4 元，r=10%，g=8%，每股价值是多少？","options":["100 元","150 元","200 元","250 元"],"answer":2,"explain":"V = D₁ ÷（r−g）= 4 ÷ 0.02 = 200 元。r−g 只有 2 个百分点，分母极小，估值对假设异常敏感。"},{"q":"DCF 估值中，永续增长率 g 上调而 r 不变，估值通常会：","options":["大幅上升","小幅上升","保持不变","必然下降"],"answer":0,"explain":"g 位于分母 r−g 之中：g 变大让分母急剧缩小，估值被显著放大——正如 5 ÷ 0.06 ≈ 83.3 变为 5 ÷ 0.05 = 100，g 只动 1 个百分点，估值涨 20%。这就是“假设动一点，估值动一片”。"}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#valuation">估值</a> · <a href="../reference/glossary.html#pe">市盈率</a> · <a href="../reference/glossary.html#p-b">市净率</a> · <a href="../reference/glossary.html#ev-ebitda">EV/EBITDA</a> · <a href="../reference/glossary.html#dcf">现金流折现</a> · <a href="../reference/glossary.html#gordon-growth-model">戈登增长模型</a></li>
+
+<li><a href="https://www.investopedia.com/terms/p/price-earningsratio.asp">Price-to-Earnings Ratio (P/E) — Investopedia</a>：P/E 的用法与陷阱</li>
+<li><a href="https://www.investopedia.com/terms/d/dcf.asp">Discounted Cash Flow (DCF) — Investopedia</a>：DCF 估值全流程</li>
+<li><a href="https://en.wikipedia.org/wiki/Dividend_discount_model">Dividend discount model — Wikipedia</a>：戈登增长模型的推导脉络</li>
+</ul></div>
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0002-资本结构与杠杆.html"><span class="nav-label">上一课</span><span class="nav-title">资本结构与杠杆</span></a>
+<a href="../08-行为金融学/index.html" class="next"><span class="nav-label">下一分支：行为金融学</span><span class="nav-title">行为金融学 · 分支首页</span></a>
+</nav>
+<footer class="lesson-footer"><span>公司金融 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var epsEl = document.getElementById("eps");
+  var peEl = document.getElementById("pe");
+  var premEl = document.getElementById("prem");
+  var epsVal = document.getElementById("eps-val");
+  var peVal = document.getElementById("pe-val");
+  var premVal = document.getElementById("prem-val");
+  var lo = document.getElementById("pe-lo");
+  var mid = document.getElementById("pe-mid");
+  var hi = document.getElementById("pe-hi");
+  var c1 = new FChart(document.getElementById("chart1"), {
+    height: 340,
+    x: { min: 8, max: 60, label: "市盈率 P/E（倍）" },
+    y: { min: 0, max: 660, label: "每股价值（元）" }
+  });
+  function drawPE() {
+    var eps = parseFloat(epsEl.value);
+    var pe = parseFloat(peEl.value);
+    var prem = parseFloat(premEl.value) / 100;
+    epsVal.textContent = eps.toFixed(1) + " 元";
+    peVal.textContent = pe + " 倍";
+    premVal.textContent = (prem >= 0 ? "+" : "") + Math.round(prem * 100) + "%";
+    c1.clear();
+    c1.path(function (x) { return eps * x; }, { color: "#0d5c4f", width: 2.5 });
+    c1.vline(pe, { color: "#a3701a", label: "行业基准 " + pe + "×" });
+    var px = pe * (1 + prem);
+    var py = eps * px;
+    c1.scatter([[Math.min(px, 59.5), Math.min(py, 640), "#b3372f", "当前定价 " + py.toFixed(1) + " 元"]], { r: 6 });
+    lo.textContent = "悲观 " + (pe * 0.75 * eps).toFixed(1) + " 元";
+    mid.textContent = "中性 " + (pe * eps).toFixed(1) + " 元";
+    hi.textContent = "乐观 " + py.toFixed(1) + " 元";
+  }
+  epsEl.addEventListener("input", drawPE);
+  peEl.addEventListener("input", drawPE);
+  premEl.addEventListener("input", drawPE);
+  drawPE();
+
+  var D1 = 5;
+  var rEl = document.getElementById("r");
+  var gEl = document.getElementById("g");
+  var rVal = document.getElementById("r-val");
+  var gVal = document.getElementById("g-val");
+  var pNow = document.getElementById("g-now");
+  var pNext = document.getElementById("g-next");
+  var c2 = new FChart(document.getElementById("chart2"), {
+    height: 340,
+    x: { min: 2, max: 6, label: "永续增长率 g（%）" },
+    y: { min: 0, max: 300, label: "每股价值（元）" }
+  });
+  function drawG() {
+    var r = parseFloat(rEl.value);
+    var g = parseFloat(gEl.value);
+    if (g > r - 1) { g = r - 1; gEl.value = g; }
+    rVal.textContent = r.toFixed(1) + "%";
+    gVal.textContent = g.toFixed(1) + "%";
+    var V = function (x) { return D1 / ((r - x) / 100); };
+    c2.clear();
+    c2.path(V, { color: "#0d5c4f", width: 2.5 });
+    var v0 = V(g);
+    var g2 = Math.min(g + 1, 6);
+    var v1 = V(g2);
+    var pct = ((v1 / v0 - 1) * 100).toFixed(0);
+    c2.scatter([
+      [g, v0, "#0d5c4f", "当前 V " + v0.toFixed(1) + " 元"],
+      [g2, v1, "#a3701a", "g+1% → " + v1.toFixed(1) + " 元"]
+    ], { r: 5 });
+    pNow.textContent = "当前 V ≈ " + v0.toFixed(1) + " 元";
+    pNext.textContent = "g+1% → " + v1.toFixed(1) + " 元（" + (pct >= 0 ? "+" : "") + pct + "%）";
+  }
+  rEl.addEventListener("input", drawG);
+  gEl.addEventListener("input", drawG);
+  drawG();
+})();
+</script>
+</body></html>

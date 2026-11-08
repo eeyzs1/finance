@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>投资学 · 第 1 课：收益与风险的度量 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「投资学」第 1 课《收益与风险的度量》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">投资学</a><span class="sep">/</span>第 1 课</div>
+<header class="lesson-header"><div class="kicker">投资学 · Lesson 1</div><h1>收益与风险的度量：一只基金该看哪几个数</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶入门</span><span>前置：建议先学 02 货币银行学</span></div></header>
+<p class="lead">打开任何一只基金的介绍页，最抢眼的永远是两组数字：过去每年平均赚多少、收益上蹿下跳有多厉害。本课把这两组数字一次讲透：一笔投资的收益怎么定义与验算、"可能的未来"如何加权成期望、跳动的幅度如何变成一个可比较的风险指标，以及为什么"平均每年赚 8%"常常高估你的真实所得。每个关键数字都会当场验算。</p>
+
+<h2>一、你到底赚了多少：一笔投资的记账方式</h2>
+<p>所有讨论都从同一个概念出发——<span class="term" data-def="投入每 1 元本金，在一段持有期内赚回的比例">收益率（rate of return）</span>。它把"我赚了多少钱"换算成"每 1 元本金赚了多少"，于是 1 万元的基金和 300 元的股票才能放到同一张桌子上比较。最基本的一种叫持有期收益率：</p>
+<div class="formula">r =（期末价 P₁ − 期初价 P₀ + 期间分红 D）÷ 期初价 P₀<div class="formula-note">分子是这段持有期里你实际到手的总回报（价差 + 分红），分母是投入的本金。结果乘以 100% 就是百分比。</div></div>
+<p>算例：年初以 10 元买入一只股票，持有期间收到现金分红 0.5 元，年末以 11 元卖出：</p>
+<div class="formula">r =（11 − 10 + 0.5）÷ 10 = 1.5 ÷ 10 = 15%<div class="formula-note">验算：价差赚 11 − 10 = 1 元，分红再赚 0.5 元，合计 1.5 元；除以本金 10 元，得 15%。</div></div>
+<p>两个容易踩的坑：其一，分红必须计入，只看价差会低估真实回报；其二，15% 是"这一段持有期"的收益——持有一个月的 15% 和持有一年的 15% 完全不是一回事，跨资产比较前要先统一换算成同样的期限口径（比如年化）。</p>
+
+<h2>二、把"可能的未来"加权平均</h2>
+<p>15% 是事后记账，可投资决策发生在事前——未来还没发生，你手里只有一张"可能情景清单"。把每种情景的收益率按它发生的概率加权平均，就得到<span class="term" data-def="把每种可能结果按发生概率加权得到的平均收益">期望收益（expected return）</span>，通常记作 μ：</p>
+<div class="formula">期望收益 μ = Σ 概率ᵢ × 收益率ᵢ<div class="formula-note">直觉：每种结果乘以它发生的可能性，再加总。它回答"平均而言能拿多少"，不回答"这一次一定拿多少"。</div></div>
+<p>假设某只股票明年的行情只有三种可能：</p>
+<table class="data">
+<thead><tr><th>市场状态</th><th>发生概率</th><th>该状态下的收益率</th><th>对期望的贡献 = 概率 × 收益率</th></tr></thead>
+<tbody>
+<tr><td>牛市</td><td>30%</td><td class="good">+20%</td><td>0.3 × 20 = +6.0 个百分点</td></tr>
+<tr><td>平常</td><td>50%</td><td>+5%</td><td>0.5 × 5 = +2.5 个百分点</td></tr>
+<tr><td>熊市</td><td>20%</td><td class="bad">−10%</td><td>0.2 × (−10) = −2.0 个百分点</td></tr>
+<tr><td><b>期望收益 μ</b></td><td>合计 100%</td><td>—</td><td><b>+6.5%</b></td></tr>
+</tbody>
+</table>
+<p>验算：0.3 × 20 + 0.5 × 5 + 0.2 × (−10) = 6.0 + 2.5 − 2.0 = +6.5%；三个概率 30% + 50% + 20% = 100%，情景清单完整。</p>
+<div class="callout callout-warn"><span class="callout-title">期望不是承诺</span><p>μ = +6.5% 不对应任何一个真实情景——三种可能里没有一种是"涨 6.5%"。它也不等于最可能的结果：上例里最可能发生的其实是 +5%（概率 50%）。期望只是决策用的"平均水平"，真实结果会绕着它上下跳动。</p></div>
+
+<h2>三、给"不确定"定个量</h2>
+<p>"上下跳动"本身就是风险。想象两只股票期望都是 6.5%：一只常年落在 5%~8% 之间，另一只要么翻倍要么腰斩——差别必须有一个数字来刻画。金融学把风险定义为"结果的不确定性"，用<span class="term" data-def="收益围绕期望上下跳动的典型幅度，投资里常直接当作风险的度量">波动率/标准差（volatility/standard deviation）</span>来度量，记作 σ：</p>
+<div class="formula">σ = √[ Σ 概率ᵢ ×（收益率ᵢ − μ）² ]<div class="formula-note">直觉版（不推导）：看每个结果离期望有多远，把距离平方（消去正负、重罚极端值），按概率加权求和，再开平方还原到原来的单位。σ 回答的就是"我通常偏离期望多远"。</div></div>
+<p>仍用第二节的例子验算（收益率单位：百分点）：</p>
+<table class="data">
+<thead><tr><th>情景</th><th>收益率</th><th>偏离期望 r − μ</th><th>偏离平方 (r − μ)²</th><th>概率加权</th></tr></thead>
+<tbody>
+<tr><td>牛市</td><td class="good">+20</td><td>+13.5</td><td>182.25</td><td>0.3 × 182.25 = 54.675</td></tr>
+<tr><td>平常</td><td>+5</td><td>−1.5</td><td>2.25</td><td>0.5 × 2.25 = 1.125</td></tr>
+<tr><td>熊市</td><td class="bad">−10</td><td>−16.5</td><td>272.25</td><td>0.2 × 272.25 = 54.45</td></tr>
+<tr><td><b>合计 → σ²</b></td><td>—</td><td>—</td><td>—</td><td><b>110.25</b></td></tr>
+</tbody>
+</table>
+<p>验算：54.675 + 1.125 + 54.45 = 110.25，而 10.5² = 110.25，所以 σ = √110.25 = 10.5%。含义：这只股票"典型的一年"会偏离期望 6.5% 约 10.5 个百分点——向上向下都算。σ 越大，可能的结果越分散，风险越大；σ = 0 则意味着结果完全确定。</p>
+
+<h2>四、正态近似与 68/95 法则</h2>
+<p>单独一个 σ 还不够直观，需要一条"翻译规则"。金融学常用正态分布（钟形曲线）来近似年收益率的分布，此时 μ 和 σ 能直接换算成区间：约 68% 的年份落在 μ ± 1σ 之内，约 95% 落在 μ ± 2σ 之内。这就是 68/95 法则。</p>
+<div class="formula">μ ± 1σ：6.5% ± 10.5% = [−4.0%, +17.0%]，约 68% 的年份<br>μ ± 2σ：6.5% ± 21.0% = [−14.5%, +27.5%]，约 95% 的年份<div class="formula-note">验算：6.5 − 10.5 = −4.0；6.5 + 10.5 = 17.0；6.5 − 21.0 = −14.5；6.5 + 21.0 = 27.5。反过来读：约 16% 的年份会跌破 −4%（差不多每 6 年一次），约 2.5% 会跌穿 −14.5%（约每 40 年一次）。</div></div>
+<div class="callout callout-tip"><span class="callout-title">近似的使用边界</span><p>真实市场的收益分布常呈"肥尾"——极端大涨大跌出现的频率高于正态曲线的预测（2008 年就是著名例子）。68/95 法则是快速估算的标尺，不是保险合同；σ 越大，这条标尺越要打折使用。</p></div>
+
+<h2>五、动手实验：收益分布对比器</h2>
+<p>概念齐了，来亲手称一称"用多少风险换多少收益"。资产 A：μ = 6%、σ = 3%，一只"稳"的；资产 B：μ = 8%、σ 默认 15%，一只"野"的。下图把两只资产的年收益率画成正态密度曲线，红色面积就是 B 当年亏损的概率。拖动滑块改变 B 的 σ，观察曲线宽度和红色面积如何变化。</p>
+<div class="widget">
+<div class="widget-title">收益分布对比器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>资产B 波动率 σ：<span class="val" id="sigmaB-val">15%</span><input type="range" id="sigmaB" min="5" max="30" step="1" value="15"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill" id="pill-a">资产A μ±1σ：3% ~ 9%，亏损概率≈2.3%</span>
+<span class="pill" id="pill-b">资产B μ±1σ：−7% ~ 23%</span>
+<span class="pill" id="pill-loss">B 亏损概率≈29.9%（z=−0.53，查表插值近似）</span>
+</div>
+</div>
+</div>
+<h3>值得盯住的三件事</h3>
+<p><b>① B 的左尾是红的。</b>默认 σ = 15% 时，z =（0 − 8）÷ 15 ≈ −0.53，查正态分布表（本页用内置 z→Φ 对照表做线性插值，数值为近似值）得 B 当年亏损的概率约 30%——大约每 10 年里有 3 年在亏钱。而 A 的 z =（0 − 6）÷ 3 = −2，亏损概率只有约 2.3%。</p>
+<p><b>② σ 越小，红区越瘦。</b>把滑块拉到 5%：z = −1.6，亏损概率降到约 5.8%；拉到 30%：z ≈ −0.27，亏损概率升到约 40%。期望 μ 全程没变，"会不会亏"却天差地别——这就是为什么谈收益必须同时报 σ。</p>
+<p><b>③ 高 μ 不等于更可能赚钱。</b>B 的期望只比 A 高 2 个百分点，默认设置下亏损概率却是 A 的十倍以上。愿意用多少"不确定"换多少期望收益，正是整个投资学反复回答的核心问题——下一课的分散投资，就是少牺牲 μ 又能压低 σ 的第一件工具。</p>
+
+<h2>六、波动拖累：算术平均会骗人</h2>
+<p>最后一个数字游戏，无数投资者在上面吃亏：把每年的收益率做算术平均，会系统性高估你的真实年化。真实年化必须按复利连乘来算，即<span class="term" data-def="按复利连乘再开方算出的真实年均收益">几何平均（geometric mean）</span>：</p>
+<div class="formula">真实年化 = [(1+r₁) × (1+r₂) × … × (1+rₙ)]^(1/n) − 1<div class="formula-note">先把每年的"财富乘数"连乘（涨 30% 是乘 1.30，跌 14% 是乘 0.86），再开 n 次方，最后减 1。</div></div>
+<div class="callout callout-key"><span class="callout-title">关键结论：算术平均 ≠ 实际年化</span><p>第一年 +30%、第二年 −14%：算术平均 =（30% − 14%）÷ 2 = 8%，看上去很美；但两年总财富 = 1.30 × 0.86 = 1.118，合计只赚 11.8%，真实年化 = 1.118<sup>0.5</sup> − 1 ≈ 5.7%（验算：1.0574² ≈ 1.118）。先赚三成再亏一成四，"平均每年 8%"里有超过 2 个百分点是幻觉——波动本身会吃掉收益，这就是波动拖累，且波动越大拖累越重。</p></div>
+<p>更扎心的是亏损的不对称性：把顺序倒过来，先跌 30% 再涨 14%，总财富 = 0.70 × 1.14 = 0.798，两年合计仍亏 20.2%，连本金都没回来——亏掉的三成本金，需要再涨 1 ÷ 0.70 − 1 ≈ 42.9% 才能回本。跌得越深，回本越难，这是波动拖累的另一张脸，也是"控制 σ 本身就是在保护收益"的原因。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>会算持有期收益率：r =（期末价 − 期初价 + 分红）÷ 期初价，并知道分红必须计入、跨期要先换算成年化。</li>
+<li>会用概率加权算期望收益 μ（三状态例：+6.5%），并记住期望不是承诺。</li>
+<li>会用标准差 σ 度量"偏离期望的典型幅度"（同一例：10.5%），并用 68/95 法则换算成收益区间。</li>
+<li>懂得真实年化要看几何平均：算术平均会高估（例中 8% vs 5.7%），波动越大高估越多。</li>
+</ul></div>
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"年初以 20 元买入一只股票，年末以 22 元卖出，期间收到 2 元现金分红。这笔投资的持有期收益率是多少？","options":["10%","20%","30%"],"answer":1,"explain":"r =（22 − 20 + 2）÷ 20 = 4 ÷ 20 = 20%。价差 2 元加分红 2 元共赚 4 元，除以本金 20 元。"},
+{"q":"某资产明年有三种可能：牛市（概率 30%）涨 10%，平常（概率 50%）涨 4%，熊市（概率 20%）跌 10%。它的期望收益率最接近多少？","options":["1.0%","2.0%","3.0%"],"answer":2,"explain":"期望 = 0.3 × 10% + 0.5 × 4% + 0.2 × (−10%) = 3% + 2% − 2% = 3.0%。把每个结果按概率加权后加总即可。"},
+{"q":"第一年涨 30%、第二年跌 16%。这两年真实的年化收益（几何平均）最接近多少？","options":["4.5%","7.0%","9.5%"],"answer":0,"explain":"几何平均 = (1.30 × 0.84)^0.5 − 1 = 1.092^0.5 − 1 ≈ 4.5%；7.0% 是算术平均 (30% − 16%) ÷ 2，会高估真实年化。"},
+{"q":"关于波动率（标准差 σ），下列说法正确的是：","options":["标准差越大，期望收益越高","标准差越大，亏损概率越小","标准差越大，结果越不确定"],"answer":2,"explain":"σ 度量的是结果偏离期望的典型幅度：σ 越大，可能的收益越分散、越不确定，亏损概率通常也随之上升；它和期望收益高低没有必然联系。"}
+]}
+</script></div>
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#return">收益率</a> · <a href="../reference/glossary.html#expected-return">期望收益</a> · <a href="../reference/glossary.html#volatility">波动率/标准差</a> · <a href="../reference/glossary.html#geometric-mean">几何平均</a></li>
+
+<li><a href="https://www.investopedia.com/terms/s/standarddeviation.asp" target="_blank" rel="noopener">Investopedia：Standard Deviation（标准差）</a>——用标准差度量分散程度的经典入门解释。</li>
+<li><a href="https://www.investopedia.com/terms/v/volatility.asp" target="_blank" rel="noopener">Investopedia：Volatility（波动率）</a>——波动率是什么、怎么算、怎么用。</li>
+<li><a href="https://www.khanacademy.org/economics-finance-domain/core-finance" target="_blank" rel="noopener">可汗学院：金融与资本市场</a>——收益率、方差、标准差的免费视频课程。</li>
+</ul></div>
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">上一课</span><span class="nav-title">分支导论</span></a><a class="next" href="0002-分散投资与相关系数.html"><span class="nav-label">下一课</span><span class="nav-title">分散投资与相关系数</span></a></nav>
+<footer class="lesson-footer"><span>投资学 · 第 1 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('chart1');
+  var slider = document.getElementById('sigmaB');
+  if (!el || !slider || typeof FChart === 'undefined') { return; }
+  var valEl = document.getElementById('sigmaB-val');
+  var pillA = document.getElementById('pill-a');
+  var pillB = document.getElementById('pill-b');
+  var pillL = document.getElementById('pill-loss');
+  var MU_A = 6, SD_A = 3, MU_B = 8;
+  /* 内置 z→Φ 对照表（线性插值近似） */
+  var ZT = [[-3, 0.0013], [-2, 0.0228], [-1.5, 0.0668], [-1, 0.1587], [-0.5, 0.3085], [0, 0.5], [0.5, 0.6915], [1, 0.8413], [1.5, 0.9332], [2, 0.9772], [3, 0.9987]];
+  function phi(z) {
+    if (z <= ZT[0][0]) { return ZT[0][1]; }
+    if (z >= ZT[ZT.length - 1][0]) { return ZT[ZT.length - 1][1]; }
+    for (var i = 0; i < ZT.length - 1; i++) {
+      if (z >= ZT[i][0] && z <= ZT[i + 1][0]) {
+        var t = (z - ZT[i][0]) / (ZT[i + 1][0] - ZT[i][0]);
+        return ZT[i][1] + t * (ZT[i + 1][1] - ZT[i][1]);
+      }
+    }
+    return 0.5;
+  }
+  function pdf(x, mu, sd) { return Math.exp(-(x - mu) * (x - mu) / (2 * sd * sd)) / (sd * Math.sqrt(2 * Math.PI)); }
+  function fmt(x) { return (x < 0 ? '−' : '') + Math.abs(x); }
+  var chart = new FChart(el, { height: 340, x: { min: -40, max: 40, label: '年收益率（%）' }, y: { min: 0, max: 0.14, label: '概率密度' } });
+  function draw(sd) {
+    valEl.textContent = sd + '%';
+    chart.clear();
+    chart.area(function (x) { return x < 0 ? pdf(x, MU_B, sd) : 0; }, { fill: '#b3372f', fillOpacity: 0.35, y0: 0 });
+    chart.path(function (x) { return pdf(x, MU_A, SD_A); }, { color: '#0d5c4f', width: 2.5 });
+    chart.path(function (x) { return pdf(x, MU_B, sd); }, { color: '#a3701a', width: 2.5 });
+    chart.vline(0, { color: '#b3372f', label: '0% 盈亏分界' });
+    chart.text(-38, 0.128, '红色面积 = B 的亏损概率', { dx: 8 });
+    chart.legend([{ color: '#0d5c4f', text: '资产A：μ=6%，σ=3%' }, { color: '#a3701a', text: '资产B：μ=8%，σ=' + sd + '%' }]);
+    var z = (0 - MU_B) / sd;
+    var zs = (z < 0 ? '−' : '') + Math.abs(z).toFixed(2);
+    pillA.textContent = '资产A μ±1σ：3% ~ 9%，亏损概率≈2.3%';
+    pillB.textContent = '资产B μ±1σ：' + fmt(MU_B - sd) + '% ~ ' + (MU_B + sd) + '%';
+    pillL.textContent = 'B 亏损概率≈' + (phi(z) * 100).toFixed(1) + '%（z=' + zs + '，查表插值近似）';
+  }
+  slider.addEventListener('input', function () { draw(parseFloat(slider.value)); });
+  draw(parseFloat(slider.value));
+})();
+</script>
+</body></html>

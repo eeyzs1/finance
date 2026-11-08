@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>衍生品与金融工程 · 第 3 课：期权定价的直觉 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「衍生品与金融工程」第 3 课《期权定价的直觉》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">衍生品与金融工程</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header"><div class="kicker">衍生品与金融工程 · Lesson 3</div><h1>期权定价的直觉</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶</span><span>前置：本分支第 2 课</span></div></header>
+
+<p class="lead">上一课我们画出了期权到期时的盈亏图，但还没回答最关键的问题：<strong>今天这张期权到底值多少钱？</strong>这一课先用直觉回答"什么让期权更贵"，再用一步二叉树把一个完整算例逐步算透——全程只需要高中数学；最后看一眼诺贝尔奖级别的 BS 模型到底"想"的是什么。</p>
+
+<h2>期权价格的两块拼图：回顾与深化</h2>
+<p>第 2 课的结论：<span class="term" data-def="买入期权支付的价格 = 内在价值 + 时间价值；是期权买方的最大损失、卖方的最大收益。">权利金（premium）</span> = <span class="term" data-def="立刻行权能拿到的价值：max(S−K, 0) 或 max(K−S, 0)，不为负。">内在价值（intrinsic value）</span> + <span class="term" data-def="权利金超出内在价值的部分，来自未来行情仍可能变得有利的可能性。">时间价值（time value）</span>。内在价值一眼能算，真正的难题是时间价值：可能性凭什么值钱、值多少？</p>
+<p>先给结论：<strong>波动率越高、剩余时间越长，期权越贵</strong>。原因是期权收益的天生不对称——<strong>上行不封顶，下行有地板</strong>（最差不过归零作废）。波动只会把标的推向两端的极端，而期权只从一端受益：涨疯了大赚，跌狠了也只亏权利金。波动越剧烈，"涨疯"的那一半期望越大，期权就越贵。</p>
+
+<h2>数字实验：同样的期望，4 倍的价格</h2>
+<p>A、B 两只股票，一年后的价格与概率：</p>
+<table class="data">
+<thead><tr><th>股票</th><th>悲观情景（50%）</th><th>乐观情景（50%）</th><th>期望价格</th><th>行权价 100 看涨的期望收益</th></tr></thead>
+<tbody>
+<tr><td>A（低波动）</td><td>90</td><td>110</td><td>100</td><td>0.5×0 + 0.5×10 = <strong>5 元</strong></td></tr>
+<tr><td>B（高波动）</td><td>60</td><td>140</td><td>100</td><td>0.5×0 + 0.5×40 = <strong>20 元</strong></td></tr>
+</tbody>
+</table>
+<p>验算：A 的看涨到期收益，悲观时 max(90−100,0)=0，乐观时 max(110−100,0)=10，期望 = 5 元；B 的悲观时 max(60−100,0)=0（注意：跌得再深，收益也封底在 0），乐观时 max(140−100,0)=40，期望 = 20 元。两只股票的期望价格一模一样，<strong>波动更大的 B 让同一张期权贵了 4 倍</strong>。时间的作用同理：剩余时间越长，标的能"走"得越远，两端的极端越夸张——期权只吃上涨那一端的红利。</p>
+<p>顺带一句<span class="term" data-def="同一到期日、不同行权价的期权反推出的隐含波动率连成的 U 形曲线，深度价内价外两端偏高。">波动率微笑（volatility smile）</span>：把同一到期日各行权价期权的<span class="term" data-def="从期权市场价格反推出来的标的波动率，即市场为波动率的定价。">隐含波动率（implied volatility）</span>画出来，理论上应是水平线，实际常呈"微笑"的 U 形——市场为极端行情索要的溢价，比模型想的更贪婪。</p>
+
+<h2>一步二叉树：把定价算到分毫不差</h2>
+<p>直觉之后来点精确的。<span class="term" data-def="把标的未来价格简化为上涨、下跌两种状态，用无套利思想给期权定价的模型。">二叉树模型（binomial tree model）</span>假设：股票现价 100 元，一年后只有两种可能——上涨到 120（涨幅 u = 1.2）或下跌到 80（d = 0.8）。求行权价 K = 100 的<em>看涨期权</em>今天的公允价格，无风险利率 r = 5%。</p>
+<p><strong>第一步：写出两个未来状态的期权收益。</strong></p>
+<ul>
+<li>上行：股价 100×1.2 = 120，收益 C<sub>上行</sub> = max(120−100, 0) = <strong>20 元</strong>；</li>
+<li>下行：股价 100×0.8 = 80，收益 C<sub>下行</sub> = max(80−100, 0) = <strong>0 元</strong>。</li>
+</ul>
+<p><strong>第二步：算风险中性概率 p。</strong>我们不预测真实涨跌概率，而是问：<strong>怎样一组概率能让股票的期望涨幅恰好等于无风险利率？</strong></p>
+<div class="formula">p = <span class="frac"><span>1 + r − d</span><span>u − d</span></span> = <span class="frac"><span>1.05 − 0.80</span><span>1.20 − 0.80</span></span> = <span class="frac"><span>0.25</span><span>0.40</span></span> = 0.625
+<div class="formula-note"><b>验算</b>：p×120 + (1−p)×80 = 0.625×120 + 0.375×80 = 75 + 30 = 105 = 100×1.05 ✓ 这组"概率"下，股票期望恰好按无风险利率增长。<b>无套利条件</b>：必须 d &lt; 1+r &lt; u，否则 p 跑出 [0,1]，说明参数本身存在套利空间。</div></div>
+<p><strong>第三步：用 p 算期望收益，再按无风险利率折现。</strong></p>
+<div class="formula">C = <span class="frac"><span>p×C<sub>上行</sub> + (1−p)×C<sub>下行</sub></span><span>1 + r</span></span> = <span class="frac"><span>0.625×20 + 0.375×0</span><span>1.05</span></span> = <span class="frac"><span>12.5</span><span>1.05</span></span> ≈ <strong>11.90 元</strong></div>
+<p>逐步验算：期望收益 = 0.625×20 + 0.375×0 = 12.5 + 0 = 12.5 元；折现 = 12.5 ÷ 1.05 = 11.904… ≈ <strong>11.90 元</strong>。这张期权今天就该卖 11.90 元左右。</p>
+
+<div class="callout callout-info">
+  <span class="callout-title">⇄ 交叉验算：复制组合（另一种算法，结果相同）</span>
+  <p>今天买 0.5 股股票、同时按 5% 借入 38.10 元：一年后上行值 0.5×120 − 38.10×1.05 = 60 − 40 = 20 元；下行值 0.5×80 − 40 = 40 − 40 = 0 元——与期权收益完全一致。这份复制品今天的成本 = 0.5×100 − 38.10 = <strong>11.90 元</strong>。两种算法殊途同归，这正是无套利定价的力量：期权 = 一个自制的迷你组合。</p>
+</div>
+
+<div class="widget">
+  <div class="widget-title">🎛 一步二叉树计算器 · 亲手拆一台定价机器</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row"><label for="bin-u">上涨幅度 u <span class="val" id="bin-u-val"></span></label>
+        <input type="range" id="bin-u" min="1.05" max="1.5" step="0.01" value="1.2"></div>
+      <div class="slider-row"><label for="bin-d">下跌幅度 d <span class="val" id="bin-d-val"></span></label>
+        <input type="range" id="bin-d" min="0.5" max="0.95" step="0.01" value="0.8"></div>
+      <div class="slider-row"><label for="bin-k">行权价 K <span class="val" id="bin-k-val"></span></label>
+        <input type="range" id="bin-k" min="80" max="130" step="1" value="100"></div>
+      <div class="slider-row"><label for="bin-r">无风险利率 r <span class="val" id="bin-r-val"></span></label>
+        <input type="range" id="bin-r" min="0.01" max="0.1" step="0.005" value="0.05"></div>
+    </div>
+    <div class="chart">
+      <svg id="bt-svg" viewBox="0 0 680 300" role="img" aria-label="一步二叉树示意图">
+        <line x1="152" y1="124" x2="505" y2="86" stroke="#c9c2b0" stroke-width="2"></line>
+        <line x1="152" y1="156" x2="505" y2="194" stroke="#c9c2b0" stroke-width="2"></line>
+        <text id="bt-up" x="300" y="92" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" fill="#5d5749">上涨 ×1.20 · 概率 p = 0.625</text>
+        <text id="bt-down" x="300" y="196" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" fill="#5d5749">下跌 ×0.80 · 概率 1−p = 0.375</text>
+        <circle cx="110" cy="140" r="40" fill="#0d5c4f"></circle>
+        <text x="110" y="147" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="19" font-weight="700" fill="#fffdf8">100</text>
+        <text x="110" y="204" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="12.5" fill="#5d5749">今天 t=0 · 现价 100</text>
+        <text id="bt-c0" x="110" y="226" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700" fill="#a3701a">期权公允价 ≈ 11.90 元</text>
+        <circle cx="545" cy="70" r="38" fill="#2e7d4f"></circle>
+        <text id="bt-su" x="545" y="77" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700" fill="#fffdf8">120</text>
+        <text id="bt-cu" x="545" y="130" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="600" fill="#2e7d4f">期权收益 20.00</text>
+        <circle cx="545" cy="210" r="38" fill="#a3701a"></circle>
+        <text id="bt-sd" x="545" y="217" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700" fill="#fffdf8">80</text>
+        <text id="bt-cd" x="545" y="270" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="600" fill="#a3701a">期权收益 0.00</text>
+      </svg>
+    </div>
+    <div class="readout">
+      <span class="pill" id="ro-p"></span>
+      <span class="pill" id="ro-c"></span>
+      <span class="pill" id="ro-cu"></span>
+      <span class="pill" id="ro-cd"></span>
+      <span class="pill" id="ro-arb" style="display:none; border-color:#b3372f; color:#b3372f;"></span>
+    </div>
+    <p class="formula-note" style="margin-top:10px">注意看：把 u 从 1.2 拖到 1.5（分歧更大），期权公允价从 11.90 一路上涨——这就是"波动率是期权的心跳"的算术版。</p>
+  </div>
+</div>
+
+<div class="widget">
+  <div class="widget-title">📈 波动率与期权价值 · 分歧越大，权利金越贵</div>
+  <div class="widget-body">
+    <div class="chart" id="vol-chart"></div>
+    <p class="formula-note">固定行权价 100、无风险利率 5%、现价 100，让上涨幅度 u = 1+m 与下跌幅度 d = 1−m 同步从 0.06 增大到 0.5（m 再小时 u = 1+m ≤ 1+r = 1.05，违反无套利条件 d &lt; 1+r &lt; u，定价失效）：期权价值单调递增——上涨无限、下跌封底的不对称，把波动全部转化成了期望收益。</p>
+  </div>
+</div>
+
+<h2>风险中性概率：不是预测，而是计价尺</h2>
+<p>很多初学者卡在 p 上："凭什么用 0.625 而不是我认为的上涨概率？"答案是：p 根本不是对未来的预测，而是一把<strong>计价尺</strong>。定价的逻辑是"复制品值多少，期权就值多少"（见上方的交叉验算）：既然期权可以被"股票 + 无风险资产"精确复制，它的价格就只取决于这把尺，与你我怎么看涨看跌无关。真实概率当然影响股票本身的价格，但那已经体现在现价 100 元里了。这个"用无风险利率校准世界"的视角，叫<span class="term" data-def="让所有资产的期望收益率都等于无风险利率的假想计价框架，结果是风险被折进价格而非折现率。">风险中性（risk-neutral）</span>定价——衍生品金融学最反直觉、也最优美的一步。</p>
+
+<h2>BS 模型：把树变成连续的世界</h2>
+<p>把二叉树的"一步"切得越来越细——一年拆成一万个瞬间，涨跌两种状态就逼近连续的价格路径。1973 年，Black、Scholes 与 Morton 沿这条路给出了 closed-form 答案：<span class="term" data-def="Black 与 Scholes 提出的期权定价公式，思想是用标的与无风险资产动态复制期权。">布莱克-斯科尔斯模型（Black-Scholes model）</span>。它的思想只有一句话：<strong>期权可以被"标的股票 + 无风险资产"动态复制，复制的成本就是期权的价格</strong>——正是上面 Δ=0.5 股 + 借入 38.10 元算例的连续版。公式里含正态分布函数，不要求掌握，记住"复制"两个字你就拿到了它的灵魂；想要完整公式，见 <a href="https://www.investopedia.com/terms/b/blackscholes.asp">Investopedia：Black-Scholes Model（英文）</a>。这一工作拿了 1997 年诺贝尔经济学奖，也撑起了此后半个世纪的衍生品行业。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>期权价格 = 内在价值 + 时间价值；波动越大、时间越长，时间价值越高；</li>
+<li>不对称性（上行不封顶、下行有地板）是期权"吃波动"的根源——同样期望下高波动股票的期权贵 4 倍；</li>
+<li>一步二叉树三步走：两个状态的收益 → p = (1+r−d)/(u−d) → 期望收益 ÷ (1+r)；算例得 11.90 元，与复制组合法一致；</li>
+<li>BS 模型的灵魂是复制：期权 = 标的 + 无风险资产拼出来的自制组合。</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">{
+  "title": "随堂测验 · 期权定价的直觉",
+  "questions": [
+    {"q": "其他条件全部相同，哪张看涨期权最贵？", "options": ["剩余 1 个月，标的波动率 20%", "剩余 6 个月，标的波动率 40%", "剩余 6 个月，标的波动率 20%", "剩余 1 个月，标的波动率 10%"], "answer": 1, "explain": "时间越长、波动越大，标的越有可能深入价内；而下行始终被封底在 0。两个因素都只放大上行期望，所以同时占优的 B 最贵。"},
+    {"q": "二叉树算例中（u=1.2，d=0.8，r=5%），风险中性概率 p 等于多少？", "options": ["p = 0.375", "p = 0.500", "p = 0.625", "p = 0.950"], "answer": 2, "explain": "p = (1+r−d)/(u−d) = (1.05−0.80)/(1.20−0.80) = 0.25/0.40 = 0.625。验算：0.625×120+0.375×80 = 105 = 100×1.05 ✓"},
+    {"q": "标的现价恰好等于行权价（平价期权）时，这张看涨期权的价格由什么构成？", "options": ["全部是时间价值，内在价值为零", "全部是内在价值，时间价值为零", "内在价值与时间价值各占其一半", "时间价值为负值，内在价值为正"], "answer": 0, "explain": "平价时 S=K，立刻行权不赚不亏，内在价值 = max(S−K,0) = 0；但只要还没到期，未来仍有上涨可能，所以价格全部来自时间价值。价外期权的价格同理，也全是时间价值。"},
+    {"q": "二叉树定价里的风险中性概率 p 到底是什么？", "options": ["市场对上涨的真实概率估计，来自历史统计", "做市商主观设定的上涨概率，每天调整一次", "投资者厌恶风险时，主观感受到上涨的概率", "让标的的期望涨幅恰等于无风险利率的权重"], "answer": 3, "explain": "p 不是预测，而是一把计价尺：在这组权重下股票期望涨幅恰等于无风险利率，于是期权期望收益可用 1+r 折现。得到的无套利价格与真实涨跌概率无关——真实概率的影响已体现在现价里。"}
+  ]
+}</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（术语表锚点）：<a href="../reference/glossary.html#option">期权</a> · <a href="../reference/glossary.html#premium">权利金</a></li>
+<li>Investopedia：Black-Scholes Model（英文）— <a href="https://www.investopedia.com/terms/b/blackscholes.asp">investopedia.com/terms/b/blackscholes.asp</a></li>
+<li>Wikipedia：Binomial options pricing model — <a href="https://en.wikipedia.org/wiki/Binomial_options_pricing_model">en.wikipedia.org/wiki/Binomial_options_pricing_model</a></li>
+<li>Wikipedia：Black–Scholes model — <a href="https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model">en.wikipedia.org/wiki/Black–Scholes_model</a></li>
+<li>CBOE Education（含波动率与定价入门）— <a href="https://www.cboe.com/education/">cboe.com/education</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+  <a href="0002-期权收益结构.html"><span class="nav-label">上一课</span><span class="nav-title">期权收益结构</span></a>
+  <a class="next" href="../06-风险管理/index.html"><span class="nav-label">下一课</span><span class="nav-title">下一分支 · 06 风险管理</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>衍生品与金融工程 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var uIn = document.getElementById("bin-u"), dIn = document.getElementById("bin-d");
+  var kIn = document.getElementById("bin-k"), rIn = document.getElementById("bin-r");
+  if (!uIn || !dIn || !kIn || !rIn || typeof FChart === "undefined") return;
+  uIn._out = document.getElementById("bin-u-val");
+  dIn._out = document.getElementById("bin-d-val");
+  kIn._out = document.getElementById("bin-k-val");
+  rIn._out = document.getElementById("bin-r-val");
+  var S0 = 100;
+  function f2(v) { return (Math.round(v * 100) / 100).toFixed(2); }
+  function f3(v) { return (Math.round(v * 1000) / 1000).toFixed(3); }
+  function price(u, d, K, r) {
+    var Cu = Math.max(S0 * u - K, 0), Cd = Math.max(S0 * d - K, 0);
+    var p = (1 + r - d) / (u - d);
+    return { p: p, Cu: Cu, Cd: Cd, C: (p * Cu + (1 - p) * Cd) / (1 + r) };
+  }
+  var tSu = document.getElementById("bt-su"), tSd = document.getElementById("bt-sd");
+  var tCu = document.getElementById("bt-cu"), tCd = document.getElementById("bt-cd");
+  var tUp = document.getElementById("bt-up"), tDn = document.getElementById("bt-down");
+  var tC0 = document.getElementById("bt-c0");
+  var roP = document.getElementById("ro-p"), roC = document.getElementById("ro-c");
+  var roCu = document.getElementById("ro-cu"), roCd = document.getElementById("ro-cd");
+  var warn = document.getElementById("ro-arb");
+  function update() {
+    var u = FChart.slider(uIn, function (v) { return "×" + f2(v); });
+    var d = FChart.slider(dIn, function (v) { return "×" + f2(v); });
+    var K = FChart.slider(kIn, function (v) { return v + " 元"; });
+    var r = FChart.slider(rIn, function (v) { return Math.round(v * 1000) / 10 + "%"; });
+    var res = price(u, d, K, r);
+    if (tSu) tSu.textContent = FChart.trimNum(S0 * u);
+    if (tSd) tSd.textContent = FChart.trimNum(S0 * d);
+    if (tCu) tCu.textContent = "期权收益 " + f2(res.Cu);
+    if (tCd) tCd.textContent = "期权收益 " + f2(res.Cd);
+    if (tUp) tUp.textContent = "上涨 ×" + f2(u) + " · 概率 p = " + f3(res.p);
+    if (tDn) tDn.textContent = "下跌 ×" + f2(d) + " · 概率 1−p = " + f3(1 - res.p);
+    if (tC0) tC0.textContent = "期权公允价 ≈ " + f2(res.C) + " 元";
+    if (roP) roP.innerHTML = "风险中性概率：<b>p = " + f3(res.p) + "</b>（1−p = " + f3(1 - res.p) + "）";
+    if (roC) roC.innerHTML = "期权公允价：<b>C = " + f2(res.C) + " 元</b>";
+    if (roCu) roCu.innerHTML = "上行收益：<b>" + f2(res.Cu) + " 元</b>（股价 " + FChart.trimNum(S0 * u) + "）";
+    if (roCd) roCd.innerHTML = "下行收益：<b>" + f2(res.Cd) + " 元</b>（股价 " + FChart.trimNum(S0 * d) + "）";
+    if (warn) {
+      var ok = res.p >= 0 && res.p <= 1;
+      warn.style.display = ok ? "none" : "inline-block";
+      if (!ok) warn.textContent = "⚠ p 越界：无套利条件 d < 1+r < u 被打破（参数隐含套利机会，模型价格失真）";
+    }
+  }
+  [uIn, dIn, kIn, rIn].forEach(function (i) { i.addEventListener("input", update); });
+  update();
+
+  var volEl = document.getElementById("vol-chart");
+  if (volEl) {
+    var vc = new FChart(volEl, {
+      height: 300,
+      x: { min: 0.06, max: 0.5, label: "单步涨跌幅度 m（u = 1+m，d = 1−m）" },
+      y: { min: 0, max: 30, label: "看涨期权价值（元）" },
+      title: "波动越大，期权越贵（现价 100，K = 100，r = 5%）"
+    });
+    var pts = [];
+    for (var i = 6; i <= 50; i++) {
+      var m = i / 100;
+      pts.push([m, price(1 + m, 1 - m, 100, 0.05).C]);
+    }
+    vc.area(pts, { fill: "#a3701a", fillOpacity: 0.15, color: "#a3701a", width: 3 });
+    var eg = price(1.2, 0.8, 100, 0.05);
+    vc.scatter([[0.2, eg.C, "#b3372f", "正文算例 m = 0.2 → " + f2(eg.C) + " 元"]], { r: 5.5 });
+  }
+})();
+</script></body></html>

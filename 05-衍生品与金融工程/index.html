@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>衍生品与金融工程 · 分支导论 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「衍生品与金融工程」分支导论：知识地图与课程列表，含互动课程入口。">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<div class="page">
+
+  <div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span>衍生品与金融工程</div>
+
+  <header class="branch-hero">
+    <div class="kicker">Branch 05 · Derivatives &amp; Financial Engineering</div>
+    <h1>衍生品与金融工程</h1>
+    <p>衍生品是"关于未来的合约"：它本身不生产任何东西，一方的盈利必然是另一方的亏损（<strong>零和</strong>）；它的价值也不来自自己，而是完全"衍生"自所挂钩的<strong>标的资产</strong>——石油、大豆、股票、指数、利率，皆可为标的。</p>
+  </header>
+
+  <div class="callout callout-key">
+    <span class="callout-title">学完本分支你能…</span>
+    <ul>
+      <li>看懂财经新闻里的"<span class="term" data-def="期货价格低于标的现货价格的状态；反之为升水。股指期货贴水常反映分红与避险需求。">股指期货贴水</span>"到底在说什么；</li>
+      <li>理解期权为什么有价格、什么因素让它更贵或更便宜；</li>
+      <li>会用<span class="term" data-def="以到期日标的价格为横轴、头寸盈亏为纵轴的折线图，是期权世界的通用语言。">盈亏图</span>画出任何简单期权策略（保护性看跌、备兑看涨……）。</li>
+    </ul>
+  </div>
+
+  <h2>知识地图</h2>
+  <p>本分支的骨架是两课衍生品"原件"（期货、期权）加一课定价直觉；互换、结构化产品与量化实务是延伸方向，本课程不展开，但给你留好路标。</p>
+  <div class="map-grid">
+    <div class="map-cell">
+      <b><a href="0001-期货与套期保值.html">远期与期货</a></b>
+      <ul>
+        <li>远期 vs 期货：定制与标准化</li>
+        <li>每日盯市与保证金制度</li>
+        <li>套期保值：把未来价格今天锁定</li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b><a href="0002-期权收益结构.html">期权</a></b>
+      <ul>
+        <li>看涨/看跌 × 买方/卖方：四种基本头寸</li>
+        <li>到期盈亏图与盈亏平衡点</li>
+        <li>内在价值与时间价值</li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b>互换（延伸主题）</b>
+      <ul>
+        <li>约定未来交换现金流的合约</li>
+        <li>利率互换与货币互换最常见</li>
+        <li>延伸阅读：<a href="https://www.investopedia.com/terms/s/swap.asp">Investopedia：Swap（英文）</a></li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b><a href="0003-期权定价的直觉.html">定价理论</a></b>
+      <ul>
+        <li>一步二叉树与风险中性概率</li>
+        <li>布莱克-斯科尔斯（BS）模型的思想</li>
+        <li>波动率：期权价格的心跳</li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b>结构化产品（延伸主题）</b>
+      <ul>
+        <li>债券 + 期权拼装出的理财产品</li>
+        <li>"保本 + 博高收益"的代价是什么</li>
+        <li>建议学完第 2、3 课再回看</li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b>量化与金融工程实务（延伸主题）</b>
+      <ul>
+        <li>用数学与代码定价、对冲、做市</li>
+        <li>波动率交易与衍生品风控</li>
+        <li>相关职业方向的入门地图</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>课程安排</h2>
+  <div class="cards">
+    <div class="card">
+      <span class="card-no">第 1 课</span>
+      <span class="card-title"><a href="0001-期货与套期保值.html">期货与套期保值</a></span>
+      <p>一家航空公司如何用期货把三个月后的航油价格"今天定下来"？远期与期货的异同、每日盯市、保证金，以及投机者为什么必不可少。</p>
+      <span class="card-meta">含套保模拟器 · 4 题测验</span>
+    </div>
+    <div class="card">
+      <span class="card-no">第 2 课 · 分支招牌课</span>
+      <span class="card-title"><a href="0002-期权收益结构.html">期权收益结构</a></span>
+      <p>权利而非义务：看涨/看跌 × 买方/卖方四种头寸的到期盈亏图、盈亏平衡点、内在与时间价值，以及给股票"买保险"的保护性看跌。</p>
+      <span class="card-meta">含期权盈亏图生成器 · 4 题测验</span>
+    </div>
+    <div class="card">
+      <span class="card-no">第 3 课</span>
+      <span class="card-title"><a href="0003-期权定价的直觉.html">期权定价的直觉</a></span>
+      <p>为什么波动越大、时间越长，期权越贵？一步二叉树把一个完整算例逐步算透，再看布莱克-斯科尔斯模型的"复制"思想。</p>
+      <span class="card-meta">含二叉树计算器 · 4 题测验</span>
+    </div>
+  </div>
+
+  <h2>在学习路径中的位置</h2>
+  <p>你刚从行为金融学过来——已经知道人在金钱面前会系统性跑偏；衍生品恰好是"规则最硬、杠杆最狠"的领域，把行为偏差放到放大镜下。下一站风险管理，则把本分支的工具倒过来用：不是赚钱，而是活下去。</p>
+  <nav class="lesson-nav">
+    <a href="../08-行为金融学/index.html"><span class="nav-label">上一分支</span><span class="nav-title">08 行为金融学</span></a>
+    <a class="next" href="../06-风险管理/index.html"><span class="nav-label">下一分支</span><span class="nav-title">06 风险管理</span></a>
+  </nav>
+
+  <div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问，直到真正搞懂。</div>
+
+  <footer class="lesson-footer">
+    <span>分支 05 · 衍生品与金融工程</span>
+    <span><a href="../index.html">课程总目录</a> · <a href="../reference/glossary.html">术语表</a></span>
+  </footer>
+</div>
+</body>
+</html>

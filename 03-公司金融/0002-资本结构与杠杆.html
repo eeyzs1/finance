@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>公司金融 · 第 2 课：资本结构与杠杆 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「公司金融」第 2 课《资本结构与杠杆》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+<style>.scn-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}.scn-tip{font-size:13px;color:#5d5749}.scn-btn{padding:6px 14px;border:1px solid #0d5c4f;background:#fff;color:#0d5c4f;border-radius:999px;cursor:pointer;font-size:13px}.scn-btn.active{background:#0d5c4f;color:#fff}</style>
+</head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">公司金融</a><span class="sep">/</span>第 2 课</div>
+<header class="lesson-header"><div class="kicker">公司金融 · Lesson 2</div><h1>资本结构与杠杆</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶入门</span><span>前置：第 1 课 NPV</span></div></header>
+<p class="lead">开公司需要钱。钱只有两个来源：要么借来（债务），要么股东自己出（股权）。这个"配方比例"就是<span class="term" data-def="公司资金中债务与股权的配比">资本结构（capital structure）</span>。本课用一张 1000 万元的资产负债表，看清债务如何同时放大股东的回报与风险——以及它在什么时候从朋友变成敌人。</p>
+
+<h2>一、钱的两个来源：债务与股权</h2>
+<p>假设一家公司要投 1000 万元建厂，这 1000 万要么借、要么由股东掏。两种钱的"脾气"完全不同：</p>
+<p><strong>债务：固定切片的债主。</strong>银行贷款、公司债券都属此类。三个关键特征：①<strong>利息固定</strong>——借 400 万、利率 5%，年景再差每年也照付 20 万利息；②<strong>清偿优先</strong>——公司破产清算时，债权人排在股东前面先拿钱；③<strong>利息可以抵税</strong>——利息在税前利润中扣除，等于政府让渡了一部分税收，省下的这块钱被称为<span class="term" data-def="利息税前列支带来的节税价值">税盾（tax shield）</span>。</p>
+<p><strong>股权：剩下的全部归你。</strong>公司先发工资、付利息、缴所得税，剩下的才归股东——所谓"剩余索取权"。代价是回报排在最后；好处是没有到期日（永远不用还本金）、上行空间不封顶。</p>
+<div class="callout callout-info"><span class="callout-title">一句话记忆</span><p>债主拿"固定切片"，股东拿"剩下的全部"。债务与股权切这张饼的比率，就是资本结构；切法不同，股东回报的波动幅度完全不同。</p></div>
+
+<h2>二、杠杆算例：同一家公司，两种配方</h2>
+<p>同一份资产，负债比例不同，股东回报的波动就被放大——这就是<span class="term" data-def="用固定成本的债务放大股东回报与风险的机制">财务杠杆（financial leverage）</span>。设公司资产 1000 万元，息税前利润（EBIT）随经济波动：景气 200 万、平常 100 万、衰退 40 万。比较两种结构：</p>
+<p><strong>A 结构</strong>：零负债，1000 万全由股东出。<strong>B 结构</strong>：借 400 万（负债率 40%，利率 5%，年息 400×5%=20 万），股东只出 600 万。</p>
+<div class="formula">ROE =（EBIT − 利息）÷ 股东权益<div class="formula-note">本例为聚焦杠杆效应、全程简化不计所得税；B 结构利息 = 400 × 5% = 20 万元。</div></div>
+<table class="data">
+<thead><tr><th>情景</th><th>EBIT（万元）</th><th>A 结构：无负债（权益 1000）</th><th>B 结构：负债 40%（权益 600）</th></tr></thead>
+<tbody>
+<tr><td>景气</td><td>200</td><td>200÷1000 = <strong>20.0%</strong></td><td class="good">(200−20)÷600 = <strong>30.0%</strong></td></tr>
+<tr><td>平常</td><td>100</td><td>100÷1000 = <strong>10.0%</strong></td><td class="good">(100−20)÷600 = <strong>13.3%</strong></td></tr>
+<tr><td>衰退</td><td>40</td><td>40÷1000 = <strong>4.0%</strong></td><td class="bad">(40−20)÷600 = <strong>3.3%</strong></td></tr>
+</tbody>
+</table>
+<p>逐格验算：B 结构景气 (200−20)÷600=180÷600=30%；平常 (100−20)÷600=80÷600≈13.3%；衰退 (40−20)÷600=20÷600≈3.3%。</p>
+<div class="callout callout-key"><span class="callout-title">判断杠杆是帮手还是敌人，只看一条</span><p>资产回报率（ROA = EBIT÷1000）是否高于利率。景气与平常档 ROA 为 20%、10%，都高于 5% 的利率，于是杠杆把股东回报从 20% 抬到 30%、从 10% 抬到 13.3%——借 5% 的钱挣 20% 的生意，差价归股东。衰退档 ROA 只有 4%，<strong>低于</strong>利率 5%，杠杆开始反噬：3.3% 反而低于无杠杆的 4.0%。</p></div>
+<div class="callout callout-warn"><span class="callout-title">衰退档的缓冲有多薄？</span><p>B 结构每年要付 20 万利息，衰退档 EBIT 40 万只剩 20 万利润；EBIT 一旦跌破 20 万，股东颗粒无收甚至亏损，公司可能连利息都还不上——由此引发的律师费、资产贱卖、客户与人才流失等代价，就是<span class="term" data-def="违约风险上升引发的律师费、资产贱卖与客户流失等代价">财务困境成本（financial distress costs）</span>。A 结构没有这道催命符。</p></div>
+
+<div class="widget">
+<div class="widget-title">交互实验室 · 杠杆模拟器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>负债比率 <span class="val" id="lev-val">40%</span><input type="range" id="lev" min="0" max="80" step="1" value="40"></label></div>
+<div class="slider-row"><label>利率 <span class="val" id="rate-val">5.0%</span><input type="range" id="rate" min="3" max="8" step="0.5" value="5"></label></div>
+<div class="scn-row"><span class="scn-tip">情景：</span><button type="button" class="scn-btn" data-i="0">景气 EBIT 200</button><button type="button" class="scn-btn" data-i="1">平常 EBIT 100</button><button type="button" class="scn-btn" data-i="2">衰退 EBIT 40</button></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="p-roe"></span><span class="pill" id="p-roa"></span><span class="pill" id="p-cov"></span></div>
+<p>公式实时验算：ROE =（EBIT − D×i）÷（1000 − D），资产固定 1000 万元。绿色柱 = 当前负债比率下的 ROE，灰色柱 = 无杠杆基准；利息覆盖倍数（EBIT÷利息）低于 1.5 时红字示警。试着把负债率拉到 80%、利率拉到 8%，再切到"衰退"，看杠杆如何反噬。</p>
+</div>
+</div>
+
+<h2>三、MM 定理：切饼不影响饼的大小</h2>
+<p>莫迪利亚尼与米勒在 1958 年提出著名的 MM 定理：在<strong>完美市场</strong>——无税、无破产成本、信息完全透明——里，公司价值只取决于资产创造现金流的能力。馅饼怎么切不影响总量：无论借多少债，"债主 + 股东"合计拿到的永远是同一块饼，股东多挣的部分恰好被债主的风险补偿吃掉。</p>
+<p>现实世界恰恰不完美：利息抵税（税盾）鼓励多负债，财务困境成本警告别借太多。两股力量反向拔河，于是存在一个"不太高也不太低"的<strong>最优资本结构</strong>——这也是多数成熟公司把负债率维持在中段、而非 0% 或 90% 的原因。</p>
+<div class="callout callout-tip"><span class="callout-title">怎么记</span><p>MM 定理给你理想参照系：切法不重要；税盾与破产成本的拔河给你现实答案：切法重要，且有个中间最优解。</p></div>
+
+<h2>四、WACC：混合出来的融资成本</h2>
+<p>公司既借债又发股，整体的资金成本怎么算？把两者按市场价值占比加权平均，得到<span class="term" data-def="按市值权重加权的债务与股权综合融资成本">加权平均资本成本（WACC）</span>：</p>
+<div class="formula">WACC =（D÷V）× 债务利率 ×（1 − 税率）+（E÷V）× 股权成本<div class="formula-note">D、E 为债务与股权市值，V = D + E；债务成本乘（1−税率）正是税盾的会计体现。</div></div>
+<p>直觉上：债务<strong>便宜</strong>——利率低（有税盾、清偿优先兜底），但越借越多时债权人风险上升，利率水涨船高，便宜的钱会变贵；股权<strong>贵但有韧性</strong>——股东排在最后所以要求高回报，却不用还本付息，公司摔一跤不至于断粮。WACC 就是这场取舍的加权结果，下一课估值的折现率常用它。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>债务与股权的本质差异：固定利息 + 优先清偿 + 税盾 vs 剩余索取 + 无到期日</li>
+<li>杠杆放大 ROE 的前提是 ROA 高于利率；反噬的边界是 EBIT 跌破利息</li>
+<li>MM 定理是理想参照系；现实中税盾与财务困境成本拔河出最优资本结构</li>
+<li>WACC 直觉：债务便宜但越用越贵，股权贵但有韧性，加权即综合成本</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[{"q":"公司无负债，股东权益 1000 万元，EBIT 为 120 万元，ROE 是多少？","options":["10%","12%","20%","24%"],"answer":1,"explain":"无负债时没有利息，ROE = EBIT ÷ 股东权益 = 120 ÷ 1000 = 12%。"},{"q":"杠杆放大股东回报（而不是放大亏损）的前提是什么？","options":["回报高于利率","回报低于利率","回报等于利率","回报波动加大"],"answer":0,"explain":"只有资产回报率（ROA）高于利率时，借债赚到的差价才归股东；ROA 低于利率时，同样的杠杆会反过来放大亏损，如本课衰退档 3.3% 低于 4.0%。"},{"q":"MM 定理认为，在完美市场（无税、无破产成本）中：","options":["负债越多公司价值就越高","从不借债的公司价值最大","资本结构不影响公司价值","负债经营必然会引发破产"],"answer":2,"explain":"MM 定理：完美市场里“馅饼怎么切不影响总量”，怎么分债与股都不改变公司整体价值；现实中因税盾与破产成本的拉锯，才存在最优资本结构。"},{"q":"关于 WACC（加权平均资本成本），下列说法正确的是：","options":["只计算债务利息的平均成本","公司缴纳所得税的实际税率","股东要求回报率的最高上限","债务与股权成本的加权平均"],"answer":3,"explain":"WACC 按市值权重把债务成本（通常乘 1−税率 以体现税盾）与股权成本加权平均，代表公司整体的融资成本。"}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#capital-structure">资本结构</a> · <a href="../reference/glossary.html#tax-shield">税盾</a> · <a href="../reference/glossary.html#financial-leverage">财务杠杆</a> · <a href="../reference/glossary.html#financial-distress-costs">财务困境成本</a> · <a href="../reference/glossary.html#wacc">加权平均资本成本</a></li>
+
+<li><a href="https://www.investopedia.com/terms/c/capitalstructure.asp">Capital Structure — Investopedia</a>：资本结构定义与债股权衡</li>
+<li><a href="https://www.investopedia.com/terms/w/wacc.asp">WACC — Investopedia</a>：加权平均资本成本的计算与应用</li>
+<li><a href="https://en.wikipedia.org/wiki/Modigliani–Miller_theorem">Modigliani–Miller theorem — Wikipedia</a>：MM 定理原文脉络与后续修正</li>
+</ul></div>
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0001-货币时间价值与npv.html"><span class="nav-label">上一课</span><span class="nav-title">货币时间价值与 NPV</span></a>
+<a href="0003-公司估值入门.html" class="next"><span class="nav-label">下一课</span><span class="nav-title">公司估值入门</span></a>
+</nav>
+<footer class="lesson-footer"><span>公司金融 · 第 2 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var ASSET = 1000;
+  var SCN = [
+    { name: "景气", ebit: 200 },
+    { name: "平常", ebit: 100 },
+    { name: "衰退", ebit: 40 }
+  ];
+  var curIdx = 1;
+  var levEl = document.getElementById("lev");
+  var rateEl = document.getElementById("rate");
+  var levVal = document.getElementById("lev-val");
+  var rateVal = document.getElementById("rate-val");
+  var pRoe = document.getElementById("p-roe");
+  var pRoa = document.getElementById("p-roa");
+  var pCov = document.getElementById("p-cov");
+  var chart = new FChart(document.getElementById("chart1"), {
+    height: 340,
+    x: { min: 0, max: 9, label: "情景：景气 200 → 平常 100 → 衰退 40（EBIT，万元）" },
+    y: { min: -25, max: 85, label: "ROE（%）" }
+  });
+  function f1(v) { return (Math.round(v * 10) / 10).toFixed(1); }
+  function draw() {
+    var lev = parseFloat(levEl.value) / 100;
+    var rate = parseFloat(rateEl.value) / 100;
+    levVal.textContent = Math.round(lev * 100) + "%";
+    rateVal.textContent = (rate * 100).toFixed(1) + "%";
+    var D = ASSET * lev;
+    var E = ASSET - D;
+    var it = D * rate;
+    var bars = [];
+    for (var k = 0; k < SCN.length; k++) {
+      var s = SCN[k];
+      var cx = 1.5 + k * 3;
+      var base = s.ebit / ASSET * 100;
+      var levRoe = (s.ebit - it) / E * 100;
+      bars.push({ x0: cx - 1.05, x1: cx - 0.15, y: base, color: "#5d5749", label: s.name });
+      bars.push({ x0: cx + 0.15, x1: cx + 1.05, y: levRoe, color: "#0d5c4f", label: f1(levRoe) + "%" });
+    }
+    chart.clear();
+    chart.bars(bars, { y0: 0 });
+    chart.legend([{ color: "#5d5749", text: "无杠杆（权益 1000）" }, { color: "#0d5c4f", text: "当前杠杆" }]);
+    var cur = SCN[curIdx];
+    var roe = (cur.ebit - it) / E * 100;
+    var roa = cur.ebit / ASSET * 100;
+    pRoe.textContent = cur.name + " ROE " + f1(roe) + "%";
+    pRoa.textContent = "ROA " + f1(roa) + "%";
+    if (it <= 0) {
+      pCov.textContent = "利息覆盖 ∞（无负债）";
+      pCov.style.color = "";
+    } else {
+      var cov = cur.ebit / it;
+      if (cov < 1.5) {
+        pCov.textContent = "⚠ 利息覆盖 " + f1(cov) + "×（危险）";
+        pCov.style.color = "#b3372f";
+      } else {
+        pCov.textContent = "利息覆盖 " + f1(cov) + "×";
+        pCov.style.color = "";
+      }
+    }
+  }
+  var btns = document.querySelectorAll(".scn-btn");
+  for (var b = 0; b < btns.length; b++) {
+    (function (btn) {
+      btn.addEventListener("click", function () {
+        curIdx = parseInt(btn.getAttribute("data-i"), 10);
+        for (var j = 0; j < btns.length; j++) btns[j].classList.remove("active");
+        btn.classList.add("active");
+        draw();
+      });
+    })(btns[b]);
+  }
+  btns[curIdx].classList.add("active");
+  levEl.addEventListener("input", draw);
+  rateEl.addEventListener("input", draw);
+  draw();
+})();
+</script>
+</body></html>

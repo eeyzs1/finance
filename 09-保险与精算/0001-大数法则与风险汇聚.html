@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>保险与精算 · 第 1 课：大数法则与风险汇聚 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「保险与精算」第 1 课《大数法则与风险汇聚》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">保险与精算</a><span class="sep">/</span>第 1 课</div>
+<header class="lesson-header"><div class="kicker">保险与精算 · Lesson 1</div><h1>大数法则与风险汇聚：为什么保险是可能的</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶入门</span><span>前置：无</span></div></header>
+<p class="lead">一个家庭今年会不会遭灾，谁也说不准；可一万个家庭加在一起，灾祸的总量却出奇稳定。保险这门古老的生意，就建立在这条数学定律之上。本课把它讲透，并让你亲手运行一个风险池模拟器。</p>
+
+<h2>一个人的不幸，无法预测</h2>
+<p>想象王女士一家：他们的老房子今年有 10% 的概率遭遇一场约 10 万元的意外损失——火灾、水管爆裂，或者高空坠物砸穿屋顶。这「10%」对这个家庭几乎毫无用处：这一年结束时，损失要么发生，要么不发生，不存在「十分之一场火灾」。单看任何一年，王女士只能在提心吊胆与心存侥幸之间煎熬。</p>
+<p>这正是个体风险的两个特征：<strong>发生与否不可预测，一旦发生金额难以承受</strong>。多存钱也帮不上忙——你不知道该为哪一年、留多少钱才够。</p>
+
+<h2>把一万个「说不准」放进同一个池子</h2>
+<p>现在换一个视角。假设有 10,000 个彼此独立、处境相仿的家庭，每家今年都有 10% 的概率遭遇一次事故。把他们的命运放进同一个池子，这就是<span class="term" data-def="把许多人的同类风险放进同一个池子，用整体的可预测性替代个体的不确定">风险汇聚（risk pooling）</span>。</p>
+<p>单独看王女士，结果只有「0 或 10 万元」两种；但看整个池子，问题变成了「10,000 次独立试验里事故发生几次」。答案会非常集中：大概率在 1,000 起上下小幅摆动。个体的「说不准」加总之后，反而变成了群体的「说得准」。</p>
+<div class="callout callout-info"><span class="callout-title">关键前提：独立</span><p>池子里的家庭必须互不影响——一家失火不会烧到别家（在本模型里）。请记住这个前提，本课结尾我们会看到它被打破时会发生什么。</p></div>
+
+<h2>大数法则：一条压缩波动的定律</h2>
+<p>上面这个现象不是巧合，而是可以严格证明的定理——<span class="term" data-def="独立重复事件的平均结果随次数增加而趋近期望值">大数法则（law of large numbers）</span>：独立重复事件的平均结果，随次数增加而越来越接近期望值；并且波动的尺度按 σ/√n 递减。</p>
+<div class="formula">σ(人均) ≈ σ(单人) / √n
+<div class="formula-note">σ(单人) 是单个家庭结果的标准差，n 是池内家庭数。期望一分没变，变的是围绕期望的摆动幅度：人数翻 4 倍，√4 = 2，人均波动减半；人数乘以 100，人均波动只剩十分之一。</div></div>
+<div class="callout callout-tip"><span class="callout-title">直觉：为什么恰好是 √n</span><p>独立家庭的偏差方向互不相干：有的这年倒霉，有的这年走运，加总时向上与向下的偏差大部分互相抵消，残存的净波动尺度恰好是 √n。池子越大，抵消得越干净。</p></div>
+
+<h2>动手算一遍：每人 10% 概率损失 1 万元</h2>
+<p>为了让数字好心算，把每家的损失额统一成 1 万元（把故事里的 10 万元换成 1 万元，结论完全一样，只是零的个数不同）。出险人数服从二项分布：期望人数 = np，人数的标准差 = √(np(1−p))，每人赔付 1 万元，所以金额只需再乘以 1 万。给这类风险算账、定价的学问，就叫<span class="term" data-def="用数学与统计为风险和保险定价的学科">精算（actuarial science）</span>。</p>
+<table class="data">
+<thead><tr><th>池内人数 n</th><th>模式</th><th>期望总赔付</th><th>总赔付标准差 σ</th><th>人均赔付（±1σ）</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>自担</td><td>1,000 元</td><td class="bad">3,000 元</td><td class="bad">0 或 10,000 元</td></tr>
+<tr><td>100</td><td>汇聚</td><td>10 万元</td><td>3 万元</td><td>1,000 ± 300 元</td></tr>
+<tr><td>10,000</td><td>汇聚</td><td>1,000 万元</td><td class="good">30 万元</td><td class="good">1,000 ± 30 元</td></tr>
+</tbody>
+</table>
+<p>验算标准差：n=100 时，√(100×0.1×0.9) = √9 = 3 人，即 3 万元；n=10,000 时，√(10000×0.1×0.9) = √900 = 30 人，即 30 万元。再除以人数得到人均波动：300 元 → 30 元，恰好缩小为十分之一——因为人数放大了 100 倍，波动只按 √100 = 10 收缩。</p>
+<p>注意最重要的对比：<strong>无论池子多大，人均期望都是 1,000 元，一分没省；变的是波动。</strong>保险卖的不是「更低的期望成本」，而是「更小的波动」——这正是下一课保费定价的起点。</p>
+
+<div class="callout callout-key"><span class="callout-title">保险的本质</span><p>保险不消灭风险，它只是用「确定的小额保费」换掉「不确定的大额损失」。保险公司也不是因为运气好而赚钱：对每个保户，赔付是剧烈的 0 或 10,000 元；对整个池子，赔付是稳定的 1,000 元 × 人数。保险公司把群体的可预测性做成生意——收一笔确定的保费，付一笔确定的总账，站在大数法则这一边。</p></div>
+
+<h2>风险池模拟器：亲手摇一千次骰子</h2>
+<p>下面用<span class="term" data-def="用大量随机试验的统计结果逼近答案的模拟方法">蒙特卡洛模拟（Monte Carlo simulation）</span>验证上面的公式：拖动滑块设置池内人数 n 与出险概率 p（每人赔付固定 1 万元），点击按钮，程序会模拟 1,000 个平行世界里的「这一年」，统计每个世界的全年总赔付并画出分布。把 n 从 100 拖到 10,000 各跑一次，直方图会明显收窄。</p>
+
+<div class="widget">
+<div class="widget-title">风险池模拟器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>池内人数 n：<span class="val" id="n-val">1,000 人</span><input type="range" id="n-slider" min="0" max="9" step="1" value="5"></label></div>
+<div class="slider-row"><label>出险概率 p：<span class="val" id="p-val">10%</span><input type="range" id="p-slider" min="2" max="30" step="1" value="10"></label></div>
+<p>每人赔付固定 1 万元；池内出险相互独立。</p>
+<button type="button" id="run-btn">模拟一年（1000 次蒙特卡洛）</button>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill" id="pill-mu">理论期望 np：—</span>
+<span class="pill" id="pill-sig">理论 σ：—</span>
+<span class="pill" id="pill-mean">模拟均值：—</span>
+<span class="pill" id="pill-sd">模拟标准差：—</span>
+<span class="pill" id="pill-per">人均 σ：—</span>
+<span class="pill" id="pill-ci">人均 95% 区间：—</span>
+</div>
+</div>
+</div>
+
+<p>观察两个规律：一是模拟均值与标准差总是贴着理论值 np 与 √(np(1−p))；二是 n 越大，直方图越窄、越像一条钟形曲线——正态分布在背后发力。保险公司对「人均赔付 95% 区间」的把握，正是从这里来的。</p>
+
+<h2>边界：当风险不再独立</h2>
+<div class="callout callout-warn"><span class="callout-title">大数法则只对独立风险成立</span><p>地震、洪水、大流行病是<strong>相关风险</strong>：一个事件会同时触发池子里几乎所有保单。这时「1 万次独立试验」退化为「1 次巨型试验」，损失不再互相抵消，波动也不随 √n 收缩——一场灾害足以击穿整个池子。应对办法是<span class="term" data-def="保险公司把已承保的风险再转移给其他保险公司的安排">再保险（reinsurance）</span>：保险公司为自己的池子再买保险，把一座城市集中的地震风险分散到全球。</p></div>
+<p>这也解释了两个现实：巨灾保险与疫情相关险种又贵又少；而全球只有少数几家再保险巨头（如慕尼黑再保险、瑞士再保险）愿意承保它们的尾部。独立性，是保险数学里最贵的前提。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>理解为什么个体风险不可预测、群体风险却可以定价（风险汇聚）</li>
+<li>会用 σ/√n 估算波动：人数翻 4 倍，人均波动减半</li>
+<li>会算期望赔付 np、标准差 √(np(1−p)) 与人均 95% 区间</li>
+<li>能说出保险的本质（用确定的小支出换不确定的大损失）与它的边界（相关风险、再保险）</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"风险池从 400 人扩大到 1600 人，其他条件不变。按 σ/√n 的规律，人均赔付的波动会怎样变化？","options":["维持原来的水平","变成原来的一半","变成原来的四倍","变成原来的两倍"],"answer":1,"explain":"波动尺度是 σ/√n：人数变为 4 倍，√4 = 2，人均波动减半。期望不变，被压缩的只是不确定性。"},
+{"q":"10,000 个独立家庭，每家 10% 概率损失 1 万元，总赔付标准差约 30 万元。人均赔付的 95% 区间大约是多少？","options":["约 700 ~ 1,300 元","约 500 ~ 1,500 元","约 940 ~ 1,060 元","约 990 ~ 1,010 元"],"answer":2,"explain":"人均 σ = 30 万元 ÷ 10,000 = 30 元；95% 区间约为 1,000 ± 1.96 × 30 ≈ 1,000 ± 59，即约 941 ~ 1,059 元。"},
+{"q":"用一句话概括，保险的本质是什么？","options":["用确定的小支出替换不确定的损失","保险公司靠好运气才做到稳定盈利","把全部风险都彻底消灭在发生之前","买了保险以后损失就再也不会发生"],"answer":0,"explain":"保险不消灭风险，只是把「不确定的大额损失」换成「确定的小额保费」。保险公司稳定盈利靠的是站在大数法则一边，而不是运气。"},
+{"q":"为什么地震、疫情这类相关风险能击穿大数法则？","options":["出险的概率会随人数而下降","公司算不出它们的期望损失","它们不属于可保的风险类型","各保单不独立同时集中索赔"],"answer":3,"explain":"大数法则的前提是独立：灾害让一个事件同时触发几乎全部索赔，损失不再互相抵消，波动也不随人数按 √n 收缩，所以保险公司要靠再保险来分散。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#risk-pooling">风险汇聚</a> · <a href="../reference/glossary.html#law-of-large-numbers">大数法则</a> · <a href="../reference/glossary.html#actuarial-science">精算</a> · <a href="../reference/glossary.html#monte-carlo-simulation">蒙特卡洛模拟</a> · <a href="../reference/glossary.html#reinsurance">再保险</a></li>
+
+<li><a href="https://www.investopedia.com/terms/l/lawoflargenumber.asp">Investopedia — Law of Large Numbers（大数法则）</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/大数定律">维基百科 — 大数定律</a></li>
+<li><a href="https://www.investopedia.com/terms/r/reinsurance.asp">Investopedia — Reinsurance（再保险）</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">上一课</span><span class="nav-title">分支导论</span></a><a class="next" href="0002-保费是怎么算出来的.html"><span class="nav-label">下一课</span><span class="nav-title">保费是怎么算出来的</span></a></nav>
+<footer class="lesson-footer"><span>保险与精算 · 第 1 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+/* 本课交互：风险池模拟器 */
+(function () {
+  var N_STEPS = [10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
+  var RUNS = 1000;
+  var nSlider = document.getElementById('n-slider');
+  var pSlider = document.getElementById('p-slider');
+  var nVal = document.getElementById('n-val');
+  var pVal = document.getElementById('p-val');
+  var chartEl = document.getElementById('chart1');
+  var runBtn = document.getElementById('run-btn');
+  var pills = {
+    mu: document.getElementById('pill-mu'),
+    sig: document.getElementById('pill-sig'),
+    mean: document.getElementById('pill-mean'),
+    sd: document.getElementById('pill-sd'),
+    per: document.getElementById('pill-per'),
+    ci: document.getElementById('pill-ci')
+  };
+
+  function thou(x) {
+    var s = String(Math.round(Math.abs(x))).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (x < 0 ? '-' : '') + s;
+  }
+  function fmt1(x) {
+    var sign = x < 0 ? '-' : '';
+    x = Math.abs(x);
+    var i = Math.floor(x + 1e-9);
+    var d = Math.round((x - i) * 10);
+    if (d >= 10) { i += 1; d -= 10; }
+    return sign + thou(i) + (d > 0 ? '.' + d : '');
+  }
+  function getN() { return N_STEPS[parseInt(nSlider.value, 10)]; }
+  function getP() { return parseInt(pSlider.value, 10) / 100; }
+
+  function updateTheory() {
+    var n = getN(), p = getP();
+    var mu = n * p, sig = Math.sqrt(n * p * (1 - p));
+    nVal.textContent = thou(n) + ' 人';
+    pVal.textContent = Math.round(p * 100) + '%';
+    pills.mu.textContent = '理论期望 np：' + fmt1(mu) + ' 万元';
+    pills.sig.textContent = '理论 σ：' + fmt1(sig) + ' 万元';
+    pills.per.textContent = '人均 σ：' + thou(sig / n * 10000) + ' 元';
+    var lo = (mu - 1.96 * sig) / n * 10000;
+    var hi = (mu + 1.96 * sig) / n * 10000;
+    pills.ci.textContent = '人均 95% 区间：' + thou(Math.max(0, lo)) + ' ~ ' + thou(hi) + ' 元';
+    pills.mean.textContent = '模拟均值：移动滑块后请重跑';
+    pills.sd.textContent = '模拟标准差：移动滑块后请重跑';
+  }
+
+  function simulate() {
+    if (typeof FChart === 'undefined') {
+      chartEl.textContent = '图表组件未加载：请确认 ../assets/charts.js 可访问。';
+      return;
+    }
+    var n = getN(), p = getP();
+    var mu = n * p, sig = Math.sqrt(n * p * (1 - p));
+    var totals = [], r, i, k;
+    for (r = 0; r < RUNS; r++) {
+      k = 0;
+      for (i = 0; i < n; i++) { if (Math.random() < p) k++; }
+      totals.push(k); /* 出险人数 × 1 万元，单位：万元 */
+    }
+    var mean = 0;
+    for (r = 0; r < RUNS; r++) mean += totals[r];
+    mean /= RUNS;
+    var m2 = 0;
+    for (r = 0; r < RUNS; r++) m2 += (totals[r] - mean) * (totals[r] - mean);
+    var sd = Math.sqrt(m2 / (RUNS - 1));
+
+    /* 直方图：20 箱，范围覆盖数据与理论 ±2.5σ */
+    var lo = mu - 2.5 * sig, hi = mu + 2.5 * sig;
+    for (r = 0; r < RUNS; r++) {
+      if (totals[r] < lo) lo = totals[r];
+      if (totals[r] > hi) hi = totals[r];
+    }
+    if (lo < 0) lo = 0;
+    if (hi - lo < 1e-9) hi = lo + 1;
+    var pad = (hi - lo) * 0.02;
+    lo -= pad; hi += pad;
+    var bins = 20, w = (hi - lo) / bins;
+    var counts = [], b;
+    for (b = 0; b < bins; b++) counts.push(0);
+    for (r = 0; r < RUNS; r++) {
+      b = Math.floor((totals[r] - lo) / w);
+      if (b < 0) b = 0;
+      if (b > bins - 1) b = bins - 1;
+      counts[b] += 1;
+    }
+    var maxC = 0;
+    for (b = 0; b < bins; b++) if (counts[b] > maxC) maxC = counts[b];
+
+    var bars = [];
+    for (b = 0; b < bins; b++) {
+      bars.push({ x0: lo + b * w, x1: lo + (b + 1) * w, y: counts[b], color: '#0d5c4f' });
+    }
+    chartEl.innerHTML = '';
+    var c = new FChart(chartEl, {
+      height: 340,
+      x: { min: lo, max: hi, label: '全年总赔付（万元）' },
+      y: { min: 0, max: Math.max(5, Math.ceil(maxC * 1.15)), label: '出现次数（次 / 1000 次）' }
+    });
+    c.bars(bars, { y0: 0 });
+    c.path(function (x) {
+      var z = (x - mu) / sig;
+      return RUNS * w * Math.exp(-0.5 * z * z) / (sig * Math.sqrt(2 * Math.PI));
+    }, { color: '#a3701a', width: 2.5 });
+    c.vline(mu, { color: '#b3372f', label: 'np' });
+    c.legend([
+      { color: '#0d5c4f', text: '1000 次模拟' },
+      { color: '#a3701a', text: '理论正态曲线' },
+      { color: '#b3372f', text: '理论期望 np' }
+    ]);
+    pills.mean.textContent = '模拟均值：' + fmt1(mean) + ' 万元';
+    pills.sd.textContent = '模拟标准差：' + fmt1(sd) + ' 万元';
+  }
+
+  nSlider.addEventListener('input', updateTheory);
+  pSlider.addEventListener('input', updateTheory);
+  runBtn.addEventListener('click', simulate);
+  updateTheory();
+  simulate();
+})();
+</script>
+</body></html>

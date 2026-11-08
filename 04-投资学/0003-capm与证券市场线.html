@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>投资学 · 第 3 课：CAPM 与证券市场线 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「投资学」第 3 课《CAPM 与证券市场线》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">投资学</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header"><div class="kicker">投资学 · Lesson 3</div><h1>CAPM 与证券市场线</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶入门</span><span>前置：第 2 课</span></div></header>
+<p class="lead">上一课的结尾藏着一句话："能分散掉的风险，市场不会补偿你。"那什么风险才有补偿、补多少？这一课给出金融学最著名的回答——<span class="term" data-def="资本资产定价模型：用 β 为系统性风险定价的模型，公式 E(Ri)=Rf+βi×(E(Rm)−Rf)">资本资产定价模型（CAPM）</span>：一条叫证券市场线的直线，给每一份躲不掉的风险标上了价格。</p>
+
+<h2>一、只有躲不掉的风险才有补偿</h2>
+<p>上一课我们看到：持有 20–30 只股票之后，<span class="term" data-def="单只资产独有的、可通过分散消除的风险；市场不为它支付补偿">特质风险（idiosyncratic risk）</span>已基本被互相抵消。顺着这个逻辑再想一步：如果某只股票仅仅因为"自己爱出意外"就想多要 1% 的回报，投资者完全可以买上一篮子股票把这个意外分散掉——没有人愿意为它多付钱，竞争会把这类要求自动抹平。</p>
+<p>剩下躲不掉的，是整个市场共有的涨跌——加息、衰退、战争带来的齐涨齐跌。这叫<span class="term" data-def="整个市场共有的、无法靠分散消除的风险；市场只为它支付补偿">系统性风险（systematic risk）</span>。结论只有一句：市场只为系统性风险付补偿；补偿多少，由下一节的 β 决定。</p>
+
+<h2>二、β：个股对市场的敏感度</h2>
+<p><span class="term" data-def="个股收益对市场组合收益的敏感度：β=1 与市场同步，β＞1 放大波动，β＜1 缓冲波动">贝塔系数（beta）</span>衡量个股随市场组合涨跌的敏感度：</p>
+<p>β = 1：市场涨 10%，它平均涨约 1×10% = 10%，同步；β = 1.2：市场涨 10%，它平均涨约 1.2×10% = 12%，放大；β = 0.8：市场涨 10%，它平均涨约 0.8×10% = 8%，缓冲。</p>
+<p>方向性印象（只为帮助记忆，非投资建议）：公用事业、大型银行等"收租型"股票的 β 常小于 1，偏缓冲；成长科技股的 β 常大于 1，偏放大。β 由历史数据估计，会随时期变化，不是一成不变的属性。</p>
+<div class="callout callout-info"><span class="callout-title">β 不是成绩单</span><p>β 高低不是"好与坏"：β=1.2 只说明弹性更大——牛市多涨，熊市也多跌。CAPM 说补偿只跟 β 挂钩，跟公司名气、跟你喜不喜欢它都没有关系。</p></div>
+
+<h2>三、CAPM：给风险标价的直线</h2>
+<p>CAPM 把上面的直觉压缩成一条公式：</p>
+<div class="formula">E(R<sub>i</sub>) = R<sub>f</sub> + β<sub>i</sub> × ( E(R<sub>m</sub>) − R<sub>f</sub> )
+<div class="formula-note">算例：无风险利率 R<sub>f</sub> = 3%，市场风险溢价 E(R<sub>m</sub>) − R<sub>f</sub> = 5%，某股 β = 1.2，则 E(R<sub>i</sub>) = 3% + 1.2×5% = 3% + 6% = 9%。β 每放大 1 单位，就多拿 1 份溢价；β = 0 时只拿无风险利率。</div></div>
+<p>把"每个 β 对应的应有期望收益"画在图上，是一条从 R<sub>f</sub> 出发、斜率为市场风险溢价的直线——<span class="term" data-def="以 β 为横轴、期望收益为纵轴的定价直线：每个 β 都对应一个「应有」的期望收益">证券市场线（Security Market Line, SML）</span>。它是一把尺：量出每份系统性风险"应该"卖多少钱。</p>
+
+<h2>四、市场组合与指数基金的逻辑</h2>
+<p><span class="term" data-def="按市值权重持有全部风险资产的组合；所有人持仓的加总，CAPM 认为它就在有效前沿上">市场组合（market portfolio）</span>从哪来？把所有投资者的持仓加总：你多买的一定是别人卖出的，个股的主动持仓互相抵消，剩下的恰好是"整个市场按市值加权"这个组合。CAPM 的推论更进一步：它正落在上一课的有效前沿上。既然市场本身就是最优组合，最省事的打法就是直接买下它——这就是被动指数基金的定价逻辑。</p>
+
+<h2>五、错价直觉：点在线的哪一边？</h2>
+<p>SML 同时也是一张"验货单"。给定期 β，直线给出"应有"的期望收益：</p>
+<p>点在线上方：市场实际给的期望收益高于应有水平——同样的风险、更高的回报，说明价格偏低（被低估），是买入机会。点在线下方：实际期望收益低于应有水平——同样的风险、更少的回报，价格偏高（被高估），应回避甚至做空。</p>
+<p>验算（R<sub>f</sub> = 3%、溢价 5%）：β = 1.0 的股票应有 3% + 1×5% = 8%，若市场期望 10%，点在线上方 → 被低估；β = 1.5 的股票应有 3% + 1.5×5% = 3% + 7.5% = 10.5%，若市场只给 8%，点在线下方 → 被高估。</p>
+<p>当然，如果市场足够有效，这样的点会被投资者迅速买平——有效市场假说的拥护者与怀疑者为此争论了几十年。本课先把这把尺子记牢，争论不妨带回对话里和 AI 助教继续聊。</p>
+
+<h2>动手玩：SML 交互图</h2>
+<div class="widget">
+<div class="widget-title">SML 交互图</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>无风险利率 Rf = <span class="val" id="rf-val">3.0%</span><input type="range" id="rf" min="0" max="6" step="0.5" value="3"></label></div>
+<div class="slider-row"><label>市场风险溢价 = <span class="val" id="rp-val">5.0%</span><input type="range" id="rp" min="2" max="8" step="0.5" value="5"></label></div>
+<div class="slider-row"><label>本股 β = <span class="val" id="beta-val">1.20</span><input type="range" id="beta" min="0" max="2" step="0.05" value="1.2"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="r-er"></span><span class="pill" id="r-calc"></span><span class="pill" id="r-type"></span></div>
+</div>
+</div>
+<p>绿色直线就是 SML：左端点在无风险利率 R<sub>f</sub> 上，斜率是市场风险溢价。金点是当前股票（它的"应有"期望收益永远落在线上）；两个红点是静态错价示例——线上的"应有值"会随滑块实时变化，注意观察它们与线的相对位置。</p>
+<div class="callout callout-tip"><span class="callout-title">试一试</span><p>① 抬高 R<sub>f</sub>：整条线向上平移，所有资产的应有回报一起上涨；② 加大溢价：线变陡，高 β 股票的应有回报被拉开；③ 滑动 β：金点沿线滑动——它逃不出这条线，因为"应有"回报只由 β 决定。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>分清两类风险：特质风险可分散、无补偿；系统性风险不可分散、有补偿</li>
+<li>会解读 β：等于 1 同步、大于 1 放大、小于 1 缓冲</li>
+<li>会套 CAPM 公式：E(R) = R<sub>f</sub> + β×溢价，例 3% + 1.2×5% = 9%</li>
+<li>理解市场组合与指数基金的逻辑，会用 SML 判断高估与低估</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"贝塔系数 β 衡量的是什么？","options":["个股盈利增速快慢的度量","个股派息多少高低的指标","个股随大盘涨跌的敏感度"],"answer":2,"explain":"β 是个股收益对市场组合收益的敏感度：市场涨 10% 时，β=1.2 的股票平均涨约 12%，β=0.8 涨约 8%；它不衡量盈利或派息。"},
+{"q":"Rf=3%，市场风险溢价 5%，β=1.2，CAPM 给出的期望收益是多少？","options":["8.0%","9.0%","6.0%"],"answer":1,"explain":"E(R)=Rf+β×溢价=3%+1.2×5%=3%+6%=9%。8.0% 是 β=1 的答案，6.0% 是 β=0.6 的答案。"},
+{"q":"为什么市场不为特质风险支付补偿？","options":["因为它可被分散消除","因为它的波动性较小","因为它只影响少数人"],"answer":0,"explain":"特质风险靠持有 20–30 只股票就能基本分散掉；既然人人都能免费消除它，竞争会让市场不再为它定价，只有躲不掉的系统性风险才有补偿。"},
+{"q":"某股票的点位于证券市场线下方，最可能说明什么？","options":["期望收益高于应有回报，或被低估","期望收益等于应有回报，定价合理","期望收益低于应有回报，或被高估"],"answer":2,"explain":"线下方意味着市场给的期望收益低于其 β 应有的回报，同样的风险只给更少的钱，说明价格偏贵（被高估），理性投资者会回避或做空。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#capm">资本资产定价模型</a> · <a href="../reference/glossary.html#idiosyncratic-risk">特质风险</a> · <a href="../reference/glossary.html#systematic-risk">系统性风险</a> · <a href="../reference/glossary.html#beta">贝塔系数</a> · <a href="../reference/glossary.html#security-market-line-sml">证券市场线</a> · <a href="../reference/glossary.html#market-portfolio">市场组合</a></li>
+
+<li><a href="https://www.investopedia.com/terms/c/capm.asp">Investopedia：Capital Asset Pricing Model（CAPM）</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/贝塔系数">维基百科：贝塔系数</a></li>
+<li><a href="https://www.investopedia.com/terms/s/sml.asp">Investopedia：Security Market Line（证券市场线）</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0002-分散投资与相关系数.html"><span class="nav-label">上一课</span><span class="nav-title">分散投资与相关系数</span></a>
+<a class="next" href="../03-公司金融/index.html"><span class="nav-label">下一分支：公司金融</span><span class="nav-title">公司金融</span></a>
+</nav>
+<footer class="lesson-footer"><span>投资学 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+var rfEl=document.getElementById("rf"),rpEl=document.getElementById("rp"),bEl=document.getElementById("beta");
+var chart=new FChart(document.getElementById("chart1"),{height:340,x:{min:0,max:2,label:"β（对市场的敏感度）"},y:{min:0,max:16,label:"期望收益（%）"}});
+function draw(){
+  var rf=parseFloat(rfEl.value),rp=parseFloat(rpEl.value),b=parseFloat(bEl.value);
+  document.getElementById("rf-val").textContent=rf.toFixed(1)+"%";
+  document.getElementById("rp-val").textContent=rp.toFixed(1)+"%";
+  document.getElementById("beta-val").textContent=b.toFixed(2);
+  chart.clear();
+  chart.hline(rf,{label:"无风险利率 Rf = "+rf.toFixed(1)+"%"});
+  chart.vline(1,{color:"#5d5749",label:"市场组合 β=1"});
+  var xEnd=2;
+  if(rf+2*rp>15.8){xEnd=(15.8-rf)/rp;}
+  chart.path([[0,rf],[xEnd,rf+xEnd*rp]],{color:"#0d5c4f",width:2.5});
+  var fair1=rf+rp,fair15=rf+1.5*rp;
+  chart.scatter([[1,10,"#b3372f",""]],{r:5});
+  chart.text(1,11.2,"β=1.0：期望 10% ＞应有 "+fair1.toFixed(1)+"% → 被低估",{dx:8});
+  chart.scatter([[1.5,8,"#b3372f",""]],{r:5});
+  chart.text(1.5,7.2,"β=1.5：期望 8% ＜应有 "+fair15.toFixed(1)+"% → 被高估",{dx:8});
+  var e=rf+b*rp;
+  chart.scatter([[b,e,"#a3701a",""]],{r:6});
+  chart.text(b,e+0.7,"当前股票：β="+b.toFixed(2)+"，E(R)="+e.toFixed(1)+"%",{dx:8});
+  chart.legend([{color:"#0d5c4f",text:"SML（应有线）"},{color:"#a3701a",text:"当前股票"},{color:"#b3372f",text:"错价示例点"}]);
+  document.getElementById("r-er").textContent="期望收益 E(R) ≈ "+e.toFixed(2)+"%";
+  document.getElementById("r-calc").textContent="E(R) = Rf + β×溢价 = "+rf.toFixed(1)+"% + "+b.toFixed(2)+"×"+rp.toFixed(1)+"% = "+e.toFixed(2)+"%";
+  var t;
+  if(b>1.05){t="放大型：市场涨 10%，它约涨 "+(b*10).toFixed(0)+"%";}
+  else if(b<0.95){t="缓冲型：市场涨 10%，它约涨 "+(b*10).toFixed(0)+"%";}
+  else{t="同步型：与市场同涨同跌";}
+  document.getElementById("r-type").textContent=t;
+}
+rfEl.addEventListener("input",draw);
+rpEl.addEventListener("input",draw);
+bEl.addEventListener("input",draw);
+draw();
+})();
+</script>
+</body></html>

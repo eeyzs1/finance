@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>货币银行学 · 第 3 课：中央银行与货币政策 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「货币银行学」第 3 课《中央银行与货币政策》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.chain{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chain-node{flex:1 1 150px;min-width:140px;border:1.5px solid #d8d2c4;border-radius:10px;padding:10px 12px;background:#faf8f3;transition:border-color .35s,background .35s}
+.chain-idx{display:inline-block;width:22px;height:22px;line-height:22px;border-radius:50%;background:#5d5749;color:#fffdf8;font-size:12px;font-weight:700;text-align:center}
+.chain-name{font-weight:700;margin:6px 0 4px;font-size:13.5px;color:#26241f}
+.chain-note{font-size:12px;line-height:1.5;color:#5d5749;opacity:0;max-height:0;overflow:hidden;transition:opacity .35s,max-height .35s}
+.chain-node.on{border-color:#0d5c4f;background:#eef4f1}
+.chain-node.on .chain-idx{background:#0d5c4f}
+.chain-node.on .chain-note{opacity:1;max-height:90px}
+.chain.done .chain-node{border-color:#0d5c4f;background:#e2efe9}
+.chain-done{display:none;margin-top:12px;padding:9px 14px;border-radius:8px;background:#0d5c4f;color:#fffdf8;font-weight:700}
+.chain-done.show{display:block}
+.rate-btn{border:1.5px solid #0d5c4f;background:#fffdf8;color:#0d5c4f;padding:7px 18px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+.rate-btn:hover{background:#eef4f1}
+.rate-btn.active{background:#0d5c4f;color:#fffdf8}
+</style>
+</head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">货币银行学</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header"><div class="kicker">货币银行学 · Lesson 3</div><h1>中央银行与货币政策</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：入门</span><span>前置：第 2 课 部分准备金与货币创造</span></div></header>
+
+<p class="lead">商业银行能创造存款货币，但整个游戏的「总开关」握在中央银行手里。本课认识央行的三大职能与三大政策工具，然后追踪一次降息如何沿着六个环节，一步步传导到你我的房贷月供上。</p>
+
+<h2>一、中央银行：银行的银行</h2>
+<p><span class="term" data-def="一国主管货币发行、维护金融稳定、为银行体系提供清算与流动性支持的机构">中央银行（central bank）</span>不做你的生意，只服务银行与整个体系。它的三大职能：</p>
+<h3>1. 垄断货币发行</h3>
+<p>现钞由央行独家发行，这是货币信用的最终源头，也是它一切影响力的根基。</p>
+<h3>2. 银行的银行</h3>
+<p>商业银行把准备金存在央行账户、通过央行完成跨行清算；更重要的是，央行扮演<span class="term" data-def="银行流动性紧张、无人肯借钱时，央行出手提供紧急流动性的角色">最后贷款人（lender of last resort）</span>——当某家银行遭挤兑、同业不敢借钱给它时，央行出手放贷兜底，防止恐慌像多米诺骨牌一样击穿整个体系（2008 年金融危机中美联储大规模扮演了这一角色）。</p>
+<h3>3. 维护金融稳定</h3>
+<p>制定与执行<span class="term" data-def="中央银行为稳定物价、促进就业而调节货币与利率的政策">货币政策（monetary policy）</span>，盯住物价、就业与金融体系的稳定，在过热时降温、在衰退时托底。</p>
+
+<h2>二、三大政策工具</h2>
+<table class="data">
+<thead><tr><th>工具</th><th>典型操作</th><th>一句话机理</th></tr></thead>
+<tbody>
+<tr><td><span class="term" data-def="央行设定并对外公布的基准利率，是全市场资金定价的锚">政策利率（policy rate）</span></td><td>中国：7 天逆回购利率、MLF 利率，并引导 LPR 下移；美国：联邦基金利率</td><td>给全市场的资金定「批发价」，利率变动沿期限与信贷层层传导</td></tr>
+<tr><td>存款准备金率</td><td>上调或下调法定准备金率</td><td>改变每 1 元存款可派生的贷款上限（上一课的货币乘数 1/rr）</td></tr>
+<tr><td><span class="term" data-def="央行在公开市场买卖国债、央票等以调节流动性的操作">公开市场操作（open market operations）</span></td><td>买入/卖出国债、中央银行票据，开展正/逆回购</td><td>直接投放或回收基础货币，是日常微调流动性最常用的手段</td></tr>
+</tbody>
+</table>
+
+<h2>三、传导链条：一次降息的六步旅行</h2>
+<p>工具按下之后，效果不是瞬间出现的，而是沿一条链条逐级传递：</p>
+<p><strong>① 央行下调政策利率 → ② 银行间市场利率下行 → ③ 存贷款利率下调 → ④ 企业与居民借贷成本下降 → ⑤ 投资与消费回暖 → ⑥ 物价与就业改善</strong></p>
+<p>链条上任何一环卡住（比如银行不敢放贷、企业不愿借钱），传导就会衰减——这正是央行反复强调「疏通传导机制」的原因。下面的动画把这六步点亮给你看。</p>
+
+<div class="widget">
+<div class="widget-title">降息 25bp：六步传导动画</div>
+<div class="widget-body">
+<div class="widget-controls">
+<button type="button" class="fbtn" id="chain-run">开始传导</button>
+</div>
+<div class="chain" id="chain">
+<div class="chain-node"><span class="chain-idx">1</span><div class="chain-name">央行下调政策利率 25bp</div><div class="chain-note">7 天逆回购、MLF 利率下调，释放宽松信号</div></div>
+<div class="chain-node"><span class="chain-idx">2</span><div class="chain-name">银行间市场利率下行</div><div class="chain-note">DR007 等资金价格跟随政策利率走低</div></div>
+<div class="chain-node"><span class="chain-idx">3</span><div class="chain-name">存贷款利率下调</div><div class="chain-note">LPR 报价下移，新发放贷款利率随之下行</div></div>
+<div class="chain-node"><span class="chain-idx">4</span><div class="chain-name">借贷成本下降</div><div class="chain-note">企业贷款、居民房贷利率降低</div></div>
+<div class="chain-node"><span class="chain-idx">5</span><div class="chain-name">投资与消费回暖</div><div class="chain-note">更多项目变得可行，购房购车意愿上升</div></div>
+<div class="chain-node"><span class="chain-idx">6</span><div class="chain-name">物价与就业改善</div><div class="chain-note">总需求回升，就业与通胀向目标靠拢</div></div>
+</div>
+<div class="chain-done" id="chain-done">✓ 传导完成：更低的利率沿六步逐级扩散，最终影响物价与就业</div>
+</div>
+</div>
+
+<h2>四、方向性影响：降息与加息</h2>
+<div class="callout callout-info"><span class="callout-title">方向性影响（通常是这个方向，并非必然）</span><p>降息：借钱变便宜 → 信贷扩张、投资消费升温，通常利好股市与债市（未来现金流的折现率下降），房贷月供随之下降。加息则相反：借钱变贵 → 信贷收缩，通常对股债价格有压制，月供上升。注意这只是「通常方向」——实际结果还取决于市场信心、预期与外部环境，降息并不必然立刻推升股市。</p></div>
+
+<h3>延伸一句：央行的独立性之争</h3>
+<p>货币政策该不该听命于政府？支持独立的人认为，独立的央行能顶住「印钞促增长」的政治诱惑、守护币值稳定；批评者则认为，央行不受选举约束却深刻影响千家万户，必须有人问责。各国制度安排不同，这场争论至今没有终局。</p>
+
+<h2>五、算一算：降息落到你的房贷上</h2>
+<p>以 100 万元、30 年（360 期）等额本息房贷为例，月供公式：</p>
+<div class="formula">M = P · r(1+r)ⁿ ÷ ((1+r)ⁿ − 1)，其中 r = 年利率÷12，n = 360</div>
+<div class="formula-note">P 为贷款本金 100 万元，r 为月利率，n 为期数。代入验算：年利率 4.9% 时 M ≈ 5307 元；4.65% 时 M ≈ 5156 元；4.4% 时 M ≈ 5008 元。</div>
+
+<div class="widget">
+<div class="widget-title">月供对比：100 万 · 30 年等额本息</div>
+<div class="widget-body">
+<div class="widget-controls">
+<button type="button" class="rate-btn active" data-rate="4.9">年利率 4.90%</button>
+<button type="button" class="rate-btn" data-rate="4.65">年利率 4.65%</button>
+<button type="button" class="rate-btn" data-rate="4.4">年利率 4.40%</button>
+</div>
+<div id="chart2" class="chart"></div>
+<div class="readout">
+<span class="pill">月供 <b id="pay-m">—</b></span>
+<span class="pill">对比 4.9% 每月相差 <b id="pay-diff">—</b></span>
+<span class="pill">30 年总利息相差 <b id="pay-int">—</b></span>
+</div>
+</div>
+</div>
+<p>点几个按钮感受一下：年利率从 4.9% 降到 4.4%（只降 0.5 个百分点），月供少约 300 元，30 年下来总利息相差约 10.8 万元——政策利率那看似遥远的「25bp」，穿过整条传导链后，是你账本上实实在在的一笔钱。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>说出央行的三大职能：垄断发行、银行的银行、维护金融稳定</li>
+<li>匹配三大工具——政策利率、存款准备金率、公开市场操作——的机理</li>
+<li>能复述利率传导的六个节点及其先后顺序</li>
+<li>会用等额本息公式比较不同利率下的月供与总利息</li>
+<li>分得清「通常方向」与「必然结果」</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"央行在公开市场上卖出国债、回笼资金，这属于哪类工具的操作？","options":["准备金率调整","政策利率调整","公开市场操作"],"answer":2,"explain":"买卖国债、央票正是公开市场操作的标志动作；它投放或回收基础货币，是央行日常使用最频繁的工具。"},
+{"q":"降息之后，传导链条的正确先后顺序是？","options":["物价就业→投资消费→借贷成本","借贷成本→投资消费→物价就业","投资消费→借贷成本→物价就业"],"answer":1,"explain":"降息先降低企业与居民的借贷成本，再带动投资与消费回暖，最终才传导到物价与就业——顺序不能倒置。"},
+{"q":"央行加息之后，通常最可能出现的结果是？","options":["房贷月供压力上升","企业信贷更易扩张","债券价格普遍上涨"],"answer":0,"explain":"加息抬高借贷成本，浮动利率房贷月供随之上升；信贷扩张与债券上涨通常是降息对应的方向。"},
+{"q":"「最后贷款人」是什么意思？","options":["央行独家垄断现钞的发行权力","危机时央行向银行提供流动性","银行只给信用最好的客户放贷"],"answer":1,"explain":"当银行流动性紧张、同业无人敢借钱时，央行作为最后贷款人出手放贷，防止个别银行的挤兑演变成系统性危机。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#central-bank">中央银行</a> · <a href="../reference/glossary.html#lender-of-last-resort">最后贷款人</a> · <a href="../reference/glossary.html#monetary-policy">货币政策</a> · <a href="../reference/glossary.html#policy-rate">政策利率</a> · <a href="../reference/glossary.html#open-market-operations">公开市场操作</a></li>
+
+<li><a href="http://www.pbc.gov.cn/">中国人民银行官网</a>——货币政策公告与工具说明的一手来源</li>
+<li><a href="https://www.federalreserve.gov/education.htm">Federal Reserve Education</a>——美联储官方教育栏目</li>
+<li><a href="https://www.investopedia.com/terms/m/monetarypolicy.asp">Investopedia · Monetary Policy</a>——货币政策英文释义</li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0002-部分准备金与货币创造.html"><span class="nav-label">上一课</span><span class="nav-title">部分准备金与货币创造</span></a>
+<a class="next" href="../04-投资学/index.html"><span class="nav-label">下一分支</span><span class="nav-title">投资学</span></a>
+</nav>
+<footer class="lesson-footer"><span>货币银行学 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+/* 本课交互 1：降息 25bp 传导动画 */
+(function () {
+  var run = document.getElementById('chain-run');
+  var wrap = document.getElementById('chain');
+  var done = document.getElementById('chain-done');
+  var nodes = [].slice.call(wrap.querySelectorAll('.chain-node'));
+  var timers = [];
+  run.addEventListener('click', function () {
+    timers.forEach(clearTimeout);
+    timers = [];
+    nodes.forEach(function (n) { n.classList.remove('on'); });
+    wrap.classList.remove('done');
+    done.classList.remove('show');
+    run.disabled = true;
+    nodes.forEach(function (n, i) {
+      timers.push(setTimeout(function () { n.classList.add('on'); }, 400 + i * 1000));
+    });
+    timers.push(setTimeout(function () {
+      wrap.classList.add('done');
+      done.classList.add('show');
+      run.disabled = false;
+    }, 400 + nodes.length * 1000 + 200));
+  });
+})();
+
+/* 本课交互 2：月供对比（100 万 · 30 年等额本息） */
+(function () {
+  var box = document.getElementById('chart2');
+  var oM = document.getElementById('pay-m'), oDiff = document.getElementById('pay-diff'), oInt = document.getElementById('pay-int');
+  var btns = [].slice.call(document.querySelectorAll('.rate-btn'));
+  var P = 1000000, N = 360;
+  function pay(rate) {
+    var r = rate / 100 / 12, f = Math.pow(1 + r, N);
+    return P * r * f / (f - 1);
+  }
+  var RATES = [4.9, 4.65, 4.4];
+  var NAMES = ['4.90%', '4.65%', '4.40%'];
+  var pays = RATES.map(function (x) { return pay(x); });
+  var c = new FChart(box, {
+    height: 300,
+    x: { min: 0.5, max: 3.5, ticks: [1, 2, 3], label: '年利率', fmt: function (v) { return ({ 1: NAMES[0], 2: NAMES[1], 3: NAMES[2] })[v] || ''; } },
+    y: { min: 0, max: 1000000, label: '30 年总利息（元）' }
+  });
+  function render(sel) {
+    c.clear();
+    for (var i = 0; i < RATES.length; i++) {
+      var total = pays[i] * N - P;
+      var col = i === sel ? '#0d5c4f' : '#c9c2b2';
+      c.bars([{ x0: i + 0.7, x1: i + 1.3, y: total, color: col }], { y0: 0 });
+      c.text(i + 1, total, (total / 10000).toFixed(1) + ' 万', { dx: 0, dy: -10, anchor: 'middle', weight: 600, color: i === sel ? '#0d5c4f' : '#5d5749' });
+    }
+    var m = pays[sel], d = pays[0] - m;
+    oM.textContent = fmtY(m) + ' 元/月';
+    if (d > 0.5) {
+      oDiff.textContent = '省 ' + fmtY(d) + ' 元';
+      oInt.textContent = '省 ' + (d * N / 10000).toFixed(1) + ' 万元';
+    } else if (d < -0.5) {
+      oDiff.textContent = '多付 ' + fmtY(-d) + ' 元';
+      oInt.textContent = '多付 ' + (-d * N / 10000).toFixed(1) + ' 万元';
+    } else {
+      oDiff.textContent = '基准档';
+      oInt.textContent = '0 万元';
+    }
+  }
+  function fmtY(n) { return Math.round(n).toLocaleString('zh-CN'); }
+  btns.forEach(function (b, i) {
+    b.addEventListener('click', function () {
+      btns.forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      render(i);
+    });
+  });
+  render(0);
+})();
+</script>
+</body></html>

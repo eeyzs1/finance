@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>国际金融 · 第 1 课：汇率与货币升降值 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「国际金融」第 1 课《汇率与货币升降值》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">国际金融</a><span class="sep">/</span>第 1 课</div>
+<header class="lesson-header"><div class="kicker">国际金融 · Lesson 1</div><h1>汇率与货币升降值：7.2 到底是什么意思</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶</span><span>前置：无</span></div></header>
+<p class="lead">新闻里说"人民币汇率来到 7.2"，有人欢喜有人愁：留学生家长松了口气，玩具厂老板却皱起了眉。本课用 15 分钟讲清三件事：汇率到底是什么、升值贬值怎么判断、以及同一轮升值为什么对不同的人是完全相反的消息。</p>
+
+<h2>一、汇率：用另一种货币标出的"货币价格"</h2>
+<p>苹果的价格用人民币标，人民币的价格用美元标。<span class="term" data-def="用另一种货币表示的一种货币的价格，即两种货币之间的兑换比率。">汇率（exchange rate）</span>就是货币的兑换比率：USD/CNY = 7.2 读作"1 美元兑换 7.2 元人民币"。USD 是美元的国际代码，CNY 是人民币的国际代码。</p>
+<p>这种把外币固定为 1、用本币数量表示价格的写法，叫<span class="term" data-def="以外币为基准（固定为 1），用本币数量表示汇率的标价方法，中国采用此法。">直接标价法（direct quotation）</span>。认角色的窍门：斜杠前的货币是"商品"，斜杠后的货币是"标尺"——就像"苹果 3 元/斤"里，苹果是被标价的商品，元是衡量它的尺子。</p>
+<div class="callout callout-tip"><span class="callout-title">读法口诀</span><p>USD/CNY = 7.2：美元是商品，人民币是尺子，7.2 是"1 个美元"这件商品的人民币售价。同理 EUR/CNY = 7.8，即 1 欧元卖 7.8 元人民币。</p></div>
+
+<h2>二、升值还是贬值：只问一句话</h2>
+<p>汇率天天变，方向不用死记，只问一句：<b>1 美元换到的人民币，是变多了还是变少了？</b>变少，说明人民币更值钱，是<span class="term" data-def="一种货币能兑换到的另一种货币变多，即该货币变得更值钱。">升值（appreciation）</span>；变多，就是<span class="term" data-def="一种货币能兑换到的另一种货币变少，即该货币变得不值钱。">贬值（depreciation）</span>。</p>
+<div class="callout callout-key"><span class="callout-title">方向判断（本课核心）</span><p>USD/CNY 从 7.2 变到 6.8：1 美元换到的人民币从 7.2 元变成 6.8 元，变少了 → <b>人民币升值</b>（同时美元对人民币贬值）。反过来，从 7.2 变到 8.0，1 美元能换到更多人民币 → 人民币贬值。</p></div>
+<div class="callout callout-warn"><span class="callout-title">最常见的误读</span><p>"从 7.2 涨到 7.4，人民币升值了！"——错。在直接标价法下（外币固定为 1），<b>数字变大恰恰是本币贬值</b>。先看清谁是商品、谁是尺子，再谈方向。</p></div>
+
+<h2>三、推演：一家出口玩具厂的生死线</h2>
+<p>沿海一家玩具厂出口毛绒玩具：每件成本 6.3 元、目标利润 0.5 元，合计每件要收回 6.8 元人民币；美国经销商能接受的进货价约为 0.95 美元/件。给美国客户的美元报价 = 应收回的人民币 ÷ 汇率：</p>
+<div class="formula">保本美元报价 =（每件成本 + 目标利润）÷ USD/CNY = 6.8 ÷ 7.2 ≈ 0.944 美元/件</div>
+<div class="formula-note">默认验算：汇率 7.2 时报价约 0.944 美元，低于 0.95 美元的市场可接受价，订单保得住。若人民币升值到 6.8，报价变成 6.8 ÷ 6.8 = 1.000 美元，订单立刻飞走。生死线在 6.8 ÷ 0.95 ≈ 7.16：汇率一旦低于它，工厂就报不出有竞争力的价格。</div>
+<div class="widget">
+<div class="widget-title">互动：出口企业汇率推演</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>USD/CNY 汇率 <span class="val" id="rate-val">7.20</span><input type="range" id="rate" min="6.2" max="8.0" step="0.05" value="7.2"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pill-quote">当前保本报价：0.944 美元/件</span><span class="pill" id="pill-compete">低于 0.95 美元 → 有竞争力</span></div>
+</div>
+</div>
+<p>拖动滑块：绿色曲线是保本报价线，人民币越贬值（汇率数字越大），保本报价越低、出口越有竞争力；一旦人民币升值把汇率压到红色"生死线"（约 7.16）左侧，保本报价就突破 0.95 美元的市场可接受价，订单保不住。</p>
+
+<h2>四、同一轮升值，几家欢喜几家愁</h2>
+<table class="data">
+<thead><tr><th>情形</th><th>主体</th><th>发生了什么</th><th>苦乐</th></tr></thead>
+<tbody>
+<tr><td>升值 7.2→6.8</td><td>出口玩具厂</td><td>同样 0.9 美元的售价，换回人民币从 6.48 元降到 6.12 元</td><td class="bad">受损</td></tr>
+<tr><td>升值 7.2→6.8</td><td>进口大豆的榨油厂</td><td>1 美元的进口大豆，人民币成本从 7.2 元降到 6.8 元</td><td class="good">受益</td></tr>
+<tr><td>升值 7.2→6.8</td><td>留学生家庭</td><td>1 万美元学费，人民币开支从 7.2 万元降到 6.8 万元</td><td class="good">受益</td></tr>
+<tr><td>升值 7.2→6.8</td><td>借了美元债的企业</td><td>偿还 100 万美元债务，从 720 万元降到 680 万元</td><td class="good">受益</td></tr>
+<tr><td>贬值 7.2→8.0</td><td>出口玩具厂</td><td>同样 0.9 美元的售价，换回人民币从 6.48 元升到 7.2 元</td><td class="good">受益</td></tr>
+<tr><td>贬值 7.2→8.0</td><td>出境游游客</td><td>预算 1 万美元的行程，人民币开支从 7.2 万元涨到 8.0 万元</td><td class="bad">受损</td></tr>
+<tr><td>贬值 7.2→8.0</td><td>借了美元债的企业</td><td>偿还 100 万美元债务，从 720 万元增至 800 万元</td><td class="bad">受损</td></tr>
+</tbody>
+</table>
+<p>同一件事，不同主体苦乐完全不同。判断影响前先问自己：<b>我是收外币的一方，还是付外币的一方？</b>收外币（出口企业、海外务工者）怕本币升值；付外币（进口企业、留学家庭、持外币债务者）喜本币升值。</p>
+
+<h2>五、名义汇率之外：一句实话与一个机制</h2>
+<p><span class="term" data-def="银行挂牌、未经两国物价调整的汇率。">名义汇率（nominal exchange rate）</span>是银行屏幕上的数字；而<span class="term" data-def="用两国物价水平对名义汇率调整后得到的汇率，反映真实的购买力对比。">实际汇率（real exchange rate）</span>要用两国物价再调整：若人民币对美元升值 5%，同时国内玩具出厂价也上涨 5%，美国买家面对的实际价格几乎没变——名义升值未必等于真实竞争力下降。判断贸易影响时，实际汇率才是那把更准的尺子。</p>
+<div class="callout callout-info"><span class="callout-title">延伸一句：人民币汇率中间价机制</span><p>每个交易日开市前，中国外汇交易中心公布人民币对美元汇率中间价，当日境内即期汇率在中间价上下一定幅度内波动——这就是新闻里常提的"中间价机制"：人民币汇率既非完全固定，也非完全自由浮动。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>会读 USD/CNY = 7.2：外币是商品、本币是尺子</li>
+<li>一句话判断方向：1 美元换到的人民币变少 = 人民币升值</li>
+<li>会算出口保本报价：6.8 ÷ 7.2 ≈ 0.944 美元，生死线 6.8 ÷ 0.95 ≈ 7.16</li>
+<li>记住升贬值的影响永远分主体：收外币者怕升值，付外币者喜升值</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"USD/CNY 从 7.2 变为 6.8，下列判断正确的是？","options":["人民币贬值了","人民币升值了","两者同时升值"],"answer":1,"explain":"直接标价法下，1 美元换到的人民币从 7.2 元降到 6.8 元，人民币更值钱，即人民币升值、美元贬值；两种货币不可能同时对彼此升值。"},
+{"q":"人民币对美元明显升值，下列群体中短期利益最可能受损的是？","options":["进口商家","留学家庭","出口企业"],"answer":2,"explain":"升值让同样美元收入换回的人民币变少，出口企业利润受压；进口成本与留学开支反而更便宜，进口商家与留学家庭受益。"},
+{"q":"按 USD/CNY = 7.2 的直接标价法读法，数字 7.2 表示什么？","options":["1美元=7.2元人民币","1元人民币=7.2美元","7.2美元=1元人民币"],"answer":0,"explain":"直接标价法把外币固定为 1，7.2 是 1 美元能兑换的人民币数量，即 1 美元 = 7.2 元人民币。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#exchange-rate">汇率</a> · <a href="../reference/glossary.html#direct-quotation">直接标价法</a> · <a href="../reference/glossary.html#appreciation">升值</a> · <a href="../reference/glossary.html#depreciation">贬值</a> · <a href="../reference/glossary.html#nominal-exchange-rate">名义汇率</a> · <a href="../reference/glossary.html#real-exchange-rate">实际汇率</a></li>
+
+<li><a href="https://www.investopedia.com/terms/e/exchangerate.asp" target="_blank" rel="noopener">Investopedia：Exchange Rate</a>——汇率概念的英文权威释义</li>
+<li><a href="https://www.safe.gov.cn/" target="_blank" rel="noopener">国家外汇管理局</a>——人民币汇率中间价与官方数据的原始出处</li>
+<li><a href="https://zh.wikipedia.org/wiki/汇率" target="_blank" rel="noopener">维基百科：汇率</a>——标价法与汇率制度的系统梳理</li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">上一课</span><span class="nav-title">分支导论</span></a><a class="next" href="0002-什么决定汇率.html"><span class="nav-label">下一课</span><span class="nav-title">什么决定汇率</span></a></nav>
+<footer class="lesson-footer"><span>国际金融 · 第 1 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var COST=6.3, PROFIT=0.5, MARKET=0.95;
+  var BASE=COST+PROFIT;
+  var el=document.getElementById('chart1');
+  var slider=document.getElementById('rate');
+  var val=document.getElementById('rate-val');
+  var pillQ=document.getElementById('pill-quote');
+  var pillC=document.getElementById('pill-compete');
+  if(!el||!slider||!window.FChart){return;}
+  var c=new FChart(el,{height:340,x:{min:6.2,max:8.0,label:'USD/CNY 汇率（元 / 美元）'},y:{min:0.80,max:1.15,label:'保本美元报价（美元 / 件）'}});
+  function quote(r){return BASE/r;}
+  function draw(){
+    var r=parseFloat(slider.value);
+    val.textContent=r.toFixed(2);
+    var q=quote(r);
+    c.clear();
+    var pts=[];
+    for(var x=6.2;x<=8.0001;x+=0.02){pts.push([x,quote(x)]);}
+    c.path(pts,{color:'#0d5c4f',width:2.5});
+    c.legend([{color:'#0d5c4f',text:'保本报价 = 6.8 ÷ 汇率'}]);
+    c.hline(MARKET,{label:'美国市场可接受价 0.95 美元'});
+    var edge=BASE/MARKET;
+    c.vline(edge,{color:'#b3372f',label:'生死线 ≈ '+edge.toFixed(2)});
+    c.scatter([[r,q,'#a3701a','当前汇率']],{r:6});
+    c.text(r,q,q.toFixed(3)+' 美元',{dx:8});
+    pillQ.textContent='当前保本报价：'+q.toFixed(3)+' 美元/件';
+    pillC.textContent=q<=MARKET?'低于 0.95 美元 → 有竞争力':'高于 0.95 美元 → 已失竞争力';
+  }
+  slider.addEventListener('input',draw);
+  draw();
+})();
+</script>
+</body></html>

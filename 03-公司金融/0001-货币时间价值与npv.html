@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公司金融 · 第 1 课：货币时间价值与NPV · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「公司金融」第 1 课《货币时间价值与NPV》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">公司金融</a><span class="sep">/</span>第 1 课</div>
+<header class="lesson-header">
+<div class="kicker">公司金融 · Lesson 1</div>
+<h1>货币时间价值与NPV：一个项目值不值得投</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶入门</span><span>前置：建议先学 04 投资学第 1 课</span></div>
+</header>
+
+<p class="lead">今天的 100 元和一年后的 100 元，面额相同，价值不同——这个朴素直觉是整座金融大厦的地基。本课教你把"未来的钱"一步步折算成"今天的钱"，加总成一个数，从而用同一把尺子回答所有投资问题：这个项目，值不值得投？</p>
+
+<h2>一、为什么今天的 100 元比一年后的 100 元更值钱</h2>
+<p><span class="term" data-def="同样一笔钱，今天拿到比未来拿到更值钱；金融学一切定价的地基">货币时间价值（time value of money）</span>听起来抽象，其实人人都懂：有人向你借 100 元，承诺一年后原样还你 100 元，你直觉上就觉得亏。亏在哪里？三个原因：</p>
+<ul>
+<li><b>机会成本</b>：这 100 元若放进年化 5% 的理财，一年后变成 105 元。借出去，你就放弃了那 5 元。</li>
+<li><b>不确定性</b>：一年后对方还不还、还得起还不起，都是未知数。期限越长，变数越大。</li>
+<li><b>通货膨胀</b>：若物价每年上涨 3%，一年后的 100 元只能买到今天约 97 元的东西，购买力缩水了。</li>
+</ul>
+<p>三股力量叠加，就是金融学的第一公理：<b>钱有时间价值，比较不同时点的钱，必须先把它们换算到同一时点。</b></p>
+
+<h2>二、复利与折现：一对反方向的运算</h2>
+<p>顺着时间把钱推向未来，叫<b>复利</b>，算出来的是<span class="term" data-def="今天的钱按利率推到未来某时点的价值，记作 FV">终值（future value）</span>；逆着时间把钱拉回今天，叫<b>折现</b>，算出来的是<span class="term" data-def="未来的钱折算到今天值多少，记作 PV">现值（present value）</span>。公式里每期使用的利率 r 也有专名：<span class="term" data-def="把未来钱折回今天所用的每期利率，衡量时间与风险的价格">折现率（discount rate）</span>——它就是"时间＋风险"的价格。</p>
+<div class="formula">FV = PV × (1 + r)<sup>n</sup>　　PV = FV ÷ (1 + r)<sup>n</sup>
+<div class="formula-note">r 为每期折现率，n 为期数（年）。两式互为逆运算：r 越大、n 越大，未来的钱折回今天就"折"得越狠。</div>
+</div>
+<p>以 r = 10% 为例，看看未来各年的 100 元分别值今天的多少：</p>
+<table class="data">
+<tr><th>时点</th><th>未来金额</th><th>折现算式</th><th>现值（今天的钱）</th></tr>
+<tr><td>1 年后</td><td>100 元</td><td>100 ÷ 1.1</td><td>90.9 元</td></tr>
+<tr><td>2 年后</td><td>100 元</td><td>100 ÷ 1.21（即 1.1²）</td><td>82.6 元</td></tr>
+<tr><td>3 年后</td><td>100 元</td><td>100 ÷ 1.331（即 1.1³）</td><td>75.1 元</td></tr>
+</table>
+<p>逐个验算：100 ÷ 1.1 = 90.909… ≈ 90.9；100 ÷ 1.21 = 82.644… ≈ 82.6；100 ÷ 1.331 = 75.131… ≈ 75.1。规律很直观：<b>每往后一年，就再打一次九折</b>——这就是"折"现二字的由来。</p>
+
+<h2>三、NPV：项目值不值得投，一个数说了算</h2>
+<p>单笔钱会折现了，项目无非是把每一年的现金流分别折现、加总，再减去今天投进去的钱。这个数就是<span class="term" data-def="全部未来现金流折现到今天的加总，减去初始投资；为正即创造财富">净现值（net present value, NPV）</span>：</p>
+<div class="formula">NPV = Σ [ CF<sub>t</sub> ÷ (1 + r)<sup>t</sup> ] − 初始投资　（t = 1 … n）
+<div class="formula-note">CF<sub>t</sub> 为第 t 年年末的净现金流（流入减流出）；初始投资发生在今天（第 0 年），本身已是"今天的钱"，故不再折现。</div>
+</div>
+<div class="callout callout-key"><span class="callout-title">决策法则</span>
+<p><b>NPV &gt; 0，做</b>：项目赚回的现值超过投入，今天净赚这么多财富；<b>NPV &lt; 0，弃</b>：连资金成本都赚不回来；NPV = 0 恰好保本，做不做无差别。NPV 的单位是"今天的钱"，可直接比较、可直接加总。</p>
+</div>
+<h3>完整算例：投 500 万，每年回收 150 万，共 5 年，r = 10%</h3>
+<p>每年现金流相同（年金），可用<b>年金现值系数</b>一次折完：</p>
+<div class="formula">年金现值系数 = [ 1 − (1 + r)<sup>−n</sup> ] ÷ r
+<div class="formula-note">即 n 年各年折现系数之和，专门用于"每年金额相同"的现金流；下方计算器用的也是它。</div>
+</div>
+<table class="data">
+<tr><th>步骤</th><th>算式</th><th>结果</th></tr>
+<tr><td>① 年金现值系数（r=10%，n=5）</td><td>[1 − 1.1⁻⁵] ÷ 0.1 = (1 − 0.6209) ÷ 0.1</td><td>3.7908</td></tr>
+<tr><td>② 5 年现金流总现值</td><td>150 × 3.7908</td><td>568.6 万元</td></tr>
+<tr><td>③ 减去初始投资</td><td>568.6 − 500</td><td>+68.6 万元</td></tr>
+<tr><td>④ 结论</td><td>NPV = +68.6 万 &gt; 0</td><td class="good">值得投</td></tr>
+</table>
+<p>验算：1.1⁵ = 1.61051，故 1.1⁻⁵ = 1 ÷ 1.61051 = 0.6209；系数 = (1 − 0.6209) ÷ 0.1 = 3.7908；总现值 = 150 × 3.7908 = 568.62 ≈ 568.6 万元；NPV = 568.6 − 500 = <b>+68.6 万元</b>。做这个项目，相当于今天凭空多出 68.6 万元的财富。</p>
+
+<h2>亲手算：DCF 计算器</h2>
+<p>把上面的算例变成可动的：拖动四个滑块，左图看每年的现金流被"折"掉多少（金柱是名义金额，绿柱是折现后的现值），右图看折现率从 0% 拉到 25% 时 NPV 如何一路下滑、恰好归零的地方就是 IRR（下一节）。默认参数即上文算例，NPV ≈ +68.6 万。</p>
+<div class="widget">
+<div class="widget-title">DCF 计算器：亲手算一遍 NPV</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>初始投资 <span class="val" id="inv-val"></span><input type="range" id="inv" min="100" max="1000" step="10" value="500"></label></div>
+<div class="slider-row"><label>每年净现金流 <span class="val" id="cfp-val"></span><input type="range" id="cfp" min="50" max="400" step="10" value="150"></label></div>
+<div class="slider-row"><label>年限 <span class="val" id="yrs-val"></span><input type="range" id="yrs" min="3" max="10" step="1" value="5"></label></div>
+<div class="slider-row"><label>折现率 <span class="val" id="rate-val"></span><input type="range" id="rate" min="4" max="20" step="0.5" value="10"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="chart" id="chart2"></div>
+<div class="readout">
+<span class="pill">年金现值系数 <b id="af">–</b></span>
+<span class="pill">现金流总现值 <b id="pv">–</b></span>
+<span class="pill">NPV <b id="npv">–</b></span>
+<span class="pill" id="verdict">–</span>
+</div>
+</div>
+</div>
+
+<h2>四、IRR：换一种问法的 NPV（以及它的两个坑）</h2>
+<p>NPV 回答"净赚多少"，<span class="term" data-def="使 NPV 恰好等于零的折现率；项目内在的盈亏平衡收益率">内含报酬率（internal rate of return, IRR）</span>回答"收益率多高"。一句话定义：<b>IRR 是让 NPV 恰好等于 0 的折现率</b>。仍看上文算例：把折现率一路调高，NPV 会单调下滑，在约 15.2% 处归零——那就是 IRR（可在上面的计算器中把折现率滑到 15% 附近，看右图红线处是否贴近零线）。折现率低于 IRR，NPV 为正；高于 IRR，NPV 为负。</p>
+<div class="callout callout-warn"><span class="callout-title">IRR 的两个陷阱</span>
+<p><b>① 多重解</b>：现金流方向中途变号（先投入、回收、再追加）时，IRR 方程可能有多个根，计算器报出的那一个未必合理。<b>② 再投资假设</b>：IRR 隐含"中途收回的现金能按 IRR 继续投出去"，15.2% 的 IRR 并不代表你全程真能赚到 15.2%。所以 IRR 好用但别迷信——它与 NPV 冲突时，永远以 NPV 为准。</p>
+</div>
+
+<h2>五、生活应用：彩票大奖，现在拿还是分期拿？</h2>
+<div class="callout callout-key"><span class="callout-title">折现率是结论的裁判</span>
+<p>中奖后有两种领法：A 方案现在一次性拿 90 万；B 方案连续 3 年每年领 35 万（名义共 105 万）。按 8% 折现 B 方案：年金现值系数 = [1 − 1.08⁻³] ÷ 0.08 = (1 − 0.7938) ÷ 0.08 = 2.5771，现值 = 35 × 2.5771 ≈ 90.2 万 ≈ 90 万——与 A 几乎等价（验算：1.08³ = 1.259712，1.08⁻³ = 0.7938）。裁判是折现率：若你的钱能稳稳赚到 10%，B 的现值缩水为 35 × 2.4869 ≈ 87.0 万，选 A；若只能放 3% 的存款，B 的现值涨到 35 × 2.8286 ≈ 99.0 万，选 B。同一组现金流，折现率一换，结论反转——选对 r 与算对 NPV 同样重要。</p>
+</div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div>
+<ul>
+<li>说清货币时间价值的三个来源：机会成本、不确定性、通货膨胀</li>
+<li>会用 PV = FV ÷ (1 + r)ⁿ 把任意时点的钱折回今天，并理解 r、n 越大折扣越狠</li>
+<li>会用 NPV = Σ CFₜ ÷ (1 + r)ᵗ − 初始投资 判断项目做还是弃，掌握年金现值系数算法</li>
+<li>理解 IRR 的定义（NPV 为零的折现率）与两大陷阱，冲突时以 NPV 为准</li>
+<li>能用折现思维比较生活中的"一次性 vs 分期"方案，明白折现率决定结论</li>
+</ul>
+</div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"若折现率为 10%，两年后收到的 100 元，现值大约是多少？","options":["75.1 元","82.6 元","90.9 元"],"answer":1,"explain":"100 ÷ 1.1² = 100 ÷ 1.21 = 82.64… ≈ 82.6 元。期数越多，折现折扣越狠。"},
+{"q":"某项目未来现金流的总现值是 360 万元，初始投资 400 万元。NPV 是多少？该怎么做？","options":["−40 万，应放弃","−40 万，应投资","+40 万，应投资"],"answer":0,"explain":"NPV = 360 − 400 = −40 万元。总现值连本金都盖不住，NPV 为负即毁损财富，应放弃。"},
+{"q":"彩票分期方案为连续 3 年每年领 35 万，按 8% 折现，现值大约是多少？","options":["80 万以下","90 万上下","98 万以上"],"answer":1,"explain":"年金现值系数 = (1 − 1.08⁻³) ÷ 0.08 = 2.5771，35 × 2.5771 ≈ 90.2 万，与一次性拿 90 万几乎等价（名义合计 105 万是未折现的错觉）。"},
+{"q":"IRR（内含报酬率）的确切含义是什么？","options":["项目各年现金流的均值","使 NPV 为正的折现率","使 NPV 为零的折现率"],"answer":2,"explain":"IRR 是令 NPV 恰好等于零的折现率：折现率低于 IRR 时 NPV 为正，高于 IRR 时为负。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div>
+<ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#time-value">货币时间价值</a> · <a href="../reference/glossary.html#future-value">终值</a> · <a href="../reference/glossary.html#present-value">现值</a> · <a href="../reference/glossary.html#discount-rate">折现率</a> · <a href="../reference/glossary.html#npv">净现值</a> · <a href="../reference/glossary.html#internal-rate-of-return-irr">内含报酬率</a></li>
+
+<li><a href="https://www.investopedia.com/terms/n/npv.asp">Investopedia · Net Present Value (NPV)</a>——NPV 权威词条，含算例与决策法则</li>
+<li><a href="https://www.khanacademy.org/economics-finance-domain/core-finance/interest-tutorial">Khan Academy · Interest and Debt</a>——从复利讲到折现的免费视频课，适合零基础补地基</li>
+<li><a href="https://en.wikipedia.org/wiki/Corporate_finance">Wikipedia · Corporate Finance</a>——公司金融全景条目，课后可纵览本分支在学科中的位置</li>
+</ul>
+</div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">上一课</span><span class="nav-title">分支导论</span></a><a class="next" href="0002-资本结构与杠杆.html"><span class="nav-label">下一课</span><span class="nav-title">资本结构与杠杆</span></a></nav>
+<footer class="lesson-footer"><span>公司金融 · 第 1 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  function $(id) { return document.getElementById(id); }
+  var invEl = $('inv'), cfpEl = $('cfp'), yrsEl = $('yrs'), rateEl = $('rate');
+  var c1 = new FChart($('chart1'), { height: 340, x: { min: 0, max: 11, label: '年份' }, y: { min: 0, max: 420, label: '金额（万元）' } });
+  var c2 = new FChart($('chart2'), { height: 340, x: { min: 0, max: 25, label: '折现率（%）' }, y: { min: -200, max: 600, label: 'NPV（万元）' } });
+
+  function af(r, n) { return r <= 0 ? n : (1 - Math.pow(1 + r, -n)) / r; }
+  function npvAt(rPct, cfp, n, inv) { return cfp * af(rPct / 100, n) - inv; }
+  function findIRR(cfp, n, inv) {
+    if (cfp * n - inv <= 0) return null;
+    var lo = 0, hi = 1;
+    for (var i = 0; i < 60; i++) {
+      var mid = (lo + hi) / 2;
+      if (npvAt(mid * 100, cfp, n, inv) > 0) { lo = mid; } else { hi = mid; }
+    }
+    return (lo + hi) / 2;
+  }
+
+  function draw() {
+    var inv = parseFloat(invEl.value);
+    var cfp = parseFloat(cfpEl.value);
+    var n = parseInt(yrsEl.value, 10);
+    var rPct = parseFloat(rateEl.value);
+    var r = rPct / 100;
+
+    $('inv-val').textContent = inv + ' 万';
+    $('cfp-val').textContent = cfp + ' 万';
+    $('yrs-val').textContent = n + ' 年';
+    $('rate-val').textContent = rPct + '%';
+
+    var factor = af(r, n);
+    var pv = cfp * factor;
+    var npv = pv - inv;
+    $('af').textContent = factor.toFixed(4);
+    $('pv').textContent = pv.toFixed(1) + ' 万';
+    $('npv').textContent = (npv >= 0 ? '+' : '') + npv.toFixed(1) + ' 万';
+    $('verdict').textContent = npv > 0 ? '✓ 值得投' : '✗ 放弃';
+
+    c1.clear();
+    var bars = [];
+    for (var t = 1; t <= n; t++) {
+      bars.push({ x0: t - 0.42, x1: t - 0.06, y: cfp, color: '#a3701a' });
+      bars.push({ x0: t + 0.06, x1: t + 0.42, y: cfp / Math.pow(1 + r, t), color: '#0d5c4f' });
+    }
+    c1.bars(bars, { y0: 0 });
+    c1.legend([{ color: '#a3701a', text: '名义现金流' }, { color: '#0d5c4f', text: '折现后现值' }]);
+
+    c2.clear();
+    var pts = [];
+    for (var x = 0; x <= 25.0001; x += 0.25) { pts.push([x, npvAt(x, cfp, n, inv)]); }
+    c2.path(pts, { color: '#0d5c4f', width: 2.5 });
+    c2.hline(0, { label: 'NPV = 0' });
+    c2.vline(rPct, { color: '#b3372f', label: '当前折现率' });
+    var irr = findIRR(cfp, n, inv);
+    if (irr !== null && irr * 100 <= 25) { c2.text(irr * 100, 0, 'IRR ≈ ' + (irr * 100).toFixed(1) + '%', { dx: 8 }); }
+    c2.legend([{ color: '#0d5c4f', text: 'NPV 随折现率变化' }, { color: '#b3372f', text: '当前折现率' }]);
+  }
+
+  [invEl, cfpEl, yrsEl, rateEl].forEach(function (el) { el.addEventListener('input', draw); });
+  draw();
+})();
+</script>
+</body>
+</html>

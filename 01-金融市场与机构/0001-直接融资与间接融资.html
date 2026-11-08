@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>金融市场与机构 · 第 1 课：资金的旅程——直接融资与间接融资 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「金融市场与机构」第 1 课《资金的旅程——直接融资与间接融资》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<div class="page">
+
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">金融市场与机构</a><span class="sep">/</span>第 1 课</div>
+
+<header class="lesson-header">
+  <div class="kicker">金融市场与机构 · Lesson 1</div>
+  <h1>资金的旅程：直接融资与间接融资</h1>
+  <div class="meta">
+    <span class="tag">预计 15 分钟</span>
+    <span>难度：入门</span>
+    <span>前置：无（本分支起点）</span>
+  </div>
+</header>
+
+<p class="lead">每天，无数资金在陌生人与陌生人之间流动：张阿姨的存款变成了李老板面包厂的第二条生产线，你的房贷背后是千家万户的储蓄。金融体系要解决的第一个问题，就是把资金从<strong>有闲钱的人</strong>手里，搬到<strong>需要钱的项目</strong>那里。搬运的路线主要有两条：经过银行中转，或者直接穿过市场。这一课我们跟着 100 元储蓄，把两条路各走一遍。</p>
+
+<h2>一、谁需要钱，谁有钱</h2>
+<p>先给两端的角色画像。</p>
+<p><strong>资金盈余方</strong>，通常是<strong>居民（家庭）</strong>：拿到工资、消费之后有结余，存起来怕贬值，自己投资又不懂。整体上看，居民部门是全社会最大的净储蓄者。</p>
+<p><strong>资金短缺方</strong>，主要是<strong>企业与政府</strong>：企业想扩产、研发、建厂，回报不错但手头现金不够；政府要修路、建学校，支出先于税收。它们需要"今天的钱"去赚"明天的回报"。</p>
+<div class="callout callout-info">
+  <span class="callout-title">一个朴素的难题</span>
+  <p>张阿姨有 10 万闲钱，李老板的面包厂想借 50 万开第二家店。张阿姨不认识李老板，也不懂评估面包店的生意；李老板也不可能挨家挨户去借。两人之间隔着三道沟：<strong>信息</strong>（谁知道谁靠谱）、<strong>风险</strong>（钱收不回怎么办）、<strong>成本</strong>（小额资金逐笔对接太贵）。跨越这三道沟的方案，就构成了整个金融体系。</p>
+</div>
+<p>跨越的方式有两条主路：把钱交给一家<strong>中间机构</strong>替你放贷（间接融资），或者直接购买企业发出的<span class="term" data-def="表明持有人有权取得未来收益的可转让凭证，最基本的两类是股票（所有权）与债券（债权）。">证券（security）</span>（直接融资）。</p>
+
+<h2>二、两条路：间接融资与直接融资</h2>
+<p><strong>路线 A：<span class="term" data-def="资金盈余者把钱存入银行等中介，中介再贷给资金需求者；中介自己承担借贷双方的信用风险。">间接融资（indirect finance）</span></strong>——张阿姨把钱存入银行，银行再把钱贷给李老板。注意关键特征：张阿姨只和银行发生关系（拿存款利息），李老板也只对银行负责（付贷款利息），<strong>银行站在中间，自己承担借款人不还钱的信用风险</strong>。银行赚的是两者之间的差价。</p>
+<p><strong>路线 B：<span class="term" data-def="资金需求者通过金融市场直接向资金盈余者出售证券（股票、债券）获得资金，不经银行中转。">直接融资（direct finance）</span></strong>——李老板不走银行，直接在市场上发行证券：发行股票请张阿姨当股东，或发行债券向张阿姨借钱。资金需求者通过金融市场直接向资金盈余者出售证券，不经银行中转。</p>
+<p>走市场路线，银行不再站在中间赚差价——但市场本身也不是免费的：发行证券要付承销费，交易要付佣金（第 3 课会见到靠这些费用吃饭的机构）。本课先把市场通道简化为零成本，突出核心对比。</p>
+
+<div class="formula">
+  银行年利差收入 = 放款金额 ×（贷款利率 − 存款利率）
+  <div class="formula-note">设存款利率 2%、贷款利率 5%，则利差为 3 个百分点：放款 60 元，银行一年赚 60 × 3% = <b>1.8 元</b>。这 1.8 元是居民让渡的收益，也是企业多付的成本——它就是"中转服务"的价格。</div>
+</div>
+
+<div class="widget">
+  <div class="widget-title">🏦 交互 · 100 元的旅程：资金流动模拟器</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row">
+        <label>资金分流：多少走银行（间接），多少走市场（直接）<span class="val" id="split-val"></span></label>
+        <input type="range" id="split-range" min="0" max="100" step="5" value="60" aria-label="间接融资金额，其余走直接融资">
+      </div>
+      <div class="slider-row">
+        <label>&nbsp;</label>
+        <button class="btn" id="inject" type="button">注入 100 元储蓄</button>
+      </div>
+    </div>
+
+    <div class="chart">
+      <svg id="flow-svg" viewBox="0 0 720 400" role="img" aria-label="资金从居民储蓄出发，经银行或证券市场流向企业的动画示意图">
+        <defs>
+          <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#a9a290"></path>
+          </marker>
+        </defs>
+        <g font-family="Segoe UI, system-ui, sans-serif">
+          <!-- 图例 -->
+          <circle cx="52" cy="24" r="7" fill="#0d5c4f" opacity="0.9"></circle>
+          <text x="66" y="28" font-size="12" fill="#5d5749">经银行（间接）</text>
+          <circle cx="182" cy="24" r="7" fill="#a3701a" opacity="0.9"></circle>
+          <text x="196" y="28" font-size="12" fill="#5d5749">走市场（直接）</text>
+
+          <!-- 本金通道（实线，动画路径） -->
+          <path id="p-in-bank" d="M158,182 L300,104" stroke="#0d5c4f" stroke-width="3" fill="none" opacity="0.5"></path>
+          <path id="p-loan" d="M420,104 L562,182" stroke="#0d5c4f" stroke-width="3" fill="none" opacity="0.5" marker-end="url(#m-gray)"></path>
+          <path id="p-buy" d="M158,218 L292,296" stroke="#a3701a" stroke-width="3" fill="none" opacity="0.5"></path>
+          <path id="p-issue" d="M428,296 L562,218" stroke="#a3701a" stroke-width="3" fill="none" opacity="0.5" marker-end="url(#m-gray)"></path>
+
+          <!-- 利息回流（虚线） -->
+          <path d="M300,124 L162,200" stroke="#0d5c4f" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.75" marker-end="url(#m-gray)"></path>
+          <path d="M562,196 L420,124" stroke="#0d5c4f" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.75" marker-end="url(#m-gray)"></path>
+          <path d="M562,222 L428,312" stroke="#a3701a" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.75" marker-end="url(#m-gray)"></path>
+          <path d="M292,312 L162,224" stroke="#a3701a" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.55" marker-end="url(#m-gray)"></path>
+
+          <!-- 利息标签（白色描边保证可读） -->
+          <text x="172" y="150" font-size="11" fill="#0a463c" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">存款利息 2%</text>
+          <text x="452" y="150" font-size="11" fill="#0a463c" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">贷款利息 5%</text>
+          <text x="452" y="302" font-size="11" fill="#7a5414" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">债券利息 4.5%</text>
+          <text x="172" y="302" font-size="11" fill="#7a5414" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">利息转付居民</text>
+
+          <!-- 节点：居民储蓄 -->
+          <rect x="38" y="168" width="124" height="64" rx="12" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+          <text x="100" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#0a463c">居民储蓄</text>
+          <text x="100" y="217" text-anchor="middle" font-size="11" fill="#5d5749">资金盈余方</text>
+
+          <!-- 节点：商业银行 -->
+          <rect x="298" y="56" width="124" height="64" rx="12" fill="#f5ead1" stroke="#a3701a" stroke-width="2"></rect>
+          <text x="360" y="84" text-anchor="middle" font-size="15" font-weight="700" fill="#7a5414">商业银行</text>
+          <text x="360" y="105" text-anchor="middle" font-size="11" fill="#5d5749">中转 · 赚利差</text>
+          <text id="t-bank-badge" x="360" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="#a3701a"></text>
+
+          <!-- 节点：证券市场 -->
+          <rect x="288" y="280" width="144" height="64" rx="12" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+          <text x="360" y="308" text-anchor="middle" font-size="15" font-weight="700" fill="#0a463c">证券市场</text>
+          <text x="360" y="329" text-anchor="middle" font-size="11" fill="#5d5749">直接融资通道</text>
+
+          <!-- 节点：企业与政府 -->
+          <rect x="558" y="168" width="124" height="64" rx="12" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+          <text x="620" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#0a463c">企业 · 政府</text>
+          <text x="620" y="217" text-anchor="middle" font-size="11" fill="#5d5749">资金短缺方</text>
+
+          <!-- 资金包（动画元素） -->
+          <g id="pk1" style="display:none">
+            <circle r="15" fill="#0d5c4f" opacity="0.95"></circle>
+            <text y="4.5" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">60 元</text>
+          </g>
+          <g id="pk2" style="display:none">
+            <circle r="15" fill="#a3701a" opacity="0.95"></circle>
+            <text y="4.5" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">40 元</text>
+          </g>
+          <g id="pk3" style="display:none">
+            <circle r="15" fill="#0d5c4f" opacity="0.95"></circle>
+            <text y="4.5" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">60 元</text>
+          </g>
+          <g id="pk4" style="display:none">
+            <circle r="15" fill="#a3701a" opacity="0.95"></circle>
+            <text y="4.5" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">40 元</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="readout">
+      <span class="pill">银行吸收存款 <b id="ro-bank-in">0 元</b></span>
+      <span class="pill">银行放出贷款 <b id="ro-bank-out">0 元</b></span>
+      <span class="pill">证券市场直连 <b id="ro-mkt-in">0 元</b></span>
+      <span class="pill">企业到手合计 <b id="ro-firm">0 元</b></span>
+      <span class="pill">一年后：居民利息收入 <b id="ro-saver">0 元</b></span>
+      <span class="pill">一年后：企业利息支出 <b id="ro-cost">0 元</b></span>
+      <span class="pill">一年后：银行利差收入 <b id="ro-margin">0 元</b></span>
+    </div>
+    <p class="formula-note">数值关系：企业利息支出 = 居民利息收入 + 银行利差（例：走银行 60 元时，3.00 + 1.80 = 4.80 元）。市场通道按票面 4.5% 直付居民，本图省略了承销费与佣金。</p>
+  </div>
+</div>
+
+<p>点击"注入 100 元储蓄"后注意三件事：<strong>第一</strong>，无论走哪条路，企业到手的钱都是那 100 元——两条路搬运的效率相同；<strong>第二</strong>，绿色通道上银行留下了利差，一年后居民拿 2%、企业付 5%，中间 3 个百分点归银行；<strong>第三</strong>，金色通道上居民拿到的 4.5% 与企业支付的 4.5% 完全相等——市场把中间商的差价压缩掉了，代价是居民要自己面对企业不还钱的风险。</p>
+
+<h2>三、两种方式各有什么优劣</h2>
+<p>既然市场直连更"便宜"，银行为什么没有被淘汰？因为两条路各有胜负手。核心在<span class="term" data-def="交易一方掌握的信息比另一方多：借款人最清楚自己会不会还钱，放款人却难以识别——这是金融中介存在的根源。">信息不对称（information asymmetry）</span>：</p>
+<table class="data">
+  <thead>
+    <tr><th>维度</th><th>间接融资（银行）</th><th>直接融资（市场）</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>信息处理</td>
+      <td class="good">银行专业甄别借款人、贷后持续监督，张阿姨无需懂面包生意</td>
+      <td class="bad">投资者要自己（或买评级）判断证券好坏，信息成本落到每个人头上</td>
+    </tr>
+    <tr>
+      <td>风险承担</td>
+      <td class="good">银行兜住违约风险，存款人几乎不受波及</td>
+      <td class="bad">投资者直接承担违约与价格波动，可能血本无归</td>
+    </tr>
+    <tr>
+      <td>资金成本</td>
+      <td class="bad">利差长期存在，是储蓄者与借款人共同的"过路费"</td>
+      <td class="good">省去利差，优质大企业发债成本通常低于贷款</td>
+    </tr>
+    <tr>
+      <td>门槛与灵活性</td>
+      <td class="good">小额存款随存随取；小额贷款银行也能逐笔处理</td>
+      <td class="bad">发行证券有规模与信息披露门槛，小企业很难进场</td>
+    </tr>
+    <tr>
+      <td>对企业的要求</td>
+      <td class="good">不用公开经营细节，与银行一对一协商</td>
+      <td class="bad">须公开披露财报、接受市场持续定价（这也是约束）</td>
+    </tr>
+  </tbody>
+</table>
+<div class="callout callout-tip">
+  <span class="callout-title">记住这个分工</span>
+  <p><strong>银行擅长处理"小额、分散、信息难"的资金</strong>——居民的零散储蓄正需要它；<strong>市场擅长处理"大额、标准化、信息透明"的融资</strong>——所以发股发债的大多是成熟大企业。现实中两条路并存，规模对比随金融体系结构变化：市场占比高的（如美国）叫<span class="term" data-def="以直接融资（股票、债券市场）为主导的金融体系，以美国为典型代表。">市场主导型</span>，银行占比高的（如中国、德国、日本）叫<span class="term" data-def="以银行信贷（间接融资）为主导的金融体系，以中国、德国、日本为典型代表。">银行主导型</span>体系。</p>
+</div>
+
+<h2>四、金融体系地图总览</h2>
+<p>把两条路放到一张图上，加上所有配角，就是整个金融体系的骨架。左边是盈余方，右边是短缺方，中间是两条通道：<span class="term" data-def="连接资金盈余方与短缺方的机构：商业银行、投资银行、共同基金、保险公司、养老金等。">金融中介（financial intermediary）</span>与<strong>金融市场</strong>；头顶是制定规则、充当最后贷款人的央行与监管机构；底下那条回流线提醒你——资金不是单程票，利息、股利、赔付会源源不断流回盈余方。</p>
+
+<div class="chart">
+  <svg viewBox="0 0 720 340" role="img" aria-label="金融体系地图：盈余方的资金经中介或市场流向短缺方，监管机构居上，收益回流线下">
+    <defs>
+      <marker id="map-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#5d5749"></path>
+      </marker>
+    </defs>
+    <g font-family="Segoe UI, system-ui, sans-serif">
+      <!-- 监管层 -->
+      <rect x="470" y="6" width="224" height="46" rx="8" fill="none" stroke="#b3372f" stroke-width="1.5" stroke-dasharray="6 4"></rect>
+      <text x="582" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#b3372f">中央银行与监管机构</text>
+      <text x="582" y="44" text-anchor="middle" font-size="11" fill="#5d5749">制定规则 · 最后贷款人</text>
+      <path d="M540,52 L400,110" stroke="#b3372f" stroke-width="1.3" stroke-dasharray="5 4" fill="none" opacity="0.7" marker-end="url(#map-arrow)"></path>
+      <path d="M600,52 L410,238" stroke="#b3372f" stroke-width="1.3" stroke-dasharray="5 4" fill="none" opacity="0.7" marker-end="url(#map-arrow)"></path>
+      <text x="500" y="84" font-size="11" fill="#b3372f" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">监管</text>
+
+      <!-- 资金盈余方 -->
+      <rect x="24" y="140" width="150" height="76" rx="10" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+      <text x="99" y="170" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0a463c">资金盈余方</text>
+      <text x="99" y="192" text-anchor="middle" font-size="11.5" fill="#5d5749">居民储蓄 · 盈余企业</text>
+
+      <!-- 金融中介 -->
+      <rect x="282" y="76" width="180" height="68" rx="10" fill="#f5ead1" stroke="#a3701a" stroke-width="2"></rect>
+      <text x="372" y="104" text-anchor="middle" font-size="14.5" font-weight="700" fill="#7a5414">金融中介</text>
+      <text x="372" y="126" text-anchor="middle" font-size="11.5" fill="#5d5749">银行 · 基金 · 保险 · 养老金</text>
+
+      <!-- 金融市场 -->
+      <rect x="282" y="224" width="180" height="68" rx="10" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+      <text x="372" y="252" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0a463c">金融市场</text>
+      <text x="372" y="274" text-anchor="middle" font-size="11.5" fill="#5d5749">股票 · 债券 · 货币市场</text>
+
+      <!-- 资金短缺方 -->
+      <rect x="546" y="140" width="150" height="76" rx="10" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+      <text x="621" y="170" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0a463c">资金短缺方</text>
+      <text x="621" y="192" text-anchor="middle" font-size="11.5" fill="#5d5749">企业投资 · 政府支出</text>
+
+      <!-- 资金流 -->
+      <path d="M174,162 L282,112" stroke="#a3701a" stroke-width="2.5" fill="none" marker-end="url(#map-arrow)"></path>
+      <path d="M174,194 L282,258" stroke="#0d5c4f" stroke-width="2.5" fill="none" marker-end="url(#map-arrow)"></path>
+      <path d="M462,112 L546,162" stroke="#a3701a" stroke-width="2.5" fill="none" marker-end="url(#map-arrow)"></path>
+      <path d="M462,258 L546,194" stroke="#0d5c4f" stroke-width="2.5" fill="none" marker-end="url(#map-arrow)"></path>
+      <text x="210" y="122" font-size="11" fill="#7a5414" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">间接融资</text>
+      <text x="210" y="244" font-size="11" fill="#0a463c" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">直接融资</text>
+
+      <!-- 收益回流 -->
+      <path d="M560,216 C 420,330 260,330 100,222" stroke="#5d5749" stroke-width="1.5" stroke-dasharray="6 4" fill="none" opacity="0.8" marker-end="url(#map-arrow)"></path>
+      <text x="330" y="326" text-anchor="middle" font-size="11" fill="#5d5749" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">利息 · 股利 · 赔付（资金回流盈余方）</text>
+    </g>
+  </svg>
+</div>
+<p>这张图值得多看几眼：本分支第 2 课放大"金融市场"这个盒子（一级/二级市场），第 3 课放大"金融中介"这个盒子（六类机构），下一分支则放大"中央银行"。</p>
+
+<div class="win-card">
+  <div class="win-title">✓ 本课收获</div>
+  <ul>
+    <li>能指出资金盈余方（居民）与短缺方（企业、政府），并说出它们之间的三道沟：信息、风险、成本；</li>
+    <li>能用"银行是否站在中间承担信用风险"一眼分辨间接融资与直接融资；</li>
+    <li>会用公式算利差：60 元 ×（5% − 2%）= 1.8 元，并解释它是居民让渡的收益、企业多付的成本；</li>
+    <li>脑中有了金融体系地图：盈余方 →（中介｜市场）→ 短缺方，头顶监管、脚下收益回流。</li>
+  </ul>
+</div>
+
+<div class="quiz">
+<script type="application/json">
+{
+  "title": "随堂测验 · 资金的旅程",
+  "questions": [
+    {
+      "q": "小李把 5 万元存进银行，银行把这笔钱转贷给一家家具厂。这次资金融通属于：",
+      "options": ["直接融资", "间接融资", "内部集资", "财政拨款"],
+      "answer": 1,
+      "explain": "小李只和银行发生存取关系，家具厂只对银行还本付息，银行站在中间并自己承担信用风险——这正是间接融资的定义。若小李直接买了家具厂发行的债券或股票，才属于直接融资。"
+    },
+    {
+      "q": "商业银行重要的利润来源「利差」，指的是：",
+      "options": ["买卖外汇价格的差额", "代销基金收取的佣金", "存贷款利率之间的差额", "央行给付的补贴利息"],
+      "answer": 2,
+      "explain": "利差 = 贷款利率 − 存款利率。本课例子中 5% − 2% = 3 个百分点，60 元放款一年给银行带来 1.8 元利差收入，是它提供甄别、监督与风险兜底服务的报酬。"
+    },
+    {
+      "q": "某公司在一级市场上发行新股融资，这意味着：",
+      "options": ["资金第一次从投资者流向发行人", "投资者之间互相转手旧股票", "银行把储户存款转贷给企业", "央行直接借钱给这家公司"],
+      "answer": 0,
+      "explain": "一级市场的关键特征是证券首次发行出售、募资进入发行人账户；投资者间转手旧股是二级市场，银行转贷是间接融资，央行直接放款则完全不符。"
+    }
+  ]
+}
+</script>
+</div>
+
+<div class="sources">
+  <div class="sources-title">推荐阅读（首选来源）</div>
+  <ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#security">证券</a> · <a href="../reference/glossary.html#indirect-finance">间接融资</a> · <a href="../reference/glossary.html#direct-finance">直接融资</a> · <a href="../reference/glossary.html#information-asymmetry">信息不对称</a> · <a href="../reference/glossary.html#市场主导型">市场主导型</a> · <a href="../reference/glossary.html#银行主导型">银行主导型</a> · <a href="../reference/glossary.html#financial-intermediary">金融中介</a></li>
+
+    <li><a href="https://www.investopedia.com/terms/d/direct-finance.asp">Investopedia · Direct Finance</a> — 直接融资的定义、例子与优劣（英文）。</li>
+    <li><a href="https://www.investopedia.com/terms/f/financialintermediary.asp">Investopedia · Financial Intermediary</a> — 金融中介为什么存在、都包括哪些机构。</li>
+    <li><a href="https://en.wikipedia.org/wiki/Financial_intermediary">Wikipedia · Financial Intermediary</a> — 金融中介条目，可与本课地图对照阅读。</li>
+    <li><a href="http://www.pbc.gov.cn/">中国人民银行官网</a> — 中国金融体系与金融稳定的官方报告出处。</li>
+    <li><a href="../reference/glossary.html">本课程术语表</a> — 直接融资、间接融资、金融中介等词条的统一口径。</li>
+  </ul>
+</div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+  <a href="index.html"><span class="nav-label">上一课</span><span class="nav-title">分支导论：金融市场与机构</span></a>
+  <a class="next" href="0002-股票市场与债券市场.html"><span class="nav-label">下一课</span><span class="nav-title">两种最基本的证券：股票市场与债券市场</span></a>
+</nav>
+
+<footer class="lesson-footer">
+  <span>金融市场与机构 · 第 1 课</span>
+  <span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span>
+</footer>
+
+</div>
+<script src="../assets/charts.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  "use strict";
+  function $(id) { return document.getElementById(id); }
+
+  var RATE_DEPOSIT = 0.02, RATE_LOAN = 0.05, RATE_BOND = 0.045;
+  var range = $("split-range"), splitVal = $("split-val"), btn = $("inject");
+
+  var packets = { toBank: $("pk1"), toMkt: $("pk2"), bankOut: $("pk3"), mktOut: $("pk4") };
+  var paths = { toBank: $("p-in-bank"), toMkt: $("p-buy"), bankOut: $("p-loan"), mktOut: $("p-issue") };
+
+  function amtInd() { return parseFloat(range.value); }
+  function amtDir() { return 100 - amtInd(); }
+  function fmt(n) { return n.toFixed(2); }
+
+  function updateEcon() {
+    var a = amtInd(), b = amtDir();
+    $("ro-saver").textContent = fmt(a * RATE_DEPOSIT + b * RATE_BOND) + " 元";
+    $("ro-cost").textContent = fmt(a * RATE_LOAN + b * RATE_BOND) + " 元";
+    $("ro-margin").textContent = fmt(a * (RATE_LOAN - RATE_DEPOSIT)) + " 元";
+  }
+  function updateFlows() {
+    var a = amtInd(), b = amtDir();
+    $("ro-bank-in").textContent = a + " 元";
+    $("ro-bank-out").textContent = a + " 元";
+    $("ro-mkt-in").textContent = b + " 元";
+    $("ro-firm").textContent = "100 元";
+  }
+  function updateBadge() {
+    var a = amtInd();
+    $("t-bank-badge").textContent = a > 0 ? "年利差收入 " + fmt(a * (RATE_LOAN - RATE_DEPOSIT)) + " 元" : "";
+  }
+  function refresh() {
+    splitVal.textContent = "间接 " + amtInd() + " 元 / 直接 " + amtDir() + " 元";
+    updateFlows(); updateBadge(); updateEcon();
+  }
+  range.addEventListener("input", refresh);
+
+  function setPacket(p, amt) {
+    p.querySelector("text").textContent = amt + " 元";
+    p.style.display = "";
+  }
+  function hidePacket(p) { p.style.display = "none"; }
+  function move(p, path, dur, done) {
+    var len = path.getTotalLength(), t0 = null;
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var k = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - k, 3);
+      var pt = path.getPointAtLength(len * eased);
+      p.setAttribute("transform", "translate(" + pt.x.toFixed(1) + "," + pt.y.toFixed(1) + ")");
+      if (k < 1) requestAnimationFrame(frame);
+      else if (done) done();
+    }
+    requestAnimationFrame(frame);
+  }
+  function seq(steps) {
+    var i = 0;
+    function next() { if (i < steps.length) steps[i](next); }
+    next();
+  }
+
+  var running = false;
+  btn.addEventListener("click", function () {
+    if (running) return;
+    running = true;
+    btn.disabled = true;
+    btn.textContent = "资金流动中…";
+    var a = amtInd(), b = amtDir(), firm = 0;
+
+    Object.keys(packets).forEach(function (k) { hidePacket(packets[k]); });
+    $("ro-bank-in").textContent = "0 元";
+    $("ro-bank-out").textContent = "0 元";
+    $("ro-mkt-in").textContent = "0 元";
+    $("ro-firm").textContent = "0 元";
+    $("t-bank-badge").textContent = "";
+
+    var steps = [];
+    if (a > 0) steps.push(function (nx) {
+      setPacket(packets.toBank, a);
+      move(packets.toBank, paths.toBank, 900, function () {
+        hidePacket(packets.toBank);
+        $("ro-bank-in").textContent = a + " 元";
+        nx();
+      });
+    });
+    if (b > 0) steps.push(function (nx) {
+      setPacket(packets.toMkt, b);
+      move(packets.toMkt, paths.toMkt, 900, function () {
+        hidePacket(packets.toMkt);
+        $("ro-mkt-in").textContent = b + " 元";
+        nx();
+      });
+    });
+    if (a > 0) steps.push(function (nx) {
+      setPacket(packets.bankOut, a);
+      move(packets.bankOut, paths.bankOut, 900, function () {
+        hidePacket(packets.bankOut);
+        $("ro-bank-out").textContent = a + " 元";
+        firm += a;
+        $("ro-firm").textContent = firm + " 元";
+        nx();
+      });
+    });
+    if (b > 0) steps.push(function (nx) {
+      setPacket(packets.mktOut, b);
+      move(packets.mktOut, paths.mktOut, 900, function () {
+        hidePacket(packets.mktOut);
+        firm += b;
+        $("ro-firm").textContent = firm + " 元";
+        nx();
+      });
+    });
+    steps.push(function (nx) {
+      updateBadge();
+      updateEcon();
+      running = false;
+      btn.disabled = false;
+      btn.textContent = "注入 100 元储蓄";
+      nx();
+    });
+    seq(steps);
+  });
+
+  refresh();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>个人理财 · 第 3 课：债务与财务安全网 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「个人理财」第 3 课《债务与财务安全网》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px}
+.seg button{font:inherit;font-size:.95em;padding:6px 16px;border:1px solid #c9c2b4;border-radius:999px;background:#f6f3ec;color:#3f3a30;cursor:pointer}
+.seg button.active{background:#0d5c4f;border-color:#0d5c4f;color:#fff}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">个人理财</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header"><div class="kicker">个人理财 · Lesson 3</div><h1>债务与财务安全网</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：入门</span><span>前置：第 2 课</span></div></header>
+<p class="lead">投资是进攻，还债与安全网是防守。一笔年化 18% 的信用卡债，没有任何稳健投资能稳定跑赢——先修补资产负债表，再谈复利。这一课给出一张从高息债、应急金到保险与征信的财务安全网施工图。</p>
+
+<h2>一、债务的利率光谱</h2>
+<p>同样借 1 万元，不同债务一年后的利息可以差出好几倍。先认清楚你手里的债务处在光谱的哪一段：</p>
+<table class="data">
+<thead><tr><th>债务类型</th><th>常见年利率</th><th>期限 / 担保</th><th>一句话点评</th></tr></thead>
+<tbody>
+<tr><td>住房按揭贷款</td><td class="good">约 3%–5%</td><td>最长 30 年 / 房产抵押</td><td>利率最低、期限最长</td></tr>
+<tr><td>汽车贷款</td><td>约 4%–8%</td><td>1–5 年 / 车辆抵押</td><td>买车属消费，量力而行</td></tr>
+<tr><td>消费贷 / 信用卡分期</td><td class="bad">约 8%–18%</td><td>1–3 年 / 信用</td><td>名义费率常低估真实年化</td></tr>
+<tr><td>网贷 / 小额现金贷</td><td class="bad">常见更高</td><td>数月至 1 年 / 信用</td><td>看清实际年化利率，谨慎使用</td></tr>
+</tbody>
+</table>
+<p>上表为撰写时的常见区间，仅作教学参考，具体以你的贷款合同与监管披露为准。另注意：信用卡分期「每期手续费 0.6%」换算成真实年化利率往往在 13% 以上。</p>
+<p>多数消费类贷款按<span class="term" data-def="每月还款额固定的还款方式，前期利息占比高、后期本金占比高">等额本息（Amortization）</span>还款：每月还款额固定，前期大部分是利息、后期大部分是本金——这也意味着，提前还款做得越早，省下的利息越多。</p>
+<div class="callout callout-key"><span class="callout-title">好债坏债，看利率与用途</span><p>两条判断标准：①利率高不高；②钱花在了哪里。3.8% 的房贷撬动一套自住房、且留足月供安全垫，可以是理性的「好债」；18% 的信用卡分期买一件很快贬值的商品，几乎必然是「坏债」。经验法则：利率高于自己组合稳健预期收益（多数人按 5%–8% 估计）的债，都应优先清掉。</p></div>
+
+<h2>二、雪崩法与雪球法：先还哪一笔</h2>
+<p>假设你同时背着两笔债，每月拿出固定金额还债，多余的钱先砸向谁？两种经典答案：</p>
+<p><span class="term" data-def="优先偿还利率最高的债务，总利息最省的还债顺序">雪崩法（Avalanche Method）</span>：先还<strong>利率最高</strong>的那笔。数学上总利息最少，是「理论最优解」。<br>
+<span class="term" data-def="优先偿还余额最小的债务，最快获得成就感的还债顺序">雪球法（Snowball Method）</span>：先还<strong>余额最小</strong>的那笔。最快清掉一整笔债，用「又消灭一个」的成就感维持纪律。</p>
+<p>数学最优不等于执行最优：如果你自律性强，直接用雪崩法，一分钱利息都不多付；如果你容易半途而废，雪球法多付的利息，就当是买「能坚持下去」的心理学费。两法共同的底线是：<strong>还债期间不再新增任何债务</strong>。用下面的模拟器，看看两种顺序在你自己的月还款额下差多少。</p>
+
+<div class="widget">
+<div class="widget-title">⚖️ 还债策略模拟器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>每月总还款额<span class="val" id="pay-val">3000 元</span><input type="range" id="pay" min="1500" max="6000" step="50" value="3000"></label></div>
+<div class="seg" id="strategy-seg">
+<button type="button" data-order="rate" class="active">雪崩法</button>
+<button type="button" data-order="size">雪球法</button>
+</div>
+</div>
+<div class="chart" id="debt-chart"></div>
+<div class="readout">
+<span class="pill" id="av-m">雪崩 47 个月还清</span>
+<span class="pill" id="av-i">雪崩 总利息 ≈ 2.96 万元</span>
+<span class="pill" id="sb-m">雪球 52 个月还清</span>
+<span class="pill" id="sb-i">雪球 总利息 ≈ 4.49 万元</span>
+<span class="pill" id="save-i">雪崩比雪球少付 ≈ 1.5 万元</span>
+</div>
+<p id="plan-desc" style="margin:10px 0 0">当前关注：雪崩法——先攻打利率 18% 的债务 A（8 万元）；债务 B 每月只付利息（约 125 元）；A 清零后全力清 B。数学上总利息最少。</p>
+<p style="margin:6px 0 0;font-size:.9em;color:#5d5749">示例债务：A 余额 8 万元、年利率 18%；B 余额 3 万元、年利率 5%。模型简化：按月复利计息，非目标债务每月只付清当月利息（相当于最低还款≈利息），其余全部投入目标债；未计入提前还款违约金与最低还款额差异。</p>
+</div>
+</div>
+
+<p>动手验算（默认每月还 3000 元）：第一个月利息 = 80000 × 18% ÷ 12 + 30000 × 5% ÷ 12 = 1200 + 125 = <strong>1325 元</strong>；雪崩法下当月约有 1675 元真正削减本金。默认参数下，雪崩法约 47 个月还清、总利息约 2.96 万元；雪球法约 52 个月、总利息约 4.49 万元——雪崩法少付约 1.5 万元利息、早约 5 个月上岸（精确数字以模拟器实时输出为准）。</p>
+
+<h2>三、应急基金：先于一切投资</h2>
+<p><span class="term" data-def="覆盖 3–6 个月必要支出的高流动性储备金">应急基金（Emergency Fund）</span>是 3–6 个月的家庭必要支出，放在货币基金或活期存款里——重点不是收益，而是「随时能取、几乎不亏」。</p>
+<p>为什么是 3–6 个月？它覆盖了两类最常见的冲击：失业后重新找到工作的时间窗口，以及一场需要先行垫付的医疗。支出越刚性（房贷、养娃）、收入越不稳定（自由职业、销售岗位），越应靠近 6 个月甚至更多。</p>
+<p>为什么先于一切投资？没有应急金的人，一次意外就会被迫在市场低点割肉卖出，或者去借年化 18% 的债——复利与心态同时被摧毁。这相当于给家庭财务先做一次<a href="../06-风险管理/0003-压力测试与对冲.html">压力测试</a>：先想清楚最坏情况靠什么扛，再决定可以承担多大的投资风险。</p>
+
+<h2>四、保险与征信：最后两道防线</h2>
+<p><strong>保险</strong>：寿险、重疾险、医疗险、意外险四类基本保障，用小额确定的保费，转移会击穿多年储蓄的大额风险，构成家庭财务的防护网——详见<a href="../09-保险与精算/index.html">保险与精算</a>分支。</p>
+<p><strong>征信</strong>：贷款与信用卡的逾期记录会上报中国人民银行征信系统，直接影响你未来房贷、车贷的利率与额度。按时还款、不随意透支，保持良好征信，本身就是最容易被忽视的「省钱」。</p>
+<div class="callout callout-key"><span class="callout-title">安全网的施工顺序</span><p>先留一小笔活钱防止「以贷养贷」，再集中火力清掉高息债，然后补足 3–6 个月应急金与基础保障——这些都到位之后，长期投资才算真正开始。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>会按利率从低到高给债务排序，一眼识别最该优先消灭的高息债</li>
+<li>能区分雪崩法与雪球法，并按自己的执行力选择还债顺序</li>
+<li>记住应急基金 = 3–6 个月必要支出，且先于一切投资</li>
+<li>理解保险防护网与征信记录如何共同构成财务安全网</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"按常见利率水平从低到高排序，通常正确的是？","options":["房贷＜车贷＜网贷","车贷＜房贷＜网贷","网贷＜房贷＜车贷"],"answer":0,"explain":"有房产抵押、期限长的房贷利率通常最低，车贷居中，无抵押的网贷与消费贷最高——利率大致反映借款人的风险与抵押品。"},
+{"q":"每月预算紧张、需要靠「快速清掉一笔债」的成就感坚持下去的人，更适合？","options":["先还利率最高","先还金额最小","两者没有区别"],"answer":1,"explain":"这是雪球法的典型场景：先还余额最小的一笔，最快拿到「清掉一笔」的正反馈，用心理激励换执行力；代价是总利息略多于雪崩法。"},
+{"q":"一般建议应急基金至少覆盖多长时间的家庭必要支出？","options":["一至两个月","十个月以上","三至六个月"],"answer":2,"explain":"3–6 个月的支出能在失业、医疗等冲击下，避免被迫割肉卖出投资或借入高息债务；收入不稳定的家庭应取更长的一端。"},
+{"q":"开始长期投资之前，第一笔闲钱通常应该优先用来？","options":["建立应急基金","加仓股票基金","购买终身寿险"],"answer":0,"explain":"没有应急金，一次意外就会摧毁投资计划；先备足 3–6 个月支出（同时清掉高息债），再谈投资。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#amortization">等额本息</a> · <a href="../reference/glossary.html#avalanche-method">雪崩法</a> · <a href="../reference/glossary.html#snowball-method">雪球法</a> · <a href="../reference/glossary.html#emergency-fund">应急基金</a></li>
+
+<li><a href="https://www.investopedia.com/terms/d/debt-avalanche.asp">Investopedia：Debt Avalanche（雪崩式还债）</a></li>
+<li><a href="https://www.investopedia.com/terms/e/emergency_fund.asp">Investopedia：Emergency Fund（应急基金）</a></li>
+<li><a href="https://ipcrs.pbccrc.org.cn/">中国人民银行征信中心（个人信用报告查询）</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0002-资产配置与生命周期.html"><span class="nav-label">上一课</span><span class="nav-title">资产配置与生命周期</span></a>
+<a class="next" href="../09-保险与精算/index.html"><span class="nav-label">下一分支</span><span class="nav-title">保险与精算</span></a>
+</nav>
+<footer class="lesson-footer"><span>个人理财 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  /* ===== 还债策略模拟器 =====
+     债务 A：余额 80000 元、年利率 18%；债务 B：余额 30000 元、年利率 5%。
+     简化模型：按月复利计息；非目标债务每月只付清当月利息，其余全部投入目标债。 */
+  var payEl=document.getElementById('pay');
+  var payVal=document.getElementById('pay-val');
+  var strategy='rate';
+  function simulate(pay,order){
+    var a={bal:80000,r:0.18/12,int:0};
+    var b={bal:30000,r:0.05/12,int:0};
+    var pts=[[0,(a.bal+b.bal)/10000]];
+    var m=0;
+    while((a.bal>0.005||b.bal>0.005)&&m<600){
+      m++;
+      var ia=a.bal*a.r,ib=b.bal*b.r;
+      a.bal+=ia;b.bal+=ib;a.int+=ia;b.int+=ib;
+      var tgt,non,nInt;
+      if(a.bal<=0.005||b.bal<=0.005){
+        tgt=a.bal>0.005?a:b;
+      }else if(order==='rate'){
+        tgt=a.r>b.r?a:b;
+      }else{
+        tgt=a.bal<b.bal?a:b;
+      }
+      non=tgt===a?b:a;
+      nInt=non===a?ia:ib;
+      var p=pay;
+      var toNon=Math.min(p,nInt);p-=toNon;non.bal-=toNon;
+      var toTgt=Math.min(p,tgt.bal);p-=toTgt;tgt.bal-=toTgt;
+      if(p>0){var ex=Math.min(p,non.bal);non.bal-=ex;p-=ex;}
+      pts.push([m,Math.max(0,a.bal+b.bal)/10000]);
+    }
+    return {months:m,interest:a.int+b.int,pts:pts};
+  }
+  function fmt(n){return Math.round(n).toLocaleString('zh-CN');}
+  function draw(){
+    var pay=parseFloat(payEl.value);
+    payVal.textContent=pay+' 元';
+    var av=simulate(pay,'rate');
+    var sb=simulate(pay,'size');
+    var box=document.getElementById('debt-chart');
+    box.innerHTML='';
+    var el=document.createElement('div');
+    box.appendChild(el);
+    var xmax=Math.max(av.months,sb.months)+3;
+    var c=new FChart(el,{height:340,x:{min:0,max:xmax,label:'还款月数（月）'},y:{min:0,max:11,label:'剩余总债务（万元）'}});
+    c.path(av.pts,{color:'#0d5c4f',width:strategy==='rate'?3.2:1.8});
+    c.path(sb.pts,{color:'#a3701a',width:strategy==='size'?3.2:1.8});
+    c.legend([{color:'#0d5c4f',text:'雪崩法（先还利率最高，总利息更少）'},{color:'#a3701a',text:'雪球法（先还金额最小，更早清掉一笔）'}]);
+    document.getElementById('av-m').textContent='雪崩 '+av.months+' 个月还清';
+    document.getElementById('av-i').textContent='雪崩 总利息 ≈ '+fmt(av.interest)+' 元';
+    document.getElementById('sb-m').textContent='雪球 '+sb.months+' 个月还清';
+    document.getElementById('sb-i').textContent='雪球 总利息 ≈ '+fmt(sb.interest)+' 元';
+    document.getElementById('save-i').textContent='雪崩比雪球少付 ≈ '+fmt(sb.interest-av.interest)+' 元';
+    document.getElementById('plan-desc').textContent=strategy==='rate'
+      ?'当前关注：雪崩法——先攻打利率 18% 的债务 A（8 万元）；债务 B 每月只付利息（约 125 元）；A 清零后全力清 B。数学上总利息最少。'
+      :'当前关注：雪球法——先攻打余额最小的债务 B（3 万元、5%）；债务 A 每月只付利息（约 1200 元）；B 清零后全力清 A。总利息略多，但最快拿到「清掉一笔」的正反馈。';
+  }
+  payEl.addEventListener('input',draw);
+  var btns=document.querySelectorAll('#strategy-seg button');
+  for(var i=0;i<btns.length;i++){
+    (function(btn){
+      btn.addEventListener('click',function(){
+        strategy=btn.getAttribute('data-order');
+        for(var j=0;j<btns.length;j++){btns[j].className=(btns[j]===btn?'active':'');}
+        draw();
+      });
+    })(btns[i]);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>

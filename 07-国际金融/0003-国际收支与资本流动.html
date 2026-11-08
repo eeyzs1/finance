@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>国际金融 · 第 3 课：国际收支与资本流动 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「国际金融」第 3 课《国际收支与资本流动》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">国际金融</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header">
+<div class="kicker">国际金融 · Lesson 3</div>
+<h1>国际收支与资本流动</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶</span><span>前置：第 2 课</span></div>
+</header>
+<p class="lead">汇率为什么动？上一课的答案是「资金在流动」。这一课我们打开资金流动的账本——国际收支平衡表：看清一国与世界的每一笔钱从哪来、到哪去。读懂这本账，你就握住了汇率背后的力量，也看得懂「货币危机」这种大戏是怎么上演的。</p>
+
+<h2>一、一本必然平衡的账本</h2>
+<p><span class="term" data-def="系统记录一国居民与世界其他地方在一定时期内全部经济往来的统计报表，采用复式记账">国际收支平衡表（balance of payments, BOP）</span>记录一国居民与世界其他地方在一定时期内的全部往来：出口一批手机、买进一股美股、外企来华设厂、央行购入美债……每一笔都入账。它采用<strong>复式记账</strong>：每笔交易同时记借方与贷方各一次，所以整张表加总必为零——账本必然平衡，问题只在于「靠什么平衡」。</p>
+<p>账本分三大块：记商品与服务往来的<span class="term" data-def="记录货物、服务、初次收入与经常转移等真实资源往来的账户">经常账户（current account）</span>；记资产跨境买卖的<span class="term" data-def="记录直接投资、证券投资与其他投资等资产跨境买卖的账户">资本与金融账户（capital and financial account）</span>；以及央行口袋的变动——<span class="term" data-def="央行持有的外汇、黄金等官方储备资产的增减变化">储备资产（reserve assets）</span>变动。</p>
+
+<table class="data">
+<thead><tr><th>板块</th><th>记的是什么</th><th>主要项目</th><th>顺差意味着什么</th></tr></thead>
+<tbody>
+<tr><td><strong>经常账户</strong></td><td>真实资源与收入的往来</td><td>货物＋服务＋初次收入（利息、股息、工资）＋经常转移（援助、汇款）</td><td class="good">卖给世界的比买进的多</td></tr>
+<tr><td><strong>资本与金融账户</strong></td><td>资产的跨境买卖</td><td><span class="term" data-def="以外商设厂、并购等方式取得他国企业持久控制权的投资，记入资本与金融账户">直接投资（FDI）</span>＋证券投资＋其他投资与衍生工具</td><td>对外净增持资产（资本净流出）</td></tr>
+<tr><td><strong>储备资产变动</strong></td><td>央行官方口袋的增减</td><td>外汇储备、黄金、特别提款权、IMF 头寸</td><td class="bad">央行净买入外汇、储备累积</td></tr>
+</tbody>
+</table>
+
+<h2>二、一个恒等式，两种人生</h2>
+
+<div class="formula">
+经常账户差额 ＋ 资本与金融账户差额 ＋ 储备资产变动 ＝ 0
+<div class="formula-note">三大块之和必为零。顺差国必然以某种形式「把钱借给世界」：要么是私人部门对外投资，要么是央行储备累积——账本没有第三种写法。</div>
+</div>
+
+<p><strong>应用一：中国的出口顺差时代。</strong>2000 年代出口高速增长，经常账户顺差最凶的 2007 年一度接近 GDP 的 10%。这么大的一块顺差去哪了？一部分变成企业与居民的对外投资（资本金融账户逆差），更大部分由央行买入外汇吸收——外汇储备从 2000 年的约 0.17 万亿美元，一路累积到 2014 年近 4 万亿美元的峰值。</p>
+<p><strong>应用二：美国的「三十年逆差」。</strong>美国经常账户自 1991 年之后就再没有出现过顺差年份，2023 年逆差约 8200 亿美元、约占 GDP 的 3%。缺口靠什么补？靠全世界持续净买入美元资产——资本金融账户的顺差。这是所谓「过度特权」：全世界认它的货币，它就能长期赊账消费。但特权也是隐患：一旦信心动摇、资金撤离，美元与美国资产将同时承压。</p>
+
+<p>把恒等式变成手上的玩具：拖动左盘，看看右盘如何被动配平。</p>
+
+<div class="widget">
+<div class="widget-title">交互：BOP 天平——账本必平</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>经常账户 CA / GDP（%）<span class="val" id="ca-val">+2.0</span><input type="range" id="ca-input" min="-6" max="6" step="0.5" value="2"></label></div>
+<div class="slider-row">
+<button type="button" class="preset" data-ca="4" data-note="中国 2010：CA 顺差约 +4%，右盘的 −4% 由「资本流出＋储备累积」构成——央行持续买入外汇，储备一年上一个台阶。">中国 2010</button>
+<button type="button" class="preset" data-ca="-3" data-note="美国 2023：CA 约 −3%，进口多于出口；缺口由外国持续净买入美元资产补上——世界对美元资产的偏好就是这台天平的配重。">美国 2023</button>
+<button type="button" class="preset" data-ca="-8" data-note="泰国 1996：CA 约 −8%，靠短期外债等「热钱」净流入硬撑平衡；一旦热钱转身外流，固定汇率与储备在几周内被击穿——次年 7 月泰铢失守。">泰国 1996</button>
+</div>
+</div>
+<svg id="seesaw" viewBox="0 0 420 220" role="img" aria-label="国际收支天平示意图">
+<polygon points="210,86 192,210 228,210" fill="#5d5749" opacity="0.55"></polygon>
+<g id="beam-g">
+<rect x="60" y="78" width="300" height="8" rx="4" fill="#5d5749"></rect>
+<circle cx="210" cy="82" r="9" fill="#5d5749"></circle>
+<line x1="90" y1="86" x2="90" y2="112" stroke="#5d5749" stroke-width="3"></line>
+<rect x="36" y="112" width="108" height="46" rx="8" fill="#0d5c4f"></rect>
+<text x="90" y="130" text-anchor="middle" fill="#ffffff" font-size="12">经常账户 CA</text>
+<text id="ca-svg" x="90" y="150" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">+2.0%</text>
+<line x1="330" y1="86" x2="330" y2="112" stroke="#5d5749" stroke-width="3"></line>
+<rect x="276" y="112" width="108" height="46" rx="8" fill="#a3701a"></rect>
+<text x="330" y="130" text-anchor="middle" fill="#ffffff" font-size="12">资本金融＋储备</text>
+<text id="ka-svg" x="330" y="150" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">−2.0%</text>
+</g>
+</svg>
+<p id="preset-note" style="min-height:2.6em;margin:0.6em 0 0;font-size:0.92em;color:#5d5749;">拖动滑块或点击预设：天平按 CA 的符号倾斜——账本两边永远相等，这就是 BOP 恒等式的直觉。</p>
+<div class="readout">
+<span class="pill">左边：经常账户 <b id="ca-read">+2.0%</b></span>
+<span class="pill">右边：资本金融＋储备 <b id="ka-read">−2.0%</b></span>
+<span class="pill">两边合计 <b>0.0% ✓</b></span>
+</div>
+</div>
+</div>
+
+<h2>三、危机速写：1997 年的泰国</h2>
+<div class="callout callout-warn"><span class="callout-title">货币危机速写：泰铢 1997</span><p>当年三件事叠加：<strong>固定汇率＋常年经常逆差＋依赖短期外债</strong>。经常账户逆差靠短期美元借款硬撑（资本金融账户顺差补缺口）；一旦出口转弱、市场怀疑固定汇率守不住，资本恐慌外流；央行动用储备护盘，但储备相对短期外债太薄，几周内即告耗尽。1997 年 7 月 2 日泰国被迫放弃固定汇率，泰铢从 1 美元约 25 铢跌到次年年初的 50 铢上下，近乎腰斩——贬值又推高外债的本币价值，企业与银行连环倒下，危机蔓延至整个亚洲。教训：用「热」钱填经常账户的窟窿，是最脆弱的一种平衡。</p></div>
+
+<h2>四、储蓄视角：S − I ＝ CA</h2>
+<p>国民核算恒等式：经常账户差额 ＝ 国民储蓄 － 国内投资。顺差国并不是「赢了」那么简单——它是<strong>储蓄超过本国投资，把差额借给了世界</strong>；逆差国则是投资超过储蓄，向世界借钱补缺口。下次看到「顺差」二字，脑中浮现的应是「对外净储蓄」，而不是简单的胜利。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div>
+<ul>
+<li>BOP 是一国居民与世界全部往来的账本，复式记账，加总必为零。</li>
+<li>三大块：经常账户（货物＋服务＋初次收入＋转移）、资本与金融账户（FDI＋证券＋其他）、储备资产变动。</li>
+<li>恒等式 CA＋资本金融账户＋储备变动＝0——中国顺差时代换来储备累积；美国三十年逆差靠世界持有美元资产维持。</li>
+<li>1997 泰国：固定汇率＋经常逆差＋短期外债 → 资本外流 → 储备耗尽 → 弃守贬值。</li>
+<li>S − I ＝ CA：顺差＝对外净储蓄，差额借给了世界。</li>
+</ul>
+</div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"下列哪一项记录在经常账户（current account）里？","options":["银行叙做远期合约","货物的出口与进口","外企在华设厂投产","央行增持美国国债"],"answer":1,"explain":"经常账户记货物与服务贸易、初次收入（利息、股息、工资）与经常转移；远期合约属金融账户，设厂属直接投资，央行买美债属储备资产变动。"},
+{"q":"某国经常账户顺差 3000 亿美元，储备资产不变。按 BOP 恒等式，资本与金融账户会怎样？","options":["资本金融账户出现逆差","资本金融账户出现顺差","资本金融账户差额为零","资本金融账户无法判断"],"answer":0,"explain":"三大块之和恒为零：经常账户＋资本金融账户＋储备变动＝0。顺差 3000 亿美元且储备不变，资本与金融账户必然是等额逆差——顺差赚来的外汇变成了对外投资，即资本净流出。"},
+{"q":"1997 年泰国货币危机的演进链条，正确顺序是哪一组？","options":["资本外流→经常逆差→弃守贬值","弃守贬值→资本外流→经常逆差","经常逆差→资本外流→弃守贬值","经常逆差→弃守贬值→外流加剧"],"answer":2,"explain":"泰国常年经常逆差，靠短期外债撑住固定汇率；投机与恐慌引发资本外流，储备迅速耗尽，1997 年 7 月被迫放弃固定汇率，泰铢对美元近乎腰斩。"},
+{"q":"某年一国央行储备资产增加 4000 亿美元，最可能的含义是什么？","options":["央行净卖出外汇回收本币","该国经常账户必然是逆差","该国资本必然出现净流出","央行净买入外汇投放本币"],"answer":3,"explain":"储备增加意味着央行在外汇市场净买入外汇、卖出本币——顺差时代的中国正是如此：为抑住升值压力，持续买入的美元形成了储备累积。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div>
+<ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#bop">国际收支平衡表</a> · <a href="../reference/glossary.html#current-account">经常账户</a> · <a href="../reference/glossary.html#capital-and-financial-account">资本与金融账户</a> · <a href="../reference/glossary.html#reserve-assets">储备资产</a> · <a href="../reference/glossary.html#fdi">直接投资</a></li>
+
+<li><a href="https://www.imf.org/external/np/sta/bop/">IMF：国际收支统计（BOP）</a>——《国际收支手册》与各国数据</li>
+<li><a href="https://www.safe.gov.cn/">国家外汇管理局</a>——中国国际收支平衡表官方数据</li>
+<li><a href="https://zh.wikipedia.org/wiki/1997年亚洲金融危机">维基百科：1997 年亚洲金融危机</a>——泰国章节始末</li>
+</ul>
+</div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0002-什么决定汇率.html"><span class="nav-label">上一课</span><span class="nav-title">什么决定汇率</span></a>
+<a class="next" href="../10-个人理财/index.html"><span class="nav-label">下一分支：个人理财</span><span class="nav-title">个人理财</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>国际金融 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var DEFAULT_NOTE = '拖动滑块或点击预设：天平按 CA 的符号倾斜——账本两边永远相等，这就是 BOP 恒等式的直觉。';
+  var input = document.getElementById('ca-input');
+  var val = document.getElementById('ca-val');
+  var beam = document.getElementById('beam-g');
+  var caSvg = document.getElementById('ca-svg');
+  var kaSvg = document.getElementById('ka-svg');
+  var caRead = document.getElementById('ca-read');
+  var kaRead = document.getElementById('ka-read');
+  var note = document.getElementById('preset-note');
+  var curAngle = 0;
+
+  function fmt(x) {
+    var sign = x > 0 ? '+' : (x < 0 ? '−' : '');
+    return sign + Math.abs(x).toFixed(1) + '%';
+  }
+
+  function setAngle(a) {
+    curAngle = a;
+    beam.setAttribute('transform', 'rotate(' + a + ' 210 82)');
+  }
+
+  function apply(ca, noteText) {
+    var angle = Math.max(-12, Math.min(12, ca * 2));
+    var target = -angle;
+    FChart.tween(curAngle, target, 400, setAngle);
+    caSvg.textContent = fmt(ca);
+    kaSvg.textContent = fmt(-ca);
+    caRead.textContent = fmt(ca);
+    kaRead.textContent = fmt(-ca);
+    val.textContent = fmt(ca);
+    input.value = Math.max(-6, Math.min(6, ca));
+    note.textContent = noteText || DEFAULT_NOTE;
+  }
+
+  input.addEventListener('input', function () {
+    apply(parseFloat(input.value), null);
+  });
+
+  var btns = document.querySelectorAll('.preset');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function () {
+      var ca = parseFloat(this.getAttribute('data-ca'));
+      apply(ca, this.getAttribute('data-note'));
+    });
+  }
+
+  apply(2, null);
+})();
+</script>
+</body>
+</html>

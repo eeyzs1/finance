@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>衍生品与金融工程 · 第 2 课：期权收益结构 · 金融学自学教程</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「衍生品与金融工程」第 2 课《期权收益结构》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">衍生品与金融工程</a><span class="sep">/</span>第 2 课</div>
+<header class="lesson-header"><div class="kicker">衍生品与金融工程 · Lesson 2</div><h1>期权收益结构</h1>
+<div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶</span><span>前置：本分支第 1 课</span></div></header>
+
+<p class="lead">期货是一份"必须履约"的约定，期权则是把"必须"换成"可以"——你付一笔钱，买下未来按约定价格买入或卖出的<strong>权利</strong>；行情不利时，你可以转身走开。这一课教你画出任何期权头寸的到期盈亏图：它是衍生品世界的通用语言，学会它，任何"花哨策略"在你眼里都只是几条折线的拼贴。</p>
+
+<h2>期权：花钱买一个"可以，但不必"</h2>
+<p><span class="term" data-def="支付权利金后获得的“权利而非义务”：看涨期权可按行权价买入，看跌期权可卖出。">期权（option）</span>是一份合约：买方支付<span class="term" data-def="买入期权支付的价格 = 内在价值 + 时间价值；是期权买方的最大损失、卖方的最大收益。">权利金（premium）</span>之后，获得在到期日按<span class="term" data-def="期权合约约定的买卖价格，是决定期权到期是否有价值的分界线。">行权价（strike price）</span>买入或卖出标的的<strong>权利而非义务</strong>；卖方收下权利金，承担"买方要行权就必须配合"的<strong>义务</strong>。</p>
+<p>两个方向、两种身份，组合出四种基本头寸：</p>
+<ul>
+<li><span class="term" data-def="赋予持有人按行权价“买入”标的之权利的期权。">看涨期权（call option）</span>：赌标的上涨。买方有权按 K 买入——涨了才行权，跌了就放弃；</li>
+<li><span class="term" data-def="赋予持有人按行权价“卖出”标的之权利的期权。">看跌期权（put option）</span>：赌标的下跌。买方有权按 K 卖出——跌了才行权，涨了就放弃。</li>
+</ul>
+<p>记住一句口诀：<strong>权利金是买方的最大损失，也是卖方的最大收益</strong>。买方"亏光就亏权利金"，卖方"赚死就赚权利金"——但卖方为此背上了可能深不见底的义务。</p>
+
+<h2>四种基本头寸：一张表看全</h2>
+<p>设到期日标的价格为 S<sub>T</sub>，行权价 K，权利金 P。四种头寸的到期盈亏（每股/每单位标的）：</p>
+<table class="data">
+<thead><tr><th>头寸</th><th>S<sub>T</sub> &lt; K 时</th><th>S<sub>T</sub> &gt; K 时</th><th>最大盈利</th><th>最大亏损</th><th>盈亏平衡点</th></tr></thead>
+<tbody>
+<tr><td><strong>买入看涨</strong></td><td>−P（水平段）</td><td>S<sub>T</sub>−K−P（斜率 +1）</td><td class="good">无上限</td><td class="bad">−P</td><td>K + P</td></tr>
+<tr><td><strong>卖出看涨</strong></td><td>+P</td><td>P−(S<sub>T</sub>−K)（斜率 −1）</td><td class="good">+P</td><td class="bad">无上限</td><td>K + P</td></tr>
+<tr><td><strong>买入看跌</strong></td><td>(K−S<sub>T</sub>)−P（斜率 −1）</td><td>−P</td><td class="good">K−P（标的归零时）</td><td class="bad">−P</td><td>K − P</td></tr>
+<tr><td><strong>卖出看跌</strong></td><td>P−(K−S<sub>T</sub>)</td><td>+P</td><td class="good">+P</td><td class="bad">−(K−P)（标的归零时）</td><td>K − P</td></tr>
+</tbody>
+</table>
+
+<div class="formula">看涨买方到期盈亏 = max(S<sub>T</sub> − K, 0) − P　　看跌买方 = max(K − S<sub>T</sub>, 0) − P
+<div class="formula-note"><b>三条规律</b>：① 卖方盈亏 = 买方盈亏 × (−1)，互为镜像；② 所有折线都在 S<sub>T</sub> = K 处"折弯"；③ 盈亏平衡点 = 行权价 ± 权利金（看涨取 +，看跌取 −）。</div></div>
+
+<h2>盈亏平衡点：行权价 ± 权利金</h2>
+<p>验算一个例子：行权价 K = 100 元、权利金 P = 8 元。</p>
+<ul>
+<li><strong>买入看涨</strong>：到期价 108 元时，行权赚 108−100 = 8 元，恰好抵掉权利金 8 元，不赚不亏——盈亏平衡点 = 100 + 8 = <strong>108 元</strong>；到期价 120 时盈利 120−100−8 = 12 元；到期价 92（&lt;100）时放弃行权，亏 8 元封顶。</li>
+<li><strong>买入看跌</strong>：到期价 92 元时，行权赚 100−92 = 8 元，恰好抵掉权利金——盈亏平衡点 = 100 − 8 = <strong>92 元</strong>；标的跌到 0 时盈利最大 = 100−0−8 = 92 元。</li>
+</ul>
+<p>直觉读法：盈亏平衡点就是"市场必须替你把权利金赚回来"的价位。权利金越贵，市场需要走得越远你才回本。</p>
+
+<div class="widget">
+  <div class="widget-title">🎛 期权盈亏图生成器 · 四种头寸一拖即现</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row"><label>期权类型</label>
+        <div style="display:flex; gap:8px; margin-top:4px;">
+          <button type="button" class="btn" id="btn-call">看涨 Call</button>
+          <button type="button" class="btn ghost" id="btn-put">看跌 Put</button>
+        </div></div>
+      <div class="slider-row"><label>方向</label>
+        <div style="display:flex; gap:8px; margin-top:4px;">
+          <button type="button" class="btn" id="btn-buy">买入（付权利金）</button>
+          <button type="button" class="btn ghost" id="btn-sell">卖出（收权利金）</button>
+        </div></div>
+      <div class="slider-row"><label for="opt-k">行权价 K <span class="val" id="opt-k-val"></span></label>
+        <input type="range" id="opt-k" min="50" max="150" step="1" value="100"></div>
+      <div class="slider-row"><label for="opt-p">权利金 P <span class="val" id="opt-p-val"></span></label>
+        <input type="range" id="opt-p" min="1" max="30" step="1" value="8"></div>
+    </div>
+    <div class="chart" id="payoff-chart"></div>
+    <div class="readout">
+      <span class="pill" id="ro-pos"></span>
+      <span class="pill" id="ro-gain"></span>
+      <span class="pill" id="ro-loss"></span>
+      <span class="pill" id="ro-be"></span>
+    </div>
+    <p class="formula-note" style="margin-top:10px">切到"卖出"看镜像：买方的绿色山谷翻转成卖方的红色山峰。试着回答：为什么卖出看跌的最大亏损是 K−P 而不是无上限？（提示：标的价格最低只能跌到 0。）</p>
+  </div>
+</div>
+
+<h2>内在价值与时间价值：期权价格的两块拼图</h2>
+<p>期权在到期日之前交易，市价可以拆成两块：</p>
+<div class="formula">权利金 P = <span class="term" data-def="立刻行权能拿到的价值：max(S−K, 0) 或 max(K−S, 0)，不为负。">内在价值（intrinsic value）</span> + <span class="term" data-def="权利金超出内在价值的部分，来自“未来还可能更有利”的可能性。">时间价值（time value）</span></div>
+<p>举例：股票现价 105 元。行权价 100 的看涨市价 9 元——立刻行权可赚 105−100 = 5 元（内在价值 5），另外 4 元买的是"到期前还可能继续涨"的可能性（时间价值 4）。而行权价 120 的看涨市价 3 元——内在价值为 0（没人行权亏着买），3 元全是时间价值。为什么"可能性"值钱、值多少钱，正是第 3 课的主题。</p>
+
+<h2>组合示范：给股票"买保险"与"收房租"</h2>
+<p>期权最大的威力在于与现货拼装。最经典的两种：</p>
+<p><strong>保护性看跌（protective put）</strong>：持有股票，同时买入一份看跌期权——相当于<strong>给股票买保险</strong>。设持股成本 100 元，买入行权价 90、权利金 8 的看跌：股价崩到 0 时，股票亏 100，看跌赚 90−8 = 82，合计只亏 18 元。逐步验算：最大亏损 = (持股成本 − 行权价) + 权利金 = (100−90) + 8 = <strong>18 元</strong>；代价是盈亏平衡点抬高到 100 + 8 = 108 元。行权价 90 相当于保险合同里的"免赔额"——保得起 90 以下的深跌，90 到 100 之间的小伤自担。</p>
+
+<div class="chart" id="pp-chart"></div>
+
+<p><strong>备兑看涨（covered call）</strong>：持有股票，同时<strong>卖出</strong>一份看涨期权——相当于<strong>给股票收房租</strong>。权利金落袋增强收益；代价是股价大涨时股票会被按行权价"叫走"，涨幅封顶。适合"不打算卖、也觉得短期涨不动"的持股者。这两种组合一守一攻，是机构与个人最常用的期权策略。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>期权 = 权利而非义务；权利金是买方的最大损失、卖方的最大收益；</li>
+<li>四种基本头寸的盈亏图：买看涨（亏损有限、盈利无上限）、卖看涨（镜像）、买看跌（斜率 0/−1 的折线）、卖看跌（镜像）——全部在 K 处折弯；</li>
+<li>盈亏平衡点 = 行权价 ± 权利金（K=100、P=8 时：看涨 108，看跌 92）；</li>
+<li>权利金 = 内在价值 + 时间价值；保护性看跌给股票装"地板"，备兑看涨给股票"收房租"。</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">{
+  "title": "随堂测验 · 期权收益结构",
+  "questions": [
+    {"q": "期权的本质是什么？", "options": ["买卖双方都必须在到期日按约定价格成交", "支付权利金后获得按约定价格买卖的义务", "支付权利金后获得按约定价格交易的权利", "持有人必须行权，卖方可以选择是否履约"], "answer": 2, "explain": "期权买方买的是权利而非义务：行情有利就行权，不利就放弃，最大损失是权利金。必须履约的是收了权利金的卖方。"},
+    {"q": "你花 8 元买入一张行权价 100 元的看涨期权，到期标的价 92 元。你的每股盈亏是多少？", "options": ["亏损 8 元", "亏损 16 元", "盈亏为 0 元", "获利 8 元"], "answer": 0, "explain": "到期价 92 低于行权价 100，看涨期权如同废纸，买方放弃行权，损失全部权利金 8 元——这正是买方亏损的封顶值。"},
+    {"q": "卖出一张无担保看跌期权（每股），其最大亏损是多少？", "options": ["最大盈利为权利金，金额有限且已知", "最大亏损没有上限，随标的下跌扩大", "最大亏损是权利金，与标的涨跌无关", "最大亏损为行权价减权利金的那部分"], "answer": 3, "explain": "卖方最怕标的跌到零：必须按行权价 K 买入价值为零的标的，每股亏 K，扣除收到的权利金 P，最大亏损 = K−P（如 K=100、P=8 时为 92 元）。亏损封顶在权利金的是买方，不是卖方。"},
+    {"q": "你持股成本 100 元，同时买入行权价 90、权利金 12 的看跌期权。股价跌到 0 时，你的每股总盈亏是多少？", "options": ["亏损 12 元", "亏损 22 元", "亏损 78 元", "亏损 90 元"], "answer": 1, "explain": "股票亏 100 元；看跌行权赚 90−12=78 元；合计 −100+78=−22 元。验算：最大亏损 =（持股成本−行权价）+ 权利金 =（100−90）+12 = 22 元，这就是保险的“地板”。"}
+  ]
+}</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（术语表锚点）：<a href="../reference/glossary.html#option">期权</a> · <a href="../reference/glossary.html#strike">行权价</a> · <a href="../reference/glossary.html#premium">权利金</a></li>
+<li>Investopedia：Option（英文）— <a href="https://www.investopedia.com/terms/o/option.asp">investopedia.com/terms/o/option.asp</a></li>
+<li>CBOE Education（期权交易所官方教育站）— <a href="https://www.cboe.com/education/">cboe.com/education</a></li>
+<li>Wikipedia：Option (finance) — <a href="https://en.wikipedia.org/wiki/Option_(finance)">en.wikipedia.org/wiki/Option_(finance)</a></li>
+<li>Hull《期权、期货及其他衍生产品》条目页 — <a href="https://en.wikipedia.org/wiki/Options,_Futures_and_Other_Derivatives">en.wikipedia.org/wiki/Options,_Futures_and_Other_Derivatives</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+  <a href="0001-期货与套期保值.html"><span class="nav-label">上一课</span><span class="nav-title">期货与套期保值</span></a>
+  <a class="next" href="0003-期权定价的直觉.html"><span class="nav-label">下一课</span><span class="nav-title">期权定价的直觉</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>衍生品与金融工程 · 第 2 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var kIn = document.getElementById("opt-k"), pIn = document.getElementById("opt-p");
+  var btnCall = document.getElementById("btn-call"), btnPut = document.getElementById("btn-put");
+  var btnBuy = document.getElementById("btn-buy"), btnSell = document.getElementById("btn-sell");
+  if (!kIn || !pIn || !btnCall || typeof FChart === "undefined") return;
+  kIn._out = document.getElementById("opt-k-val");
+  pIn._out = document.getElementById("opt-p-val");
+  var kind = "call", side = "buy";
+  var chart = new FChart(document.getElementById("payoff-chart"), {
+    height: 380,
+    x: { min: 0, max: 200, label: "到期日标的价格（元）" },
+    y: { min: -160, max: 160, label: "每股盈亏（元）" },
+    title: "期权到期盈亏图（折点在 K，平衡点在 K±P）"
+  });
+  function refreshBtns() {
+    btnCall.className = "btn" + (kind === "call" ? "" : " ghost");
+    btnPut.className = "btn" + (kind === "put" ? "" : " ghost");
+    btnBuy.className = "btn" + (side === "buy" ? "" : " ghost");
+    btnSell.className = "btn" + (side === "sell" ? "" : " ghost");
+  }
+  function update() {
+    var K = FChart.slider(kIn, function (v) { return v + " 元"; });
+    var P = FChart.slider(pIn, function (v) { return v + " 元"; });
+    var sign = side === "buy" ? 1 : -1;
+    function pnl(S) {
+      var v = kind === "call" ? Math.max(S - K, 0) : Math.max(K - S, 0);
+      return sign * (v - P);
+    }
+    chart.clear();
+    chart.hline(0, { color: "#a9a290", dash: "none", width: 1.5 });
+    var col = side === "buy" ? "#0d5c4f" : "#b3372f";
+    chart.path([[0, pnl(0)], [K, pnl(K)], [200, pnl(200)]], { color: col, width: 3 });
+    chart.vline(K, { color: "#a9a290", dash: "2 4", width: 1 });
+    var be = kind === "call" ? K + P : K - P;
+    chart.vline(be, { color: "#a3701a", label: "盈亏平衡 " + be });
+    chart.scatter([[be, 0, "#a3701a"]], { r: 5 });
+    var name = (side === "buy" ? "买入" : "卖出") + (kind === "call" ? "看涨" : "看跌");
+    document.getElementById("ro-pos").innerHTML = "当前头寸：<b>" + name + "</b>（K=" + K + "，P=" + P + "）";
+    var gain, loss;
+    if (side === "buy") {
+      loss = "<b>−" + P + " 元</b>（= 权利金）";
+      gain = kind === "call" ? "<b>无上限</b>（到期价越高赚越多）" : "<b>" + (K - P) + " 元</b>（标的跌到 0 时）";
+    } else {
+      gain = "<b>+" + P + " 元</b>（= 权利金）";
+      loss = kind === "call" ? "<b>无上限</b>（到期价越高亏越多）" : "<b>−" + (K - P) + " 元</b>（标的跌到 0 时）";
+    }
+    document.getElementById("ro-gain").innerHTML = "最大盈利：" + gain;
+    document.getElementById("ro-loss").innerHTML = "最大亏损：" + loss;
+    document.getElementById("ro-be").innerHTML = "盈亏平衡点：<b>" + be + " 元</b>（" + (kind === "call" ? "K+P" : "K−P") + "）";
+  }
+  btnCall.addEventListener("click", function () { kind = "call"; refreshBtns(); update(); });
+  btnPut.addEventListener("click", function () { kind = "put"; refreshBtns(); update(); });
+  btnBuy.addEventListener("click", function () { side = "buy"; refreshBtns(); update(); });
+  btnSell.addEventListener("click", function () { side = "sell"; refreshBtns(); update(); });
+  kIn.addEventListener("input", update);
+  pIn.addEventListener("input", update);
+  refreshBtns();
+  update();
+
+  var ppEl = document.getElementById("pp-chart");
+  if (ppEl) {
+    var c = new FChart(ppEl, {
+      height: 340,
+      x: { min: 0, max: 200, label: "到期日股价（元）" },
+      y: { min: -120, max: 120, label: "每股盈亏（元）" },
+      title: "保护性看跌：持股 100 元 + 买入行权价 90、权利金 8 的看跌"
+    });
+    c.hline(0, { color: "#a9a290", dash: "none", width: 1.5 });
+    c.path([[0, -100], [200, 100]], { color: "#5d5749", width: 2, dash: "7 5" });
+    c.path([[0, -18], [90, -18], [200, 92]], { color: "#0d5c4f", width: 3 });
+    c.hline(-18, { color: "#2e7d4f", label: "最大亏损 −18", dash: "6 5" });
+    c.vline(108, { color: "#a3701a", label: "盈亏平衡 108" });
+    c.legend([{ color: "#5d5749", text: "只持股（成本 100）", dash: "7 5" }, { color: "#0d5c4f", text: "持股 + 买看跌（K=90，P=8）" }]);
+  }
+})();
+</script></body></html>

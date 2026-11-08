@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>风险管理 · 第 1 课：风险地图与VaR · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「风险管理」第 1 课《风险地图与VaR》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">风险管理</a><span class="sep">/</span>第 1 课</div>
+<header class="lesson-header"><div class="kicker">风险管理 · Lesson 1</div><h1>风险地图与VaR：用一句话说清“最多亏多少”</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶</span><span>前置：建议先学 04 投资学第 1 课</span></div></header>
+<p class="lead">收益回答“能赚多少”，风险回答“最多亏多少”。这一课先把纷繁的风险分成四大家族，认清各自的作案手法；再学会全世界机构通用的度量语言——VaR，一句话说清“正常情况下，最多亏多少”，也看清它说不清的地方。</p>
+
+<h2>一、风险家族：先把敌人认清楚</h2>
+<p>拿到任何一份机构报告，第一步都是把风险对号入座。金融风险主要分四类，每类的“作案手法”不同，对症的药也不同。</p>
+<table class="data">
+<thead><tr><th>风险类别</th><th>一句话机理</th><th>典型案例</th></tr></thead>
+<tbody>
+<tr><td><span class="term" data-def="价格波动导致资产价值上下起伏的风险">市场风险（market risk）</span></td><td>价格一动，盈亏立现：股价、利率、汇率、商品价格的波动直接改变资产价值。</td><td>2015 年 A 股大跌，千股连续跌停，仓位越重亏得越狠。</td></tr>
+<tr><td><span class="term" data-def="交易对手到期不履约、不还钱的风险">信用风险（credit risk）</span></td><td>对手违约：说好的到期还本付息，到点了却不兑现，债权直接缩水。</td><td>房企美元债违约，债券价格暴跌，持有人承受损失。</td></tr>
+<tr><td><span class="term" data-def="内部人员、流程或系统失控造成损失的风险">操作风险（operational risk）</span></td><td>祸起萧墙：员工越权、流程漏洞、系统故障，损失来自内部失控而非市场。</td><td>1995 年巴林银行里森违规衍生品交易，233 年老店破产。</td></tr>
+<tr><td><span class="term" data-def="想卖卖不掉、只能大幅折价成交的风险">流动性风险（liquidity risk）</span></td><td>想卖卖不掉：市场瞬间没人接盘，只能大幅折价，甚至根本成交不了。</td><td>2020 年 3 月恐慌中，连最安全的美国国债流动性都骤降。</td></tr>
+</tbody>
+</table>
+<div class="callout callout-info"><span class="callout-title">风险爱连环</span><p>四类风险常常一起爆发：巴林银行的直接亏损来自市场头寸（市场风险），但让损失失控的根源是内控失效（操作风险）；房企违约（信用风险）往往伴随着它的债券根本卖不出去（流动性风险）。先找主因，再看连锁反应。</p></div>
+
+<h2>二、VaR：三个要素，缺一不可</h2>
+<p>分完类，下一个问题是“有多大”。机构最通用的答案是<span class="term" data-def="在给定置信水平和期限下，损失预计不会超过的金额门槛">在险价值（Value at Risk, VaR）</span>：它把一笔投资、一个组合的风险压缩成一句话。一句合格的 VaR 表述必须同时包含三个要素：</p>
+<ul>
+<li><b>金额</b>：亏多少（如 100 万元）；</li>
+<li><b>期限</b>：多长时间内的亏损（如 1 个交易日）；</li>
+<li><b>置信水平</b>：有多大把握（如 95%）。</li>
+</ul>
+<div class="formula">95% 置信水平 · 1 个交易日 · VaR = 100 万元<div class="formula-note">读法：正常市况下，约 95% 的交易日的亏损不超过 100 万元；平均每 20 个交易日约有 1 天会超过（1 ÷ (1 − 95%) = 20）。</div></div>
+<p>置信水平与“多少天一遇”互为倒数：90% 对应 10 个交易日一遇，95% 对应 20 个，99% 对应 100 个。置信水平越高，VaR 一定越大——你要求的把握越大，划出的“安全线”就得越深。</p>
+<div class="callout callout-key"><span class="callout-title">只报一个数的 VaR 是废话</span><p>“我们的 VaR 是 100 万”——是 1 天还是 1 年？95% 把握还是 99%？含义天差地别。看到只报金额、不提期限和置信水平的，先追问另外两个要素，再决定信不信。</p></div>
+
+<h2>三、VaR 的两个盲区</h2>
+<div class="callout callout-warn"><span class="callout-title">误读警告</span><p>VaR 不是最大损失：它只说“约 95% 的日子亏不过它”，剩下 5% 的日子照样可能亏得远超它。VaR 也不告诉你超过之后亏多少——这正是它的“尾部盲区”。把 VaR 当成亏损上限，是无数风控事故的经典起点。</p></div>
+<p>补上尾部盲区的常用指标是 <b>ES（Expected Shortfall，预期损失）</b>：把超出 VaR 的那些日子的损失取平均。VaR 回答“通常最多亏多少”，ES 回答“糟糕的时候平均亏多少”。报告里另一个常见词是<b>最大回撤</b>——从最高点跌到最低点的幅度，它度量的是路径上摔得最深的一跤。</p>
+
+<h2>四、动手：VaR 长什么样</h2>
+<p>假设你的组合市值 100 万元，单日收益率近似正态分布：平均 μ=0.05%，日波动 σ=1%。拖动滑块，看置信水平、波动率和本金如何改写“最多亏多少”。红色区域就是 VaR 覆盖的左尾，它的面积恰好等于 1 − 置信水平。</p>
+<div class="widget">
+<div class="widget-title">VaR 可视化：左尾面积就是 1 − 置信水平</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>置信水平 <span class="val" id="conf-val">95%</span><input type="range" id="conf" min="90" max="99" step="0.5" value="95"></label></div>
+<div class="slider-row"><label>日波动 σ <span class="val" id="sig-val">1%</span><input type="range" id="sig" min="0.5" max="3" step="0.1" value="1"></label></div>
+<div class="slider-row"><label>本金 <span class="val" id="cap-val">100 万元</span><input type="range" id="cap" min="10" max="500" step="10" value="100"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pill-q">VaR 分位：-1.59%</span><span class="pill" id="pill-var">VaR 金额 ≈ 1.59 万元</span><span class="pill" id="pill-day">约 20 个交易日一遇</span></div>
+</div>
+</div>
+<div class="formula">VaR 金额 = 本金 × |μ − z·σ|<div class="formula-note">z 由置信水平决定（90% → 1.2816，95% → 1.6449，99% → 2.3263），μ 为日均收益率，σ 为日波动率。默认参数验算：100 万 × |0.05% − 1.6449 × 1%| = 100 万 × 1.59% ≈ 1.59 万元（15,949 元）。</div></div>
+<p>两组对照感受一下：把置信水平拖到 99%（z=2.3263），分位变为 0.05% − 2.3263% = −2.28%，VaR ≈ 2.28 万元——把握越大，安全线越深；把 σ 拖到 2%，95% 的 VaR 立刻跳到约 3.24 万元——波动率是 VaR 的第一敏感因子，市场越颠簸，“最多亏多少”就越吓人。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>能把风险分成市场、信用、操作、流动性四类，并各举出一个真实案例；</li>
+<li>会完整读出“95% 置信 1 日 VaR=100 万元”，并在“多少天一遇”之间换算；</li>
+<li>知道 VaR 不是最大损失、看不清尾部，需要 ES 来补盲区；</li>
+<li>会用 VaR ≈ 本金 × |μ − z·σ| 快速估算正态假设下的 VaR。</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"一句完整的 VaR 表述，必须同时包含哪三个要素？","options":["金额、期限、置信水平","金额、税率、信用评级","期限、股息、波动幅度"],"answer":0,"explain":"金额回答亏多少，期限回答多长时间，置信水平回答有多大把握；三者缺一，这句话就没法解读。税率、股息都不在要素之列。"},
+{"q":"对“95% 置信 1 日 VaR=100 万元”最准确的理解是？","options":["当天亏损绝对不超过百万","超过它以后亏损就到顶了","九成五的日子亏损不超它"],"answer":2,"explain":"正确读法是约 95% 的交易日亏损不超过 100 万元，平均每 20 个交易日约有 1 天超过；VaR 既不是损失上限，也不说明超过之后亏多少。"},
+{"q":"1995 年巴林银行因里森违规衍生品交易倒闭，这首先暴露的是哪类风险？","options":["市场风险","操作风险","信用风险"],"answer":1,"explain":"员工越权、内控失效属于操作风险；市场头寸只是损失的形态，让亏损一路滚大到拖垮银行的，是内部失控。"},
+{"q":"99% 置信的 1 日 VaR，平均约多少个交易日会被突破一次？","options":["约一百天一次","约二十天一次","约十天碰一次"],"answer":0,"explain":"突破概率 = 1 − 99% = 1%，平均 1 ÷ 1% = 100 个交易日发生一次；同理 95% 对应 20 天、90% 对应 10 天。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#market-risk">市场风险</a> · <a href="../reference/glossary.html#credit-risk">信用风险</a> · <a href="../reference/glossary.html#operational-risk">操作风险</a> · <a href="../reference/glossary.html#liquidity-risk">流动性风险</a> · <a href="../reference/glossary.html#var">在险价值</a></li>
+
+<li><a href="https://www.investopedia.com/terms/v/var.asp">Value at Risk (VaR) — Investopedia</a>：VaR 的定义、计算方法与局限，入门首选词条。</li>
+<li><a href="https://zh.wikipedia.org/wiki/巴林银行">巴林银行 — 维基百科</a>：1995 年这家 233 年老店倒闭的完整经过。</li>
+<li><a href="https://www.bis.org/">国际清算银行（BIS）</a>：全球银行业监管与风险框架的官方源头。</li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">上一课</span><span class="nav-title">分支导论</span></a><a class="next" href="0002-信用风险与预期损失.html"><span class="nav-label">下一课</span><span class="nav-title">信用风险与预期损失</span></a></nav>
+<footer class="lesson-footer"><span>风险管理 · 第 1 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var box=document.getElementById("chart1");
+  var confEl=document.getElementById("conf");
+  var sigEl=document.getElementById("sig");
+  var capEl=document.getElementById("cap");
+  var confVal=document.getElementById("conf-val");
+  var sigVal=document.getElementById("sig-val");
+  var capVal=document.getElementById("cap-val");
+  var pillQ=document.getElementById("pill-q");
+  var pillV=document.getElementById("pill-var");
+  var pillD=document.getElementById("pill-day");
+  var ZTAB=[[90,1.2816],[95,1.6449],[97.5,1.9600],[99,2.3263]];
+  function zOf(c){
+    if(c<=ZTAB[0][0]){return ZTAB[0][1];}
+    for(var i=0;i<ZTAB.length-1;i++){
+      var a=ZTAB[i],b=ZTAB[i+1];
+      if(c>=a[0]&&c<=b[0]){return a[1]+(b[1]-a[1])*(c-a[0])/(b[0]-a[0]);}
+    }
+    return ZTAB[ZTAB.length-1][1];
+  }
+  function num(x){return (Math.round(x*10)/10).toString();}
+  function fmtAmt(w){
+    if(w>=1){return w.toFixed(2)+" 万元";}
+    return Math.round(w*10000)+" 元";
+  }
+  function draw(){
+    var conf=parseFloat(confEl.value);
+    var sig=parseFloat(sigEl.value);
+    var cap=parseFloat(capEl.value);
+    var mu=0.05,z=zOf(conf);
+    var q=mu-z*sig;
+    confVal.textContent=num(conf)+"%";
+    sigVal.textContent=num(sig)+"%";
+    capVal.textContent=cap+" 万元";
+    var f=function(p){return Math.exp(-((p-mu)*(p-mu))/(2*sig*sig))/(sig*Math.sqrt(2*Math.PI));};
+    var tail=function(p){return p<=q?f(p):0;};
+    var peak=0.3989/sig;
+    box.innerHTML="";
+    var c=new FChart(box,{height:340,x:{min:Math.min(-4,q-0.6),max:Math.max(4,mu+3.3*sig),label:"单日收益率（%）"},y:{min:0,max:peak*1.18,label:"概率密度"}});
+    c.area(tail,{fill:"#b3372f",fillOpacity:0.3,y0:0});
+    c.path(f,{color:"#0d5c4f",width:2.5});
+    c.vline(q,{color:"#b3372f",label:"VaR 分位 "+q.toFixed(2)+"%"});
+    c.text(q,peak*0.42,"左尾概率 "+num(100-conf)+"%",{dx:8});
+    c.legend([{color:"#0d5c4f",text:"日收益分布（正态）"},{color:"#b3372f",text:"VaR 左尾"}]);
+    pillQ.textContent="VaR 分位："+q.toFixed(2)+"%";
+    pillV.textContent="VaR 金额 ≈ "+fmtAmt(cap*Math.abs(q)/100);
+    pillD.textContent="约 "+num(100/(100-conf))+" 个交易日一遇";
+  }
+  [confEl,sigEl,capEl].forEach(function(e){e.addEventListener("input",draw);});
+  draw();
+})();
+</script>
+</body>
+</html>

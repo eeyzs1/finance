@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>个人理财 · 第 1 课：复利与通胀 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「个人理财」第 1 课《复利与通胀》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">个人理财</a><span class="sep">/</span>第 1 课</div>
+<header class="lesson-header"><div class="kicker">个人理财 · Lesson 1</div><h1>复利与通胀：时间的两副面孔</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：入门</span><span>前置：无</span></div></header>
+<p class="lead">时间是理财里最强大的变量：它能让钱生钱，也能让钱悄悄变薄。这一课把<span class="term" data-def="每期利息并入本金继续计息，俗称利滚利。">复利（compound interest）</span>与<span class="term" data-def="物价水平持续上涨，货币购买力随之下降。">通货膨胀（inflation）</span>放在一起算三笔账，读完你会对「早开始」三个字产生肌肉记忆。</p>
+
+<h2>一、复利：利息也会生利息</h2>
+<p>按<span class="term" data-def="利息只按原始本金计算，不并入本金再计息。">单利（simple interest）</span>计息，利息永远只按最初的本金计算；复利则把每一期利息并入本金，下一期连本带息一起计息，俗称「利滚利」。它的增长公式只有一行：</p>
+<div class="formula">FV = PV × (1 + r)^n</div>
+<div class="formula-note">FV＝终值；PV＝本金（现值）；r＝每期收益率（小数形式，7% 写作 0.07）；n＝期数。</div>
+<p>代一笔账：1 万元、年化 7%——10 年后 1×1.07^10≈1.97 万元；30 年后 1×1.07^30≈7.61 万元。本金没变、收益率没变，只是把时间从 10 年拉到 30 年，终值就接近翻了两番：复利的绝大多数收益，都堆在最后面的几年。</p>
+<div class="callout callout-info"><span class="callout-title">动手验算</span>
+<p>1.07^2＝1.1449 → 1.07^4＝1.1449 的平方≈1.3108 → 1.07^5≈1.4026 → 1.07^10＝1.4026 的平方≈1.9672 → 1.07^20≈1.9672 的平方≈3.8697 → 1.07^30＝3.8697×1.9672≈7.6123。一部手机计算器就能全部复现。</p></div>
+<div class="callout callout-tip"><span class="callout-title">翻倍速算</span>
+<p><span class="term" data-def="用 72 除以年收益率（百分数），快速估算本金翻倍年数的心算工具。">72 法则（rule of 72）</span>：翻倍年数 ≈ 72 ÷ 年收益率（%）。7% → 约 10.3 年翻一倍（精确解 ln2÷ln1.07≈10.24 年，误差不到 1%）；3% → 约 24 年；12% → 约 6 年。收益率越高，翻倍越快——这就是你该关心收益率的原因。</p></div>
+
+<h2>二、单利 vs 复利：30 年差出 18 万</h2>
+<p>差距有多大？拿 10 万元、年利率 5%、存 30 年做一次正面对照：</p>
+<table class="data">
+<thead><tr><th>计息方式</th><th>计算式</th><th>30 年终值</th></tr></thead>
+<tbody>
+<tr><td>单利</td><td>10 万 ×（1 ＋ 5% × 30）</td><td>25.0 万</td></tr>
+<tr><td>复利</td><td>10 万 × 1.05^30</td><td class="good">43.2 万</td></tr>
+</tbody>
+</table>
+<p>验算：1.05^10＝1.6289 → 1.05^20≈2.6533 → 1.05^30≈4.3219，复利终值＝10 万×4.322＝43.2 万；单利利息＝10 万×5%×30＝15 万，终值 25 万。复利多出的约 18.2 万，几乎全是「利息的利息」——存期越长，这部分占比越大。</p>
+
+<h2>三、通胀：时间的另一副面孔</h2>
+<p>引擎之外还有逆风。通货膨胀让每一块钱能买到的东西慢慢变少，所以衡量回报必须扣除通胀：扣除物价因素后你真正赚到多少，叫<span class="term" data-def="扣除通胀后的购买力增值，约等于名义收益率减去通胀率。">真实收益率（real return）</span>。</p>
+<div class="formula">真实收益率 ≈ 名义收益率 − 通胀率</div>
+<div class="formula-note">费雪近似；精确式为（1＋名义）÷（1＋通胀）−1，在日常利率水平下两者几乎一致。</div>
+<div class="callout callout-warn"><span class="callout-title">别被名义数字安抚</span>
+<p>名义利率 3% 的存款，在 2.5% 通胀下真实收益仅 0.5%；把现金压在床底，真实收益约 −2.4%/年，30 年后 1 万元的购买力只剩约 4767 元，近乎腰斩。跑不赢通胀的「安全」，其实是慢性的亏损。</p></div>
+
+<h2>四、早开始的力量：时间比金额更值钱</h2>
+<p><span class="term" data-def="每隔固定周期投入固定金额买入资产的策略，可平滑买入成本。">定投（dollar-cost averaging）</span>是普通人用上复利最省力的方式：每月发薪日固定投入，用纪律代替择时。按「每月定投 1000 元、年末合计投入 1.2 万元、按年复利 7%」的简化口径，比较三个起步年龄（都投到 60 岁）：</p>
+<div class="formula">FV = C × ((1 + r)^n − 1) ÷ r</div>
+<div class="formula-note">普通年金终值：C＝每年投入，r＝年收益率，n＝年数。此处按年末一次性投入、按年复利简化，方便手算复核。</div>
+<table class="data">
+<thead><tr><th>开始年龄</th><th>投资年限</th><th>累计投入</th><th>60 岁终值（约）</th></tr></thead>
+<tbody>
+<tr><td>25 岁</td><td>35 年</td><td>42.0 万</td><td class="good">165.9 万</td></tr>
+<tr><td>35 岁</td><td>25 年</td><td>30.0 万</td><td>75.9 万</td></tr>
+<tr><td>45 岁</td><td>15 年</td><td>18.0 万</td><td>30.2 万</td></tr>
+</tbody>
+</table>
+<p>验算：1.07^35≈10.677、1.07^25≈5.427、1.07^15≈2.759，代入年金公式得 1.2 万×138.24≈165.9 万、1.2 万×63.25≈75.9 万、1.2 万×25.13≈30.2 万。若按月复利精确计算，三个数还会更高（35 年约 180 万）；表中按年简化，便于你亲手复核。</p>
+<p>25 岁开始的人比 45 岁开始的人只多投入 24 万元，终值却多出约 136 万元——差距主要来自时间，而不是金额。早开始的意义，就是让复利的雪道更长。</p>
+
+<h2>五、动手：复利模拟器</h2>
+<p>把上面的变量装进同一台机器。先只拖「年限」，再只拖「收益率」，感受哪个杠杆更长。默认参数（本金 1 万、每月定投 1000 元、年化 7%、年限 30 年、通胀 2.5%）下：名义终值约 130 万，真实购买力约 62 万——与正文的方向完全一致。</p>
+<div class="widget">
+<div class="widget-title">复利模拟器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>初始本金 <span class="val" id="pv-val">1.0 万</span><input type="range" id="pv" min="0" max="500000" step="1000" value="10000"></label></div>
+<div class="slider-row"><label>每月定投 <span class="val" id="pmt-val">1,000 元</span><input type="range" id="pmt" min="0" max="10000" step="100" value="1000"></label></div>
+<div class="slider-row"><label>年化收益率 <span class="val" id="rate-val">7.0%</span><input type="range" id="rate" min="1" max="12" step="0.5" value="7"></label></div>
+<div class="slider-row"><label>年限 <span class="val" id="years-val">30 年</span><input type="range" id="years" min="1" max="40" step="1" value="30"></label></div>
+<div class="slider-row"><label>通胀率 <span class="val" id="infl-val">2.5%</span><input type="range" id="infl" min="0" max="5" step="0.1" value="2.5"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill">名义终值 <b id="out-nominal">—</b></span>
+<span class="pill">真实购买力 <b id="out-real">—</b></span>
+<span class="pill">累计投入 <b id="out-cost">—</b></span>
+<span class="pill">收益占比 <b id="out-share">—</b></span>
+</div>
+</div>
+</div>
+<p>计算口径：名义曲线按月复利精确计算（月利率＝年化÷12），真实购买力＝名义价值÷(1＋通胀)^年数。绿色实线是账户里的数字，金色实线才是你真正的购买力——两条线的开口，就是通胀的账单。</p>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div>
+<ul>
+<li>会用 FV＝PV×(1+r)^n 估算一笔长期投资，并用 72 法则当场回答「多久翻倍」。</li>
+<li>算过单利与复利的差距：10 万元、5%、30 年，复利多出约 18.2 万。</li>
+<li>会用「真实收益≈名义−通胀」识破跑不赢通胀的「安全」产品。</li>
+<li>记得三个年龄的账：定投早开始 10 年，终值多出一倍还多。</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"按 72 法则，年化收益率 9% 时，本金翻倍大约需要多久？","options":["约 8 年","约 6 年","约 4 年"],"answer":0,"explain":"72÷9＝8，约 8 年翻一倍；精确解 ln2÷ln1.09≈8.0 年，几乎分毫不差。"},
+{"q":"10 万元按 5% 存 30 年，单利与复利的终值相差约多少？","options":["13 万元","18 万元","23 万元"],"answer":1,"explain":"单利终值＝10＋10×5%×30＝25 万；复利终值＝10×1.05^30≈43.2 万，相差约 18.2 万。"},
+{"q":"存款名义利率 3%，当年通胀 2.5%，真实收益率约为多少？","options":["5.5%","2.5%","0.5%"],"answer":2,"explain":"费雪近似：真实收益≈名义−通胀＝3%−2.5%＝0.5%；精确式 1.03÷1.025−1≈0.49%，结果几乎相同。"},
+{"q":"同样每月定投 1000 元、年化 7%、都投到 60 岁，谁的终值最高？","options":["35 岁开始","25 岁开始","45 岁开始"],"answer":1,"explain":"年限越长复利滚得越久：35 年约 165.9 万、25 年约 75.9 万、15 年约 30.2 万，早十年多一倍还多。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div>
+<ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#compound-interest">复利</a> · <a href="../reference/glossary.html#inflation">通货膨胀</a> · <a href="../reference/glossary.html#simple-interest">单利</a> · <a href="../reference/glossary.html#rule-of-72">72 法则</a> · <a href="../reference/glossary.html#real-return">真实收益率</a> · <a href="../reference/glossary.html#dca">定投</a></li>
+
+<li><a href="https://www.investopedia.com/terms/c/compoundinterest.asp">Investopedia：Compound Interest（复利）</a></li>
+<li><a href="https://www.investopedia.com/terms/r/ruleof72.asp">Investopedia：Rule of 72（72 法则）</a></li>
+<li><a href="https://www.gov.cn/">中国政府网——个人养老金制度介绍（首页检索「个人养老金」）</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">上一课</span><span class="nav-title">分支导论</span></a><a class="next" href="0002-资产配置与生命周期.html"><span class="nav-label">下一课</span><span class="nav-title">资产配置与生命周期</span></a></nav>
+
+<footer class="lesson-footer"><span>个人理财 · 第 1 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  function $(id){return document.getElementById(id);}
+  function wan(v){return (v/10000).toFixed(1)+" 万";}
+  function draw(){
+    var P=parseFloat($("pv").value),PMT=parseFloat($("pmt").value),
+        r=parseFloat($("rate").value)/100,yrs=parseInt($("years").value,10),
+        inf=parseFloat($("infl").value)/100;
+    $("pv-val").textContent=(P/10000).toFixed(1)+" 万";
+    $("pmt-val").textContent=PMT.toLocaleString("zh-CN")+" 元";
+    $("rate-val").textContent=(r*100).toFixed(1)+"%";
+    $("years-val").textContent=yrs+" 年";
+    $("infl-val").textContent=(inf*100).toFixed(1)+"%";
+    var i=r/12;
+    var nomFn=function(t){var f=Math.pow(1+i,12*t);return (P*f+PMT*((f-1)/i))/10000;};
+    var realFn=function(t){return nomFn(t)/Math.pow(1+inf,t);};
+    var nom=nomFn(yrs)*10000,real=realFn(yrs)*10000,cost=P+PMT*12*yrs;
+    $("out-nominal").textContent=wan(nom);
+    $("out-real").textContent=wan(real);
+    $("out-cost").textContent=wan(cost);
+    $("out-share").textContent=nom>0?(((nom-cost)/nom)*100).toFixed(1)+"%":"—";
+    var ymax=Math.max(10,Math.ceil(nom/10000*1.1/5)*5);
+    var el=$("chart1");
+    if(typeof FChart==="undefined"){el.textContent="图表组件未加载";return;}
+    el.innerHTML="";
+    var c=new FChart(el,{height:340,x:{min:0,max:yrs,label:"年份"},y:{min:0,max:ymax,label:"账户价值（万元）"}});
+    c.area(nomFn,{fill:"#0d5c4f",fillOpacity:0.08,y0:0});
+    c.hline(cost/10000,{label:"累计投入"});
+    c.path(nomFn,{color:"#0d5c4f",width:2.5});
+    c.path(realFn,{color:"#a3701a",width:2.5});
+    c.legend([{color:"#0d5c4f",text:"名义价值"},{color:"#a3701a",text:"真实购买力"}]);
+  }
+  ["pv","pmt","rate","years","infl"].forEach(function(id){$(id).addEventListener("input",draw);});
+  draw();
+})();
+</script>
+</body></html>

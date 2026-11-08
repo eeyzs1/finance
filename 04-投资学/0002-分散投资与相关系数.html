@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>投资学 · 第 2 课：分散投资与相关系数 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「投资学」第 2 课《分散投资与相关系数》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">投资学</a><span class="sep">/</span>第 2 课</div>
+<header class="lesson-header"><div class="kicker">投资学 · Lesson 2</div><h1>分散投资与相关系数</h1><div class="meta"><span class="tag">预计 18 分钟</span><span>难度：进阶入门</span><span>前置：第 1 课</span></div></header>
+<p class="lead">第 1 课我们学会用期望收益和标准差给资产"打分"。这一课把两份资产放进同一个篮子：你会发现收益只是简单的加权平均，风险却能"打折"——而折扣的大小，取决于一个叫<span class="term" data-def="度量两项资产涨跌同步程度的数值，取值在 −1 到 +1 之间">相关系数（correlation coefficient）</span>的数字。理解了它，你就理解了为什么<span class="term" data-def="不把鸡蛋放在一个篮子里：持有多项相关性不够高的资产，以降低组合整体风险">分散投资（diversification）</span>被称为金融里唯一的免费午餐。</p>
+
+<h2>一、组合的期望收益：老老实实的加权平均</h2>
+<p>把资金按权重 w 买入资产 A，按 (1−w) 买入资产 B，组合的期望收益没有任何花样：</p>
+<div class="formula">μ<sub>p</sub> = w × μ<sub>A</sub> + (1 − w) × μ<sub>B</sub>
+<div class="formula-note">算例：A 的期望收益 μ<sub>A</sub> = 8%，B 的 μ<sub>B</sub> = 4%，各投 50%，则 μ<sub>p</sub> = 0.5×8% + 0.5×4% = 4% + 2% = 6%。期望收益永远是权重的加权平均，不会因为"放在一起"而变多或变少。</div></div>
+
+<h2>二、组合的风险：不是加权平均</h2>
+<p>风险的算法完全不同。组合标准差的公式是：</p>
+<div class="formula">σ<sub>p</sub> = √( w²σ<sub>A</sub>² + (1−w)²σ<sub>B</sub>² + 2·w·(1−w)·ρ·σ<sub>A</sub>·σ<sub>B</sub> )
+<div class="formula-note">直觉版：根号里的前两项是两种资产各自贡献的风险；第三项是关键——它背着相关系数 ρ。当 ρ 为负数时，第三项整体变成"减项"，直接从总风险里扣掉一块；ρ 越接近 −1，扣得越狠。</div></div>
+<p>如果风险也像收益一样做加权平均，那么 50% A（σ<sub>A</sub>=15%）加 50% B（σ<sub>B</sub>=5%）的风险应该是 0.5×15% + 0.5×5% = 10%。但只要 ρ 小于 +1，上面的公式算出的结果一定比 10% 低。省下来的那一块，就是分散的馈赠。</p>
+
+<h2>三、相关系数 ρ：分散的万能旋钮</h2>
+<p>ρ 的取值范围是 −1 到 +1，它决定了折扣的力度。还是用 A（σ<sub>A</sub>=15%）、B（σ<sub>B</sub>=5%）各投 50% 的例子，看三种典型情形：</p>
+<h3>ρ = +1：完全同涨同跌</h3>
+<p>两种资产像连体婴，第三项全额加上：σ<sub>p</sub> 恰好等于加权平均 10%。买了两只"动作一样"的资产，等于什么都没分散——白忙一场。</p>
+<h3>ρ = 0：互不相干</h3>
+<p>第三项整项消失：σ<sub>p</sub> = √(0.25×0.0225 + 0.25×0.0025) = √0.00625 ≈ 7.9%。只是"不相关"，就已经比 10% 低了 2.1 个百分点。</p>
+<h3>ρ = −1：完全对冲</h3>
+<p>A 涨时 B 恰好等比例跌，第三项变成减项：σ<sub>p</sub> = √(0.005625 + 0.000625 − 0.00375) = √0.0025 = 5%。若把权重调成 25% A + 75% B（15%×0.25 = 5%×0.75），甚至可以把风险压到 0。</p>
+<p>现实中的股票很少能完全对冲：同一市场里的股票 ρ 大多落在 0.2–0.4 之间。好消息是——这已经足够大幅降险（下面就用 0.3 实际试算）。</p>
+<table class="data">
+<thead><tr><th>相关系数 ρ</th><th>σ<sub>p</sub> 逐步验算（50/50）</th><th>结果</th><th>对比加权平均 10%</th></tr></thead>
+<tbody>
+<tr><td>+1</td><td>0.5×15% + 0.5×5%（第三项全额加上）</td><td class="bad">10.0%</td><td class="bad">无折扣，白分散</td></tr>
+<tr><td>0</td><td>√(0.25×0.0225 + 0.25×0.0025) = √0.00625</td><td class="good">≈7.9%</td><td class="good">降 2.1 个百分点</td></tr>
+<tr><td>−1</td><td>√(0.005625 + 0.000625 − 0.00375) = √0.0025</td><td class="good">5.0%</td><td class="good">降 5 个百分点，可压到 0</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-key"><span class="callout-title">唯一的免费午餐</span><p>上例中组合的期望收益始终是 6%，一分没少；风险却从加权平均的 10% 打折到 7.9%（ρ=0）甚至 5%（ρ=−1）。不牺牲任何期望收益就降低了风险——所以有人说"分散投资是金融里唯一的免费午餐"。你付出的不是收益，只是"不把宝全押在一只资产上"的纪律。</p></div>
+
+<h2>四、有效前沿：把权重拧到最优</h2>
+<p>把权重 w 从 0 慢慢拧到 1，每个 w 都在"风险—收益"平面上落下一个点 (σ<sub>p</sub>, μ<sub>p</sub>)，所有的点连成一条子弹形曲线。曲线的上半段——同样风险下收益最高的那些组合——叫<span class="term" data-def="风险—收益平面上，各风险水平下能达到的最高收益组合的连线；理性投资者只在这条线上选择">有效前沿（efficient frontier）</span>。理性投资者只会在这一段上挑选自己的组合。</p>
+<p>另一条思路是"加只数"：单只股票独有的意外（产品失败、官司、高管出事）叫<span class="term" data-def="单只资产独有的、可通过分散消除的风险；与系统性风险相对">特质风险（idiosyncratic risk）</span>，持有的个数越多，它们互相抵消得越干净。经验上，20–30 只股票已能分散掉大部分特质风险，之后再增只数，降险效果递减。指数基金一次买入几百只股票，等于把这道工序直接外包给一篮子。</p>
+
+<h2>动手玩：两资产组合模拟器</h2>
+<div class="widget">
+<div class="widget-title">两资产组合模拟器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>相关系数 ρ = <span class="val" id="rho-val">0.30</span><input type="range" id="rho" min="-1" max="1" step="0.05" value="0.3"></label></div>
+<div class="slider-row"><label>A 的权重 w = <span class="val" id="w-val">50%</span><input type="range" id="w" min="0" max="100" step="1" value="50"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="r-mu"></span><span class="pill" id="r-sigma"></span><span class="pill" id="r-cmp"></span></div>
+</div>
+</div>
+<p>固定 μ<sub>A</sub>=8%、σ<sub>A</sub>=15%，μ<sub>B</sub>=4%、σ<sub>B</sub>=5%。绿色曲线是权重从 0 扫到 1（步进 0.02）得到的全部组合；金点是当前权重；最靠左的绿点是数值扫描出的最小方差组合。默认 ρ=0.3、w=50% 时：σ<sub>p</sub> = √(0.25×0.0225 + 0.25×0.0025 + 2×0.25×0.3×0.15×0.05) = √(0.005625 + 0.000625 + 0.001125) = √0.007375 ≈ 8.6%。</p>
+<div class="callout callout-tip"><span class="callout-title">试一试</span><p>① 把 ρ 拉到 −1：曲线弯成子弹形，最小方差组合贴到最左；② 把 ρ 拉到 +1：曲线拉成直线，分散彻底失效；③ 固定 ρ=0.3，把权重从全仓 A 慢慢左移：收益降一点、风险降一大截——这就是免费午餐的形状。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>会用加权平均算组合期望收益，并知道组合风险<b>不是</b>加权平均</li>
+<li>看懂公式第三项 2w(1−w)ρσ<sub>A</sub>σ<sub>B</sub>：ρ 为负时是减项，折扣就从这里来</li>
+<li>记住三种情形：ρ=+1 白分散、ρ=0 已有折扣、ρ=−1 可完全对冲</li>
+<li>理解有效前沿与"20–30 只股票足够分散"，以及指数基金为何存在</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"相关系数 ρ 度量的是什么？","options":["两资产同涨同跌的程度","两资产期望收益的高低","两资产流动性强弱程度"],"answer":0,"explain":"ρ 只刻画两项资产涨跌的同步方向与强度，取值在 −1 到 +1 之间；它既不是收益水平，也不是流动性。"},
+{"q":"为什么组合风险通常低于两资产风险的加权平均？","options":["组合收益期望更高","协方差项可能抵消","权重之和恒等于一"],"answer":1,"explain":"根号里的第三项 2w(1−w)ρσAσB 带着相关系数 ρ：只要 ρ 小于 +1 就有折扣，ρ 为负时更是直接的减项；另外两个选项都与降险无关。"},
+{"q":"「分散投资是金融里唯一的免费午餐」指的是什么？","options":["收益翻倍风险减半","波动消失回报稳定","风险下降收益不降"],"answer":2,"explain":"分散后组合的期望收益仍是各资产的加权平均（没有变少），风险却因相关性折扣而下降——不牺牲收益就降低了风险。"},
+{"q":"经验上大约持有多少只股票，就能分散掉大部分特质风险？","options":["两三只股票就够了","二十到三十只足矣","二百只以上才可以"],"answer":1,"explain":"常被引用的经验值是 20–30 只：已能消掉大部分特质风险，再增只数效果递减——这也是指数基金一次买几百只的底气所在。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#correlation">相关系数</a> · <a href="../reference/glossary.html#diversification">分散投资</a> · <a href="../reference/glossary.html#efficient-frontier">有效前沿</a> · <a href="../reference/glossary.html#idiosyncratic-risk">特质风险</a></li>
+
+<li><a href="https://www.investopedia.com/terms/d/diversification.asp">Investopedia：Diversification（分散投资）</a></li>
+<li><a href="https://www.investopedia.com/terms/c/correlationcoefficient.asp">Investopedia：Correlation Coefficient（相关系数）</a></li>
+<li><a href="https://www.investopedia.com/terms/m/modernportfoliotheory.asp">Investopedia：Modern Portfolio Theory（现代组合理论）</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0001-收益与风险的度量.html"><span class="nav-label">上一课</span><span class="nav-title">收益与风险的度量</span></a>
+<a class="next" href="0003-capm与证券市场线.html"><span class="nav-label">下一课</span><span class="nav-title">CAPM 与证券市场线</span></a>
+</nav>
+<footer class="lesson-footer"><span>投资学 · 第 2 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+var MU_A=8,SIG_A=15,MU_B=4,SIG_B=5;
+var rhoEl=document.getElementById("rho"),wEl=document.getElementById("w");
+var chart=new FChart(document.getElementById("chart1"),{height:340,x:{min:0,max:16,label:"组合风险 σp（%）"},y:{min:2,max:9,label:"期望收益 μp（%）"}});
+function muP(w){return w*MU_A+(1-w)*MU_B;}
+function sigmaP(w,rho){var a=w*SIG_A,b=(1-w)*SIG_B;return Math.sqrt(a*a+b*b+2*rho*a*b);}
+function draw(){
+  var rho=parseFloat(rhoEl.value),w=parseFloat(wEl.value)/100;
+  document.getElementById("rho-val").textContent=rho.toFixed(2);
+  document.getElementById("w-val").textContent=Math.round(w*100)+"%";
+  chart.clear();
+  var pts=[];
+  for(var i=0;i<=50;i++){var ww=i/50;pts.push([sigmaP(ww,rho),muP(ww)]);}
+  chart.path(pts,{color:"#0d5c4f",width:2.5});
+  chart.scatter([[15,8,"#5d5749","全仓 A"],[5,4,"#5d5749","全仓 B"]],{r:4});
+  var bestW=0,bestS=Infinity;
+  for(var j=0;j<=1000;j++){var wj=j/1000;var sj=sigmaP(wj,rho);if(sj<bestS){bestS=sj;bestW=wj;}}
+  chart.scatter([[bestS,muP(bestW),"#0d5c4f",""]],{r:5});
+  chart.text(bestS,muP(bestW)-0.55,"最小方差组合 σp≈"+bestS.toFixed(1)+"%",{dx:8});
+  var s=sigmaP(w,rho),m=muP(w);
+  chart.scatter([[s,m,"#a3701a",""]],{r:6});
+  chart.text(s,m+0.4,"当前组合 σp≈"+s.toFixed(1)+"%，μp≈"+m.toFixed(1)+"%",{dx:8});
+  chart.legend([{color:"#0d5c4f",text:"组合曲线 / 最小方差"},{color:"#a3701a",text:"当前组合"},{color:"#5d5749",text:"全仓端点"}]);
+  document.getElementById("r-mu").textContent="期望收益 μp ≈ "+m.toFixed(2)+"%";
+  document.getElementById("r-sigma").textContent="组合风险 σp ≈ "+s.toFixed(2)+"%";
+  var rd=Math.max(0,(SIG_A-s)/SIG_A*100),fd=Math.max(0,(MU_A-m)/MU_A*100);
+  document.getElementById("r-cmp").textContent="对比全仓 A：风险约降 "+rd.toFixed(0)+"%，收益约降 "+fd.toFixed(0)+"%";
+}
+rhoEl.addEventListener("input",draw);
+wEl.addEventListener("input",draw);
+draw();
+})();
+</script>
+</body></html>

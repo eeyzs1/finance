@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>风险管理 · 第 2 课：信用风险与预期损失 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「风险管理」第 2 课《信用风险与预期损失》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">风险管理</a><span class="sep">/</span>第 2 课</div>
+<header class="lesson-header"><div class="kicker">风险管理 · Lesson 2</div><h1>信用风险与预期损失</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：进阶</span><span>前置：第 1 课</span></div></header>
+<p class="lead">把 100 万借出去之前，先回答三个问题：他会不会违约？违约了我亏多少？他总共欠我多少？本课教你把这三个答案乘起来，得到银行每天都在算的「预期损失」——把模糊的「怕他不还钱」变成一道可以验算的乘法题。</p>
+
+<h2>信用风险的三块积木：PD、LGD、EAD</h2>
+<p>当你把钱借给一个人、一家公司，或者买入一只债券，你就承担了信用风险。拆开来看，它由三块积木组成，缺一不可。</p>
+<p>第一块是<span class="term" data-def="借款人在一定期限内发生违约的可能性，用百分比表示">违约概率（probability of default, PD）</span>：他会不会还？PD 通常以一年为观察窗口，PD = 2% 的含义是：未来一年，每 100 个情况类似的借款人里大约有 2 个违约。它回答的是「违约的可能性有多大」。</p>
+<p>第二块是<span class="term" data-def="违约后最终无法收回的损失占风险敞口的比例；抵押越充足，该比例越低">违约损失率（loss given default, LGD）</span>：违约之后我亏多少比例？违约不等于全亏——如果有房产抵押，处置房产能收回一大部分，LGD 可能只有 20%；无抵押的信用贷款，催收之后往往所剩无几，LGD 可能高达 60%–90%。规律很直观：<strong>抵押越充足，LGD 越低</strong>。</p>
+<p>第三块是<span class="term" data-def="违约发生时暴露在风险中的尚未偿还金额">违约风险敞口（exposure at default, EAD）</span>：违约那一刻他总共欠我多少？EAD 就是「暴露在风险里的钱」——你借出去且尚未收回的本金余额。</p>
+
+<h2>核心公式：预期损失是一道乘法题</h2>
+<p>三块积木相乘，就得到<span class="term" data-def="平均而言预期会损失的金额，等于 PD×LGD×EAD">预期损失（expected loss, EL）</span>——这类贷款「平均而言」每笔会损失多少钱：</p>
+<div class="formula">EL = PD × LGD × EAD<div class="formula-note">算例：放贷 100 万元、PD = 2%、LGD = 40%。验算：EL = 2% × 40% × 100 万 = 0.8 万 = 8,000 元。注意单位：三个数相乘时 PD 与 LGD 都要化成小数（0.02 × 0.4 × 1,000,000 = 8,000 元）。</div></div>
+<h3>定价含义：利率里藏着 EL</h3>
+<p>EL 不会凭空消失，必须有人埋单。放款 100 万、EL 8,000 元，意味着 <strong>EL ÷ 放款额 = 0.8%</strong>：利率至少要比资金与运营成本高出这 0.8%，才不至于做亏本生意。示意性地算一笔账：资金与运营成本按 2% 计，则保本利率下限 = 0.8% + 2% = 2.8%，再叠加利润与竞争因素，才是最终报价。</p>
+<div class="callout callout-tip"><span class="callout-title">为什么信用贷利率远高于房贷</span><p>同样的 PD，无抵押信用贷的 LGD 远高于房产抵押贷款，EL 因此更高，银行收取的风险溢价自然更高。利率不是随便定的，它至少要覆盖「平均损失 + 成本 + 利润」。</p></div>
+
+<h2>信用评级：给违约概率贴的字母标签</h2>
+<p><span class="term" data-def="评级机构对借款人违约可能性高低的等级评定，从 AAA 到 D">信用评级（credit rating）</span>是把 PD 翻译成人人能读的字母：AAA 代表违约可能性极低，往下逐级升高，C/D 代表已违约。以标普（S&amp;P）体系为例，<strong>BBB− 及以上为投资级，BB+ 及以下为投机级</strong>（也就是常说的「高收益债」或「垃圾级」）——这条线是很多机构投资者的买入门槛。</p>
+<table class="data">
+<thead><tr><th>评级（示意）</th><th>含义</th><th>示意年违约概率</th><th>层级</th></tr></thead>
+<tbody>
+<tr><td>AAA</td><td>还本付息能力极强</td><td>约 0.02%</td><td class="good">投资级</td></tr>
+<tr><td>AA</td><td>还本付息能力很强</td><td>约 0.04%</td><td class="good">投资级</td></tr>
+<tr><td>A</td><td>能力强，略受经济环境影响</td><td>约 0.07%</td><td class="good">投资级</td></tr>
+<tr><td>BBB</td><td>能力充分，更易受环境影响</td><td>约 0.2%</td><td class="good">投资级（BBB− 为分界）</td></tr>
+<tr><td>BB</td><td>有投机成分，面临不确定性</td><td>约 1%</td><td>投机级</td></tr>
+<tr><td>B</td><td>投机性明显</td><td>约 5%</td><td>投机级</td></tr>
+<tr><td>CCC</td><td>目前就存在违约风险</td><td>约 25%</td><td class="bad">投机级</td></tr>
+<tr><td>C / D</td><td>濒临违约或已违约</td><td>已违约</td><td class="bad">违约</td></tr>
+</tbody>
+</table>
+<p>注意：表中违约概率为<strong>示意量级</strong>（参考各评级长期历史均值的大致水平），并非任何机构公布的准确数值。重点是方向：评级越低，PD 越高。</p>
+
+<h2>互动：预期损失计算器</h2>
+<p>拖动三个滑块，观察 EL 如何随 PD 线性上升（图表以当前 LGD 与 EAD 为固定背景），以及保本利率下限如何随之移动。默认值即上文算例：100 万 × 2% × 40% = 8,000 元。</p>
+<div class="widget">
+<div class="widget-title">预期损失计算器</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>违约概率 PD<span class="val" id="pd-val">2.0%</span><input type="range" id="pd" min="0.2" max="20" step="0.1" value="2"></label></div>
+<div class="slider-row"><label>违约损失率 LGD<span class="val" id="lgd-val">40%</span><input type="range" id="lgd" min="10" max="90" step="1" value="40"></label></div>
+<div class="slider-row"><label>违约风险敞口 EAD<span class="val" id="ead-val">100 万元</span><input type="range" id="ead" min="10" max="500" step="5" value="100"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pill-el">预期损失 EL：8,000 元</span><span class="pill" id="pill-ratio">EL / EAD：0.80%</span><span class="pill" id="pill-rate">保本利率下限：2.80%（含 2% 运营成本）</span></div>
+</div>
+</div>
+
+<h2>组合视角：同样的 EL，完全不同的波动</h2>
+<div class="callout callout-key"><span class="callout-title">集中度是信用风险的放大器</span><p>方案一：把 100 万全部借给 1 个人；方案二：借给 100 个人、每人 1 万（PD、LGD 相同）。期望损失完全一样：方案一 EL = 2% × 40% × 100 万 = 8,000 元；方案二每人 EL = 2% × 40% × 1 万 = 80 元，合计 80 × 100 = 8,000 元。但<strong>实际结局的波动天差地别</strong>：方案一是「全对或大亏」——98% 概率全身而退，2% 概率直接亏掉 40 万（100 万 × 40%）；方案二最可能的结局是违约 2 人左右、亏 8,000 元上下（每人违约损失 1 万 × 40% = 4,000 元），几乎不可能全军覆没。这就是二项分布的直觉（不必背公式）：分散不会降低期望损失，却能让结果紧紧贴近期望值——少了一夜暴雷的可能。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>会用三要素 PD、LGD、EAD 拆解任何「借钱给别人」的交易</li>
+<li>会算 EL = PD × LGD × EAD，并推出保本利率下限 = EL/放款额 + 成本 + 利润</li>
+<li>看懂信用评级表，知道投资级与投机级的分界在标普 BBB−</li>
+<li>理解集中度：分散不改变期望损失，但大幅降低损失的波动</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[{"q":"一笔 200 万元的贷款，PD = 1%、LGD = 50%，预期损失是多少？","options":["0.5万","1.0万","2.0万","5.0万"],"answer":1,"explain":"EL = 200 万 × 1% × 50% = 1.0 万元。三要素相乘即可，注意 PD 与 LGD 先化成小数。"},{"q":"LGD（违约损失率）衡量的是什么？","options":["违约事件发生的概率","违约时未偿还的本金","违约评级下调的幅度","违约后损失占敞口比"],"answer":3,"explain":"LGD 是违约后损失占 EAD 的比例，抵押越充足越低；A 描述的是 PD，B 描述的是 EAD。"},{"q":"其他条件相同，评级从 BBB 降到 BB，通常意味着什么？","options":["违约概率明显上升","违约概率明显下降","违约概率保持不变","违约损失率会归零"],"answer":0,"explain":"评级本质是 PD 的标签：评级越低，违约概率越高。BBB− 是标普投资级与投机级的分界，落入 BB 即为投机级。"},{"q":"同样的 PD 与 LGD，哪种放贷方式的实际损失波动最小？","options":["集中借给一家大客户","平均借给两位小客户","分散借给百位小客户","随机借给五位小客户"],"answer":2,"explain":"期望损失完全相同，但分散后单个违约的冲击被摊薄，实际结果更贴近平均值——集中度是信用风险的放大器。"}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#pd">违约概率</a> · <a href="../reference/glossary.html#loss-given-default-lgd">违约损失率</a> · <a href="../reference/glossary.html#exposure-at-default-ead">违约风险敞口</a> · <a href="../reference/glossary.html#expected-loss">预期损失</a> · <a href="../reference/glossary.html#credit-rating">信用评级</a></li>
+
+<li><a href="https://www.investopedia.com/terms/e/expectedloss.asp">Investopedia：Expected Loss</a> —— 预期损失的标准定义与说明</li>
+<li><a href="https://www.investopedia.com/terms/c/creditrating.asp">Investopedia：Credit Rating</a> —— 信用评级体系入门</li>
+<li><a href="https://www.spglobal.com/ratings/zh/">标普全球评级（中文站）</a> —— 真实评级标准与研究报告</li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0001-风险地图与var.html"><span class="nav-label">上一课</span><span class="nav-title">风险地图与 VaR</span></a>
+<a class="next" href="0003-压力测试与对冲.html"><span class="nav-label">下一课</span><span class="nav-title">压力测试与对冲</span></a>
+</nav>
+<footer class="lesson-footer"><span>风险管理 · 第 2 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var pdS=document.getElementById('pd'),lgdS=document.getElementById('lgd'),eadS=document.getElementById('ead');
+  var pdV=document.getElementById('pd-val'),lgdV=document.getElementById('lgd-val'),eadV=document.getElementById('ead-val');
+  var pEl=document.getElementById('pill-el'),pRa=document.getElementById('pill-ratio'),pRt=document.getElementById('pill-rate');
+  var chartEl=document.getElementById('chart1');
+  function fmt(n){return Math.round(n).toLocaleString('zh-CN');}
+  function draw(){
+    var pdp=parseFloat(pdS.value),lgdp=parseFloat(lgdS.value),eadw=parseFloat(eadS.value);
+    var pd=pdp/100,lgd=lgdp/100,ead=eadw*10000;
+    pdV.textContent=pdp.toFixed(1)+'%';
+    lgdV.textContent=lgdp.toFixed(0)+'%';
+    eadV.textContent=eadw.toFixed(0)+' 万元';
+    var el=pd*lgd*ead;
+    pEl.textContent='预期损失 EL：'+fmt(el)+' 元';
+    pRa.textContent='EL / EAD：'+(el/ead*100).toFixed(2)+'%';
+    pRt.textContent='保本利率下限：'+((el/ead+0.02)*100).toFixed(2)+'%（含 2% 运营成本）';
+    if(!window.FChart){return;}
+    var ymax=0.20*lgd*ead/10000*1.05;
+    var c=new FChart(chartEl,{height:340,x:{min:0,max:20,label:'违约概率 PD（%）'},y:{min:0,max:ymax,label:'预期损失 EL（万元）'}});
+    c.path(function(x){return x/100*lgd*ead/10000;},{color:'#0d5c4f',width:2.5});
+    c.vline(pdp,{color:'#b3372f',label:'当前 PD'});
+    c.scatter([[pdp,el/10000,'#a3701a','当前组合']],{r:5});
+    c.legend([{color:'#0d5c4f',text:'EL = PD × LGD × EAD'},{color:'#a3701a',text:'当前组合'}]);
+  }
+  [pdS,lgdS,eadS].forEach(function(s){s.addEventListener('input',draw);});
+  draw();
+})();
+</script>
+</body></html>

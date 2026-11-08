@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>行为金融学 · 第 3 课：泡沫与市场异象 · 金融学自学教程</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="金融学自学教程「行为金融学」第 3 课《泡沫与市场异象》：含图表模拟器与随堂测验的互动课程，可离线学习。">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<div class="page">
+<div class="crumb"><a href="../index.html">总目录</a><span class="sep">/</span><a href="index.html">行为金融学</a><span class="sep">/</span>第 3 课</div>
+<header class="lesson-header"><div class="kicker">行为金融学 · Lesson 3</div><h1>泡沫与市场异象</h1><div class="meta"><span class="tag">预计 15 分钟</span><span>难度：入门</span><span>前置：第 2 课</span></div></header>
+<p class="lead">第 2 课的偏差发生在你一个人的脑子里；这一课把它们放大到整个市场——当千万人的偏差朝着同一个方向倾斜，就形成了羊群与泡沫。我们将拆解泡沫一生的五个阶段，认识几位「市场异象」，最后装上一套防泡沫的个人装备。本课也是行为金融学分支的最后一课。</p>
+
+<h2>一、羊群效应：跟风并不全是蠢</h2>
+<p><span class="term" data-def="投资者模仿他人买卖、行为趋于一致的现象">羊群效应（Herding）</span>常被当成嘲讽的词，但它有理性的成分：别人的买卖行为本身携带信息——他们可能研究过你没研究的东西，于是「跟着做」有时是省力的聪明办法。危险在于信息瀑布（informational cascade）：当你放弃自己的信息、直接模仿前面的人，后面的人又会模仿你。瀑布一旦形成，就再没有新信息进入价格——所有人的「共识」，其实建立在最初几个偶然的动作上。</p>
+<p>瀑布的燃料是 FOMO（害怕错过）。看到别人赚钱的痛苦，在价值函数里近似一笔真实的亏损——这正是第 1 课损失厌恶的镜像：损失的不只是「没赚到」，还有「本可以赚到」。于是越涨越多人买，越买越涨。</p>
+
+<h2>二、泡沫的一生：Kindleberger 五阶段</h2>
+<p>经济史学家金德尔伯格（Charles Kindleberger）在《疯狂、惊慌与崩溃》（Manias, Panics, and Crashes）中，把<span class="term" data-def="价格远超基本面支撑、依赖后续买家不断接力的市场状态">泡沫（Bubble）</span>的一生总结为五个阶段：</p>
+<table class="data">
+  <thead><tr><th>阶段</th><th>市场上发生什么</th><th>此时的新手</th></tr></thead>
+  <tbody>
+    <tr><td>①潜行</td><td>新叙事出现，只有少数人注意，怀疑者占多数，价格缓慢上涨</td><td>「看不懂」，完全无感</td></tr>
+    <tr><td>②认知扩张</td><td>聪明钱入场，媒体开始跟进，价格上涨加速</td><td>知道了，但说「等回调再买」</td></tr>
+    <tr><td>③狂热</td><td>杠杆与新玩家涌入，估值常识失效，「这次不一样」喊得最响</td><td class="bad">害怕踏空（FOMO），满仓追高</td></tr>
+    <tr><td>④获利了结</td><td>内部人悄悄退出，价格转跌，流动性开始变差</td><td>把下跌当回调，逢跌补仓</td></tr>
+    <tr><td>⑤崩盘</td><td>想卖的人找不到买家，流动性消失，踩踏后漫长筑底</td><td class="bad">深度套牢，「回本就卖」</td></tr>
+  </tbody>
+</table>
+<p>三个历史注脚，各用一句话：1637 年荷兰郁金香狂热——稀有球茎价格一度抵得上运河边的豪宅，崩盘后无数合约作废；2000 年纳斯达克互联网泡沫——指数从 1999 年初的约 2200 点冲上 2000 年 3 月的 5048 点，随后两年多跌去约 78%；2021 年加密资产——全球流动性宽松推动比特币冲上约 6.9 万美元的历史高点，一年内回撤逾七成。</p>
+
+<div class="widget">
+  <div class="widget-title">泡沫五阶段漫游：把时间轴拖到任意时刻</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row"><label>时间位置 <span class="val" id="tp-val">0</span><input type="range" id="tp" min="0" max="100" step="1" value="0"></label></div>
+      <button id="play-btn" type="button" style="padding:6px 16px;font-size:14px;background:#a3701a;color:#fff;border:none;border-radius:6px;cursor:pointer;">▶ 播放全程（9 秒）</button>
+    </div>
+    <div class="chart" id="bubble-chart"></div>
+    <div class="readout">
+      <span class="pill" id="stage-pill">当前阶段：①潜行</span>
+      <span class="pill" id="price-pill">价格指数 100</span>
+    </div>
+    <p id="stage-desc">这个阶段的特征：新叙事出现，价格缓慢上涨，怀疑者占多数。 此时新手的典型想法：「看不懂，跟我没关系。」</p>
+  </div>
+</div>
+
+<p>拖动滑块你会发现：最能赚钱的位置在②扩张，情绪最亢奋的位置在③狂热顶部，而新手大举进场的位置，恰恰集中在③与④的交界——内部人正在把筹码交给他们。</p>
+
+<h2>三、市场异象：价格里藏着的规律</h2>
+<p>如果说泡沫是偏差的极端爆发，市场异象则是偏差留下的日常指纹。两类最著名的异象在时间尺度上正好互补：</p>
+<p><span class="term" data-def="过去 3–12 个月的赢家在短期内继续跑赢输家的现象">动量效应（Momentum）</span>：Jegadeesh 与 Titman（1993）发现，按过去 3–12 个月表现选出的「赢家组合」，在随后的 3–12 个月里平均继续跑赢「输家组合」——强者恒强，短中期存在趋势。而在 3–5 年的长期尺度上，De Bondt 与 Thaler（1985）发现了长期反转：过去几年最惨的股票组合，此后反而平均领先——极端表现终将<span class="term" data-def="极端的表现长期向平均水平回落的现象">均值回归（Mean Reversion）</span>。此外还有日历效应（如「一月效应」等季节性规律），它们幅度小、时隐时现，不少在论文发表后明显减弱。</p>
+<div class="callout callout-info"><span class="callout-title">为什么这些异象没被套利消灭？</span><p>因为套利不是免费午餐：有交易成本、有杠杆约束，而客户与老板能容忍你「错」的时间往往只有几个月，异象「过头」的时间却可以长达几年——这叫套利限制（limits of arbitrage，Shleifer &amp; Vishny，1997）。正如对凯恩斯那句名言的意译：「市场保持非理性的时间，可能比你保持不破产的时间更长。」</p></div>
+
+<h2>四、防泡沫五件套</h2>
+<p>你无法预测下一个泡沫何时开始，但可以提前写好自己应对任何泡沫的规则。最有效的载体是一份<span class="term" data-def="事前写明的投资目标、规则与纪律的书面文件">投资政策声明（Investment Policy Statement）</span>——把它当成你与未来那个「正在 FOMO 的自己」签订的合同。</p>
+<div class="callout callout-key"><span class="callout-title">防泡沫五件套（写进你的投资政策声明）</span><p>① 写一份投资政策声明，事前定好目标、仓位与纪律；② 定投机械化，把「何时买」交给日程而不是情绪；③ 定期（如每年一次）再平衡，强制自己高抛低吸；④ 给单一标的设仓位上限（例如不超过总资产的 10%）；⑤ 重大决策设 48 小时冷静期，睡一觉再下单。</p></div>
+
+<div class="win-card"><div class="win-title">✓ 本课收获</div><ul>
+<li>能按顺序复述泡沫五阶段，并把历史案例对号入座</li>
+<li>理解羊群效应与信息瀑布：跟风有理性成分，但瀑布一旦形成，信息就不再更新</li>
+<li>能区分动量效应（3–12 个月）与长期反转（3–5 年）的时间尺度</li>
+<li>说得出套利为什么消灭不了异象（套利限制）</li>
+<li>会用防泡沫五件套：政策声明、定投、再平衡、仓位上限、48 小时冷静期</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"随堂测验","questions":[
+{"q":"Kindleberger 泡沫五阶段的正确顺序是？","options":["狂热→潜行→扩张→了结→崩盘","潜行→扩张→狂热→了结→崩盘","潜行→狂热→扩张→崩盘→了结","扩张→潜行→了结→狂热→崩盘"],"answer":1,"explain":"新叙事在怀疑中潜行，聪明钱带动认知扩张，狂热阶段杠杆与新手涌入，随后内部人获利了结，最后流动性消失、崩盘踩踏。"},
+{"q":"动量效应与长期反转分别出现在什么时间尺度上？","options":["动量数年，反转数月","动量数日，反转数月","两者都只出现在数日","动量数月，反转数年"],"answer":3,"explain":"动量效应大约在 3–12 个月内延续（强者恒强）；而在 3–5 年的长期尺度上出现均值回归，过去的极端赢家反而跑输。"},
+{"q":"「这次不一样」的口号最可能出现在哪个阶段？","options":["潜行","扩张","狂热","了结"],"answer":2,"explain":"狂热阶段杠杆与新玩家涌入、价格陡直冲顶，「这次不一样」正是抛弃估值常识的口号，它常常是接近顶部的信号。"},
+{"q":"定投机械化、定期再平衡这类对策的主要作用是什么？","options":["把决策提前写进规则里","保证每一笔投资都赚钱","精准预测下次崩盘时间","跟上市场大多数的节奏"],"answer":0,"explain":"它们不预测市场，而是把容易受情绪影响的临场决策，替换成事前写好的机械规则，让羊群与泡沫冲不掉你的计划。"}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">推荐阅读（首选来源）</div><ul>
+<li>本课术语（<a href="../reference/glossary.html">术语表</a>锚点）：<a href="../reference/glossary.html#herding">羊群效应</a> · <a href="../reference/glossary.html#bubble">泡沫</a> · <a href="../reference/glossary.html#momentum">动量效应</a> · <a href="../reference/glossary.html#mean-reversion">均值回归</a> · <a href="../reference/glossary.html#investment-policy-statement">投资政策声明</a></li>
+
+<li>Investopedia：Market Bubble（市场泡沫）：<a href="https://www.investopedia.com/terms/b/bubble.asp">investopedia.com/terms/b/bubble.asp</a></li>
+<li>维基百科：郁金香狂热：<a href="https://zh.wikipedia.org/wiki/郁金香狂热">zh.wikipedia.org/wiki/郁金香狂热</a></li>
+<li>Investopedia：Momentum（动量）：<a href="https://www.investopedia.com/terms/m/momentum.asp">investopedia.com/terms/m/momentum.asp</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 课程是静态的，助教是活的：把任何不懂的段落、想追问的例子带回对话里问 AI 助教，直到真正搞懂。</div>
+
+<nav class="lesson-nav">
+<a href="0002-认知偏差图鉴.html"><span class="nav-label">上一课</span><span class="nav-title">认知偏差图鉴</span></a>
+<a class="next" href="../05-衍生品与金融工程/index.html"><span class="nav-label">下一分支</span><span class="nav-title">衍生品与金融工程</span></a>
+</nav>
+<footer class="lesson-footer"><span>行为金融学 · 第 3 课</span><span><a href="index.html">分支首页</a> · <a href="../reference/glossary.html">术语表</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var el=document.getElementById("bubble-chart");
+  if(!el||typeof FChart==="undefined"){return;}
+  var c=new FChart(el,{height:340,x:{min:0,max:100,label:"时间（任意单位）"},y:{min:0,max:260,label:"价格指数"}});
+  function fp(t){
+    if(t<=25){return 100+15*(t/25);}
+    if(t<=55){return 115+55*Math.pow((t-25)/30,1.8);}
+    if(t<=70){return 170+80*Math.sin(Math.PI/2*(t-55)/15);}
+    if(t<=85){return 250-160*Math.sin(Math.PI/2*(t-70)/15);}
+    if(t<=95){return 90-20*Math.pow((t-85)/10,0.9);}
+    return 70+5*((t-95)/5);
+  }
+  var pts=[];
+  for(var i=0;i<=200;i++){var tt=i/2;pts.push([tt,fp(tt)]);}
+  var stages=[
+    {name:"①潜行",feat:"新叙事出现，价格缓慢上涨，怀疑者占多数。",idea:"「看不懂，跟我没关系。」"},
+    {name:"②扩张",feat:"聪明钱入场、媒体跟进，涨速明显加快。",idea:"「涨了不少，等回调我再买。」"},
+    {name:"③狂热",feat:"杠杆加上新手涌入，价格陡直冲顶，「这次不一样」喊得最响。",idea:"「再不上车就晚了，满仓干！」"},
+    {name:"④了结",feat:"内部人悄悄退出，价格崩落、流动性开始变差。",idea:"「只是回调，正好补仓摊薄成本。」"},
+    {name:"⑤崩盘",feat:"踩踏卖出、流动性枯竭，阴跌之后漫长筑底。",idea:"「等回本我就全卖，再也不碰了。」"}
+  ];
+  function stageOf(t){if(t<25)return 0;if(t<55)return 1;if(t<70)return 2;if(t<85)return 3;return 4;}
+  var slider=document.getElementById("tp");
+  var valEl=document.getElementById("tp-val");
+  var stagePill=document.getElementById("stage-pill");
+  var pricePill=document.getElementById("price-pill");
+  var descEl=document.getElementById("stage-desc");
+  function draw(t){
+    c.clear();
+    c.area(fp,{fill:"#0d5c4f",fillOpacity:0.08,y0:0});
+    c.path(pts,{color:"#0d5c4f",width:2.5});
+    c.vline(25,{color:"#5d5749",label:""});
+    c.vline(55,{color:"#5d5749",label:""});
+    c.vline(70,{color:"#5d5749",label:""});
+    c.vline(85,{color:"#5d5749",label:""});
+    c.text(6,238,"①潜行",{dx:8});
+    c.text(32,238,"②扩张",{dx:8});
+    c.text(56,244,"③狂热",{dx:8});
+    c.text(76,238,"④了结",{dx:8});
+    c.text(90,238,"⑤崩盘",{dx:8});
+    c.scatter([[t,fp(t),"#b3372f","当前时刻"]],{r:6});
+    c.legend([{color:"#0d5c4f",text:"典型泡沫路径"},{color:"#b3372f",text:"当前时间位置"}]);
+  }
+  function update(t){
+    var s=stages[stageOf(t)];
+    stagePill.textContent="当前阶段："+s.name;
+    pricePill.textContent="价格指数 "+Math.round(fp(t));
+    descEl.textContent="这个阶段的特征："+s.feat+" 此时新手的典型想法："+s.idea;
+  }
+  function refresh(){
+    var t=parseFloat(slider.value);
+    valEl.textContent=t;
+    draw(t);
+    update(t);
+  }
+  slider.addEventListener("input",refresh);
+  var playBtn=document.getElementById("play-btn");
+  var playing=false;
+  playBtn.addEventListener("click",function(){
+    if(playing||typeof FChart.tween!=="function"){return;}
+    playing=true;
+    FChart.tween(0,100,9000,function(v){
+      var t=Math.round(v);
+      slider.value=t;
+      valEl.textContent=t;
+      draw(t);
+      update(t);
+    });
+    setTimeout(function(){playing=false;},9200);
+  });
+  refresh();
+})();
+</script>
+</body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>International Finance · Lesson 2: What Determines Exchange Rates · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, International Finance, Lesson 2: What Determines Exchange Rates — an interactive lesson with a chart simulator and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<a class="lang-switch" href="../../07-国际金融/0002-什么决定汇率.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">International Finance</a><span class="sep">/</span>Lesson 2</div>
+<header class="lesson-header">
+<div class="kicker">International Finance · Lesson 2</div>
+<h1>What Determines Exchange Rates</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced</span><span>Prerequisites: Lesson 1</span></div>
+</header>
+<p class="lead">Last lesson we learned to “read” an exchange rate: appreciation and depreciation, bid and ask prices. This lesson answers the more fundamental question: what determines it? The answer depends on how far ahead you look — in the short run, the exchange rate is an asset price pushed around by flows of money; in the long run, it eventually reverts to the purchasing power of goods and services.</p>
+
+<div class="callout callout-key"><span class="callout-title">The framework in one sentence</span><p><strong>In the short run, watch capital flows and interest rate differentials; in the long run, the rate gravitates back to purchasing power.</strong> Remember this sentence and every exchange-rate story slots into the right box: a central bank's rate decision is short-run news; a country's inflation trend is long-run news.</p></div>
+
+<h2>1. Purchasing Power Parity: The Long-Run Anchor</h2>
+<p>Imagine an identical good circulating freely around the world: arbitrageurs would flatten every price gap — if it is expensive in country A and cheap in country B, merchants buy in B, ship to A, and sell there, until the prices agree once converted into the same currency. This is the <span class="term" data-def="with free trade, ignoring transport costs and barriers, the same good should have the same price in every country once converted into a common currency">law of one price</span>.</p>
+<p>Stretch “one good” into “one basket of goods” and you get <span class="term" data-def="the theory that the long-run exchange rate tends toward the ratio of the two countries' price levels, equalizing the price of the same basket of goods across countries">purchasing power parity (PPP)</span>: the long-run sensible level of the exchange rate between two countries is roughly the ratio of their price levels. A currency with higher inflation loses purchasing power faster and tends to depreciate over the long run.</p>
+<p>How can we test it? Since 1986 The Economist has used a clever (and cheeky) “standard commodity basket”: the <span class="term" data-def="a popular indicator compiled by The Economist that uses the ratio of Big Mac prices across countries to crudely estimate the PPP exchange rate">Big Mac Index</span>. The Big Mac's recipe is nearly identical worldwide, yet it bundles local rent, labor, and ingredients — a miniature “price basket”. Drag the slider below and run the numbers yourself:</p>
+
+<div class="widget">
+<div class="widget-title">Interactive · Big Mac Index drill</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Big Mac price in China (¥)<span class="val" id="price-val">25.5</span><input type="range" id="price-input" min="15" max="35" step="0.5" value="25.5"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill">Implied PPP rate: <b id="implied-out">4.47</b> RMB per USD</span>
+<span class="pill">Gap vs. actual 7.2: <b id="dev-out">+38%</b></span>
+<span class="pill" id="verdict">Verdict: purchasing power undervalued</span>
+</div>
+</div>
+</div>
+
+<p>Check the default case: a US Big Mac costs about US$5.7 and a Chinese one ¥25.5, so the implied PPP rate = 25.5 ÷ 5.7 ≈ <strong>4.47</strong> RMB per USD, while the actual rate is about 7.2. The implied value is (7.2 − 4.47) ÷ 7.2 ≈ <strong>38%</strong> below the actual one — hence that famous, crude inference: renminbi purchasing power is “undervalued”. For the implied rate to catch up with 7.2, a Chinese Big Mac would have to sell at 5.7 × 7.2 ≈ ¥41 — far beyond the slider's range, which should already make you suspicious.</p>
+
+<div class="callout callout-warn"><span class="callout-title">The Big Mac Index's limitations</span><p>It is a teaching aid, not a trading signal: ① rent, labor, and other <strong>non-tradables</strong> make up most of a Big Mac's cost and cannot be arbitraged across borders; ② tastes and competitive intensity differ across countries, so pricing strategies differ; ③ taxes and fees differ widely. Professional PPP estimates use hundreds or even thousands of goods, and their conclusions still deviate noticeably from actual rates — take “undervalued by 38%” with a big discount.</p></div>
+
+<h2>2. Interest Rate Parity: The Short-to-Medium-Run Anchor</h2>
+<p>Money instinctively chases interest rate differentials. If the dollar yields 5% and the renminbi 2%, borrow renminbi, convert into dollars, and “eat the interest” — a free 3 percentage points a year? There is no such free lunch: the way you lock away exchange-rate risk today is to sign, at the same time, a contract to convert back at the <span class="term" data-def="the exchange rate agreed today for delivering foreign currency on a future date">forward rate</span>, and the market closes the arbitrage gap through the forward premium or discount.</p>
+<p><span class="term" data-def="the relation between exchange rates and interest differentials: covered arbitrage pushes the high-interest currency's forward rate to a discount until no arbitrage profit remains">Interest rate parity (IRP)</span> is precisely about this: <strong>the high-interest currency trades at a forward discount, the low-interest currency at a forward premium</strong>. Covered arbitrageurs collect the interest differential while locking the forward — as long as the two are out of line, someone steps in, until the profit falls to zero.</p>
+
+<div class="formula">
+Forward rate F = spot rate S × (1 + r<sub>quote currency</sub>) ÷ (1 + r<sub>base currency</sub>)
+<div class="formula-note">For USD/CNY (how many RMB one US dollar is worth): the base currency is the US dollar, the quote currency the renminbi. Once the forward is priced this way, covered arbitrage becomes unprofitable — the extra yield from holding the high-interest dollar is exactly eaten by the forward discount.</div>
+</div>
+
+<p>Plug in numbers: spot USD/CNY = 7.2, dollar rate 5%, renminbi rate 2%:</p>
+<p><strong>F = 7.2 × (1 + 2%) ÷ (1 + 5%) = 7.344 ÷ 1.05 ≈ 6.99</strong>. The forward price is below the spot 7.2 — the dollar is at a <strong>forward discount</strong>: locking in a dollar one year from today buys fewer renminbi. The 3 percentage points of extra interest you ate are handed straight back through the discount — the exchange-rate version of “there is no free lunch”.</p>
+
+<div class="callout callout-tip"><span class="callout-title">Fit the two parities onto one timetable</span><p>PPP governs the long run (years): the ratio of price levels draws the exchange rate's center of gravity; IRP governs the short-to-medium run (months to a year): interest differentials set the forward and the destination of carry money. The day-to-day bouncing around in the news comes mostly from the “capital flows and expectations” of the next section.</p></div>
+
+<h2>3. Four Factors, One Map</h2>
+<p>Picture the exchange rate as a balance scale, with the pull of the two currencies pressing on the pans. The main ballast weights are four:</p>
+
+<table class="data">
+<thead><tr><th>Factor</th><th>How it works</th><th>Time horizon</th><th>Example in one sentence</th></tr></thead>
+<tbody>
+<tr><td><strong>Interest rate differential</strong></td><td>A high interest rate attracts cross-border inflows, lifting the currency in the short run</td><td>Short term</td><td>The Fed hikes aggressively; the dollar index strengthens</td></tr>
+<tr><td><strong>Inflation differential</strong></td><td>A currency with higher inflation loses purchasing power faster and tends to depreciate</td><td>Long term</td><td>The Turkish lira and Argentine peso in high-inflation years</td></tr>
+<tr><td><strong>Growth and trade</strong></td><td>Fast-growing economies with big surpluses see stronger demand for their currency</td><td>Medium to long term</td><td>Renminbi appreciation pressure at export peaks</td></tr>
+<tr><td><strong>Capital flows and expectations</strong></td><td>Expectations fulfill themselves: money floods toward currencies “sure to rise”, then stampedes the other way</td><td>Short and violent</td><td>The dollar and yen when risk aversion heats up</td></tr>
+</tbody>
+</table>
+
+<p>The four weights often fight one another: rate differentials push the dollar up, twin deficits push it down, and the winner is whichever story the market currently believes. Hence “in the short run the exchange rate is a voting machine; in the long run, a weighing machine”.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div>
+<ul>
+<li>The framework: <strong>in the short run, watch capital flows and interest rate differentials; in the long run, the rate gravitates back to purchasing power</strong>.</li>
+<li>PPP: implied rate = China price ÷ US price; Big Mac 25.5 ÷ 5.7 ≈ 4.47, about 38% below the actual 7.2 — “undervalued” is a crude inference to take with a discount.</li>
+<li>IRP: F = S × (1 + r<sub>quote</sub>) ÷ (1 + r<sub>base</sub>); 7.2 × 1.02 ÷ 1.05 ≈ 6.99, the high-interest dollar at a forward discount, the arbitrage gap sealed.</li>
+<li>The four-factor map: interest rate differentials, inflation differentials, growth and trade, capital flows and expectations.</li>
+</ul>
+</div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"According to purchasing power parity (PPP), the long-run level of the exchange rate between two countries mainly depends on what?","options":["The ratio of the two countries' prices for the same basket of goods","The difference between the two central banks' policy rates","How open the two countries' capital markets are","The overall size of the two countries' fiscal deficits"],"answer":0,"explain":"The core of PPP is the law of one price: the same basket of goods should cost the same everywhere once converted, so the long-run exchange rate tends toward the ratio of the two countries' price levels. Interest differentials shape short-run and forward prices more, not the long-run anchor."},
+{"q":"A US Big Mac costs US$5.7 and a Chinese Big Mac ¥22.8. What is the implied PPP rate?","options":["¥5.7","¥6.0","¥4.0","¥7.2"],"answer":2,"explain":"The implied PPP rate = China price ÷ US price = 22.8 ÷ 5.7 = 4.0 (RMB per USD)."},
+{"q":"The dollar yields 5%, the renminbi 2%, and spot USD/CNY = 7.2. Per interest rate parity, the 12-month forward is about what, and in which direction?","options":["≈7.41, dollar at a forward premium","≈6.99, dollar at a forward discount","≈7.20, forward equals spot","≈6.80, dollar swinging both ways"],"answer":1,"explain":"F = 7.2 × (1 + 2%) ÷ (1 + 5%) = 7.344 ÷ 1.05 ≈ 6.99, below the spot 7.2: the high-interest dollar is at a forward discount — the rate advantage is exactly eaten by the discount."},
+{"q":"Over horizons of days to a few months, what mainly drives exchange rate movements?","options":["Differences in countries' price levels","The size of gold reserves","The relative size of fiscal deficits","Cross-border capital flows and rate gaps"],"answer":3,"explain":"Short-term exchange rates are asset prices, dominated by cross-border flows, rate differentials, and expectations; price-level gaps are long-run variables that move too slowly to explain daily swings."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div>
+<ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#law-of-one-price">law of one price</a> · <a href="../reference/glossary.html#ppp">purchasing power parity</a> · <a href="../reference/glossary.html#big-mac-index">Big Mac Index</a> · <a href="../reference/glossary.html#forward-rate">forward rate</a> · <a href="../reference/glossary.html#irp">interest rate parity</a></li>
+
+<li><a href="https://www.economist.com/big-mac-index">The Economist's Big Mac Index</a> — the raw data and yearly updates.</li>
+<li><a href="https://www.investopedia.com/terms/p/purchasingpowerparity.asp">Purchasing Power Parity — Investopedia</a> — a detailed explanation of the concept and its limits.</li>
+<li><a href="https://www.investopedia.com/terms/i/interestrateparity.asp">Interest Rate Parity — Investopedia</a> — the formula's derivation and arbitrage examples.</li>
+</ul>
+</div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0001-exchange-rates-and-currency-movements.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Exchange Rates and Currency Movements</span></a>
+<a class="next" href="0003-balance-of-payments-and-capital-flows.html"><span class="nav-label">Next lesson</span><span class="nav-title">Balance of Payments and Capital Flows</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>International Finance · Lesson 2</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var US = 5.7, SPOT = 7.2;
+  var el = document.getElementById('chart1');
+  var input = document.getElementById('price-input');
+  var val = document.getElementById('price-val');
+  var outImplied = document.getElementById('implied-out');
+  var outDev = document.getElementById('dev-out');
+  var verdict = document.getElementById('verdict');
+
+  function draw(p) {
+    var implied = p / US;
+    var c = new FChart(el, {height: 340, x: {min: 15, max: 35, label: 'Big Mac price in China (¥)'}, y: {min: 2, max: 8, label: 'Exchange rate (RMB per USD)'}});
+    c.path([[15, 15 / US], [35, 35 / US]], {color: '#0d5c4f', width: 2.5});
+    c.hline(SPOT, {label: 'Actual rate 7.2'});
+    c.vline(p, {color: '#a3701a', label: 'Current price ' + p.toFixed(1)});
+    c.scatter([[p, implied, '#a3701a', 'Implied ' + implied.toFixed(2)]], {r: 5});
+    c.legend([{color: '#0d5c4f', text: 'Implied PPP = price ÷ 5.7'}, {color: '#5d5749', text: 'Actual rate 7.2'}]);
+    var dev = (SPOT - implied) / SPOT * 100;
+    outImplied.textContent = implied.toFixed(2);
+    outDev.textContent = (dev >= 0 ? '+' : '') + dev.toFixed(0) + '%';
+    if (dev > 5) { verdict.textContent = 'Verdict: purchasing power undervalued'; }
+    else if (dev < -5) { verdict.textContent = 'Verdict: purchasing power overvalued'; }
+    else { verdict.textContent = 'Verdict: roughly in balance'; }
+  }
+
+  input.addEventListener('input', function () {
+    var p = parseFloat(input.value);
+    val.textContent = p.toFixed(1);
+    draw(p);
+  });
+
+  val.textContent = parseFloat(input.value).toFixed(1);
+  draw(parseFloat(input.value));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Behavioral Finance · Lesson 1: Loss Aversion and Prospect Theory · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Behavioral Finance, Lesson 1: Loss Aversion and Prospect Theory — an interactive lesson with a chart simulator and a quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.exp-progress{color:#5d5749;font-size:14px;margin:0 0 6px}
+.exp-q{font-weight:700;margin:8px 0 4px}
+.exp-opts{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 6px}
+.exp-opts button{font:inherit;padding:10px 16px;border:1px solid #0d5c4f;border-radius:8px;background:#fff;color:#0d5c4f;cursor:pointer}
+.exp-opts button:hover{background:#0d5c4f;color:#fff}
+</style>
+</head>
+<body>
+<a class="lang-switch" href="../../08-行为金融学/0001-损失厌恶与前景理论.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Behavioral Finance</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header">
+<div class="kicker">Behavioral Finance · Lesson 1</div>
+<h1>Loss Aversion and Prospect Theory: Why Losing ¥100 Hurts So Much</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Beginner</span><span>Prerequisites: Branch 04 Investments recommended</span></div>
+</header>
+<p class="lead">The same ¥100: the joy of finding it and the sting of losing it are worlds apart in intensity. In 1979, two psychologists — Daniel Kahneman and Amos Tversky — used a handful of choice problems a schoolchild could solve to overturn finance's &ldquo;rational man&rdquo; assumption, directly giving birth to behavioral finance (Kahneman received the 2002 Nobel Prize in Economic Sciences for this work). In this lesson you will take their original choice problems yourself, drag a slider to see your own &ldquo;pain multiple,&rdquo; and get an early view of the psychological machinery behind most retail investors' inability to hold winners and cut losers.</p>
+
+<h2>1. 1979: A Revolution Against the &ldquo;Rational Man&rdquo;</h2>
+<p>Traditional finance's grand edifice — from portfolio theory to option pricing — rests on a single foundation stone: <b>expected utility theory</b>. It assumes people are rational: they choose according to the expected utility of final wealth, multiply probabilities by outcomes, add up the weighted results, and pick whichever option has the higher expected value. The model is elegant, but it has one fatal flaw: real people do not behave this way.</p>
+<p>In 1979, Daniel Kahneman and Amos Tversky published &ldquo;Prospect Theory: An Analysis of Decision under Risk&rdquo; in <i>Econometrica</i>, a top economics journal. With a series of classroom choice problems they showed that human deviations from rationality are not random noise but <b>systematic and predictable</b> — directional, patterned, and reproducible. Tversky died young in 1996; Kahneman received the 2002 Nobel Prize in Economic Sciences for this research (the prize is not awarded posthumously).</p>
+<div class="callout callout-key"><span class="callout-title">The one-sentence version</span><p>People do not decide around &ldquo;how much money I end up with&rdquo; but around &ldquo;whether I'm up or down relative to some baseline&rdquo; — and they are especially allergic to &ldquo;down.&rdquo; That is <span class="term" data-def="Kahneman and Tversky's 1979 theory of decision under risk: people evaluate gains and losses relative to a reference point, are more sensitive to losses, and distort the weighting of small probabilities">prospect theory</span>.</p></div>
+
+<h2>2. First, the Problems: Two Classic Choices</h2>
+<h3>Gains frame: take 3000 for certain, or gamble for 4000?</h3>
+<p>A: Receive ¥3000 for certain. B: An 80% chance of receiving ¥4000, and a 20% chance of receiving nothing.</p>
+<p>First compute the expected values: B = 0.8 × 4000 = <b>¥3200</b>, which is ¥200 more than A. The &ldquo;rational man&rdquo; assumption says pick B, yet in Kahneman and Tversky's experiment, <b>about 80% of participants chose the certain ¥3000</b> (original paper, Problem 2; 95 participants). People systematically overweight the pull of &ldquo;100% certain,&rdquo; giving up a higher expected value for it — this is the <span class="term" data-def="people systematically overvalue outcomes that are 100% certain, forgoing uncertain options with higher expected value for the sake of certainty">certainty effect</span>.</p>
+<h3>Losses frame: change one sign, and all the answers flip</h3>
+<p>C: Lose ¥3000 for certain. D: An 80% chance of losing ¥4000, and a 20% chance of losing nothing.</p>
+<p>D's expected value = 0.8 × (−4000) = <b>−¥3200</b>, worse than C. &ldquo;Rationality&rdquo; says pick C and lose less, but this time <b>about 92% of participants chose D</b> (original paper, Problem 2′; 95 participants): facing losses, people switch from playing it safe to gambling, hoping to &ldquo;take a shot at losing nothing.&rdquo; The same person flips risk attitudes 180 degrees the moment the sign changes — expected utility theory cannot explain this; prospect theory can.</p>
+<p>Below, these four problems (the two originals above plus two same-pattern adaptations) form a little experiment. <b>Go with your first instinct — no calculating</b>; the original experiment didn't allow calculation either.</p>
+
+<div class="widget">
+<div class="widget-title">Interactive experiment · Four decision problems: will your risk preference flip?</div>
+<div class="widget-body">
+<div id="exp-area"></div>
+</div>
+</div>
+
+<h2>3. The Three Ingredients of Prospect Theory</h2>
+<h3>1. Reference point: you evaluate the gap, not the wealth</h3>
+<p>Prospect theory's first axiom: people measure gains and losses relative to a <span class="term" data-def="the baseline against which gains and losses are judged — typically an expectation, the status quo, or a purchase price, rather than final wealth">reference point</span>, not relative to final wealth. Example: you earn ¥200,000 a year, but before joining the company you expected ¥250,000 — under prospect theory your subjective experience is &ldquo;down ¥50,000,&rdquo; even though objectively you are doing well. The reference point can be an expectation, a purchase price, or a neighbor's returns; move it, and the same money feels completely different. This explains why &ldquo;making money yet still unhappy&rdquo; is so common.</p>
+<h3>2. Loss aversion: pain beats pleasure</h3>
+<p>The second axiom: <span class="term" data-def="a loss hurts roughly 2–2.5 times as much as an equal-sized gain feels good; the empirical estimate is λ≈2.25">loss aversion</span>. For the same ¥100, the &ldquo;pain&rdquo; of losing it is roughly 2–2.5 times the &ldquo;pleasure&rdquo; of gaining it. In their 1992 follow-up study, Tversky and Kahneman estimated the loss-aversion coefficient λ ≈ 2.25. It explains a whole string of phenomena: why many people cannot bear to open a losing account, why stopping losses is so hard, and why the obsession with &ldquo;selling once I break even&rdquo; is so strong.</p>
+<h3>3. Probability weighting: the brain is not a calculator</h3>
+<p>The third axiom: people's &ldquo;psychological weighting&rdquo; of probabilities does not equal the objective probability — <b>very small probabilities are markedly overweighted</b>, while near-certain ones are underweighted. That is why events with probabilities like 5% or 0.1% feel far more frequent than they really are. Two businesses thrive on this at once: lotteries (a tiny chance of a big prize — in the original paper's Problem 7, 72% of participants chose a 0.1% chance of winning ¥5000 over a certain ¥5) and insurance (a 0.1% chance of losing ¥5000 vs. paying a ¥5 premium for certain — 92% chose the latter) — one and the same psychological bias underpins markets in both directions.</p>
+
+<h2>4. The S-Shaped Value Function: Three Ingredients, One Curve</h2>
+<div class="formula">v(x) = x<sup>0.88</sup> (x ≥ 0)　　v(x) = −λ·(−x)<sup>0.88</sup> (x &lt; 0), λ ≈ 2.25</div>
+<div class="formula-note">x is the gain or loss relative to the reference point (in ¥); the exponent 0.88 makes the gain segment concave and the loss segment convex (the estimate in Tversky &amp; Kahneman, 1992); λ is the loss-aversion coefficient, which sets how much steeper the loss segment is than the gain segment.</div>
+<p>This curve has three features, and each one maps to an investing behavior:</p>
+<p><b>① The gain segment is concave</b>: after already gaining ¥50, another ¥50 adds less pleasure — the mathematical root of &ldquo;quitting while ahead.&rdquo; <b>② The loss segment is convex</b>: after already losing ¥50, another ¥50 adds less pain — the mathematical root of &ldquo;I'm down anyway, might as well wait.&rdquo; <b>③ The loss segment is steeper</b>: its slope is about λ ≈ 2.25 times that of the gain segment — the pain of losing ¥100 takes roughly ¥225 of gain to offset.</p>
+<div class="callout callout-tip"><span class="callout-title">A three-step way to read the chart</span><p>Step 1, look at the <b>curvature</b>: the green segment bends to the right (diminishing marginal pleasure), the red segment bends downward (diminishing marginal pain); step 2, look at the <b>steepness</b>: how much steeper red is than green is your λ; step 3, <b>drag the slider</b>: set λ to 1 and the two segments become perfectly symmetric — the rational-man world with no pain asymmetry.</p></div>
+
+<div class="widget">
+<div class="widget-title">Interactive sketchpad · The S-shaped value function: drag λ to see your &ldquo;pain multiple&rdquo;</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Loss-aversion coefficient λ (1–3)<span class="val" id="lam-val">2.25</span><input type="range" id="lam" min="1" max="3" step="0.05" value="2.25"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill" id="lam-pill">λ = 2.25</span>
+<span class="pill" id="pain-pill">Pain of −¥100 ≈ pleasure of +¥225</span>
+<span class="pill">Tip: drag λ to 1 and the two segments become perfectly symmetric</span>
+</div>
+</div>
+</div>
+
+<h2>5. The Financial Implication: A Preview of the Disposition Effect</h2>
+<p>Bring the value function into the stock market and the answer is plain. Selling a winning stock = &ldquo;banking the profit&rdquo; on the concave gain segment — psychologically, cashing in pleasure; selling a losing stock = turning the &ldquo;paper loss&rdquo; on the convex loss segment into a stamped and confirmed pain. So most retail investors systematically <b>fail to hold winners and fail to cut losers</b> — this is the <span class="term" data-def="investors' tendency to sell winning positions too early while holding losing positions too long; named by Shefrin and Statman in 1985">disposition effect</span>. Odean (1998) analyzed roughly 10,000 retail accounts at a large brokerage: investors were about 1.5 times as inclined to sell a winning stock as a losing one.</p>
+<div class="callout callout-warn"><span class="callout-title">Knowing a bias ≠ immunity to it</span><p>Experimental research repeatedly finds that merely &ldquo;knowing&rdquo; a bias exists only weakens it slightly; it does not remove it. So the defense against bias is not willpower but <b>rules written down in advance</b> — for example, &ldquo;when you buy, write down the stop-loss price and the rebalancing date at the same time.&rdquo; Lesson 2, A Field Guide to Cognitive Biases, provides the full bias checklist and the matching rules.</p></div>
+<p>Carry this question into the next lesson: if everyone is biased, why are you so often the one losing while the market stays &ldquo;mostly right&rdquo;? The answer: individual biases cancel one another out, but under certain conditions they also <b>aggregate into a same-direction torrent</b> — that is the bubble story of Lesson 3.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Compute expected values, and explain why &ldquo;higher expected value ≠ what most people choose&rdquo; (0.8×4000=3200 still loses to a certain 3000)</li>
+<li>State the three ingredients of prospect theory: reference point, loss aversion (λ≈2.25), probability weighting (overweighting small probabilities)</li>
+<li>Read the S-shaped value function: concave gains → quit while ahead; convex losses → hold on; steeper loss segment → losses hurt more</li>
+<li>Understand how it previews the disposition effect — &ldquo;can't hold winners, can't cut losers&rdquo; — with the antidote coming in the next lesson</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[{"q":"What is the expected value of the option \u2018an 80% chance of receiving ¥4000\u2019?","options":["¥2400","¥3000","¥3200"],"answer":2,"explain":"Expected value = probability × amount = 0.8 × 4000 = ¥3200, which is ¥200 more than receiving ¥3000 for certain; yet in the experiment about 80% of participants still chose the certain option — that is the certainty effect."},{"q":"Most people pass up a gamble with an expected value of ¥3200 and choose ¥3000 for certain. The most accurate explanation of this is:","options":["People overvalue certain outcomes and give up higher expected value for safety","People undervalue certain outcomes and always maximize expected value","People overestimate the pain of losses and become braver about big risks"],"answer":0,"explain":"This is the certainty effect: outcomes that are 100% certain are systematically overweighted, so people take the smaller certain gain and forgo the uncertain option with the higher expected value — something expected utility theory cannot explain."},{"q":"You earn ¥200,000 a year, but before joining you had expected ¥250,000. Under prospect theory, your subjective feeling is closest to:","options":["Up ¥50,000","Down ¥50,000","No gain, no loss"],"answer":1,"explain":"Prospect theory measures gains and losses against a reference point (your expectation of ¥250,000), not final wealth: 200,000 − 250,000 = −50,000, so despite a high salary the subjective feeling is \u2018down ¥50,000.\u2019"},{"q":"In prospect theory, a loss-aversion coefficient of λ≈2.25 means:","options":["The pleasure of gaining ¥100 is roughly equal to the pain of losing ¥225","The pain of losing ¥100 is roughly equal to the pleasure of gaining ¥225","The pain of losing ¥100 is roughly equal to the pleasure of gaining ¥100"],"answer":1,"explain":"λ is the ratio of the loss segment's slope to the gain segment's: the subjective pain of losing ¥100 roughly equals the pleasure of gaining ¥225 (100×2.25), which is why people are oversensitive to losses and slow to cut them."}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#prospect-theory">prospect theory</a> · <a href="../reference/glossary.html#certainty-effect">certainty effect</a> · <a href="../reference/glossary.html#reference-point">reference point</a> · <a href="../reference/glossary.html#loss-aversion">loss aversion</a> · <a href="../reference/glossary.html#disposition-effect">disposition effect</a></li>
+
+<li><a href="https://www.nobelprize.org/prizes/economic-sciences/2002/kahneman/facts/">Nobel Prize official page: Daniel Kahneman, 2002 Nobel Prize in Economic Sciences</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/前景理论">Wikipedia: Prospect Theory</a></li>
+<li><a href="https://www.investopedia.com/terms/l/lossaversion.asp">Investopedia: Loss Aversion</a></li>
+<li>Original paper: Kahneman, D. &amp; Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk. <i>Econometrica</i>, 47(2), 263–291.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch Overview</span></a><a class="next" href="0002-a-field-guide-to-cognitive-biases.html"><span class="nav-label">Next lesson</span><span class="nav-title">A Field Guide to Cognitive Biases</span></a></nav>
+<footer class="lesson-footer"><span>Behavioral Finance · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+/* Interactive 1: S-shaped value function sketchpad */
+(function(){
+  var el=document.getElementById('chart1');
+  var lamEl=document.getElementById('lam');
+  var lamVal=document.getElementById('lam-val');
+  var lamPill=document.getElementById('lam-pill');
+  var painPill=document.getElementById('pain-pill');
+  function draw(){
+    var lam=parseFloat(lamEl.value);
+    lamVal.textContent=lam.toFixed(2);
+    lamPill.textContent='λ = '+lam.toFixed(2);
+    painPill.textContent='Pain of −¥100 ≈ pleasure of +¥'+Math.round(100*lam);
+    var c=new FChart(el,{height:340,x:{min:-115,max:115,label:'Gain/loss vs. reference point (¥)'},y:{min:-190,max:70,label:'Subjective value v(x)'}});
+    var gain=[],loss=[],i;
+    for(i=0;i<=100;i+=2.5){gain.push([i,Math.pow(i,0.88)]);}
+    for(i=0;i>=-100;i-=2.5){loss.push([i,-lam*Math.pow(-i,0.88)]);}
+    c.hline(0,{color:'#5d5749',label:''});
+    c.path(loss,{color:'#b3372f',width:2.5});
+    c.path(gain,{color:'#0d5c4f',width:2.5});
+    c.vline(0,{color:'#5d5749',label:'Reference point'});
+    c.text(38,40,'Concave gains: quit while ahead',{dx:8});
+    c.text(-108,-38,'Convex, steeper losses: hold on + hurt more',{dx:8});
+    c.legend([{color:'#0d5c4f',text:'Gains: v(x)=x^0.88'},{color:'#b3372f',text:'Losses: v(x)=−λ·(−x)^0.88'}]);
+  }
+  lamEl.addEventListener('input',draw);
+  window.addEventListener('resize',draw);
+  draw();
+})();
+
+/* Interactive 2: the four-problem decision experiment */
+(function(){
+  var area=document.getElementById('exp-area');
+  var qs=[
+    {scene:'Gain zone · 80% chance of winning',opts:['A: Receive ¥3000 for certain','B: 80% chance of receiving ¥4000'],ev:'A expected ¥3000 / B expected ¥3200',maj:'A (about 80%, original paper Problem 2)',majIdx:0,phen:'Certainty effect: giving up higher EV for safety'},
+    {scene:'Loss zone · 80% chance of losing',opts:['C: Lose ¥3000 for certain','D: 80% chance of losing ¥4000'],ev:'C expected −¥3000 / D expected −¥3200',maj:'D (about 92%, original paper Problem 2′)',majIdx:1,phen:'Reflection effect: facing losses, people flip to gambling'},
+    {scene:'Gain zone · 20% chance of winning',opts:['A: Receive ¥3000 for certain','B: 20% chance of receiving ¥8000'],ev:'A expected ¥3000 / B expected ¥1600',maj:'A (pattern matches the original gain-zone results)',majIdx:0,phen:'Risk aversion in gains: certainty first'},
+    {scene:'Tiny probability · huge prize',opts:['A: Receive ¥2200 for certain','B: 5% chance of receiving ¥50000'],ev:'A expected ¥2200 / B expected ¥2500',maj:'B (the gamble; 72% took the small-probability bet in Problem 7)',majIdx:1,phen:'Overweighting tiny probabilities: lottery psychology'}
+  ];
+  var ans=[];
+  function render(){
+    var i=ans.length;
+    if(i<qs.length){
+      var q=qs[i];
+      var h='<p class="exp-progress">Problem '+(i+1)+' / '+qs.length+' · go with your gut</p>';
+      h+='<p class="exp-q">'+q.scene+'</p>';
+      h+='<p>'+q.opts[0]+', or '+q.opts[1]+'?</p>';
+      h+='<div class="exp-opts"><button data-k="0">'+q.opts[0]+'</button><button data-k="1">'+q.opts[1]+'</button></div>';
+      area.innerHTML=h;
+      var btns=area.querySelectorAll('button'),j;
+      for(j=0;j<btns.length;j++){
+        btns[j].addEventListener('click',function(){ans.push(parseInt(this.getAttribute('data-k'),10));render();});
+      }
+    }else{
+      showResult();
+    }
+  }
+  function showResult(){
+    var same=0,i,q,ok;
+    var h='<p class="exp-q">Results: your choices vs. the majority in Kahneman’s experiment</p>';
+    h+='<table class="data"><thead><tr><th>#</th><th>Scenario</th><th>Your choice</th><th>Expected values</th><th>Majority (experiment)</th><th>Phenomenon</th></tr></thead><tbody>';
+    for(i=0;i<qs.length;i++){
+      q=qs[i];ok=(ans[i]===q.majIdx);
+      if(ok){same++;}
+      h+='<tr><td>'+(i+1)+'</td><td>'+q.scene+'</td><td>'+q.opts[ans[i]]+'</td><td>'+q.ev+'</td><td class="'+(ok?'good':'bad')+'">'+(ok?'Match':'Opposite')+': '+q.maj+'</td><td>'+q.phen+'</td></tr>';
+    }
+    h+='</tbody></table>';
+    h+='<p>The majority pattern: <b>1A → 2D → 3A → 4 gamble</b> — play it safe in the gain zone, gamble in the loss zone, and then cannot resist a shot at a tiny-probability windfall. You matched the majority on '+same+' / 4 problems. Risk preference is not a personality trait: it flips systematically with &ldquo;gain zone or loss zone&rdquo; — precisely the core prediction of prospect theory.</p>';
+    h+='<p>Note: the 80% and 92% figures are data from the original Kahneman &amp; Tversky (1979) paper (Problems 2 and 2′, 95 participants each); problem 3 is a same-pattern adaptation; the 72% in problem 4 corresponds to Problem 7 of the paper (a 0.1% chance of winning ¥5000 vs. ¥5 for certain).</p>';
+    h+='<div class="exp-opts"><button id="exp-reset">Start over</button></div>';
+    area.innerHTML=h;
+    document.getElementById('exp-reset').addEventListener('click',function(){ans=[];render();});
+  }
+  render();
+})();
+</script>
+</body>
+</html>

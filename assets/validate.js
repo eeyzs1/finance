@@ -17,6 +17,7 @@ function escapeRe(s) {
 }
 
 // 课程术语名 → 术语表词条名（去括号）的别名：组合词条拆分讲授的情况
+// 英文树（en/）的别名与中文树一一对应；比较一律小写。
 const TERM_ALIAS = {
   "看涨期权": "看涨期权 / 看跌期权",
   "看跌期权": "看涨期权 / 看跌期权",
@@ -25,23 +26,36 @@ const TERM_ALIAS = {
   "波动率/标准差": "波动率",
   "国际收支平衡表": "国际收支",
   "风险中性": "风险中性概率",
+  "call option": "call option / put option",
+  "put option": "call option / put option",
+  "intrinsic value": "intrinsic value and time value",
+  "time value": "intrinsic value and time value",
+  "volatility / standard deviation": "volatility",
+  "balance of payments account": "balance of payments",
+  "risk-neutral": "risk-neutral probability",
+  "risk-neutral probabilities": "risk-neutral probability",
+  "financial intermediaries": "financial intermediary",
+  "market-based financial systems": "market-based financial system",
+  "bank-based financial systems": "bank-based financial system",
 };
 function termKey(s) {
-  return s.replace(/（[^）]*）|\([^)]*\)/g, "").trim();
+  return s.replace(/（[^）]*）|\([^)]*\)/g, "").trim().toLowerCase();
 }
 
-// 术语表词条集合（懒加载，供覆盖检查）
-const glossPath = path.resolve(root, "reference/glossary.html");
-let glossTerms = null;
-function glossaryTerms() {
-  if (glossTerms !== null) return glossTerms;
-  glossTerms = new Set();
+// 术语表词条集合（懒加载，供覆盖检查）；en/ 下的文件用英文树自己的术语表
+const glossCache = new Map();
+function glossaryTerms(p) {
+  const isEn = path.relative(root, p).split(path.sep)[0] === "en";
+  const glossPath = path.resolve(root, isEn ? "en/reference/glossary.html" : "reference/glossary.html");
+  if (glossCache.has(glossPath)) return glossCache.get(glossPath);
+  const terms = new Set();
   if (fs.existsSync(glossPath)) {
     for (const mm of readCached(glossPath).matchAll(/<dt id="([^"]+)">([\s\S]*?)<\/dt>/g)) {
-      glossTerms.add(termKey(mm[2].replace(/<span class="en">[\s\S]*?<\/span>/g, "")));
+      terms.add(termKey(mm[2].replace(/<span class="(?:en|zh)">[\s\S]*?<\/span>/g, "")));
     }
   }
-  return glossTerms;
+  glossCache.set(glossPath, terms);
+  return terms;
 }
 
 function walk(dir) {
@@ -82,7 +96,10 @@ function checkFile(p) {
           problems.push(`${rel}: 第${i + 1}题 answer 越界`);
         if (!q.explain) problems.push(`${rel}: 第${i + 1}题缺 explain`);
         const lens = q.options.map((o) => o.length);
-        if (Math.max(...lens) - Math.min(...lens) > 4)
+        // 选项字数均衡规则只针对中文（中文选项等长可防止格式暗示答案）；
+        // 英文选项天然长度不一，跳过该检查。
+        const allCJK = q.options.every((o) => /[\u4e00-\u9fff]/.test(o));
+        if (allCJK && Math.max(...lens) - Math.min(...lens) > 4)
           problems.push(`${rel}: 第${i + 1}题选项字数差过大(${lens.join(",")})`);
       });
     } catch (e) {
@@ -136,14 +153,14 @@ function checkFile(p) {
   }
 
   // 6) 术语表覆盖：课程 .term 术语须已收录术语表（新增术语要回填，见 NOTES.md）
-  if (/<span class="term"/.test(html) && glossaryTerms().size) {
+  if (/<span class="term"/.test(html) && glossaryTerms(p).size) {
     const seen = new Set();
     for (const mm of html.matchAll(/<span class="term"[^>]*>([^<]+)<\/span>/g)) {
       const zh = termKey(mm[1]);
       const canonical = TERM_ALIAS[zh] || zh;
       if (!zh || seen.has(zh)) continue;
       seen.add(zh);
-      if (!glossaryTerms().has(canonical))
+      if (!glossaryTerms(p).has(canonical))
         problems.push(`${rel}: 术语「${zh}」未收录于术语表 reference/glossary.html`);
     }
   }

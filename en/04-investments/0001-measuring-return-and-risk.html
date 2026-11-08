@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Investments · Lesson 1: Measuring Return and Risk · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, branch “Investments”, lesson 1: Measuring Return and Risk — an interactive lesson with charts, a simulator, and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../04-投资学/0001-收益与风险的度量.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Investments</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header"><div class="kicker">Investments · Lesson 1</div><h1>Measuring Return and Risk: the numbers that matter on a fund page</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: 02 Money &amp; Banking recommended first</span></div></header>
+<p class="lead">Open the fact sheet of any fund and two sets of numbers always grab the eye: how much it earned per year on average, and how violently its returns bounced around. This lesson untangles both in one go: how an investment’s return is defined and verified, how “possible futures” are weighted into an expectation, how the size of the bounces becomes a comparable risk metric, and why “earning 8% a year on average” often overstates what you actually pocket. Every key number is checked on the spot.</p>
+
+<h2>1. How much did you actually make: an investment’s bookkeeping</h2>
+<p>Every discussion starts from one concept — <span class="term" data-def="the proportion of each ¥1 of principal earned back over a holding period">rate of return</span>. It converts “how much money did I make” into “how much did each ¥1 of principal make,” which is what puts a ¥10,000 fund and a ¥300 stock on the same table for comparison. The most basic version is the holding-period return:</p>
+<div class="formula">r = (ending price P₁ − beginning price P₀ + dividends D received over the period) ÷ beginning price P₀<div class="formula-note">The numerator is the total payoff you actually take in over the holding period (price change + dividends); the denominator is the principal you put in. Multiply the result by 100% to state it as a percentage.</div></div>
+<p>Example: buy a stock for ¥10 at the start of the year, collect a cash dividend of ¥0.5 while holding it, and sell it for ¥11 at year-end:</p>
+<div class="formula">r = (11 − 10 + 0.5) ÷ 10 = 1.5 ÷ 10 = 15%<div class="formula-note">Check: the price change earns 11 − 10 = ¥1 and the dividend adds another ¥0.5, for a total of ¥1.5; divide by the ¥10 principal to get 15%.</div></div>
+<p>Two traps to avoid: first, dividends must be counted — looking only at the price change understates the true return; second, 15% is the return over that particular holding period — 15% over one month and 15% over one year are entirely different things, so before comparing across assets, first convert everything to the same horizon (for example, annualized).</p>
+
+<h2>2. Weighting the “possible futures” into an average</h2>
+<p>The 15% is after-the-fact bookkeeping, but investment decisions are made before the fact — the future hasn’t happened yet, and all you hold is a list of possible scenarios. Weight each scenario’s rate of return by its probability of occurring and average them, and you get the <span class="term" data-def="the average return obtained by weighting each possible outcome by its probability of occurring">expected return</span>, usually written μ:</p>
+<div class="formula">Expected return μ = Σ probabilityᵢ × returnᵢ<div class="formula-note">Intuition: multiply each outcome by its chance of occurring, then add them up. It answers “what do I get on average,” not “what will I get this time.”</div></div>
+<p>Suppose a stock’s performance next year has only three possibilities:</p>
+<table class="data">
+<thead><tr><th>Market state</th><th>Probability</th><th>Return in that state</th><th>Contribution to the expectation = probability × return</th></tr></thead>
+<tbody>
+<tr><td>Bull market</td><td>30%</td><td class="good">+20%</td><td>0.3 × 20 = +6.0 percentage points</td></tr>
+<tr><td>Normal</td><td>50%</td><td>+5%</td><td>0.5 × 5 = +2.5 percentage points</td></tr>
+<tr><td>Bear market</td><td>20%</td><td class="bad">−10%</td><td>0.2 × (−10) = −2.0 percentage points</td></tr>
+<tr><td><b>Expected return μ</b></td><td>Total 100%</td><td>—</td><td><b>+6.5%</b></td></tr>
+</tbody>
+</table>
+<p>Check: 0.3 × 20 + 0.5 × 5 + 0.2 × (−10) = 6.0 + 2.5 − 2.0 = +6.5%; the three probabilities 30% + 50% + 20% = 100%, so the scenario list is complete.</p>
+<div class="callout callout-warn"><span class="callout-title">The expectation is not a promise</span><p>μ = +6.5% does not correspond to any actual scenario — none of the three possibilities is “up 6.5%.” Nor is it the most likely outcome: in the example above, the most likely outcome is actually +5% (probability 50%). The expectation is only the “average level” you use for decisions; real results bounce around it.</p></div>
+
+<h2>3. Putting a number on uncertainty</h2>
+<p>“Bouncing around” is itself the risk. Imagine two stocks, both with an expected return of 6.5%: one lands between 5% and 8% year after year, while the other either doubles or halves — that difference demands a number of its own. Finance defines risk as “the uncertainty of outcomes” and measures it with <span class="term" data-def="the typical size of a return’s swings around its expectation; in investing it is used directly as the measure of risk">volatility (standard deviation)</span>, written σ:</p>
+<div class="formula">σ = √[ Σ probabilityᵢ × (returnᵢ − μ)² ]<div class="formula-note">Intuition, no derivation: see how far each outcome sits from the expectation, square that distance (removing the sign and heavily penalizing extremes), weight by probability and sum, then take the square root to return to the original units. σ answers “how far do I typically stray from the expectation?”</div></div>
+<p>Verify it with the Section 2 example (returns in percentage points):</p>
+<table class="data">
+<thead><tr><th>Scenario</th><th>Return</th><th>Deviation from the mean r − μ</th><th>Squared deviation (r − μ)²</th><th>Probability-weighted</th></tr></thead>
+<tbody>
+<tr><td>Bull market</td><td class="good">+20</td><td>+13.5</td><td>182.25</td><td>0.3 × 182.25 = 54.675</td></tr>
+<tr><td>Normal</td><td>+5</td><td>−1.5</td><td>2.25</td><td>0.5 × 2.25 = 1.125</td></tr>
+<tr><td>Bear market</td><td class="bad">−10</td><td>−16.5</td><td>272.25</td><td>0.2 × 272.25 = 54.45</td></tr>
+<tr><td><b>Total → σ²</b></td><td>—</td><td>—</td><td>—</td><td><b>110.25</b></td></tr>
+</tbody>
+</table>
+<p>Check: 54.675 + 1.125 + 54.45 = 110.25, and 10.5² = 110.25, so σ = √110.25 = 10.5%. What it means: in a “typical year” this stock deviates from the 6.5% expectation by about 10.5 percentage points — counting both directions. The larger σ is, the more spread out the possible outcomes and the greater the risk; σ = 0 would mean the outcome is completely certain.</p>
+
+<h2>4. The normal approximation and the 68/95 rule</h2>
+<p>A lone σ still isn’t intuitive — it needs a “translation rule.” Finance commonly approximates the distribution of annual returns with the normal distribution (the bell curve), and then μ and σ convert directly into ranges: about 68% of years fall within μ ± 1σ, and about 95% within μ ± 2σ. This is the 68/95 rule.</p>
+<div class="formula">μ ± 1σ: 6.5% ± 10.5% = [−4.0%, +17.0%], about 68% of years<br>μ ± 2σ: 6.5% ± 21.0% = [−14.5%, +27.5%], about 95% of years<div class="formula-note">Check: 6.5 − 10.5 = −4.0; 6.5 + 10.5 = 17.0; 6.5 − 21.0 = −14.5; 6.5 + 21.0 = 27.5. Read the other way: about 16% of years fall below −4% (roughly once every 6 years), and about 2.5% fall below −14.5% (about once every 40 years).</div></div>
+<div class="callout callout-tip"><span class="callout-title">The limits of this approximation</span><p>Real market return distributions are often “fat-tailed” — extreme booms and crashes happen more often than the normal curve predicts (2008 is a famous example). The 68/95 rule is a yardstick for quick estimates, not an insurance contract; the larger σ is, the bigger the discount you should apply to this yardstick.</p></div>
+
+<h2>5. Hands-on lab: the return-distribution comparator</h2>
+<p>With the concepts in place, let’s personally weigh “how much risk for how much return.” Asset A: μ = 6%, σ = 3% — a steady one. Asset B: μ = 8%, σ = 15% by default — a wild one. The chart below draws both assets’ annual rates of return as normal density curves; the red area is the probability that B loses money in a given year. Drag the slider to change B’s σ and watch how the curve’s width and the red area respond.</p>
+<div class="widget">
+<div class="widget-title">Return-distribution comparator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Asset B volatility σ: <span class="val" id="sigmaB-val">15%</span><input type="range" id="sigmaB" min="5" max="30" step="1" value="15"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill" id="pill-a">Asset A μ±1σ: 3% ~ 9%, loss probability ≈2.3%</span>
+<span class="pill" id="pill-b">Asset B μ±1σ: −7% ~ 23%</span>
+<span class="pill" id="pill-loss">B loss probability ≈29.9% (z=−0.53, interpolated from the table)</span>
+</div>
+</div>
+</div>
+<h3>Three things worth watching</h3>
+<p><b>① B’s left tail is red.</b> At the default σ = 15%, z = (0 − 8) ÷ 15 ≈ −0.53, and the normal table (this page interpolates linearly over a built-in z→Φ table, so the values are approximate) puts B’s probability of losing money in a year at about 30% — roughly 3 losing years out of every 10. Asset A, with z = (0 − 6) ÷ 3 = −2, has a loss probability of only about 2.3%.</p>
+<p><b>② The smaller σ, the thinner the red region.</b> Drag the slider to 5%: z = −1.6 and the loss probability drops to about 5.8%; drag it to 30%: z ≈ −0.27 and the loss probability climbs to about 40%. The expected return μ never moved, yet “will it lose money” changed beyond recognition — which is why quoting a return must always come with σ.</p>
+<p><b>③ A higher μ does not mean you are more likely to make money.</b> B’s expectation is only 2 percentage points above A’s, yet at the default settings its loss probability is more than ten times A’s. How much uncertainty you will trade for how much expected return is the core question investments keeps answering — and diversification, the subject of the next lesson, is the first tool that can push σ down while sacrificing little μ.</p>
+
+<h2>6. Volatility drag: the arithmetic mean can fool you</h2>
+<p>One last numbers game, one that countless investors have been burned by: taking the arithmetic average of each year’s returns systematically overstates your true annualized return. The true annualized figure must be computed by compounding, that is, with the <span class="term" data-def="the true average annual return computed by multiplying compounded returns together and taking the n-th root">geometric mean</span>:</p>
+<div class="formula">True annualized return = [(1+r₁) × (1+r₂) × … × (1+rₙ)]^(1/n) − 1<div class="formula-note">First multiply the “wealth multipliers” of the years together (up 30% means multiplying by 1.30, down 14% by 0.86), then take the n-th root, and finally subtract 1.</div></div>
+<div class="callout callout-key"><span class="callout-title">Key result: arithmetic mean ≠ actual annualized return</span><p>Year 1 +30%, year 2 −14%: the arithmetic mean = (30% − 14%) ÷ 2 = 8%, which looks lovely; but two-year total wealth = 1.30 × 0.86 = 1.118, a gain of only 11.8% in all, so the true annualized return = 1.118<sup>0.5</sup> − 1 ≈ 5.7% (check: 1.0574² ≈ 1.118). Gain 30% first, lose 14% after — more than 2 percentage points of that “8% a year on average” were an illusion. Volatility itself eats returns: this is volatility drag, and the bigger the volatility, the heavier the drag.</p></div>
+<p>Even more sobering is the asymmetry of losses: reverse the order — down 30% first, then up 14% — and total wealth = 0.70 × 1.14 = 0.798, still a 20.2% two-year loss, without the principal even recovered. Losing 30% of principal requires a further gain of 1 ÷ 0.70 − 1 ≈ 42.9% just to break even. The deeper the fall, the harder the recovery — the other face of volatility drag, and the reason “controlling σ is itself protecting returns.”</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Compute a holding-period return: r = (ending price − beginning price + dividends) ÷ beginning price; and remember that dividends must be counted and cross-period returns must first be annualized.</li>
+<li>Compute an expected return μ by probability weighting (three-state example: +6.5%), and remember that the expectation is not a promise.</li>
+<li>Measure the “typical deviation from the expectation” with the standard deviation σ (same example: 10.5%) and convert it into return ranges with the 68/95 rule.</li>
+<li>Know that the true annualized return is the geometric mean: the arithmetic mean overstates it (8% vs 5.7% in the example), and the greater the volatility, the larger the overstatement.</li>
+</ul></div>
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"You buy a stock for ¥20 at the start of the year, sell it for ¥22 at year-end, and receive a ¥2 cash dividend during the period. What is the holding-period return on this investment?","options":["10%","20%","30%"],"answer":1,"explain":"r = (22 − 20 + 2) ÷ 20 = 4 ÷ 20 = 20%. The ¥2 price gain plus the ¥2 dividend earns ¥4 in total, divided by the ¥20 principal."},
+{"q":"An asset has three possibilities next year: a bull market (probability 30%) with a 10% gain, a normal market (probability 50%) with a 4% gain, and a bear market (probability 20%) with a 10% loss. Which is closest to its expected rate of return?","options":["1.0%","2.0%","3.0%"],"answer":2,"explain":"Expected return = 0.3 × 10% + 0.5 × 4% + 0.2 × (−10%) = 3% + 2% − 2% = 3.0%. Weight each outcome by its probability, then sum."},
+{"q":"Year 1 is up 30%, year 2 is down 16%. Which is closest to the true annualized (geometric mean) return over the two years?","options":["4.5%","7.0%","9.5%"],"answer":0,"explain":"Geometric mean = (1.30 × 0.84)^0.5 − 1 = 1.092^0.5 − 1 ≈ 4.5%; 7.0% is the arithmetic mean, (30% − 16%) ÷ 2, which overstates the true annualized return."},
+{"q":"Which of the following statements about volatility (standard deviation σ) is correct?","options":["A larger standard deviation means a higher expected return","A larger standard deviation means a smaller loss probability","A larger standard deviation means more uncertain outcomes"],"answer":2,"explain":"σ measures the typical size of deviations from the expectation: the larger σ, the more spread out and uncertain the possible returns, and the loss probability usually rises as well; it has no necessary link to the level of the expected return."}
+]}
+</script></div>
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#return">rate of return</a> · <a href="../reference/glossary.html#expected-return">expected return</a> · <a href="../reference/glossary.html#volatility">volatility/standard deviation</a> · <a href="../reference/glossary.html#geometric-mean">geometric mean</a></li>
+
+<li><a href="https://www.investopedia.com/terms/s/standarddeviation.asp" target="_blank" rel="noopener">Investopedia: Standard Deviation</a> — a classic beginner’s explanation of measuring dispersion with the standard deviation.</li>
+<li><a href="https://www.investopedia.com/terms/v/volatility.asp" target="_blank" rel="noopener">Investopedia: Volatility</a> — what volatility is, how it is computed, and how it is used.</li>
+<li><a href="https://www.khanacademy.org/economics-finance-domain/core-finance" target="_blank" rel="noopener">Khan Academy: Finance and Capital Markets</a> — free video lessons on rates of return, variance, and standard deviation.</li>
+</ul></div>
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch Overview</span></a><a class="next" href="0002-diversification-and-correlation.html"><span class="nav-label">Next lesson</span><span class="nav-title">Diversification and Correlation</span></a></nav>
+<footer class="lesson-footer"><span>Investments · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var el = document.getElementById('chart1');
+  var slider = document.getElementById('sigmaB');
+  if (!el || !slider || typeof FChart === 'undefined') { return; }
+  var valEl = document.getElementById('sigmaB-val');
+  var pillA = document.getElementById('pill-a');
+  var pillB = document.getElementById('pill-b');
+  var pillL = document.getElementById('pill-loss');
+  var MU_A = 6, SD_A = 3, MU_B = 8;
+  /* Built-in z→Φ lookup table (linear interpolation approximation) */
+  var ZT = [[-3, 0.0013], [-2, 0.0228], [-1.5, 0.0668], [-1, 0.1587], [-0.5, 0.3085], [0, 0.5], [0.5, 0.6915], [1, 0.8413], [1.5, 0.9332], [2, 0.9772], [3, 0.9987]];
+  function phi(z) {
+    if (z <= ZT[0][0]) { return ZT[0][1]; }
+    if (z >= ZT[ZT.length - 1][0]) { return ZT[ZT.length - 1][1]; }
+    for (var i = 0; i < ZT.length - 1; i++) {
+      if (z >= ZT[i][0] && z <= ZT[i + 1][0]) {
+        var t = (z - ZT[i][0]) / (ZT[i + 1][0] - ZT[i][0]);
+        return ZT[i][1] + t * (ZT[i + 1][1] - ZT[i][1]);
+      }
+    }
+    return 0.5;
+  }
+  function pdf(x, mu, sd) { return Math.exp(-(x - mu) * (x - mu) / (2 * sd * sd)) / (sd * Math.sqrt(2 * Math.PI)); }
+  function fmt(x) { return (x < 0 ? '−' : '') + Math.abs(x); }
+  var chart = new FChart(el, { height: 340, x: { min: -40, max: 40, label: 'Annual return (%)' }, y: { min: 0, max: 0.14, label: 'Probability density' } });
+  function draw(sd) {
+    valEl.textContent = sd + '%';
+    chart.clear();
+    chart.area(function (x) { return x < 0 ? pdf(x, MU_B, sd) : 0; }, { fill: '#b3372f', fillOpacity: 0.35, y0: 0 });
+    chart.path(function (x) { return pdf(x, MU_A, SD_A); }, { color: '#0d5c4f', width: 2.5 });
+    chart.path(function (x) { return pdf(x, MU_B, sd); }, { color: '#a3701a', width: 2.5 });
+    chart.vline(0, { color: '#b3372f', label: '0% break-even line' });
+    chart.text(-38, 0.128, 'Red area = loss probability of B', { dx: 8 });
+    chart.legend([{ color: '#0d5c4f', text: 'Asset A: μ=6%, σ=3%' }, { color: '#a3701a', text: 'Asset B: μ=8%, σ=' + sd + '%' }]);
+    var z = (0 - MU_B) / sd;
+    var zs = (z < 0 ? '−' : '') + Math.abs(z).toFixed(2);
+    pillA.textContent = 'Asset A μ±1σ: 3% ~ 9%, loss probability ≈2.3%';
+    pillB.textContent = 'Asset B μ±1σ: ' + fmt(MU_B - sd) + '% ~ ' + (MU_B + sd) + '%';
+    pillL.textContent = 'B loss probability ≈' + (phi(z) * 100).toFixed(1) + '% (z=' + zs + ', interpolated from the table)';
+  }
+  slider.addEventListener('input', function () { draw(parseFloat(slider.value)); });
+  draw(parseFloat(slider.value));
+})();
+</script>
+</body></html>

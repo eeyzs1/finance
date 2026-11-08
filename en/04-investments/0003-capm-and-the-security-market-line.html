@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Investments · Lesson 3: CAPM and the Security Market Line · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, branch “Investments”, lesson 3: CAPM and the Security Market Line — an interactive lesson with charts, a simulator, and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../04-投资学/0003-capm与证券市场线.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Investments</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header"><div class="kicker">Investments · Lesson 3</div><h1>CAPM and the Security Market Line</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: Lesson 2</span></div></header>
+<p class="lead">The last lesson closed with a hidden sentence: “the market does not pay you for risk you can diversify away.” So which risk does earn compensation — and how much? This lesson gives finance’s most famous answer — the <span class="term" data-def="Capital Asset Pricing Model: a model that prices systematic risk with β, formula E(Ri)=Rf+βi×(E(Rm)−Rf)">Capital Asset Pricing Model (CAPM)</span>: a straight line called the Security Market Line that puts a price on every share of unavoidable risk.</p>
+
+<h2>1. Only unavoidable risk earns compensation</h2>
+<p>Last lesson we saw that once you hold 20–30 stocks, <span class="term" data-def="risk unique to a single asset that diversification can eliminate; the market pays no compensation for it">idiosyncratic risk</span> has mostly canceled itself out. Take the logic one step further: if a stock demanded an extra 1% of return merely because “it has a habit of accidents,” investors could simply buy a basket of stocks and diversify those accidents away — nobody is willing to pay extra for it, and competition automatically wipes out such demands.</p>
+<p>What remains, unavoidable, is the rise and fall shared by the entire market — rate hikes, recessions, and wars moving everything up or down together. This is <span class="term" data-def="risk shared by the entire market that diversification cannot eliminate; the market pays compensation only for it">systematic risk</span>. The conclusion is a single sentence: the market pays compensation only for systematic risk; how much is decided by β, the subject of the next section.</p>
+
+<h2>2. β: a stock’s sensitivity to the market</h2>
+<p><span class="term" data-def="the sensitivity of a stock’s return to the market portfolio’s return: β=1 moves with the market, β＞1 amplifies the swings, β＜1 cushions them">Beta (β)</span> measures how sensitively a stock moves with the market portfolio:</p>
+<p>β = 1: when the market rises 10%, the stock rises about 1×10% = 10% on average — in step. β = 1.2: a 10% market rise becomes about 1.2×10% = 12% — amplified. β = 0.8: about 0.8×10% = 8% — cushioned.</p>
+<p>A directional impression (a memory aid only, not investment advice): “toll-collector” stocks such as utilities and large banks often carry β below 1, leaning cushioning; growth tech stocks often carry β above 1, leaning amplifying. β is estimated from historical data and shifts across periods — it is not a fixed attribute.</p>
+<div class="callout callout-info"><span class="callout-title">β is not a report card</span><p>A high or low β is not “good or bad”: β=1.2 only means more elasticity — bigger gains in bull markets, bigger losses in bear ones. In CAPM, compensation is tied to β alone; the company’s fame, or whether you happen to like it, has nothing to do with it.</p></div>
+
+<h2>3. CAPM: the line that prices risk</h2>
+<p>CAPM compresses the intuition above into a single formula:</p>
+<div class="formula">E(R<sub>i</sub>) = R<sub>f</sub> + β<sub>i</sub> × ( E(R<sub>m</sub>) − R<sub>f</sub> )
+<div class="formula-note">Example: with a risk-free rate R<sub>f</sub> = 3%, a market risk premium E(R<sub>m</sub>) − R<sub>f</sub> = 5%, and a stock at β = 1.2, E(R<sub>i</sub>) = 3% + 1.2×5% = 3% + 6% = 9%. Each extra unit of β earns one more helping of the premium; at β = 0 you receive only the risk-free rate.</div></div>
+<p>Plot the expected return each β “should” deliver and you get a straight line that starts at R<sub>f</sub> with the market risk premium as its slope — the <span class="term" data-def="the pricing line with β on the horizontal axis and expected return on the vertical: every β maps to the expected return it ‘should’ offer">Security Market Line (SML)</span>. It is a ruler: it measures how much each share of systematic risk “ought” to sell for.</p>
+
+<h2>4. The market portfolio and the logic of index funds</h2>
+<p>Where does the <span class="term" data-def="the portfolio holding every risky asset at its market-cap weight; the sum of all investors’ holdings, which CAPM places on the efficient frontier">market portfolio</span> come from? Add up every investor’s holdings: whatever you buy extra, someone else has sold, so active positions in individual stocks cancel out, and what remains is exactly the whole market weighted by market cap. CAPM’s corollary goes one step further: that portfolio sits right on the efficient frontier of the last lesson. If the market itself is the optimal portfolio, the easiest play is to simply buy it — that is the pricing logic of passive index funds.</p>
+
+<h2>5. Mispricing intuition: which side of the line is the dot on?</h2>
+<p>The SML doubles as an inspection checklist. For any given β, the line states the expected return the asset “should” offer:</p>
+<p>A dot above the line: the market’s actual expected return exceeds what it should be — same risk, higher payoff — meaning the price is too low (undervalued), a buying opportunity. A dot below the line: the actual expected return falls short — same risk, less payoff — the price is too high (overvalued), and it should be avoided or even shorted.</p>
+<p>Check (R<sub>f</sub> = 3%, premium 5%): a β = 1.0 stock should offer 3% + 1×5% = 8%; if the market expects 10%, the dot sits above the line → undervalued. A β = 1.5 stock should offer 3% + 1.5×5% = 3% + 7.5% = 10.5%; if the market gives only 8%, the dot sits below the line → overvalued.</p>
+<p>Of course, if the market is efficient enough, investors will quickly trade such dots flat — proponents and skeptics of the efficient-market hypothesis have argued over this for decades. For this lesson, just keep the ruler firmly in mind; the debate can go back into the chat with your AI tutor.</p>
+
+<h2>Hands-on: the interactive SML chart</h2>
+<div class="widget">
+<div class="widget-title">Interactive SML chart</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Risk-free rate Rf = <span class="val" id="rf-val">3.0%</span><input type="range" id="rf" min="0" max="6" step="0.5" value="3"></label></div>
+<div class="slider-row"><label>Market risk premium = <span class="val" id="rp-val">5.0%</span><input type="range" id="rp" min="2" max="8" step="0.5" value="5"></label></div>
+<div class="slider-row"><label>This stock’s β = <span class="val" id="beta-val">1.20</span><input type="range" id="beta" min="0" max="2" step="0.05" value="1.2"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="r-er"></span><span class="pill" id="r-calc"></span><span class="pill" id="r-type"></span></div>
+</div>
+</div>
+<p>The green straight line is the SML: its left end sits at the risk-free rate R<sub>f</sub>, and its slope is the market risk premium. The gold dot is the current stock (its “fair” expected return always lands on the line); the two red dots are static mispricing examples — the “fair” values on the line move live with the sliders, so keep an eye on where the dots sit relative to the line.</p>
+<div class="callout callout-tip"><span class="callout-title">Try this</span><p>① Raise R<sub>f</sub>: the whole line shifts up, and every asset’s fair return rises together. ② Widen the premium: the line steepens, stretching out the fair returns of high-β stocks. ③ Slide β: the gold dot slides along the line — it cannot escape, because the fair return is set by β alone.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Tell the two risks apart: idiosyncratic risk is diversifiable and uncompensated; systematic risk is undiversifiable and compensated</li>
+<li>Read β: equal to 1 moves in step, above 1 amplifies, below 1 cushions</li>
+<li>Apply the CAPM formula: E(R) = R<sub>f</sub> + β×premium, e.g. 3% + 1.2×5% = 9%</li>
+<li>Understand the market portfolio and the logic of index funds, and use the SML to judge over- and undervaluation</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"What does beta (β) measure?","options":["A measure of how fast a stock’s earnings grow","An indicator of how large a stock’s dividends are","A stock’s sensitivity to the market’s swings"],"answer":2,"explain":"β is the sensitivity of a stock’s return to the market portfolio’s return: when the market rises 10%, a β=1.2 stock gains about 12% on average and a β=0.8 stock about 8%; it measures neither earnings nor dividends."},
+{"q":"With Rf=3%, a market risk premium of 5%, and β=1.2, what expected return does CAPM give?","options":["8.0%","9.0%","6.0%"],"answer":1,"explain":"E(R)=Rf+β×premium=3%+1.2×5%=3%+6%=9%. 8.0% is the answer for β=1, and 6.0% is the answer for β=0.6."},
+{"q":"Why does the market not pay compensation for idiosyncratic risk?","options":["Because it can be diversified away","Because its volatility is smaller","Because it affects only a few people"],"answer":0,"explain":"Holding 20–30 stocks diversifies away most idiosyncratic risk; since anyone can eliminate it for free, competition stops the market from pricing it — only unavoidable systematic risk earns compensation."},
+{"q":"A stock’s dot lies below the Security Market Line. What does this most likely indicate?","options":["Expected return above the fair level, so undervalued","Expected return equal to the fair level, so fairly priced","Expected return below the fair level, so overvalued"],"answer":2,"explain":"Below the line means the market’s expected return is less than what the stock’s β deserves — same risk, less pay — so the price is too rich (overvalued); rational investors would avoid it or short it."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#capm">CAPM</a> · <a href="../reference/glossary.html#idiosyncratic-risk">idiosyncratic risk</a> · <a href="../reference/glossary.html#systematic-risk">systematic risk</a> · <a href="../reference/glossary.html#beta">beta (β)</a> · <a href="../reference/glossary.html#security-market-line-sml">Security Market Line</a> · <a href="../reference/glossary.html#market-portfolio">market portfolio</a></li>
+
+<li><a href="https://www.investopedia.com/terms/c/capm.asp">Investopedia: Capital Asset Pricing Model (CAPM)</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/贝塔系数">Wikipedia: Beta coefficient</a></li>
+<li><a href="https://www.investopedia.com/terms/s/sml.asp">Investopedia: Security Market Line</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0002-diversification-and-correlation.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Diversification and Correlation</span></a>
+<a class="next" href="../03-corporate-finance/index.html"><span class="nav-label">Next branch: Corporate Finance</span><span class="nav-title">Corporate Finance</span></a>
+</nav>
+<footer class="lesson-footer"><span>Investments · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+var rfEl=document.getElementById("rf"),rpEl=document.getElementById("rp"),bEl=document.getElementById("beta");
+var chart=new FChart(document.getElementById("chart1"),{height:340,x:{min:0,max:2,label:"β (sensitivity to the market)"},y:{min:0,max:16,label:"Expected return (%)"}});
+function draw(){
+  var rf=parseFloat(rfEl.value),rp=parseFloat(rpEl.value),b=parseFloat(bEl.value);
+  document.getElementById("rf-val").textContent=rf.toFixed(1)+"%";
+  document.getElementById("rp-val").textContent=rp.toFixed(1)+"%";
+  document.getElementById("beta-val").textContent=b.toFixed(2);
+  chart.clear();
+  chart.hline(rf,{label:"Risk-free rate Rf = "+rf.toFixed(1)+"%"});
+  chart.vline(1,{color:"#5d5749",label:"Market portfolio β=1"});
+  var xEnd=2;
+  if(rf+2*rp>15.8){xEnd=(15.8-rf)/rp;}
+  chart.path([[0,rf],[xEnd,rf+xEnd*rp]],{color:"#0d5c4f",width:2.5});
+  var fair1=rf+rp,fair15=rf+1.5*rp;
+  chart.scatter([[1,10,"#b3372f",""]],{r:5});
+  chart.text(1,11.2,"β=1.0: expected 10% ＞ fair "+fair1.toFixed(1)+"% → undervalued",{dx:8});
+  chart.scatter([[1.5,8,"#b3372f",""]],{r:5});
+  chart.text(1.5,7.2,"β=1.5: expected 8% ＜ fair "+fair15.toFixed(1)+"% → overvalued",{dx:8});
+  var e=rf+b*rp;
+  chart.scatter([[b,e,"#a3701a",""]],{r:6});
+  chart.text(b,e+0.7,"Current stock: β="+b.toFixed(2)+", E(R)="+e.toFixed(1)+"%",{dx:8});
+  chart.legend([{color:"#0d5c4f",text:"SML (fair-return line)"},{color:"#a3701a",text:"Current stock"},{color:"#b3372f",text:"Mispricing example dots"}]);
+  document.getElementById("r-er").textContent="Expected return E(R) ≈ "+e.toFixed(2)+"%";
+  document.getElementById("r-calc").textContent="E(R) = Rf + β×premium = "+rf.toFixed(1)+"% + "+b.toFixed(2)+"×"+rp.toFixed(1)+"% = "+e.toFixed(2)+"%";
+  var t;
+  if(b>1.05){t="Amplifying: market up 10%, it gains about "+(b*10).toFixed(0)+"%";}
+  else if(b<0.95){t="Cushioning: market up 10%, it gains about "+(b*10).toFixed(0)+"%";}
+  else{t="In step: rises and falls with the market";}
+  document.getElementById("r-type").textContent=t;
+}
+rfEl.addEventListener("input",draw);
+rpEl.addEventListener("input",draw);
+bEl.addEventListener("input",draw);
+draw();
+})();
+</script>
+</body></html>

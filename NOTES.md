@@ -18,3 +18,10 @@
 - 测验出题规则：同一题的各选项长度（字数）尽量一致，正确答案位置在 A/B/C/D 间轮换，不给格式暗示；
 - 提交改动前运行 `node assets/validate.js .`：它检查测验 JSON、id 引用与重复、本地链接与跨文件锚点、组件引入（quiz.js / charts.js）、外链 `rel="noopener"`，以及课程 `.term` 术语是否已回填术语表（组合词条用 validate.js 里的 TERM_ALIAS 别名映射）；
 - 每次学完一个分支，询问学习者是否写一条 learning-record（记录真正掌握的概念，而非"看过"）。
+
+## 英文镜像（en/）
+
+- `en/` 是全站的英文镜像：目录结构与中文树一一对应，文件夹与课程文件改用英文 slug（如 `en/04-investments/0001-measuring-return-and-risk.html`），术语表 `dt id` 与中文版完全一致（含中文锚点），课程页指向术语表的 `#锚点` 保持原文；
+- 英文树自带 `en/assets/`（`quiz.js` 为英文界面文案，localStorage 键为 `finance-course-progress-en-v1`，与中文站进度互不干扰；其余资源为共享副本）；
+- `validate.js` 已兼容双语：英文测验不检查选项字数差（该规则只防中文格式暗示），术语表覆盖检查按文件所在树自动选择 `reference/glossary.html` 或 `en/reference/glossary.html`，比较大小写不敏感，组合词条别名表同时含中英两种写法；
+- 修改中文课程内容时，记得同步更新 `en/` 对应文件（或至少在提交说明中标注英文版待同步）。

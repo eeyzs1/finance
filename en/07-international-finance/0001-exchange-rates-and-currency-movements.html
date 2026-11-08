@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>International Finance · Lesson 1: Exchange Rates and Currency Movements · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, International Finance, Lesson 1: Exchange Rates and Currency Movements — an interactive lesson with a chart simulator and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../07-国际金融/0001-汇率与货币升降值.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">International Finance</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header"><div class="kicker">International Finance · Lesson 1</div><h1>Exchange Rates and Currency Movements: What Does 7.2 Actually Mean?</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced</span><span>Prerequisites: none</span></div></header>
+<p class="lead">The news says “the renminbi exchange rate has reached 7.2”, and some rejoice while others despair: parents of students abroad breathe easier, while the toy-factory boss frowns. In 15 minutes this lesson makes three things clear: what an exchange rate actually is, how to tell appreciation from depreciation, and why the very same appreciation is diametrically opposite news for different people.</p>
+
+<h2>1. The Exchange Rate: A Currency Priced in Another Currency</h2>
+<p>An apple's price is quoted in renminbi; the renminbi's price is quoted in US dollars. The <span class="term" data-def="the price of one currency expressed in another currency; the conversion ratio between two currencies.">exchange rate</span> is a currency's conversion ratio: USD/CNY = 7.2 reads as “1 US dollar exchanges for ¥7.2”. USD is the international code for the US dollar, and CNY is the international code for the renminbi.</p>
+<p>Writing the price with the foreign currency fixed at 1, expressed as a number of home-currency units, is called <span class="term" data-def="a quotation method that sets the foreign currency as the base (fixed at 1) and expresses the rate as the number of home-currency units; China uses this method.">direct quotation</span>. The trick for assigning roles: the currency before the slash is the “good”, and the currency after the slash is the “ruler” — just as in “apples at ¥3 per 500 g”, the apple is the good being priced and the yuan is the ruler that measures it.</p>
+<div class="callout callout-tip"><span class="callout-title">How to read it</span><p>USD/CNY = 7.2: the dollar is the good, the renminbi is the ruler, and 7.2 is the renminbi price of the good called “one US dollar”. Likewise EUR/CNY = 7.8 means one euro sells for ¥7.8.</p></div>
+
+<h2>2. Appreciation or Depreciation: Ask Just One Question</h2>
+<p>Exchange rates move every day, but there is nothing to memorize — just ask one question: <b>is one US dollar buying more renminbi, or less?</b> Less means the renminbi is worth more — an <span class="term" data-def="one currency buys more of another; the currency has become more valuable.">appreciation</span>; more is a <span class="term" data-def="one currency buys less of another; the currency has lost value.">depreciation</span>.</p>
+<div class="callout callout-key"><span class="callout-title">The direction test (the core of this lesson)</span><p>USD/CNY moves from 7.2 to 6.8: one US dollar buys ¥6.8 instead of ¥7.2 — less — so <b>the renminbi has appreciated</b> (and the dollar has depreciated against it). Conversely, a move from 7.2 to 8.0 means one US dollar buys more renminbi — the renminbi has depreciated.</p></div>
+<div class="callout callout-warn"><span class="callout-title">The most common misreading</span><p>“It rose from 7.2 to 7.4 — the renminbi appreciated!” Wrong. Under direct quotation (foreign currency fixed at 1), <b>a bigger number is precisely home-currency depreciation</b>. First see clearly which currency is the good and which is the ruler; only then talk about direction.</p></div>
+
+<h2>3. Worked Through: An Exporting Toy Factory's Make-or-Break Line</h2>
+<p>A coastal factory exports plush toys: each piece costs ¥6.3 to make and targets ¥0.5 of profit, so it must take in ¥6.8 per piece; the US distributor can accept a purchase price of about US$0.95 per piece. The dollar price quoted to the US customer = renminbi to be recovered ÷ exchange rate:</p>
+<div class="formula">Break-even US$ quote = (cost per piece + target profit) ÷ USD/CNY = 6.8 ÷ 7.2 ≈ US$0.944 per piece</div>
+<div class="formula-note">Default check: at an exchange rate of 7.2, the quote is about US$0.944 — below the market-acceptable US$0.95 — so the order holds. If the renminbi appreciates to 6.8, the quote becomes 6.8 ÷ 6.8 = US$1.000 and the order flies away at once. The make-or-break line sits at 6.8 ÷ 0.95 ≈ 7.16: once the rate falls below it, the factory can no longer quote a competitive price.</div>
+<div class="widget">
+<div class="widget-title">Interactive · Exchange-rate stress test for an exporter</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>USD/CNY exchange rate <span class="val" id="rate-val">7.20</span><input type="range" id="rate" min="6.2" max="8.0" step="0.05" value="7.2"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pill-quote">Current break-even quote: US$0.944 per piece</span><span class="pill" id="pill-compete">Below US$0.95 → competitive</span></div>
+</div>
+</div>
+<p>Drag the slider: the green curve is the break-even quote. The more the renminbi depreciates (the bigger the rate number), the lower the break-even quote and the more competitive exports are; once renminbi appreciation pushes the rate to the left of the red “make-or-break line” (about 7.16), the break-even quote breaks through the market-acceptable US$0.95 and the order is lost.</p>
+
+<h2>4. One Round of Appreciation, Winners and Losers</h2>
+<table class="data">
+<thead><tr><th>Scenario</th><th>Party</th><th>What happens</th><th>Outcome</th></tr></thead>
+<tbody>
+<tr><td>Appreciation 7.2→6.8</td><td>Toy exporter</td><td>At the same US$0.9 selling price, renminbi proceeds fall from ¥6.48 to ¥6.12</td><td class="bad">Loses</td></tr>
+<tr><td>Appreciation 7.2→6.8</td><td>Soybean-crushing importer</td><td>US$1 of imported soybeans now costs ¥6.8 instead of ¥7.2</td><td class="good">Wins</td></tr>
+<tr><td>Appreciation 7.2→6.8</td><td>Family of a student abroad</td><td>A US$10,000 tuition bill falls from ¥72,000 to ¥68,000</td><td class="good">Wins</td></tr>
+<tr><td>Appreciation 7.2→6.8</td><td>Company with dollar debt</td><td>Repaying a US$1 million debt falls from ¥7.2 million to ¥6.8 million</td><td class="good">Wins</td></tr>
+<tr><td>Depreciation 7.2→8.0</td><td>Toy exporter</td><td>At the same US$0.9 selling price, renminbi proceeds rise from ¥6.48 to ¥7.2</td><td class="good">Wins</td></tr>
+<tr><td>Depreciation 7.2→8.0</td><td>Outbound tourist</td><td>A US$10,000 trip rises from ¥72,000 to ¥80,000</td><td class="bad">Loses</td></tr>
+<tr><td>Depreciation 7.2→8.0</td><td>Company with dollar debt</td><td>Repaying a US$1 million debt rises from ¥7.2 million to ¥8 million</td><td class="bad">Loses</td></tr>
+</tbody>
+</table>
+<p>One and the same event hits different parties in completely opposite ways. Before judging the impact, ask yourself: <b>am I the party receiving foreign currency, or the party paying it?</b> Receivers of foreign currency (exporters, overseas workers) fear home-currency appreciation; payers of foreign currency (importers, families of students abroad, holders of foreign-currency debt) welcome it.</p>
+
+<h2>5. Beyond the Nominal Rate: One Honest Sentence and One Mechanism</h2>
+<p>The <span class="term" data-def="the rate quoted by banks, not adjusted for the two countries' price levels.">nominal exchange rate</span> is the number on the bank's screen; the <span class="term" data-def="the nominal rate adjusted for the two countries' price levels; it reflects the true comparison of purchasing power.">real exchange rate</span> adds an adjustment for the two countries' prices. If the renminbi appreciates 5% against the dollar while domestic toy factory-gate prices also rise 5%, the real price facing the American buyer has barely moved — a nominal appreciation does not necessarily mean a real loss of competitiveness. When judging effects on trade, the real exchange rate is the more accurate ruler.</p>
+<div class="callout callout-info"><span class="callout-title">One-line extension: the RMB central parity mechanism</span><p>Before the market opens each trading day, the China Foreign Exchange Trade System publishes the central parity rate of the renminbi against the US dollar, and the onshore spot rate for that day may fluctuate within a band around the parity — this is the “central parity mechanism” so often mentioned in the news: the renminbi exchange rate is neither fully fixed nor freely floating.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Read USD/CNY = 7.2 correctly: the foreign currency is the good, the home currency is the ruler</li>
+<li>Judge direction in one sentence: one US dollar buying fewer renminbi = renminbi appreciation</li>
+<li>Compute an exporter's break-even quote: 6.8 ÷ 7.2 ≈ US$0.944, with the make-or-break line at 6.8 ÷ 0.95 ≈ 7.16</li>
+<li>Remember that the impact of appreciation and depreciation always splits by party: foreign-currency receivers fear appreciation, foreign-currency payers welcome it</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"USD/CNY moves from 7.2 to 6.8. Which statement is correct?","options":["The renminbi has depreciated","The renminbi has appreciated","Both currencies appreciated at once"],"answer":1,"explain":"Under direct quotation, one US dollar buys ¥6.8 instead of ¥7.2, so the renminbi is worth more: the renminbi has appreciated and the dollar has depreciated; two currencies cannot both appreciate against each other."},
+{"q":"The renminbi appreciates markedly against the US dollar. Which group is most likely hurt in the short run?","options":["Importers","Families of students abroad","Exporters"],"answer":2,"explain":"Appreciation turns the same dollar revenue into fewer renminbi, squeezing exporters' profits; import costs and tuition abroad become cheaper instead, so importers and families of students abroad benefit."},
+{"q":"Read under direct quotation, what does the number 7.2 in USD/CNY = 7.2 stand for?","options":["US$1 = ¥7.2","¥1 = US$7.2","US$7.2 = ¥1"],"answer":0,"explain":"Direct quotation fixes the foreign currency at 1, so 7.2 is the amount of renminbi one US dollar can buy: US$1 = ¥7.2."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#exchange-rate">exchange rate</a> · <a href="../reference/glossary.html#direct-quotation">direct quotation</a> · <a href="../reference/glossary.html#appreciation">appreciation</a> · <a href="../reference/glossary.html#depreciation">depreciation</a> · <a href="../reference/glossary.html#nominal-exchange-rate">nominal exchange rate</a> · <a href="../reference/glossary.html#real-exchange-rate">real exchange rate</a></li>
+
+<li><a href="https://www.investopedia.com/terms/e/exchangerate.asp" target="_blank" rel="noopener">Exchange Rate — Investopedia</a> — the authoritative English-language definition of the exchange-rate concept.</li>
+<li><a href="https://www.safe.gov.cn/" target="_blank" rel="noopener">State Administration of Foreign Exchange</a> — the original source of the RMB central parity rate and official data.</li>
+<li><a href="https://zh.wikipedia.org/wiki/汇率" target="_blank" rel="noopener">Exchange Rate — Wikipedia</a> — a systematic overview of quotation methods and exchange rate regimes.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch Overview</span></a><a class="next" href="0002-what-determines-exchange-rates.html"><span class="nav-label">Next lesson</span><span class="nav-title">What Determines Exchange Rates</span></a></nav>
+<footer class="lesson-footer"><span>International Finance · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var COST=6.3, PROFIT=0.5, MARKET=0.95;
+  var BASE=COST+PROFIT;
+  var el=document.getElementById('chart1');
+  var slider=document.getElementById('rate');
+  var val=document.getElementById('rate-val');
+  var pillQ=document.getElementById('pill-quote');
+  var pillC=document.getElementById('pill-compete');
+  if(!el||!slider||!window.FChart){return;}
+  var c=new FChart(el,{height:340,x:{min:6.2,max:8.0,label:'USD/CNY exchange rate (RMB per USD)'},y:{min:0.80,max:1.15,label:'Break-even US$ quote (US$ per piece)'}});
+  function quote(r){return BASE/r;}
+  function draw(){
+    var r=parseFloat(slider.value);
+    val.textContent=r.toFixed(2);
+    var q=quote(r);
+    c.clear();
+    var pts=[];
+    for(var x=6.2;x<=8.0001;x+=0.02){pts.push([x,quote(x)]);}
+    c.path(pts,{color:'#0d5c4f',width:2.5});
+    c.legend([{color:'#0d5c4f',text:'Break-even quote = 6.8 ÷ rate'}]);
+    c.hline(MARKET,{label:'US market-acceptable price US$0.95'});
+    var edge=BASE/MARKET;
+    c.vline(edge,{color:'#b3372f',label:'Make-or-break line ≈ '+edge.toFixed(2)});
+    c.scatter([[r,q,'#a3701a','Current rate']],{r:6});
+    c.text(r,q,'US$'+q.toFixed(3),{dx:8});
+    pillQ.textContent='Current break-even quote: US$'+q.toFixed(3)+' per piece';
+    pillC.textContent=q<=MARKET?'Below US$0.95 → competitive':'Above US$0.95 → no longer competitive';
+  }
+  slider.addEventListener('input',draw);
+  draw();
+})();
+</script>
+</body></html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Money &amp; Banking · Lesson 3: Central Banks and Monetary Policy · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Money &amp; Banking, Lesson 3 “Central Banks and Monetary Policy”: an interactive lesson with chart simulators and an inline quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.chain{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chain-node{flex:1 1 150px;min-width:140px;border:1.5px solid #d8d2c4;border-radius:10px;padding:10px 12px;background:#faf8f3;transition:border-color .35s,background .35s}
+.chain-idx{display:inline-block;width:22px;height:22px;line-height:22px;border-radius:50%;background:#5d5749;color:#fffdf8;font-size:12px;font-weight:700;text-align:center}
+.chain-name{font-weight:700;margin:6px 0 4px;font-size:13.5px;color:#26241f}
+.chain-note{font-size:12px;line-height:1.5;color:#5d5749;opacity:0;max-height:0;overflow:hidden;transition:opacity .35s,max-height .35s}
+.chain-node.on{border-color:#0d5c4f;background:#eef4f1}
+.chain-node.on .chain-idx{background:#0d5c4f}
+.chain-node.on .chain-note{opacity:1;max-height:90px}
+.chain.done .chain-node{border-color:#0d5c4f;background:#e2efe9}
+.chain-done{display:none;margin-top:12px;padding:9px 14px;border-radius:8px;background:#0d5c4f;color:#fffdf8;font-weight:700}
+.chain-done.show{display:block}
+.rate-btn{border:1.5px solid #0d5c4f;background:#fffdf8;color:#0d5c4f;padding:7px 18px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+.rate-btn:hover{background:#eef4f1}
+.rate-btn.active{background:#0d5c4f;color:#fffdf8}
+</style>
+</head><body>
+<a class="lang-switch" href="../../02-货币银行学/0003-中央银行与货币政策.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Money &amp; Banking</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header"><div class="kicker">Money &amp; Banking · Lesson 3</div><h1>Central Banks and Monetary Policy</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Beginner</span><span>Prerequisites: Lesson 2 · Fractional Reserve Banking and Money Creation</span></div></header>
+
+<p class="lead">Commercial banks can create deposit money, but the master switch of the whole game sits in the central bank's hands. This lesson introduces the central bank's three functions and three policy tools, then tracks how one rate cut travels through six links, step by step, down to the monthly mortgage payment you and I make.</p>
+
+<h2>1. The Central Bank: The Bankers' Bank</h2>
+<p>A <span class="term" data-def="The institution in charge of issuing currency, safeguarding financial stability, and providing clearing and liquidity support to the banking system">central bank</span> does not do business with you; it serves banks and the system as a whole. Its three functions:</p>
+<h3>1. A monopoly on issuing currency</h3>
+<p>Banknotes are issued exclusively by the central bank. This is the ultimate source of money's credit, and the foundation of all its influence.</p>
+<h3>2. The bankers' bank</h3>
+<p>Commercial banks park their reserves in accounts at the central bank and settle interbank payments across its books; more important, the central bank acts as the <span class="term" data-def="The role of stepping in with emergency liquidity when a bank is strained and no one else will lend to it">lender of last resort</span> — when a bank suffers a run and no peer dares lend to it, the central bank steps in with a backstop loan, keeping panic from toppling the whole system like dominoes (the Federal Reserve played this role at scale during the 2008 financial crisis).</p>
+<h3>3. Safeguarding financial stability</h3>
+<p>It formulates and carries out <span class="term" data-def="The central bank's adjustments of money and interest rates aimed at stable prices and full employment">monetary policy</span>, watching over prices, employment, and the stability of the financial system — cooling things down in a boom and propping things up in a downturn.</p>
+
+<h2>2. The Three Policy Tools</h2>
+<table class="data">
+<thead><tr><th>Tool</th><th>Typical operation</th><th>The mechanism in one line</th></tr></thead>
+<tbody>
+<tr><td><span class="term" data-def="The benchmark rate the central bank sets and announces; the anchor for pricing funds across the whole market">policy rate</span></td><td>China: the 7-day reverse repo rate and the medium-term lending facility (MLF) rate, plus guidance that moves the loan prime rate (LPR) lower; US: the federal funds rate</td><td>Sets the “wholesale price” of funds for the whole market; rate changes ripple outward across maturities and credit, layer by layer</td></tr>
+<tr><td>Required reserve ratio</td><td>Raising or lowering the required reserve ratio</td><td>Changes the lending ceiling each ¥1 of deposits can derive (last lesson's money multiplier, 1/rr)</td></tr>
+<tr><td><span class="term" data-def="Operations in which the central bank buys or sells government bonds, central bank bills, and the like to manage liquidity">open market operations</span></td><td>Buying or selling government bonds and central bank bills; conducting repo and reverse repo operations</td><td>Injects or withdraws monetary base directly — the most frequently used tool for day-to-day liquidity fine-tuning</td></tr>
+</tbody>
+</table>
+
+<h2>3. The Transmission Chain: A Rate Cut's Six-Step Journey</h2>
+<p>Once a tool is engaged, the effect does not appear in an instant; it travels along a chain, link by link:</p>
+<p><strong>① The central bank cuts the policy rate → ② interbank rates fall → ③ deposit and loan rates come down → ④ borrowing costs fall for firms and households → ⑤ investment and consumption recover → ⑥ prices and employment improve</strong></p>
+<p>If any link jams (say, banks are afraid to lend or firms unwilling to borrow), the transmission fades — which is why central banks keep stressing the need to “unclog the transmission mechanism.” The animation below lights up the six steps for you.</p>
+
+<div class="widget">
+<div class="widget-title">A 25bp Rate Cut: Six-Step Transmission Animation</div>
+<div class="widget-body">
+<div class="widget-controls">
+<button type="button" class="fbtn" id="chain-run">Start transmission</button>
+</div>
+<div class="chain" id="chain">
+<div class="chain-node"><span class="chain-idx">1</span><div class="chain-name">Central bank cuts the policy rate 25bp</div><div class="chain-note">The 7-day reverse repo and MLF rates are cut, signaling easing</div></div>
+<div class="chain-node"><span class="chain-idx">2</span><div class="chain-name">Interbank rates fall</div><div class="chain-note">Funding prices such as DR007 follow the policy rate lower</div></div>
+<div class="chain-node"><span class="chain-idx">3</span><div class="chain-name">Deposit and loan rates come down</div><div class="chain-note">LPR quotes move down; rates on newly issued loans follow</div></div>
+<div class="chain-node"><span class="chain-idx">4</span><div class="chain-name">Borrowing costs fall</div><div class="chain-note">Rates drop on business loans and household mortgages</div></div>
+<div class="chain-node"><span class="chain-idx">5</span><div class="chain-name">Investment and consumption recover</div><div class="chain-note">More projects clear the bar; willingness to buy homes and cars rises</div></div>
+<div class="chain-node"><span class="chain-idx">6</span><div class="chain-name">Prices and employment improve</div><div class="chain-note">Aggregate demand picks up; employment and inflation move toward target</div></div>
+</div>
+<div class="chain-done" id="chain-done">✓ Transmission complete: lower rates diffuse through the six steps and finally reach prices and employment</div>
+</div>
+</div>
+
+<h2>4. Directional Effects: Rate Cuts and Hikes</h2>
+<div class="callout callout-info"><span class="callout-title">Directional effects (usually in this direction, never guaranteed)</span><p>Rate cut: borrowing gets cheaper → credit expands and investment and consumption warm up — usually good for stocks and bonds (the discount rate on future cash flows falls), and mortgage payments decline. A hike works the other way: borrowing gets dearer → credit tightens, usually weighing on stock and bond prices, and payments rise. Note that this is only the “usual direction” — actual outcomes also depend on market confidence, expectations, and the external environment; a rate cut does not necessarily lift the stock market right away.</p></div>
+
+<h3>One step further: the debate over central bank independence</h3>
+<p>Should monetary policy answer to the government? Supporters of independence argue that an independent central bank can resist the political temptation to “print money for growth” and guard the currency's stability; critics counter that a central bank is untouched by elections yet deeply affects millions of households, so someone must hold it accountable. Institutional arrangements differ across countries, and this debate still has no final verdict.</p>
+
+<h2>5. Running the Numbers: How a Cut Lands on Your Mortgage</h2>
+<p>Take a ¥1,000,000, 30-year (360-installment) mortgage with equal monthly installments. The payment formula:</p>
+<div class="formula">M = P · r(1+r)ⁿ ÷ ((1+r)ⁿ − 1), where r = annual rate ÷ 12 and n = 360</div>
+<div class="formula-note">P is the ¥1,000,000 loan principal, r the monthly rate, n the number of installments. Check: at an annual rate of 4.9%, M ≈ ¥5,307; at 4.65%, M ≈ ¥5,156; at 4.4%, M ≈ ¥5,008.</div>
+
+<div class="widget">
+<div class="widget-title">Monthly Payment Comparison: ¥1M · 30 Years · Equal Installments</div>
+<div class="widget-body">
+<div class="widget-controls">
+<button type="button" class="rate-btn active" data-rate="4.9">Annual rate 4.90%</button>
+<button type="button" class="rate-btn" data-rate="4.65">Annual rate 4.65%</button>
+<button type="button" class="rate-btn" data-rate="4.4">Annual rate 4.40%</button>
+</div>
+<div id="chart2" class="chart"></div>
+<div class="readout">
+<span class="pill">Monthly payment <b id="pay-m">—</b></span>
+<span class="pill">Vs. 4.9%, difference per month <b id="pay-diff">—</b></span>
+<span class="pill">Total interest difference over 30 years <b id="pay-int">—</b></span>
+</div>
+</div>
+</div>
+<p>Click through the buttons and feel it: cutting the annual rate from 4.9% to 4.4% — just half a percentage point — trims roughly ¥300 off the monthly payment and about ¥108,000 off total interest over 30 years. That seemingly distant “25bp” of policy rate, after crossing the whole transmission chain, is a very real sum in your own ledger.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Name the central bank's three functions: monopoly issuance, the bankers' bank, safeguarding financial stability</li>
+<li>Match the three tools — policy rate, required reserve ratio, open market operations — to their mechanisms</li>
+<li>Recite the six nodes of rate transmission and their order</li>
+<li>Use the equal-installment formula to compare monthly payments and total interest at different rates</li>
+<li>Tell a “usual direction” apart from a “guaranteed outcome”</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"The central bank sells government bonds on the open market and drains funds. Which type of tool is this?","options":["A reserve-ratio adjustment","A policy-rate adjustment","Open market operations"],"answer":2,"explain":"Buying and selling government bonds and central bank bills is the signature move of open market operations; it injects or withdraws monetary base and is the tool central banks use most frequently day to day."},
+{"q":"After a rate cut, what is the correct order along the transmission chain?","options":["Prices and jobs → investment and consumption → borrowing costs","Borrowing costs → investment and consumption → prices and jobs","Investment and consumption → borrowing costs → prices and jobs"],"answer":1,"explain":"A rate cut first lowers borrowing costs for firms and households, then lifts investment and consumption, and only at the end reaches prices and employment — the order cannot be flipped."},
+{"q":"After the central bank raises rates, which outcome is most likely?","options":["Mortgage payments get heavier","Business credit expands more easily","Bond prices rise across the board"],"answer":0,"explain":"A hike raises borrowing costs, and payments on floating-rate mortgages climb with it; easier credit expansion and broadly rising bond prices are the usual direction of a cut instead."},
+{"q":"What does “lender of last resort” mean?","options":["The central bank's exclusive right to issue banknotes","The central bank lends to banks in a crisis","Banks lend only to their most creditworthy customers"],"answer":1,"explain":"When a bank is squeezed for liquidity and no peer dares to lend, the central bank steps in as the lender of last resort, keeping one bank's run from turning into a systemic crisis."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#central-bank">central bank</a> · <a href="../reference/glossary.html#lender-of-last-resort">lender of last resort</a> · <a href="../reference/glossary.html#monetary-policy">monetary policy</a> · <a href="../reference/glossary.html#policy-rate">policy rate</a> · <a href="../reference/glossary.html#open-market-operations">open market operations</a></li>
+
+<li><a href="http://www.pbc.gov.cn/">People's Bank of China official website</a> — the primary source for monetary policy announcements and explanations of its tools</li>
+<li><a href="https://www.federalreserve.gov/education.htm">Federal Reserve Education</a> — the Federal Reserve's official education section</li>
+<li><a href="https://www.investopedia.com/terms/m/monetarypolicy.asp">Investopedia · Monetary Policy</a> — an English definition of monetary policy</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0002-fractional-reserve-banking-and-money-creation.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Fractional Reserve Banking and Money Creation</span></a>
+<a class="next" href="../04-investments/index.html"><span class="nav-label">Next branch</span><span class="nav-title">Investments</span></a>
+</nav>
+<footer class="lesson-footer"><span>Money &amp; Banking · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+/* Interactive widget 1: 25bp rate-cut transmission animation */
+(function () {
+  var run = document.getElementById('chain-run');
+  var wrap = document.getElementById('chain');
+  var done = document.getElementById('chain-done');
+  var nodes = [].slice.call(wrap.querySelectorAll('.chain-node'));
+  var timers = [];
+  run.addEventListener('click', function () {
+    timers.forEach(clearTimeout);
+    timers = [];
+    nodes.forEach(function (n) { n.classList.remove('on'); });
+    wrap.classList.remove('done');
+    done.classList.remove('show');
+    run.disabled = true;
+    nodes.forEach(function (n, i) {
+      timers.push(setTimeout(function () { n.classList.add('on'); }, 400 + i * 1000));
+    });
+    timers.push(setTimeout(function () {
+      wrap.classList.add('done');
+      done.classList.add('show');
+      run.disabled = false;
+    }, 400 + nodes.length * 1000 + 200));
+  });
+})();
+
+/* Interactive widget 2: monthly payment comparison (¥1M · 30 years · equal installments) */
+(function () {
+  var box = document.getElementById('chart2');
+  var oM = document.getElementById('pay-m'), oDiff = document.getElementById('pay-diff'), oInt = document.getElementById('pay-int');
+  var btns = [].slice.call(document.querySelectorAll('.rate-btn'));
+  var P = 1000000, N = 360;
+  function pay(rate) {
+    var r = rate / 100 / 12, f = Math.pow(1 + r, N);
+    return P * r * f / (f - 1);
+  }
+  var RATES = [4.9, 4.65, 4.4];
+  var NAMES = ['4.90%', '4.65%', '4.40%'];
+  var pays = RATES.map(function (x) { return pay(x); });
+  var c = new FChart(box, {
+    height: 300,
+    x: { min: 0.5, max: 3.5, ticks: [1, 2, 3], label: 'Annual rate', fmt: function (v) { return ({ 1: NAMES[0], 2: NAMES[1], 3: NAMES[2] })[v] || ''; } },
+    y: { min: 0, max: 1000000, label: 'Total interest over 30 years (¥)' }
+  });
+  function render(sel) {
+    c.clear();
+    for (var i = 0; i < RATES.length; i++) {
+      var total = pays[i] * N - P;
+      var col = i === sel ? '#0d5c4f' : '#c9c2b2';
+      c.bars([{ x0: i + 0.7, x1: i + 1.3, y: total, color: col }], { y0: 0 });
+      c.text(i + 1, total, '¥' + Math.round(total / 1000) + 'k', { dx: 0, dy: -10, anchor: 'middle', weight: 600, color: i === sel ? '#0d5c4f' : '#5d5749' });
+    }
+    var m = pays[sel], d = pays[0] - m;
+    oM.textContent = '¥' + fmtY(m) + ' / month';
+    if (d > 0.5) {
+      oDiff.textContent = 'Saves ¥' + fmtY(d);
+      oInt.textContent = 'Saves ¥' + Math.round(d * N).toLocaleString('zh-CN');
+    } else if (d < -0.5) {
+      oDiff.textContent = 'Costs ¥' + fmtY(-d);
+      oInt.textContent = 'Costs ¥' + Math.round(-d * N).toLocaleString('zh-CN');
+    } else {
+      oDiff.textContent = 'Baseline';
+      oInt.textContent = '¥0';
+    }
+  }
+  function fmtY(n) { return Math.round(n).toLocaleString('zh-CN'); }
+  btns.forEach(function (b, i) {
+    b.addEventListener('click', function () {
+      btns.forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      render(i);
+    });
+  });
+  render(0);
+})();
+</script>
+</body></html>

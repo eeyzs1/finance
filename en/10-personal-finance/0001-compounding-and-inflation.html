@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Personal Finance · Lesson 1: Compounding and Inflation · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Personal Finance, Lesson 1: Compounding and Inflation — an interactive lesson with a chart simulator and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../10-个人理财/0001-复利与通胀.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Personal Finance</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header"><div class="kicker">Personal Finance · Lesson 1</div><h1>Compounding and Inflation: Two Faces of Time</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Beginner</span><span>Prerequisites: none</span></div></header>
+<p class="lead">Time is the most powerful variable in personal finance: it can make money breed money, and it can quietly make money thinner. This lesson works through three sets of numbers that put <span class="term" data-def="Interest is added to the principal each period and itself earns interest — often called interest on interest.">compound interest</span> and <span class="term" data-def="A sustained rise in the price level that erodes the purchasing power of money.">inflation</span> side by side; by the end, &ldquo;start early&rdquo; will be burned into your muscle memory.</p>
+
+<h2>1. Compound Interest: Interest That Earns Interest</h2>
+<p>Under <span class="term" data-def="Interest computed only on the original principal, never on accumulated interest.">simple interest</span>, interest is forever computed on the original principal alone. Compound interest folds each period&rsquo;s interest into the principal, so the next period charges interest on principal plus interest together — colloquially, &ldquo;interest on interest.&rdquo; Its growth formula is a single line:</p>
+<div class="formula">FV = PV × (1 + r)^n</div>
+<div class="formula-note">FV = future value; PV = principal (present value); r = rate of return per period (as a decimal — 7% is written 0.07); n = number of periods.</div>
+<p>Plug in one case: ¥10,000 at 7% a year — after 10 years, 1 × 1.07^10 ≈ 1.97, about ¥19,700; after 30 years, 1 × 1.07^30 ≈ 7.61, about ¥76,100. The principal never changed and the return never changed; simply stretching time from 10 years to 30 nearly quadruples the ending value: the great majority of compounding&rsquo;s payoff piles up in the final few years.</p>
+<div class="callout callout-info"><span class="callout-title">Verify it yourself</span>
+<p>1.07^2 = 1.1449 → 1.07^4 = 1.1449 squared ≈ 1.3108 → 1.07^5 ≈ 1.4026 → 1.07^10 = 1.4026 squared ≈ 1.9672 → 1.07^20 ≈ 1.9672 squared ≈ 3.8697 → 1.07^30 = 3.8697 × 1.9672 ≈ 7.6123. A phone calculator can reproduce every step.</p></div>
+<div class="callout callout-tip"><span class="callout-title">Doubling, computed in your head</span>
+<p><span class="term" data-def="A mental shortcut: divide 72 by the annual return (in percent) to estimate the years needed for money to double.">rule of 72</span>: years to double ≈ 72 ÷ annual return (%). At 7% → about 10.3 years to double (the exact answer, ln2 ÷ ln1.07 ≈ 10.24 years — off by less than 1%); at 3% → about 24 years; at 12% → about 6 years. The higher the return, the faster the doubling — that is why you should care about the rate of return.</p></div>
+
+<h2>2. Simple vs. Compound: ¥180,000 Apart over 30 Years</h2>
+<p>How big is the gap? Take ¥100,000, an annual interest rate of 5%, and a 30-year deposit, and set the two head to head:</p>
+<table class="data">
+<thead><tr><th>Interest method</th><th>Formula</th><th>Value after 30 years</th></tr></thead>
+<tbody>
+<tr><td>Simple interest</td><td>¥100,000 × (1 + 5% × 30)</td><td>¥250,000</td></tr>
+<tr><td>Compound interest</td><td>¥100,000 × 1.05^30</td><td class="good">¥432,000</td></tr>
+</tbody>
+</table>
+<p>Check: 1.05^10 = 1.6289 → 1.05^20 ≈ 2.6533 → 1.05^30 ≈ 4.3219, so the compound value = ¥100,000 × 4.322 = ¥432,000; simple interest = ¥100,000 × 5% × 30 = ¥150,000, for an ending value of ¥250,000. The extra ¥182,000 or so from compounding is almost entirely &ldquo;interest on interest&rdquo; — and the longer the term, the larger its share.</p>
+
+<h2>3. Inflation: The Other Face of Time</h2>
+<p>Beyond the engine there is a headwind. Inflation slowly shrinks what each yuan can buy, so a return must be measured net of inflation: what you truly earn after stripping out price changes is the <span class="term" data-def="The gain in purchasing power after inflation; approximately the nominal return minus the inflation rate.">real return</span>.</p>
+<div class="formula">Real return ≈ nominal return − inflation</div>
+<div class="formula-note">The Fisher approximation; the exact form is (1 + nominal) ÷ (1 + inflation) − 1 — at everyday interest rates the two are nearly identical.</div>
+<div class="callout callout-warn"><span class="callout-title">Don&rsquo;t be soothed by nominal numbers</span>
+<p>A deposit paying a nominal 3% earns a real return of just 0.5% at 2.5% inflation; cash stuffed under the mattress loses about −2.4% a year in real terms, so after 30 years ¥10,000 keeps only about ¥4,767 of purchasing power — nearly halved. &ldquo;Safety&rdquo; that cannot outrun inflation is, in fact, a slow-motion loss.</p></div>
+
+<h2>4. The Power of Starting Early: Time Is Worth More Than Amount</h2>
+<p><span class="term" data-def="Investing a fixed amount at fixed intervals, which smooths out the average purchase price.">Dollar-cost averaging</span> is the lowest-effort way for ordinary people to put compounding to work: invest a fixed amount every payday, and let discipline replace market timing. Using the simplified convention of &ldquo;¥1,000 per month, ¥12,000 invested at each year-end, compounded annually at 7%,&rdquo; compare three starting ages (all investing through age 60):</p>
+<div class="formula">FV = C × ((1 + r)^n − 1) ÷ r</div>
+<div class="formula-note">Future value of an ordinary annuity: C = contribution per year, r = annual return, n = number of years. Simplified here to a single year-end contribution with annual compounding, so it is easy to check by hand.</div>
+<table class="data">
+<thead><tr><th>Starting age</th><th>Years invested</th><th>Total contributed</th><th>Value at 60 (approx.)</th></tr></thead>
+<tbody>
+<tr><td>Age 25</td><td>35 years</td><td>¥420,000</td><td class="good">¥1,659,000</td></tr>
+<tr><td>Age 35</td><td>25 years</td><td>¥300,000</td><td>¥759,000</td></tr>
+<tr><td>Age 45</td><td>15 years</td><td>¥180,000</td><td>¥302,000</td></tr>
+</tbody>
+</table>
+<p>Check: 1.07^35 ≈ 10.677, 1.07^25 ≈ 5.427, 1.07^15 ≈ 2.759. Plugging into the annuity formula: ¥12,000 × 138.24 ≈ ¥1,659,000; ¥12,000 × 63.25 ≈ ¥759,000; ¥12,000 × 25.13 ≈ ¥302,000. With exact monthly compounding all three figures would be higher (about ¥1.8 million over 35 years); the table keeps the annual simplification so you can verify it by hand.</p>
+<p>The person who starts at 25 contributes only ¥240,000 more than the one who starts at 45, yet ends up with about ¥1,360,000 more — the gap comes mostly from time, not from the amount. Starting early simply gives compounding a longer runway.</p>
+
+<h2>5. Hands-On: The Compounding Simulator</h2>
+<p>Now put all of the above variables into one machine. First drag only &ldquo;Years,&rdquo; then only &ldquo;Annual return,&rdquo; and feel which lever is longer. Under the defaults (¥10,000 principal, ¥1,000 contributed monthly, 7% annual return, 30 years, 2.5% inflation): the nominal ending value is about ¥1.3 million and its real purchasing power about ¥620,000 — exactly the direction the text promised.</p>
+<div class="widget">
+<div class="widget-title">Compounding Simulator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Initial principal <span class="val" id="pv-val">¥10,000</span><input type="range" id="pv" min="0" max="500000" step="1000" value="10000"></label></div>
+<div class="slider-row"><label>Monthly contribution <span class="val" id="pmt-val">¥1,000</span><input type="range" id="pmt" min="0" max="10000" step="100" value="1000"></label></div>
+<div class="slider-row"><label>Annual return <span class="val" id="rate-val">7.0%</span><input type="range" id="rate" min="1" max="12" step="0.5" value="7"></label></div>
+<div class="slider-row"><label>Years <span class="val" id="years-val">30 years</span><input type="range" id="years" min="1" max="40" step="1" value="30"></label></div>
+<div class="slider-row"><label>Inflation rate <span class="val" id="infl-val">2.5%</span><input type="range" id="infl" min="0" max="5" step="0.1" value="2.5"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill">Nominal ending value <b id="out-nominal">—</b></span>
+<span class="pill">Real purchasing power <b id="out-real">—</b></span>
+<span class="pill">Total contributed <b id="out-cost">—</b></span>
+<span class="pill">Gain share <b id="out-share">—</b></span>
+</div>
+</div>
+</div>
+<p>How it is computed: the nominal curve uses exact monthly compounding (monthly rate = annual rate ÷ 12), and real purchasing power = nominal value ÷ (1 + inflation)^years. The solid green line is the number in the account; the solid gold line is what that money actually buys — the widening gap between the two is inflation&rsquo;s bill.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div>
+<ul>
+<li>You can estimate a long-term investment with FV = PV × (1+r)^n and answer &ldquo;how long to double?&rdquo; on the spot with the rule of 72.</li>
+<li>You have seen the simple-vs-compound gap: at ¥100,000, 5%, 30 years, compounding finishes about ¥182,000 ahead.</li>
+<li>You can use &ldquo;real return ≈ nominal − inflation&rdquo; to see through &ldquo;safe&rdquo; products that cannot outrun inflation.</li>
+<li>Remember the three ages: start dollar-cost averaging ten years earlier, and the ending value more than doubles.</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"By the rule of 72, at a 9% annual return, roughly how long does it take for principal to double?","options":["About 8 years","About 6 years","About 4 years"],"answer":0,"explain":"72 ÷ 9 = 8, so about 8 years to double; the exact answer, ln2 ÷ ln1.09 ≈ 8.0 years, is nearly identical."},
+{"q":"¥100,000 deposited at 5% for 30 years: roughly how far apart are the simple- and compound-interest ending values?","options":["¥130,000","¥180,000","¥230,000"],"answer":1,"explain":"Simple interest: 10 + 10×5%×30 = 25 (×¥10,000) = ¥250,000; compound: 10 × 1.05^30 ≈ 43.2 (×¥10,000) ≈ ¥432,000 — a gap of about ¥182,000."},
+{"q":"A deposit pays a nominal 3% while inflation runs at 2.5%. What is the real return?","options":["5.5%","2.5%","0.5%"],"answer":2,"explain":"Fisher approximation: real ≈ nominal − inflation = 3% − 2.5% = 0.5%; the exact formula gives 1.03 ÷ 1.025 − 1 ≈ 0.49%, essentially the same."},
+{"q":"Same ¥1,000 monthly contribution, same 7% annual return, all invested through age 60: who ends up with the most?","options":["Starting at 35","Starting at 25","Starting at 45"],"answer":1,"explain":"The longer the horizon, the longer compounding rolls: 35 years ≈ ¥1,659,000, 25 years ≈ ¥759,000, 15 years ≈ ¥302,000 — ten years earlier, more than double the result."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div>
+<ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#compound-interest">compound interest</a> · <a href="../reference/glossary.html#inflation">inflation</a> · <a href="../reference/glossary.html#simple-interest">simple interest</a> · <a href="../reference/glossary.html#rule-of-72">rule of 72</a> · <a href="../reference/glossary.html#real-return">real return</a> · <a href="../reference/glossary.html#dca">dollar-cost averaging</a></li>
+
+<li><a href="https://www.investopedia.com/terms/c/compoundinterest.asp">Investopedia: Compound Interest</a></li>
+<li><a href="https://www.investopedia.com/terms/r/ruleof72.asp">Investopedia: Rule of 72</a></li>
+<li><a href="https://www.gov.cn/">Gov.cn</a> — introduction to the individual pension system (search &ldquo;individual pension&rdquo; on the home page).</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch Overview</span></a><a class="next" href="0002-asset-allocation-and-the-life-cycle.html"><span class="nav-label">Next lesson</span><span class="nav-title">Asset Allocation and the Life Cycle</span></a></nav>
+
+<footer class="lesson-footer"><span>Personal Finance · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  function $(id){return document.getElementById(id);}
+  function wan(v){return "¥"+(v/1000000).toFixed(2)+"M";}
+  function draw(){
+    var P=parseFloat($("pv").value),PMT=parseFloat($("pmt").value),
+        r=parseFloat($("rate").value)/100,yrs=parseInt($("years").value,10),
+        inf=parseFloat($("infl").value)/100;
+    $("pv-val").textContent="¥"+P.toLocaleString("en-US");
+    $("pmt-val").textContent="¥"+PMT.toLocaleString("en-US");
+    $("rate-val").textContent=(r*100).toFixed(1)+"%";
+    $("years-val").textContent=yrs+(yrs===1?" year":" years");
+    $("infl-val").textContent=(inf*100).toFixed(1)+"%";
+    var i=r/12;
+    var nomFn=function(t){var f=Math.pow(1+i,12*t);return (P*f+PMT*((f-1)/i))/10000;};
+    var realFn=function(t){return nomFn(t)/Math.pow(1+inf,t);};
+    var nom=nomFn(yrs)*10000,real=realFn(yrs)*10000,cost=P+PMT*12*yrs;
+    $("out-nominal").textContent=wan(nom);
+    $("out-real").textContent=wan(real);
+    $("out-cost").textContent=wan(cost);
+    $("out-share").textContent=nom>0?(((nom-cost)/nom)*100).toFixed(1)+"%":"—";
+    var ymax=Math.max(10,Math.ceil(nom/10000*1.1/5)*5);
+    var el=$("chart1");
+    if(typeof FChart==="undefined"){el.textContent="Chart component not loaded";return;}
+    el.innerHTML="";
+    var c=new FChart(el,{height:340,x:{min:0,max:yrs,label:"Years"},y:{min:0,max:ymax,label:"Account value (¥10k)"}});
+    c.area(nomFn,{fill:"#0d5c4f",fillOpacity:0.08,y0:0});
+    c.hline(cost/10000,{label:"Total contributed"});
+    c.path(nomFn,{color:"#0d5c4f",width:2.5});
+    c.path(realFn,{color:"#a3701a",width:2.5});
+    c.legend([{color:"#0d5c4f",text:"Nominal value"},{color:"#a3701a",text:"Real purchasing power"}]);
+  }
+  ["pv","pmt","rate","years","infl"].forEach(function(id){$(id).addEventListener("input",draw);});
+  draw();
+})();
+</script>
+</body></html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Corporate Finance · Lesson 3: Introduction to Valuation · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Corporate Finance, Lesson 3: Introduction to Valuation — an interactive lesson with chart simulators and an inline quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../03-公司金融/0003-公司估值入门.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Corporate Finance</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header"><div class="kicker">Corporate Finance · Lesson 3</div><h1>Introduction to Valuation</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: Lesson 2 on capital structure</span></div></header>
+<p class="lead">What is a company actually worth? <span class="term" data-def="Converting a company’s future rewards and risks into a price today">Valuation</span> is not guessing tomorrow’s share price; it is converting two questions — how much can it earn, and how much risk must be borne — into a single number you would pay today. This lesson hands you two rulers: <strong>relative valuation</strong>, which compares a company with others, and <strong>absolute valuation</strong>, which works it out from the company itself — and lets you see with your own eyes how one nudge of an assumption moves the whole valuation.</p>
+
+<h2>1. Relative valuation: P/E — the “years to earn it back” intuition</h2>
+<p>The most widely used relative-valuation yardstick is the <span class="term" data-def="Share price divided by earnings per share; how many years of current earnings you are paying for">price-to-earnings ratio (P/E)</span>: <strong>P/E = share price ÷ earnings per share (EPS)</strong>. The intuition is easy — at today’s earnings level, how many years to “earn your money back”? A 20× P/E is roughly a “20-year payback” (ignoring growth).</p>
+<p><strong>Example</strong>: a company has EPS of ¥2 and a reasonable industry P/E of 20×, so a fair share price is about 20 × 2 = <strong>¥40</strong>. Check: 40 ÷ 2 = 20× — holds. Conversely, if the current price is ¥60, the P/E is 30×, clearly expensive for the industry, unless you have reason to believe the company will grow faster than its peers.</p>
+<div class="callout callout-warn"><span class="callout-title">Three ways P/E distorts</span><p>① <strong>A loss-making company has no P/E</strong> — with a negative denominator, the metric simply breaks; ② <strong>a low P/E at the top of a cycle is “fake cheapness”</strong> — at the peak, earnings are abnormally high, which inflates the denominator and makes the P/E look low; once earnings fall back, the “bargain” shows its true colors; ③ <strong>high-growth companies deserve high P/Es</strong> — growth sharply shortens the true payback period, and slapping a 20× on a fast grower often condemns it unfairly.</p></div>
+<h3>Price-to-book ratio (P/B): how much you pay for ¥1 of book assets</h3>
+<p><span class="term" data-def="Share price divided by book value per share; the price paid for ¥1 of book net assets">Price-to-book ratio (P/B)</span> = share price ÷ book value per share. It suits asset-heavy industries such as banking, steel, and power — there, the assets are the business. But asset-light companies (brands, software, patents) earn far beyond their book net assets, so their P/B runs high year after year, and comparing through P/B becomes distorted.</p>
+<h3>EV/EBITDA: smoothing out capital structure and depreciation policy</h3>
+<p><span class="term" data-def="Enterprise value divided by earnings before interest, taxes, depreciation, and amortization; a fairer valuation yardstick for cross-company comparison">EV/EBITDA</span> = enterprise value (market cap + net debt) ÷ earnings before interest, taxes, depreciation, and amortization. The numerator counts debt in; the denominator strips interest, taxes, and depreciation out — smoothing away differences in capital structure and accounting policy as far as possible. Fairer than P/E when comparing across companies and countries, it is the darling of M&A and investment banking.</p>
+
+<div class="widget">
+<div class="widget-title">Interactive lab · P/E valuator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Earnings per share EPS <span class="val" id="eps-val">¥2.0</span><input type="range" id="eps" min="0.5" max="10" step="0.1" value="2"></label></div>
+<div class="slider-row"><label>Industry benchmark P/E <span class="val" id="pe-val">20×</span><input type="range" id="pe" min="8" max="60" step="1" value="20"></label></div>
+<div class="slider-row"><label>Stock premium <span class="val" id="prem-val">+0%</span><input type="range" id="prem" min="-30" max="50" step="1" value="0"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pe-lo"></span><span class="pill" id="pe-mid"></span><span class="pill" id="pe-hi"></span></div>
+<p>Value = EPS × P/E traces a straight line through the origin; the gold vertical line is the industry benchmark, and the red dot is the current price at benchmark × (1 + premium). The three bands: pessimistic = benchmark × 0.75, neutral = benchmark, optimistic = benchmark × (1 + premium). Drag the sliders to get a feel for whether EPS or P/E moves the needle more.</p>
+</div>
+</div>
+
+<h2>2. Absolute valuation: DCF and the Gordon growth model</h2>
+<p>Relative valuation compares with others; absolute valuation works from the company itself. <span class="term" data-def="Valuing a company today by discounting and summing its future free cash flows period by period">Discounted cash flow (DCF)</span> holds that a company’s value = the sum of all its future free cash flows discounted to today — exactly the Lesson 1 NPV idea draped over an entire company. For companies whose dividends grow at a steady rate, discounting to infinity condenses into one elegant formula — the <span class="term" data-def="The infinite-discounting formula for steadily growing dividends, V = D₁/(r − g)">Gordon growth model</span>:</p>
+<div class="formula">V = D₁ ÷ (r − g)<div class="formula-note">D₁ = next year’s dividend; r = the discount rate (the return shareholders require, often benchmarked on Lesson 2’s WACC); g = the perpetual dividend growth rate; the formula requires r to stay above g at all times.</div></div>
+<p><strong>Example</strong>: D₁ = ¥5, r = 10%, g = 4%: V = 5 ÷ (0.10 − 0.04) = 5 ÷ 0.06 ≈ <strong>¥83.3</strong>.</p>
+<p><strong>The tug-of-war between r and g is the real protagonist</strong>: raise g from 4% to 5% and the denominator shrinks from 0.06 to 0.05, so V jumps from 83.3 to 5 ÷ 0.05 = <strong>¥100</strong> — the assumption moved a single percentage point, and the valuation rose 20% (check: 100 ÷ 83.3 = 1.2).</p>
+<div class="callout callout-key"><span class="callout-title">Nudge an assumption, move the whole valuation</span><p>The mathematics of DCF is always correct; the problems always live in the assumptions. g and r are both estimates, the denominator r − g is so small, and the valuation is extremely sensitive to both. The next time you see a “target price of ¥100”, ask first: what assumptions was it fed?</p></div>
+
+<div class="widget">
+<div class="widget-title">Interactive lab · Gordon sensitivity curve</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Discount rate r <span class="val" id="r-val">10.0%</span><input type="range" id="r" min="8" max="12" step="0.1" value="10"></label></div>
+<div class="slider-row"><label>Perpetual growth rate g <span class="val" id="g-val">4.0%</span><input type="range" id="g" min="2" max="6" step="0.1" value="4"></label></div>
+</div>
+<div class="chart" id="chart2"></div>
+<div class="readout"><span class="pill" id="g-now"></span><span class="pill" id="g-next"></span></div>
+<p>D₁ is fixed at ¥5 and the curve is V = 5 ÷ (r − g): the green dot is V at the current g, and the gold dot is V after “g up one percentage point”. Note the curve steepens toward the right — the closer g gets to r, the bigger the valuation wave stirred up by the same one-point change in an assumption (the code enforces g ≤ r − 1%).</p>
+</div>
+</div>
+
+<h2>3. Why the “story” matters</h2>
+<p>You may have noticed: neither g nor r is “looked up” in a market-data terminal; both are inferred from the company’s story — product penetration, pricing power, and competitive moats set g; the interest-rate environment, business risk, and shareholder patience set r. Change the story, and the assumptions change, and the valuation turns upside down. That is why the same company’s “fair price” can differ twofold between a bull market and a bear market: what changed is not just the price, but the narrative.</p>
+<div class="callout callout-tip"><span class="callout-title">A healthy workflow</span><p>Use the model to organize the logic, use the story to test the assumptions, and use the market price to test both. When the three quarrel, that is not a disaster — it is where research begins.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>The P/E “years to earn it back” intuition, the 20 × 2 = ¥40 example, and the three distortion cases</li>
+<li>P/B fits asset-heavy industries; EV/EBITDA smooths out capital-structure and depreciation differences</li>
+<li>The DCF idea and the Gordon model V = D₁ ÷ (r − g), with the 5 ÷ 0.06 ≈ ¥83.3 check</li>
+<li>Sensitivity intuition: g moves one point and the valuation rises 20%; the science of valuation lies in the formulas, the art lies in the assumptions</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[{"q":"A company’s share price is ¥48 and its earnings per share (EPS) is ¥3. What is its P/E?","options":["12×","16×","20×","24×"],"answer":1,"explain":"P/E = share price ÷ EPS = 48 ÷ 3 = 16×, meaning a 16-year ‘payback’ at current earnings."},{"q":"In which of these cases is a low P/E most likely ‘fake cheapness’?","options":["A steadily run utility","A fast-growing tech darling","A start-up with chronic losses","A cyclical stock at peak earnings"],"answer":3,"explain":"At the top of a cycle, abnormally high earnings inflate the P/E’s denominator and make it look cheap; once earnings fall, the P/E soars instead — the classic ‘low P/E at the cyclical top is fake cheapness’. A chronically loss-making company simply has no usable P/E at all."},{"q":"Gordon model: D₁ = ¥4, r = 10%, g = 8%. What is the value per share?","options":["¥100","¥150","¥200","¥250"],"answer":2,"explain":"V = D₁ ÷ (r − g) = 4 ÷ 0.02 = ¥200. With r − g only two percentage points, the denominator is tiny and the valuation is extraordinarily sensitive to the assumptions."},{"q":"In a DCF valuation, if the perpetual growth rate g is raised while r is unchanged, the valuation will usually:","options":["Rise sharply","Rise slightly","Stay unchanged","Necessarily fall"],"answer":0,"explain":"g sits inside the denominator r − g: a larger g shrinks the denominator fast and inflates the valuation — as when 5 ÷ 0.06 ≈ ¥83.3 becomes 5 ÷ 0.05 = ¥100, a 20% rise from a one-point move in g. That is ‘nudge an assumption, move the whole valuation’."}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#valuation">valuation</a> · <a href="../reference/glossary.html#pe">price-to-earnings ratio</a> · <a href="../reference/glossary.html#p-b">price-to-book ratio</a> · <a href="../reference/glossary.html#ev-ebitda">EV/EBITDA</a> · <a href="../reference/glossary.html#dcf">discounted cash flow</a> · <a href="../reference/glossary.html#gordon-growth-model">Gordon growth model</a></li>
+
+<li><a href="https://www.investopedia.com/terms/p/price-earningsratio.asp">Price-to-Earnings Ratio (P/E) — Investopedia</a> — using the P/E, and its pitfalls</li>
+<li><a href="https://www.investopedia.com/terms/d/dcf.asp">Discounted Cash Flow (DCF) — Investopedia</a> — the full DCF valuation workflow</li>
+<li><a href="https://en.wikipedia.org/wiki/Dividend_discount_model">Dividend discount model — Wikipedia</a> — the derivation behind the Gordon growth model</li>
+</ul></div>
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0002-capital-structure-and-leverage.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Capital Structure and Leverage</span></a>
+<a href="../08-behavioral-finance/index.html" class="next"><span class="nav-label">Next branch: Behavioral Finance</span><span class="nav-title">Behavioral Finance · Branch home</span></a>
+</nav>
+<footer class="lesson-footer"><span>Corporate Finance · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var epsEl = document.getElementById("eps");
+  var peEl = document.getElementById("pe");
+  var premEl = document.getElementById("prem");
+  var epsVal = document.getElementById("eps-val");
+  var peVal = document.getElementById("pe-val");
+  var premVal = document.getElementById("prem-val");
+  var lo = document.getElementById("pe-lo");
+  var mid = document.getElementById("pe-mid");
+  var hi = document.getElementById("pe-hi");
+  var c1 = new FChart(document.getElementById("chart1"), {
+    height: 340,
+    x: { min: 8, max: 60, label: "P/E (×)" },
+    y: { min: 0, max: 660, label: "Per-share value (¥)" }
+  });
+  function drawPE() {
+    var eps = parseFloat(epsEl.value);
+    var pe = parseFloat(peEl.value);
+    var prem = parseFloat(premEl.value) / 100;
+    epsVal.textContent = "¥" + eps.toFixed(1);
+    peVal.textContent = pe + "×";
+    premVal.textContent = (prem >= 0 ? "+" : "") + Math.round(prem * 100) + "%";
+    c1.clear();
+    c1.path(function (x) { return eps * x; }, { color: "#0d5c4f", width: 2.5 });
+    c1.vline(pe, { color: "#a3701a", label: "Industry benchmark " + pe + "×" });
+    var px = pe * (1 + prem);
+    var py = eps * px;
+    c1.scatter([[Math.min(px, 59.5), Math.min(py, 640), "#b3372f", "Current price ¥" + py.toFixed(1)]], { r: 6 });
+    lo.textContent = "Pessimistic ¥" + (pe * 0.75 * eps).toFixed(1);
+    mid.textContent = "Neutral ¥" + (pe * eps).toFixed(1);
+    hi.textContent = "Optimistic ¥" + py.toFixed(1);
+  }
+  epsEl.addEventListener("input", drawPE);
+  peEl.addEventListener("input", drawPE);
+  premEl.addEventListener("input", drawPE);
+  drawPE();
+
+  var D1 = 5;
+  var rEl = document.getElementById("r");
+  var gEl = document.getElementById("g");
+  var rVal = document.getElementById("r-val");
+  var gVal = document.getElementById("g-val");
+  var pNow = document.getElementById("g-now");
+  var pNext = document.getElementById("g-next");
+  var c2 = new FChart(document.getElementById("chart2"), {
+    height: 340,
+    x: { min: 2, max: 6, label: "Perpetual growth rate g (%)" },
+    y: { min: 0, max: 300, label: "Per-share value (¥)" }
+  });
+  function drawG() {
+    var r = parseFloat(rEl.value);
+    var g = parseFloat(gEl.value);
+    if (g > r - 1) { g = r - 1; gEl.value = g; }
+    rVal.textContent = r.toFixed(1) + "%";
+    gVal.textContent = g.toFixed(1) + "%";
+    var V = function (x) { return D1 / ((r - x) / 100); };
+    c2.clear();
+    c2.path(V, { color: "#0d5c4f", width: 2.5 });
+    var v0 = V(g);
+    var g2 = Math.min(g + 1, 6);
+    var v1 = V(g2);
+    var pct = ((v1 / v0 - 1) * 100).toFixed(0);
+    c2.scatter([
+      [g, v0, "#0d5c4f", "Current V ¥" + v0.toFixed(1)],
+      [g2, v1, "#a3701a", "g+1% → ¥" + v1.toFixed(1)]
+    ], { r: 5 });
+    pNow.textContent = "Current V ≈ ¥" + v0.toFixed(1);
+    pNext.textContent = "g+1% → ¥" + v1.toFixed(1) + " (" + (pct >= 0 ? "+" : "") + pct + "%)";
+  }
+  rEl.addEventListener("input", drawG);
+  gEl.addEventListener("input", drawG);
+  drawG();
+})();
+</script>
+</body></html>

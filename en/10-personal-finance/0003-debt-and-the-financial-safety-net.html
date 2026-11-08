@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Finance · Lesson 3: Debt and the Financial Safety Net · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Personal Finance, Lesson 3: Debt and the Financial Safety Net — an interactive lesson with a chart simulator and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 2px}
+.seg button{font:inherit;font-size:.95em;padding:6px 16px;border:1px solid #c9c2b4;border-radius:999px;background:#f6f3ec;color:#3f3a30;cursor:pointer}
+.seg button.active{background:#0d5c4f;border-color:#0d5c4f;color:#fff}
+</style>
+</head>
+<body>
+<a class="lang-switch" href="../../10-个人理财/0003-债务与财务安全网.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Personal Finance</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header"><div class="kicker">Personal Finance · Lesson 3</div><h1>Debt and the Financial Safety Net</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Beginner</span><span>Prerequisites: Lesson 2</span></div></header>
+<p class="lead">Investing is offense; paying down debt and building safety nets is defense. No prudent investment reliably outruns credit-card debt at 18% a year — repair the balance sheet first, then talk about compounding. This lesson is the construction blueprint for a financial safety net, running from high-interest debt through the emergency fund to insurance and your credit record.</p>
+
+<h2>1. The Interest-Rate Spectrum of Debt</h2>
+<p>Borrow the same ¥10,000, and the interest owed a year later can differ several-fold across debt types. First figure out where on the spectrum each of your debts sits:</p>
+<table class="data">
+<thead><tr><th>Debt type</th><th>Typical annual rate</th><th>Term / collateral</th><th>One-line comment</th></tr></thead>
+<tbody>
+<tr><td>Home mortgage</td><td class="good">About 3%–5%</td><td>Up to 30 years / property collateral</td><td>The lowest rate and the longest term</td></tr>
+<tr><td>Auto loan</td><td>About 4%–8%</td><td>1–5 years / vehicle collateral</td><td>A car purchase is consumption — stay within your means</td></tr>
+<tr><td>Consumer loans / credit-card installments</td><td class="bad">About 8%–18%</td><td>1–3 years / unsecured</td><td>The quoted fee often understates the true annualized rate</td></tr>
+<tr><td>Online / small cash loans</td><td class="bad">Often higher</td><td>Months to 1 year / unsecured</td><td>Check the effective annual rate; use with care</td></tr>
+</tbody>
+</table>
+<p>The ranges above were typical at the time of writing and serve only as teaching reference points; your own loan contract and regulatory disclosures govern. Note also: a credit-card installment plan quoting &ldquo;0.6% fee per period&rdquo; usually works out to a true annualized rate above 13%.</p>
+<p>Most consumer loans are repaid by <span class="term" data-def="A repayment schedule with a fixed installment each month; interest makes up most of the early payments, principal most of the later ones.">amortization (equal installments)</span>: the monthly payment is fixed, with interest dominating early on and principal later — which also means the earlier you prepay, the more interest you save.</p>
+<div class="callout callout-key"><span class="callout-title">Good debt or bad debt: rate and use</span><p>Two tests: ① how high is the rate; ② where did the money go. A 3.8% mortgage that finances a home you live in, with a comfortable cushion for the monthly payment, can be rational &ldquo;good debt&rdquo;; an 18% credit-card installment buying something that depreciates fast is almost certainly &ldquo;bad debt.&rdquo; Rule of thumb: any debt whose rate exceeds the expected return of your prudent portfolio (most people estimate 5%–8%) should be cleared first.</p></div>
+
+<h2>2. Avalanche vs. Snowball: Which Debt First?</h2>
+<p>Suppose you are carrying two debts at once, with a fixed monthly amount for repayment. Which debt does the spare cash attack first? Two classic answers:</p>
+<p><span class="term" data-def="A repayment order that targets the highest-rate debt first, minimizing total interest.">Debt avalanche method</span>: pay off the <strong>highest-rate</strong> debt first. Mathematically it minimizes total interest — the &ldquo;theoretically optimal&rdquo; answer.<br>
+<span class="term" data-def="A repayment order that targets the smallest balance first, delivering the quickest sense of progress.">Debt snowball method</span>: pay off the <strong>smallest-balance</strong> debt first. It wipes out a whole debt soonest, and the &ldquo;one more gone&rdquo; sense of achievement keeps the discipline alive.</p>
+<p>Mathematically optimal is not the same as behaviorally optimal: if your self-discipline is strong, use the avalanche and not a cent of extra interest is paid; if you tend to give up halfway, treat the snowball&rsquo;s extra interest as tuition for the psychology of sticking with it. The shared bottom line of both methods: <strong>take on no new debt while repaying</strong>. Use the simulator below to see how much the two orders differ at your own monthly payment.</p>
+
+<div class="widget">
+<div class="widget-title">⚖️ Debt Payoff Strategy Simulator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Total monthly payment<span class="val" id="pay-val">¥3,000</span><input type="range" id="pay" min="1500" max="6000" step="50" value="3000"></label></div>
+<div class="seg" id="strategy-seg">
+<button type="button" data-order="rate" class="active">Avalanche</button>
+<button type="button" data-order="size">Snowball</button>
+</div>
+</div>
+<div class="chart" id="debt-chart"></div>
+<div class="readout">
+<span class="pill" id="av-m">Avalanche: paid off in 47 months</span>
+<span class="pill" id="av-i">Avalanche: total interest ≈ ¥29,600</span>
+<span class="pill" id="sb-m">Snowball: paid off in 52 months</span>
+<span class="pill" id="sb-i">Snowball: total interest ≈ ¥44,900</span>
+<span class="pill" id="save-i">Avalanche saves ≈ ¥15,000 vs. snowball</span>
+</div>
+<p id="plan-desc" style="margin:10px 0 0">Current focus: the avalanche — attack Debt A at 18% (¥80,000) first; pay only the interest on Debt B each month (about ¥125); once A hits zero, throw everything at B. Mathematically, total interest is the least.</p>
+<p style="margin:6px 0 0;font-size:.9em;color:#5d5749">Example debts: A — balance ¥80,000, 18% a year; B — balance ¥30,000, 5% a year. Model simplifications: interest compounds monthly; the non-target debt pays only that month's interest each month (a minimum payment ≈ interest), and everything else goes to the target debt; prepayment penalties and differences in minimum-payment rules are not included.</p>
+</div>
+</div>
+
+<p>Verify by hand (default ¥3,000 per month): the first month&rsquo;s interest = 80000 × 18% ÷ 12 + 30000 × 5% ÷ 12 = 1200 + 125 = <strong>¥1,325</strong>; under the avalanche, about ¥1,675 that month genuinely cuts principal. At the defaults the avalanche pays off in about 47 months with roughly ¥29,600 total interest; the snowball takes about 52 months with roughly ¥44,900 — the avalanche pays about ¥15,000 less in interest and lands ashore about 5 months sooner (exact figures follow the simulator&rsquo;s live output).</p>
+
+<h2>3. The Emergency Fund: Before Any Investing</h2>
+<p>An <span class="term" data-def="A highly liquid reserve covering 3–6 months of essential expenses.">emergency fund</span> is 3–6 months of the household&rsquo;s essential expenses, kept in a money market fund or a demand deposit — the point is not the return but &ldquo;withdrawable anytime, with almost no loss.&rdquo;</p>
+<p>Why 3–6 months? It covers the two most common shocks: the window of finding a new job after a layoff, and a medical event that must be paid up front. The more rigid your expenses (mortgage, children) and the less stable your income (freelance, sales), the closer you should sit to 6 months or more.</p>
+<p>Why before any investing? Without an emergency fund, one accident forces you to sell at the market&rsquo;s low or borrow at 18% a year — destroying compounding and composure at the same time. It amounts to running a <a href="../06-risk-management/0003-stress-testing-and-hedging.html">stress test</a> on the household finances first: work out what carries you through the worst case, and only then decide how much investment risk you can take.</p>
+
+<h2>4. Insurance and Your Credit Record: The Last Two Lines of Defense</h2>
+<p><strong>Insurance</strong>: four basic protections — life, critical illness, medical, and accident — use a small, certain premium to transfer the large risks that could punch through years of savings, forming the household&rsquo;s protective net; see the <a href="../09-insurance-and-actuarial-science/index.html">Insurance &amp; Actuarial Science</a> branch for details.</p>
+<p><strong>Credit record</strong>: missed payments on loans and credit cards are reported to the People's Bank of China credit-reference system and directly affect the rates and limits on your future mortgage or auto loan. Paying on time and not overextending your credit keeps your record clean — itself the most overlooked form of &ldquo;saving money.&rdquo;</p>
+<div class="callout callout-key"><span class="callout-title">The build order for the safety net</span><p>First keep a small pool of ready cash to prevent &ldquo;borrowing to service debt&rdquo;; then concentrate firepower on clearing high-interest debt; then fill the 3–6 month emergency fund and basic protections — only once all of these are in place does long-term investing truly begin.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>You can rank your debts from lowest to highest rate and spot at a glance the high-interest debt to kill first</li>
+<li>You can tell the debt avalanche from the debt snowball and choose a payoff order that matches your follow-through</li>
+<li>You remember: emergency fund = 3–6 months of essential expenses, built before any investing</li>
+<li>You understand how the insurance safety net and your credit record together form the financial safety net</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"Ranked by typical interest rates from lowest to highest, which ordering is usually correct?","options":["Mortgage < auto loan < online loans","Auto loan < mortgage < online loans","Online loans < mortgage < auto loan"],"answer":0,"explain":"Mortgages, secured by property and long-dated, usually carry the lowest rate; auto loans sit in the middle; unsecured online and consumer loans are highest — the rate broadly reflects the borrower's risk and the collateral."},
+{"q":"For someone on a tight monthly budget who needs the win of quickly wiping out one debt to stay the course, the better fit is:","options":["Paying the highest rate first","Paying the smallest balance first","The two are no different"],"answer":1,"explain":"This is the snowball's home turf: clearing the smallest balance first delivers the fastest 'one debt gone' feedback, trading a little extra interest for the willpower to continue; the cost is slightly more total interest than the avalanche."},
+{"q":"How many months of essential household expenses should an emergency fund cover at minimum, as usually advised?","options":["One to two months","Ten months or more","Three to six months"],"answer":2,"explain":"Three to six months of expenses lets a household ride out shocks such as job loss or medical bills without being forced to dump investments at a low or borrow at high rates; households with unstable income should lean toward the longer end."},
+{"q":"Before starting long-term investing, the first spare cash should usually go to:","options":["Building the emergency fund","Adding to stock funds","Buying whole-life insurance"],"answer":0,"explain":"Without an emergency fund, one accident can wreck the whole investment plan; first set aside 3–6 months of expenses (while clearing high-interest debt), then talk about investing."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#amortization">amortization (equal installments)</a> · <a href="../reference/glossary.html#avalanche-method">debt avalanche method</a> · <a href="../reference/glossary.html#snowball-method">debt snowball method</a> · <a href="../reference/glossary.html#emergency-fund">emergency fund</a></li>
+
+<li><a href="https://www.investopedia.com/terms/d/debt-avalanche.asp">Investopedia: Debt Avalanche</a></li>
+<li><a href="https://www.investopedia.com/terms/e/emergency_fund.asp">Investopedia: Emergency Fund</a></li>
+<li><a href="https://ipcrs.pbccrc.org.cn/">Credit Reference Center of the People's Bank of China</a> — personal credit report inquiries.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0002-asset-allocation-and-the-life-cycle.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Asset Allocation and the Life Cycle</span></a>
+<a class="next" href="../09-insurance-and-actuarial-science/index.html"><span class="nav-label">Next branch</span><span class="nav-title">Insurance &amp; Actuarial Science</span></a>
+</nav>
+<footer class="lesson-footer"><span>Personal Finance · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  /* ===== Debt payoff strategy simulator =====
+     Debt A: balance 80000, annual rate 18%; Debt B: balance 30000, annual rate 5%.
+     Simplified model: interest compounds monthly; the non-target debt pays only
+     that month's interest, and everything else goes to the target debt. */
+  var payEl=document.getElementById('pay');
+  var payVal=document.getElementById('pay-val');
+  var strategy='rate';
+  function simulate(pay,order){
+    var a={bal:80000,r:0.18/12,int:0};
+    var b={bal:30000,r:0.05/12,int:0};
+    var pts=[[0,(a.bal+b.bal)/10000]];
+    var m=0;
+    while((a.bal>0.005||b.bal>0.005)&&m<600){
+      m++;
+      var ia=a.bal*a.r,ib=b.bal*b.r;
+      a.bal+=ia;b.bal+=ib;a.int+=ia;b.int+=ib;
+      var tgt,non,nInt;
+      if(a.bal<=0.005||b.bal<=0.005){
+        tgt=a.bal>0.005?a:b;
+      }else if(order==='rate'){
+        tgt=a.r>b.r?a:b;
+      }else{
+        tgt=a.bal<b.bal?a:b;
+      }
+      non=tgt===a?b:a;
+      nInt=non===a?ia:ib;
+      var p=pay;
+      var toNon=Math.min(p,nInt);p-=toNon;non.bal-=toNon;
+      var toTgt=Math.min(p,tgt.bal);p-=toTgt;tgt.bal-=toTgt;
+      if(p>0){var ex=Math.min(p,non.bal);non.bal-=ex;p-=ex;}
+      pts.push([m,Math.max(0,a.bal+b.bal)/10000]);
+    }
+    return {months:m,interest:a.int+b.int,pts:pts};
+  }
+  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+  function draw(){
+    var pay=parseFloat(payEl.value);
+    payVal.textContent='¥'+pay.toLocaleString('en-US');
+    var av=simulate(pay,'rate');
+    var sb=simulate(pay,'size');
+    var box=document.getElementById('debt-chart');
+    box.innerHTML='';
+    var el=document.createElement('div');
+    box.appendChild(el);
+    var xmax=Math.max(av.months,sb.months)+3;
+    var c=new FChart(el,{height:340,x:{min:0,max:xmax,label:'Months of repayment'},y:{min:0,max:11,label:'Remaining total debt (¥10k)'}});
+    c.path(av.pts,{color:'#0d5c4f',width:strategy==='rate'?3.2:1.8});
+    c.path(sb.pts,{color:'#a3701a',width:strategy==='size'?3.2:1.8});
+    c.legend([{color:'#0d5c4f',text:'Avalanche (highest rate first; less total interest)'},{color:'#a3701a',text:'Snowball (smallest balance first; clears one debt sooner)'}]);
+    document.getElementById('av-m').textContent='Avalanche: paid off in '+av.months+' months';
+    document.getElementById('av-i').textContent='Avalanche: total interest ≈ ¥'+fmt(av.interest);
+    document.getElementById('sb-m').textContent='Snowball: paid off in '+sb.months+' months';
+    document.getElementById('sb-i').textContent='Snowball: total interest ≈ ¥'+fmt(sb.interest);
+    document.getElementById('save-i').textContent='Avalanche saves ≈ ¥'+fmt(sb.interest-av.interest)+' vs. snowball';
+    document.getElementById('plan-desc').textContent=strategy==='rate'
+      ?'Current focus: the avalanche — attack Debt A at 18% (¥80,000) first; pay only the interest on Debt B each month (about ¥125); once A hits zero, throw everything at B. Mathematically, total interest is the least.'
+      :'Current focus: the snowball — attack the smallest balance, Debt B (¥30,000 at 5%), first; pay only the interest on Debt A each month (about ¥1,200); once B hits zero, throw everything at A. Total interest runs a bit higher, but the "one debt gone" boost comes fastest.';
+  }
+  payEl.addEventListener('input',draw);
+  var btns=document.querySelectorAll('#strategy-seg button');
+  for(var i=0;i<btns.length;i++){
+    (function(btn){
+      btn.addEventListener('click',function(){
+        strategy=btn.getAttribute('data-order');
+        for(var j=0;j<btns.length;j++){btns[j].className=(btns[j]===btn?'active':'');}
+        draw();
+      });
+    })(btns[i]);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>

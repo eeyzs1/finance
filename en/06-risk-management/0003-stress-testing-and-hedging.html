@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Risk Management · Lesson 3: Stress Testing and Hedging · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Risk Management, Lesson 3: Stress Testing and Hedging — an interactive lesson with chart simulators and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.scen-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 2px}
+.scen-btn{font:inherit;font-size:14px;padding:6px 14px;border:1px solid #0d5c4f;border-radius:999px;background:#fff;color:#0d5c4f;cursor:pointer}
+.scen-btn:hover{opacity:.85}
+.scen-btn.active{background:#0d5c4f;color:#fff}
+</style>
+</head>
+<body>
+<a class="lang-switch" href="../../06-风险管理/0003-压力测试与对冲.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Risk Management</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header"><div class="kicker">Risk Management · Lesson 3</div><h1>Stress Testing and Hedging</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced</span><span>Prerequisites: Lesson 2</span></div></header>
+<p class="lead">VaR tells you “on calm days, the most you lose 95% of the time”. What actually kills portfolios is precisely the other 5%. This lesson learns to imagine the worst case on purpose — stress testing — and to assemble the four response tools: diversification, hedging, insurance, and a capital buffer.</p>
+
+<h2>VaR’s Blind Spot: The Invisible Tail</h2>
+<div class="callout callout-warn"><span class="callout-title">Tail events fall outside the confidence interval</span><p>VaR has two weak flanks. First, by its nature it only cares about “inside the interval”, while tail events — the 2008 financial crisis, the March 2020 pandemic circuit-breaker — land precisely outside it: the model says “at 95% confidence you lose at most X”, and inside the remaining 5% hides unlimited loss. Second, it relies on a distribution fitted to historical data, while the fiercest market moves often take shapes history has never shown — a “once-in-a-century” event can arrive twice in a decade. The fall of a portfolio from its peak is called <span class="term" data-def="the maximum fall in portfolio value from a peak, measuring the deepest stretch of loss">drawdown</span>: in 2008 global stock markets commonly drew down about 50%, and in March 2020 the S&amp;P 500 drew down about 34% in a little over a month.</p></div>
+
+<h2>Stress Testing: Assume the Worst Case Directly</h2>
+<p><span class="term" data-def="assuming extreme but plausible scenarios and computing the portfolio loss directly, without relying on a probability distribution">Stress testing</span> sidesteps probabilities and confidence levels and asks one question directly: “If X happens, how much do I lose?” It does not predict whether X will happen; it only makes sure that when X does happen, you are not knocked out on the spot. Scenarios are usually built along two routes, together called <span class="term" data-def="selecting or constructing specific scenarios, assuming asset prices item by item, and computing the portfolio’s profit and loss">scenario analysis</span>:</p>
+<p><strong>Historical scenarios</strong>: take an extreme period that actually happened and replay it verbatim — for example, the 2008 financial crisis (equities about −50%, government bonds about +5% on safe-haven flows) or the 2020 pandemic crash (equities about −34%, credit bonds sold off too, about −5%). <strong>Hypothetical scenarios</strong>: ask “what if…?” — for instance, rates +200bp (a 2-percentage-point hike): bond prices fall, monthly payments on outstanding floating-rate mortgages rise, and richly valued growth stocks come under pressure.</p>
+<h3>A personal stress test</h3>
+<p>Institutions run stress tests, and so should households. Ask yourself two questions: If I am out of work for 6 months, will the money in my account cover rent or the mortgage plus living expenses? If my income is halved, can the repayments and existing plans still go on? If the answers make you uneasy, what you need is not higher returns but a thicker buffer — <strong>an emergency fund of 3–6 months of household expenses is the household’s risk capital</strong>.</p>
+
+<h2>The Response Toolkit: Four Essentials</h2>
+<table class="data">
+<thead><tr><th>Tool</th><th>How it works</th><th>Which risk it targets</th><th>One-line verdict</th></tr></thead>
+<tbody>
+<tr><td>Diversification</td><td>Spread across assets, markets, and borrowers</td><td>Concentration risk</td><td class="good">Don’t put all your eggs in one basket</td></tr>
+<tr><td>Hedging</td><td>Take offsetting positions with derivatives (<a href="../05-derivatives-and-financial-engineering/0001-futures-and-hedging.html">see Lesson 1 of the Derivatives branch</a>)</td><td>Systematic declines</td><td class="good">Pay a small cost to offset most of the drop</td></tr>
+<tr><td>Insurance</td><td>Pay a regular premium in exchange for a large payout when a covered event hits</td><td>Low-probability, high-severity losses</td><td>Transfers risks you could not bear</td></tr>
+<tr><td>Capital buffer</td><td>Highly liquid assets: cash, money market funds, emergency savings</td><td>Liquidity squeezes and drawdowns</td><td class="good">Weather the swings without being forced to sell</td></tr>
+</tbody>
+</table>
+<p>The last row of the table is the answer to the personal stress test: earmarked emergency savings don’t chase returns — they absorb losses when a shock arrives. They are the household’s <span class="term" data-def="a loss-absorbing layer of cash and other highly liquid assets, built to ride out shocks and avoid forced selling">capital buffer</span>.</p>
+
+<h2>Recovery Math: Avoiding Big Losses Beats Chasing Big Returns</h2>
+<p>Losses and gains are inherently asymmetric: falling is easy; climbing back is hard. After a fall of x, the gain needed to get back to the starting point is:</p>
+<div class="formula">Gain needed to recover = decline ÷ (1 − decline)<div class="formula-note">Check: a 50% decline → 0.5 ÷ 0.5 = 100%; 33.4% → 0.334 ÷ 0.666 ≈ 50.2%; 20% → 0.2 ÷ 0.8 = 25%; 10% → about 11.1%; 90% → 0.9 ÷ 0.1 = 900%. The deeper the decline, the faster the required recovery gain balloons — which is why controlling drawdowns outranks chasing returns.</div></div>
+<p>That is the mathematical case for “prevent the big loss first”: a steady portfolio earning +10% a year beats, over the long run, a boom-bust portfolio that occasionally halves, because −50% needs +100% just to draw even.</p>
+
+<h2>Interactive: The Portfolio Stress Simulator</h2>
+<p>The default portfolio is 60% equities / 30% bonds / 10% cash. The three sliders set <strong>relative proportions</strong>; the program normalizes them proportionally into actual weights. Click a scenario button, and the four bars show in real time the portfolio return of the current allocation under the four stress scenarios; the readouts below give the loss on a ¥1 million portfolio and the gain needed to recover. First check the defaults (2008 financial crisis): 60% × (−50%) + 30% × (+5%) + 10% × 0 = −28.5% → a loss of ¥285,000, needing a gain of 28.5 ÷ 71.5 ≈ 39.9% to recover.</p>
+<div class="widget">
+<div class="widget-title">Portfolio stress simulator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Equities (relative share)<span class="val" id="eq-val">60.0%</span><input type="range" id="eq" min="0" max="100" step="1" value="60"></label></div>
+<div class="slider-row"><label>Bonds (relative share)<span class="val" id="bd-val">30.0%</span><input type="range" id="bd" min="0" max="100" step="1" value="30"></label></div>
+<div class="slider-row"><label>Cash (relative share)<span class="val" id="cs-val">10.0%</span><input type="range" id="cs" min="0" max="100" step="1" value="10"></label></div>
+<div class="scen-row">
+<button type="button" class="scen-btn" data-s="0">Mild pullback</button>
+<button type="button" class="scen-btn active" data-s="1">2008 financial crisis</button>
+<button type="button" class="scen-btn" data-s="2">2020 pandemic</button>
+<button type="button" class="scen-btn" data-s="3">Stagflation scenario</button>
+</div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pill-scen">Scenario: 2008 financial crisis</span><span class="pill" id="pill-dd">Portfolio drawdown: −28.5%</span><span class="pill" id="pill-loss">Loss on ¥1m portfolio: ¥285,000</span><span class="pill" id="pill-rec">Gain needed to recover: 39.9%</span></div>
+</div>
+</div>
+<p>Drag the equities slider to 100 and click “2008 financial crisis”: you will see that a −50% drawdown needs +100% to recover — a first-hand experiment with the recovery math of the previous section.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Explain VaR’s blind spots: tail events sit outside the confidence interval, and the model depends on a historical distribution</li>
+<li>Run stress tests with historical and hypothetical scenarios, including the personal version (6 months out of work; income halved)</li>
+<li>Remember the recovery math: recovery gain = decline ÷ (1 − decline); preventing big losses comes first</li>
+<li>Assemble the four essentials: diversification, hedging, insurance, and a capital buffer (the emergency fund is the household’s risk capital)</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[{"q":"What is the main purpose of stress testing?","options":["Estimate the most likely median return","Measure losses in extreme scenarios","Predict the next trading day’s move","Raise the confidence interval to 99%"],"answer":1,"explain":"Stress testing sidesteps probabilities and confidence levels: it assumes extreme but plausible scenarios and computes the loss, covering VaR’s blind spot for tail events."},{"q":"After a portfolio drawdown of 25%, how much gain is needed to get back to the starting point?","options":["25.0%","50.0%","75.0%","33.3%"],"answer":3,"explain":"Recovery gain = 0.25 ÷ (1 − 0.25) = 33.3%. The deeper the fall, the bigger the gain needed — losses and gains are inherently asymmetric."},{"q":"Shorting stock index futures while holding equities belongs to which tool in the kit?","options":["Diversification","Insurance transfer","Hedging","Capital buffer"],"answer":2,"explain":"Building offsetting positions with derivatives such as futures and options to cancel out downside losses is hedging — see Lesson 1 of the Derivatives branch."},{"q":"An emergency fund covering 3–6 months of expenses is closest to which tool in the kit?","options":["Capital buffer","Hedging","Insurance transfer","Diversification"],"answer":0,"explain":"Emergency savings don’t chase returns; they absorb losses when a shock hits and prevent forced selling — in essence, the household version of a capital buffer."}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#drawdown">drawdown</a> · <a href="../reference/glossary.html#stress-test">stress testing</a> · <a href="../reference/glossary.html#scenario-analysis">scenario analysis</a> · <a href="../reference/glossary.html#capital-buffer">capital buffer</a></li>
+
+<li><a href="https://www.investopedia.com/terms/s/stresstest.asp">Investopedia: Stress Test</a> — the definition and uses of stress testing.</li>
+<li><a href="https://www.bis.org/">BIS — Bank for International Settlements</a> — official research on banking-system stress tests.</li>
+<li><a href="https://www.federalreserve.gov/">Federal Reserve</a> — primary material on regulatory stress tests and the CCAR program.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0002-credit-risk-and-expected-loss.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Credit Risk and Expected Loss</span></a>
+<a class="next" href="../07-international-finance/index.html"><span class="nav-label">Next branch</span><span class="nav-title">International Finance</span></a>
+</nav>
+<footer class="lesson-footer"><span>Risk Management · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var SCEN=[
+    {name:'Mild pullback',eq:-10,bd:-2},
+    {name:'2008 financial crisis',eq:-50,bd:5},
+    {name:'2020 pandemic',eq:-34,bd:-5},
+    {name:'Stagflation scenario',eq:-20,bd:-12}
+  ];
+  var cur=1;
+  var eqS=document.getElementById('eq'),bdS=document.getElementById('bd'),csS=document.getElementById('cs');
+  var eqV=document.getElementById('eq-val'),bdV=document.getElementById('bd-val'),csV=document.getElementById('cs-val');
+  var pSc=document.getElementById('pill-scen'),pDd=document.getElementById('pill-dd'),pLo=document.getElementById('pill-loss'),pRe=document.getElementById('pill-rec');
+  var chartEl=document.getElementById('chart1');
+  function sign(x,d){return (x>=0?'+':'−')+Math.abs(x).toFixed(d)+'%';}
+  function draw(){
+    var a=parseFloat(eqS.value),b=parseFloat(bdS.value),cc=parseFloat(csS.value);
+    var s=a+b+cc,w=s>0?[a/s,b/s,cc/s]:[0,0,0];
+    eqV.textContent=(w[0]*100).toFixed(1)+'%';
+    bdV.textContent=(w[1]*100).toFixed(1)+'%';
+    csV.textContent=(w[2]*100).toFixed(1)+'%';
+    var rets=SCEN.map(function(sc){return w[0]*sc.eq+w[1]*sc.bd;});
+    pSc.textContent='Scenario: '+SCEN[cur].name;
+    if(s<=0){
+      pDd.textContent='Portfolio drawdown: —';
+      pLo.textContent='Loss on ¥1m portfolio: —';
+      pRe.textContent='Gain needed to recover: —';
+    }else{
+      var r=rets[cur];
+      pDd.textContent='Portfolio drawdown: '+(r<0?'−'+(-r).toFixed(1)+'%':'0.0% (no loss)');
+      pLo.textContent=r<0?'Loss on ¥1m portfolio: ¥'+Math.round(-r*10000).toLocaleString('en-US'):'Loss on ¥1m portfolio: ¥0 (scenario return '+sign(r,1)+')';
+      pRe.textContent=r<0?'Gain needed to recover: '+((-r)/(100+r)*100).toFixed(1)+'%':'Gain needed to recover: 0.0%';
+    }
+    if(!window.FChart){return;}
+    var lo=Math.min(0,Math.min.apply(null,rets)),hi=Math.max(0,Math.max.apply(null,rets));
+    var c=new FChart(chartEl,{height:340,x:{min:0,max:4,label:'Stress scenarios (left→right: Mild / 2008 / 2020 / Stagflation)'},y:{min:lo<0?lo*1.15-1:-5,max:hi>0?hi*1.15+1:5,label:'Portfolio return (%)'}});
+    c.bars(rets.map(function(r,i){return {x0:i+0.12,x1:i+0.88,y:r,color:i===cur?'#b3372f':'#5d5749',label:SCEN[i].name};}),{y0:0});
+    for(var i=0;i<rets.length;i++){c.text(i+0.5,rets[i],sign(rets[i],1),{dx:8});}
+    c.legend([{color:'#b3372f',text:'Current scenario'},{color:'#5d5749',text:'Other scenarios'}]);
+  }
+  var btns=Array.prototype.slice.call(document.querySelectorAll('.scen-btn'));
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      cur=parseInt(btn.getAttribute('data-s'),10);
+      btns.forEach(function(x){x.classList.remove('active');});
+      btn.classList.add('active');
+      draw();
+    });
+  });
+  [eqS,bdS,csS].forEach(function(sl){sl.addEventListener('input',draw);});
+  draw();
+})();
+</script>
+</body></html>

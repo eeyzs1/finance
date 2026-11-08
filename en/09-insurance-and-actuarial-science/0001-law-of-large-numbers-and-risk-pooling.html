@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Insurance &amp; Actuarial Science · Lesson 1: Law of Large Numbers and Risk Pooling · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Insurance &amp; Actuarial Science, Lesson 1: Law of Large Numbers and Risk Pooling — an interactive lesson with a chart simulator and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../09-保险与精算/0001-大数法则与风险汇聚.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Insurance &amp; Actuarial Science</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header"><div class="kicker">Insurance &amp; Actuarial Science · Lesson 1</div><h1>Law of Large Numbers and Risk Pooling: Why Insurance Is Possible</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: none</span></div></header>
+<p class="lead">Whether one household suffers a disaster this year, nobody can say; yet ten thousand households added together produce a remarkably stable total of misfortune. Insurance, an ancient business, is built on precisely this mathematical law. This lesson explains it thoroughly and lets you run a risk-pool simulator with your own hands.</p>
+
+<h2>One household’s misfortune cannot be predicted</h2>
+<p>Picture Ms. Wang’s family: this year their old house has a 10% chance of a roughly ¥100,000 accidental loss — fire, a burst pipe, or debris falling from above smashing through the roof. That “10%” is almost useless to the household: by year’s end the loss either happens or it doesn’t; there is no such thing as “a tenth of a fire”. Looking at any single year, Ms. Wang can only sweat it out between dread and hope.</p>
+<p>These are exactly the two features of individual risk: <strong>whether it strikes is unpredictable, and once it does, the amount is hard to bear</strong>. Saving more doesn’t help either — you can’t know which year to save for, or how much would be enough.</p>
+
+<h2>Put ten thousand maybes into one pool</h2>
+<p>Now switch perspectives. Suppose there are 10,000 similar households, independent of one another, each with a 10% chance of one accident this year. Put their fates into a single pool — that is <span class="term" data-def="placing many people’s similar risks into one pool, replacing individual uncertainty with the predictability of the whole">risk pooling</span>.</p>
+<p>Ms. Wang alone faces just two outcomes, “0 or ¥100,000”; for the whole pool, the question becomes “how many accidents occur in 10,000 independent trials”. The answer will be tightly concentrated: most likely swinging in a narrow band around 1,000 claims. Once the individual “can’t says” are added up, they turn into the group’s “can say”.</p>
+<div class="callout callout-info"><span class="callout-title">The key premise: independence</span><p>The households in the pool must not affect one another — one family’s fire doesn’t spread to the next (in this model). Remember this premise; at the end of the lesson we’ll see what happens when it breaks.</p></div>
+
+<h2>The law of large numbers: a law that compresses volatility</h2>
+<p>This phenomenon is no coincidence but a rigorously provable theorem — the <span class="term" data-def="the average of independent repeated events converges to the expected value as the number of trials grows">law of large numbers</span>: the average result of independent repeated events moves ever closer to the expected value as the number of trials grows; and the scale of the fluctuations shrinks at the rate σ/√n.</p>
+<div class="formula">σ(per person) ≈ σ(one person) / √n
+<div class="formula-note">σ(one person) is the standard deviation of a single household’s outcome; n is the number of households in the pool. The expectation hasn’t moved a cent — what changes is the swing around it: quadruple the headcount and √4 = 2, so per-person volatility halves; multiply the headcount by 100 and per-person volatility drops to one-tenth.</div></div>
+<div class="callout callout-tip"><span class="callout-title">Intuition: why exactly √n</span><p>Independent households’ deviations point in unrelated directions: some have a bad year, others a lucky one. When you add them up, most of the upward and downward deviations cancel each other, and the residual net volatility scales as exactly √n. The bigger the pool, the cleaner the cancellation.</p></div>
+
+<h2>Work it through: a 10% chance of a ¥10,000 loss per person</h2>
+<p>To keep the arithmetic easy to do in your head, set every household’s loss at ¥10,000 (swap the story’s ¥100,000 for ¥10,000 and the conclusion is identical — only the number of zeros changes). The number of claims follows a binomial distribution: expected number of claims = np, SD of the count = √(np(1−p)), and each claim pays ¥10,000, so the amounts are just the counts × 10,000. The craft of doing this accounting and pricing for a living is called <span class="term" data-def="the discipline that uses mathematics and statistics to price risk and insurance">actuarial science</span>.</p>
+<table class="data">
+<thead><tr><th>Pool size n</th><th>Mode</th><th>Expected total payouts</th><th>Total payout SD σ</th><th>Per-person payout (±1σ)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Self-insured</td><td>¥1,000</td><td class="bad">¥3,000</td><td class="bad">0 or ¥10,000</td></tr>
+<tr><td>100</td><td>Pooled</td><td>¥100,000</td><td>¥30,000</td><td>¥1,000 ± 300</td></tr>
+<tr><td>10,000</td><td>Pooled</td><td>¥10,000,000</td><td class="good">¥300,000</td><td class="good">¥1,000 ± 30</td></tr>
+</tbody>
+</table>
+<p>Check the SDs: at n = 100, √(100×0.1×0.9) = √9 = 3 claims, i.e. ¥30,000; at n = 10,000, √(10000×0.1×0.9) = √900 = 30 claims, i.e. ¥300,000. Divide by headcount for per-person volatility: ¥300 → ¥30 — exactly one-tenth, because the headcount grew 100-fold while volatility shrank only by √100 = 10.</p>
+<p>Notice the most important comparison: <strong>no matter how large the pool, the per-person expectation stays ¥1,000 — not a cent saved; what changes is the volatility.</strong> Insurance does not sell “a lower expected cost”; it sells “smaller volatility” — and that is exactly where next lesson’s premium pricing begins.</p>
+
+<div class="callout callout-key"><span class="callout-title">What insurance really is</span><p>Insurance does not eliminate risk; it trades an “uncertain large loss” for a “certain small premium”. Nor do insurers profit because they get lucky: for each policyholder, the payout is the violent 0-or-¥10,000; for the whole pool, it is a steady ¥1,000 × headcount. Insurers turn the group’s predictability into a business — collect a certain premium, pay a certain aggregate bill, and stand on the side of the law of large numbers.</p></div>
+
+<h2>Risk-pool simulator: roll the dice a thousand times yourself</h2>
+<p>Now verify the formulas above with a <span class="term" data-def="a simulation method that approximates answers from the statistics of many random trials">Monte Carlo simulation</span>: drag the sliders to set the pool size n and the claim probability p (each claim pays a fixed ¥10,000), click the button, and the program simulates “this year” in 1,000 parallel worlds, tallies each world’s annual total payout, and draws the distribution. Run it once at n = 100 and again at n = 10,000; the histogram narrows visibly.</p>
+
+<div class="widget">
+<div class="widget-title">Risk-Pool Simulator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Pool size n: <span class="val" id="n-val">1,000 people</span><input type="range" id="n-slider" min="0" max="9" step="1" value="5"></label></div>
+<div class="slider-row"><label>Claim probability p: <span class="val" id="p-val">10%</span><input type="range" id="p-slider" min="2" max="30" step="1" value="10"></label></div>
+<p>Each claim pays a fixed ¥10,000; claims within the pool are independent.</p>
+<button type="button" id="run-btn">Simulate a year (1,000 Monte Carlo runs)</button>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill" id="pill-mu">Theoretical mean np: —</span>
+<span class="pill" id="pill-sig">Theoretical σ: —</span>
+<span class="pill" id="pill-mean">Simulated mean: —</span>
+<span class="pill" id="pill-sd">Simulated SD: —</span>
+<span class="pill" id="pill-per">Per-person σ: —</span>
+<span class="pill" id="pill-ci">95% interval per person: —</span>
+</div>
+</div>
+</div>
+
+<p>Watch for two patterns. First, the simulated mean and SD always hug the theoretical values np and √(np(1−p)). Second, the larger n gets, the narrower the histogram and the more it resembles a bell curve — the normal distribution at work underneath. An insurer’s grip on the “95% interval of per-person payouts” comes from exactly here.</p>
+
+<h2>The boundary: when risks are no longer independent</h2>
+<div class="callout callout-warn"><span class="callout-title">The law of large numbers holds only for independent risks</span><p>Earthquakes, floods, and pandemics are <strong>correlated risks</strong>: one event triggers nearly every policy in the pool at once. The “10,000 independent trials” degenerate into “one giant trial”; losses no longer offset one another, and volatility no longer shrinks as √n — a single disaster can punch through the entire pool. The remedy is <span class="term" data-def="an arrangement in which an insurer transfers risks it has written to other insurers">reinsurance</span>: insurers buy insurance for their own pool, spreading one city’s concentrated earthquake risk across the globe.</p></div>
+<p>This also explains two facts of life: catastrophe cover and pandemic-related lines are expensive and scarce; and only a handful of reinsurance giants worldwide — Munich Re, Swiss Re — are willing to underwrite their tails. Independence is the most expensive premise in the mathematics of insurance.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Understand why individual risk is unpredictable while group risk can be priced (risk pooling)</li>
+<li>Use σ/√n to gauge volatility: quadruple the headcount and per-person volatility halves</li>
+<li>Compute expected payouts np, the SD √(np(1−p)), and the 95% interval per person</li>
+<li>State what insurance really is (a certain small outlay in place of an uncertain large loss) and its limits (correlated risk, reinsurance)</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"A risk pool grows from 400 to 1,600 members, all else equal. Under the σ/√n rule, what happens to the volatility of per-person payouts?","options":["It stays where it was","It falls to half","It grows four times as large","It grows twice as large"],"answer":1,"explain":"Volatility scales as σ/√n: the headcount quadruples, √4 = 2, so per-person volatility halves. The expectation is unchanged — only the uncertainty got compressed."},
+{"q":"10,000 independent households, each with a 10% chance of a ¥10,000 loss; the SD of total payouts is about ¥300,000. Roughly what is the 95% interval for per-person payouts?","options":["About ¥700 ~ 1,300","About ¥500 ~ 1,500","About ¥940 ~ 1,060","About ¥990 ~ 1,010"],"answer":2,"explain":"Per-person σ = ¥300,000 ÷ 10,000 = ¥30; the 95% interval is roughly 1,000 ± 1.96 × 30 ≈ 1,000 ± 59, i.e. about ¥941 ~ 1,059."},
+{"q":"In one sentence, what is the essence of insurance?","options":["Swapping an uncertain loss for a certain small outlay","Insurers stay profitable only through good luck","Eliminating every risk entirely before it strikes","Making losses never happen again once you are insured"],"answer":0,"explain":"Insurance does not eliminate risk; it swaps a “large uncertain loss” for a “small certain premium”. Insurers profit steadily by standing on the side of the law of large numbers, not on luck."},
+{"q":"Why can correlated risks such as earthquakes and pandemics break the law of large numbers?","options":["The claim probability falls as the pool grows","Companies cannot compute their expected losses","They are not an insurable class of risk at all","Policies are not independent — claims hit at once"],"answer":3,"explain":"The law of large numbers presumes independence: a disaster triggers nearly all claims at once, losses no longer offset one another, and volatility no longer shrinks with headcount as √n — which is why insurers turn to reinsurance to spread the risk."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#risk-pooling">risk pooling</a> · <a href="../reference/glossary.html#law-of-large-numbers">law of large numbers</a> · <a href="../reference/glossary.html#actuarial-science">actuarial science</a> · <a href="../reference/glossary.html#monte-carlo-simulation">Monte Carlo simulation</a> · <a href="../reference/glossary.html#reinsurance">reinsurance</a></li>
+
+<li><a href="https://www.investopedia.com/terms/l/lawoflargenumber.asp">Law of Large Numbers — Investopedia</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/大数定律">Law of Large Numbers — Wikipedia</a></li>
+<li><a href="https://www.investopedia.com/terms/r/reinsurance.asp">Reinsurance — Investopedia</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch Overview</span></a><a class="next" href="0002-how-premiums-are-priced.html"><span class="nav-label">Next lesson</span><span class="nav-title">How Premiums Are Priced</span></a></nav>
+<footer class="lesson-footer"><span>Insurance &amp; Actuarial Science · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+/* This lesson’s interactive: the risk-pool simulator */
+(function () {
+  var N_STEPS = [10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
+  var RUNS = 1000;
+  var nSlider = document.getElementById('n-slider');
+  var pSlider = document.getElementById('p-slider');
+  var nVal = document.getElementById('n-val');
+  var pVal = document.getElementById('p-val');
+  var chartEl = document.getElementById('chart1');
+  var runBtn = document.getElementById('run-btn');
+  var pills = {
+    mu: document.getElementById('pill-mu'),
+    sig: document.getElementById('pill-sig'),
+    mean: document.getElementById('pill-mean'),
+    sd: document.getElementById('pill-sd'),
+    per: document.getElementById('pill-per'),
+    ci: document.getElementById('pill-ci')
+  };
+
+  function thou(x) {
+    var s = String(Math.round(Math.abs(x))).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (x < 0 ? '-' : '') + s;
+  }
+  function fmt1(x) {
+    var sign = x < 0 ? '-' : '';
+    x = Math.abs(x);
+    var i = Math.floor(x + 1e-9);
+    var d = Math.round((x - i) * 10);
+    if (d >= 10) { i += 1; d -= 10; }
+    return sign + thou(i) + (d > 0 ? '.' + d : '');
+  }
+  function getN() { return N_STEPS[parseInt(nSlider.value, 10)]; }
+  function getP() { return parseInt(pSlider.value, 10) / 100; }
+
+  function updateTheory() {
+    var n = getN(), p = getP();
+    var mu = n * p, sig = Math.sqrt(n * p * (1 - p));
+    nVal.textContent = thou(n) + ' people';
+    pVal.textContent = Math.round(p * 100) + '%';
+    pills.mu.textContent = 'Theoretical mean np: ¥' + fmt1(mu * 10000);
+    pills.sig.textContent = 'Theoretical σ: ¥' + fmt1(sig * 10000);
+    pills.per.textContent = 'Per-person σ: ¥' + thou(sig / n * 10000);
+    var lo = (mu - 1.96 * sig) / n * 10000;
+    var hi = (mu + 1.96 * sig) / n * 10000;
+    pills.ci.textContent = '95% interval per person: ¥' + thou(Math.max(0, lo)) + ' ~ ¥' + thou(hi);
+    pills.mean.textContent = 'Simulated mean: move a slider, then re-run';
+    pills.sd.textContent = 'Simulated SD: move a slider, then re-run';
+  }
+
+  function simulate() {
+    if (typeof FChart === 'undefined') {
+      chartEl.textContent = 'Chart library failed to load: make sure ../assets/charts.js is reachable.';
+      return;
+    }
+    var n = getN(), p = getP();
+    var mu = n * p, sig = Math.sqrt(n * p * (1 - p));
+    var totals = [], r, i, k;
+    for (r = 0; r < RUNS; r++) {
+      k = 0;
+      for (i = 0; i < n; i++) { if (Math.random() < p) k++; }
+      totals.push(k); /* number of claims × ¥10,000; unit: ¥10k */
+    }
+    var mean = 0;
+    for (r = 0; r < RUNS; r++) mean += totals[r];
+    mean /= RUNS;
+    var m2 = 0;
+    for (r = 0; r < RUNS; r++) m2 += (totals[r] - mean) * (totals[r] - mean);
+    var sd = Math.sqrt(m2 / (RUNS - 1));
+
+    /* histogram: 20 bins; range covers the data and the theory ±2.5σ */
+    var lo = mu - 2.5 * sig, hi = mu + 2.5 * sig;
+    for (r = 0; r < RUNS; r++) {
+      if (totals[r] < lo) lo = totals[r];
+      if (totals[r] > hi) hi = totals[r];
+    }
+    if (lo < 0) lo = 0;
+    if (hi - lo < 1e-9) hi = lo + 1;
+    var pad = (hi - lo) * 0.02;
+    lo -= pad; hi += pad;
+    var bins = 20, w = (hi - lo) / bins;
+    var counts = [], b;
+    for (b = 0; b < bins; b++) counts.push(0);
+    for (r = 0; r < RUNS; r++) {
+      b = Math.floor((totals[r] - lo) / w);
+      if (b < 0) b = 0;
+      if (b > bins - 1) b = bins - 1;
+      counts[b] += 1;
+    }
+    var maxC = 0;
+    for (b = 0; b < bins; b++) if (counts[b] > maxC) maxC = counts[b];
+
+    var bars = [];
+    for (b = 0; b < bins; b++) {
+      bars.push({ x0: lo + b * w, x1: lo + (b + 1) * w, y: counts[b], color: '#0d5c4f' });
+    }
+    chartEl.innerHTML = '';
+    var c = new FChart(chartEl, {
+      height: 340,
+      x: { min: lo, max: hi, label: 'Annual total payout (¥10k)' },
+      y: { min: 0, max: Math.max(5, Math.ceil(maxC * 1.15)), label: 'Occurrences (per 1,000 runs)' }
+    });
+    c.bars(bars, { y0: 0 });
+    c.path(function (x) {
+      var z = (x - mu) / sig;
+      return RUNS * w * Math.exp(-0.5 * z * z) / (sig * Math.sqrt(2 * Math.PI));
+    }, { color: '#a3701a', width: 2.5 });
+    c.vline(mu, { color: '#b3372f', label: 'np' });
+    c.legend([
+      { color: '#0d5c4f', text: '1,000 simulations' },
+      { color: '#a3701a', text: 'Theoretical normal curve' },
+      { color: '#b3372f', text: 'Theoretical mean np' }
+    ]);
+    pills.mean.textContent = 'Simulated mean: ¥' + fmt1(mean * 10000);
+    pills.sd.textContent = 'Simulated SD: ¥' + fmt1(sd * 10000);
+  }
+
+  nSlider.addEventListener('input', updateTheory);
+  pSlider.addEventListener('input', updateTheory);
+  runBtn.addEventListener('click', simulate);
+  updateTheory();
+  simulate();
+})();
+</script>
+</body></html>

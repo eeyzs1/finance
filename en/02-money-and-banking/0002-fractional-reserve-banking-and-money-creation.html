@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Money &amp; Banking · Lesson 2: Fractional Reserve Banking and Money Creation · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Money &amp; Banking, Lesson 2 “Fractional Reserve Banking and Money Creation”: an interactive lesson with chart simulators and an inline quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg">
+</head><body>
+<a class="lang-switch" href="../../02-货币银行学/0002-部分准备金与货币创造.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Money &amp; Banking</a><span class="sep">/</span>Lesson 2</div>
+<header class="lesson-header"><div class="kicker">Money &amp; Banking · Lesson 2</div><h1>Fractional Reserve Banking and Money Creation</h1><div class="meta"><span class="tag">About 20 minutes</span><span>Difficulty: Beginner</span><span>Prerequisites: Lesson 1 · The Nature and Measurement of Money</span></div></header>
+
+<p class="lead">Deposit ¥1,000 at a bank and it will not lock the money in a vault. Through round after round of “lend — return — lend again,” the banking system as a whole can, at most, turn that ¥1,000 into ¥5,000 of deposit money. This lesson takes the mechanism apart step by step — a mechanism that is easily misunderstood yet critically important: money creation under fractional reserve banking.</p>
+
+<h2>1. A Bank Is Not a Vault</h2>
+<p>Many people imagine it like this: the bank takes your deposit, puts it in the vault, and waits for you to withdraw it — the bank is merely a “custodian of funds.” The reality: a modern commercial bank is closer to a “machine for circulating and creating funds.” When it receives a deposit, it keeps only a small slice as reserves, according to the <span class="term" data-def="The share of deposits that banks must hold back by law and may not lend out">required reserve ratio</span>, and lends the rest out; once the borrower spends the money, it does not vanish — it flows back into another bank (or the same one) as a new deposit; the new deposit is partly kept as reserves and partly lent again… and so the cycle repeats.</p>
+<div class="callout callout-key"><span class="callout-title">The core mechanism</span><p>Under fractional reserve banking, “loans create deposits”: a loan extended becomes a new deposit, and the new deposit supports yet another loan. The banking system's total deposits end up far larger than the cash that first flowed in.</p></div>
+
+<h2>2. Round by Round: How ¥100 Rolls into ¥500</h2>
+<p>Assume an initial deposit of ¥100 and a reserve ratio of 20%. Round 1: the bank takes the ¥100, keeps ¥20 as reserves, and lends ¥80. Round 2: the ¥80 flows back into a bank as a new deposit; ¥16 is kept, ¥64 is lent. Round 3: the ¥64 returns; ¥12.8 is kept, ¥51.2 is lent… A deposit formed by loaned money flowing back (as opposed to the original cash deposit) is called a <span class="term" data-def="A deposit formed when lent money flows back into the banking system, in contrast to the original initial deposit">derivative deposit</span>.</p>
+<table class="data">
+<thead><tr><th>Round</th><th>New deposit</th><th>Reserves kept (20%)</th><th>Lent this round</th><th>Cumulative deposits</th></tr></thead>
+<tbody>
+<tr><td>Round 1</td><td>100.00</td><td>20.00</td><td>80.00</td><td>100.00</td></tr>
+<tr><td>Round 2</td><td>80.00</td><td>16.00</td><td>64.00</td><td>180.00</td></tr>
+<tr><td>Round 3</td><td>64.00</td><td>12.80</td><td>51.20</td><td>244.00</td></tr>
+<tr><td>Round 4</td><td>51.20</td><td>10.24</td><td>40.96</td><td>295.20</td></tr>
+<tr><td>Round 5</td><td>40.96</td><td>8.19</td><td>32.77</td><td>336.16</td></tr>
+<tr><td>Round 6</td><td>32.77</td><td>6.55</td><td>26.21</td><td>368.93</td></tr>
+<tr><td>……</td><td>……</td><td>……</td><td>……</td><td>……</td></tr>
+<tr><td>Round n</td><td>100×0.8ⁿ⁻¹</td><td>New deposit × 20%</td><td>100×0.8ⁿ</td><td>100×(1−0.8ⁿ)÷0.2</td></tr>
+<tr><td>n→∞</td><td>Approaches 0</td><td>—</td><td>Approaches 0</td><td class="good">500.00</td></tr>
+</tbody>
+</table>
+<p>Cumulative deposits are the sum of a geometric series with common ratio 0.8:</p>
+<div class="formula">Cumulative deposits = 100 + 100×0.8 + 100×0.8² + 100×0.8³ + …<br>= 100 × (1 + 0.8 + 0.8² + …) = 100 × 1/(1−0.8) = 100 ÷ 0.2 = <strong>¥500</strong></div>
+<div class="formula-note">Sum of an infinite geometric series: S = a₁÷(1−q), with common ratio q = 0.8. Check (finite-sum formula Sₙ = a₁×(1−qⁿ)÷(1−q)): S₅ = 100×(1−0.8⁵)÷0.2 = 500×(1−0.32768) = 336.16, exactly matching the cumulative total after round 5 in the table; S₁₀ = 446.31 and S₂₀ = 494.24 march toward 500.</div>
+
+<h2>3. The Money Multiplier: The Theoretical Ceiling</h2>
+<p>The multiple by which each ¥1 of initial deposit is ultimately “amplified” is called the <span class="term" data-def="The multiple of deposit money ultimately derived from each unit of monetary base; the theoretical ceiling is 1 ÷ the reserve ratio">money multiplier</span>. The cash and bank reserves at the starting point of the cycle together are the <span class="term" data-def="Currency issued by the central bank plus reserves banks hold at the central bank; the original ammunition of money creation">monetary base</span> — the “original ammunition” of the whole derivation process.</p>
+<div class="formula">Money multiplier m = 1 ÷ reserve ratio rr　　Deposit ceiling = initial deposit × m</div>
+<div class="formula-note">Note: this is a <strong>theoretical ceiling</strong>. It assumes every loan flows back into the banking system, banks hold no excess reserves, and each round has enough loan demand — in reality the three rarely hold at once (see the next section).</div>
+<p>Plug in the numbers: at a 20% reserve ratio, m = 1÷0.2 = 5, so ¥100 → ¥500; at 10%, m = 10, so ¥100 → ¥1,000; raise the ratio to 50% and m is only 2. The higher the reserve ratio, the more money “leaks” out of the cycle and the smaller the multiple — one reason this is a lever the central bank uses to steer the money supply (more in the next lesson).</p>
+
+<div class="widget">
+<div class="widget-title">Money Creation Simulator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label for="mc-dep">Initial deposit (¥) <span class="val" id="mc-dep-val">1000</span></label><input type="range" id="mc-dep" min="100" max="5000" step="100" value="1000"></div>
+<div class="slider-row"><label for="mc-rr">Reserve ratio <span class="val" id="mc-rr-val">20%</span></label><input type="range" id="mc-rr" min="5" max="50" step="1" value="20"></div>
+<button type="button" class="fbtn" id="mc-run">Start round-by-round lending</button>
+</div>
+<div id="chart1" class="chart"></div>
+<div class="readout">
+<span class="pill">Cumulative deposits <b id="mc-out-dep">—</b></span>
+<span class="pill">Cumulative loans <b id="mc-out-loan">—</b></span>
+<span class="pill">Actual multiplier (cumulative ÷ initial) <b id="mc-out-mm">—</b></span>
+<span class="pill">Theoretical multiplier 1/rr <b id="mc-out-tm">—</b></span>
+</div>
+</div>
+</div>
+<p>Verify with the defaults: initial deposit ¥1,000, reserve ratio 20%. After 15 rounds, cumulative deposits = 1000×(1−0.8¹⁵)÷0.2 ≈ ¥4,824.08, already 96.5% of the theoretical ceiling 1000÷0.2 = ¥5,000; cumulative loans = 4824.08×0.8 ≈ ¥3,859.26. As the number of rounds goes to infinity, cumulative deposits converge exactly to ¥5,000 — the bars shrink round after round while the gold cumulative curve closes in on the gray dashed line.</p>
+
+<h2>4. Reality Check: Why the Actual Multiplier Is Much Smaller</h2>
+<div class="callout callout-info"><span class="callout-title">Three “leakages”</span><p>① Cash drain: people hold part of the money as cash, so it never returns to a bank; ② excess reserves: for safety, banks hold reserves above the legal minimum; ③ weak loan demand: in a slump, banks want to lend but nobody wants to borrow, and the cycle stalls midway. All three cut real-world money creation down to size.</p></div>
+<p>Combine the cash-drain rate and the excess-reserve rate into c, and the actual multiplier is roughly 1÷(rr+c). Example: with a 10% required reserve ratio, if drain plus excess reserves total 15%, the actual multiplier ≈ 1÷(0.10+0.15) = 4, far below the theoretical 10. That is why, when looking at the real money supply (M2), you cannot simply apply 1/rr.</p>
+
+<h2>5. A Key Clarification: Banks Cannot “Print Money for Their Own Spending”</h2>
+<div class="callout callout-warn"><span class="callout-title">The most common misconception</span><p>“Banks create money” ≠ “banks print money and spend it on themselves.” For every ¥1 a bank lends, it records a ¥1 deposit on the liability side — assets and liabilities rise together, and the bank's own net worth has not gained a single penny out of thin air. What banks create is “deposit money” (ledger money you can pay by transfer); their profits can come only from the spread between deposit and loan rates, and they remain bound by reserves, liquidity, and regulation. The only institution that can truly create monetary base “out of thin air” is the central bank — the protagonist of the next lesson.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Understand the multi-round “loans create deposits” cycle</li>
+<li>Derive the deposit ceiling with a geometric series (¥100 → ¥500)</li>
+<li>Remember that the money multiplier = 1 ÷ the reserve ratio, and that it is only a theoretical ceiling</li>
+<li>Name the three reasons the actual multiplier falls short: cash drain, excess reserves, weak loan demand</li>
+<li>Clear up the misconception that “banks print money to spend on themselves”</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"With a required reserve ratio of 10%, what is the theoretical money multiplier?","options":["20 times","10 times","50 times"],"answer":1,"explain":"The money multiplier = 1 ÷ reserve ratio = 1 ÷ 0.1 = 10. Be careful not to mistake the reciprocal for a product (0.1×10 would wrongly give 1), and not to confuse it with the 5 times you get at a 20% ratio."},
+{"q":"With an initial deposit of ¥100 and a 20% reserve ratio, what is the new deposit created in round 3?","options":["¥80.00","¥51.20","¥64.00"],"answer":2,"explain":"Each round's new deposit = 100×0.8^(round−1): round 1 gives 100, round 2 gives 80, round 3 gives 64 — only round 4 reaches 51.2."},
+{"q":"What is the most accurate reading of the claim that “banks can create money”?","options":["Lending creates new deposit liabilities and deposit money","Banks may privately print banknotes and spend them freely","Banks quietly pocket all the interest on depositors' savings"],"answer":0,"explain":"When a bank lends, assets (the loan) and liabilities (the deposit) rise at the same time; what is created is deposit money. A bank cannot print cash to spend on itself, and its profit comes from the deposit-loan spread."},
+{"q":"The real-world money multiplier is usually far below the theoretical ceiling. Which of the following is NOT a reason?","options":["Banks hold excess reserves","Banks must observe the reserve ratio","The public holds part of the money as cash"],"answer":1,"explain":"Observing the required reserve ratio is precisely the mechanism that produces the money multiplier; cash drain and excess reserves (plus weak loan demand) are what push the actual value below 1/rr."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#reserve-ratio">required reserve ratio</a> · <a href="../reference/glossary.html#derivative-deposit">derivative deposit</a> · <a href="../reference/glossary.html#money-multiplier">money multiplier</a> · <a href="../reference/glossary.html#monetary-base">monetary base</a></li>
+
+<li><a href="https://www.investopedia.com/terms/m/multiplier-effect.asp">Investopedia · Multiplier Effect / Money Multiplier</a> — English definitions with worked examples.</li>
+<li><a href="https://zh.wikipedia.org/wiki/货币乘数">Wikipedia · Money Multiplier</a> — the Chinese-language entry, including formula derivations.</li>
+<li><a href="https://en.wikipedia.org/wiki/The_Economics_of_Money,_Banking,_and_Financial_Markets">Wikipedia entry for Mishkin's The Economics of Money, Banking, and Financial Markets</a> — the classic money-and-banking textbook.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0001-the-nature-and-measurement-of-money.html"><span class="nav-label">Previous lesson</span><span class="nav-title">The Nature and Measurement of Money</span></a>
+<a class="next" href="0003-central-banks-and-monetary-policy.html"><span class="nav-label">Next lesson</span><span class="nav-title">Central Banks and Monetary Policy</span></a>
+</nav>
+<footer class="lesson-footer"><span>Money &amp; Banking · Lesson 2</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+/* Interactive widget for this lesson: money creation simulator */
+(function () {
+  var elD = document.getElementById('mc-dep'), elR = document.getElementById('mc-rr');
+  var vD = document.getElementById('mc-dep-val'), vR = document.getElementById('mc-rr-val');
+  var box = document.getElementById('chart1');
+  var oDep = document.getElementById('mc-out-dep'), oLoan = document.getElementById('mc-out-loan');
+  var oMm = document.getElementById('mc-out-mm'), oTm = document.getElementById('mc-out-tm');
+  var runBtn = document.getElementById('mc-run');
+  var ROUNDS = 15, c = null, token = 0;
+
+  function fmt(n) { return Math.round(n).toLocaleString('zh-CN'); }
+  function params() { return { D: parseFloat(elD.value), rr: parseFloat(elR.value) / 100 }; }
+  function series(p) {
+    var dep = [], cum = [], loan = [], s = 0, L = 0;
+    for (var k = 0; k < ROUNDS; k++) {
+      var d = p.D * Math.pow(1 - p.rr, k);
+      s += d; L += d * (1 - p.rr);
+      dep.push(d); cum.push(s); loan.push(L);
+    }
+    return { D: p.D, rr: p.rr, dep: dep, cum: cum, loan: loan, total: p.D / p.rr };
+  }
+  function build(st) {
+    // Reuse the same FChart instance: on rapid slider events only rebuild the axes, not the whole SVG
+    var ymax = st.total * 1.08;
+    if (c) { c.setScale(0.5, 15.5, 0, ymax); return; }
+    c = new FChart(box, {
+      height: 340,
+      x: { min: 0.5, max: 15.5, label: 'Round (1–15)', ticks: [1, 3, 5, 7, 9, 11, 13, 15] },
+      y: { min: 0, max: ymax, label: 'Amount (¥)' }
+    });
+  }
+  function draw(st, t) {
+    c.clear();
+    var full = Math.floor(t), f = t - full, k;
+    var bars = [];
+    for (k = 0; k < full && k < ROUNDS; k++) {
+      bars.push({ x0: k + 0.62, x1: k + 1.38, y: st.dep[k], color: '#0d5c4f' });
+    }
+    if (full < ROUNDS && f > 0.001) {
+      bars.push({ x0: full + 0.62, x1: full + 1.38, y: st.dep[full] * f, color: '#0d5c4f', opacity: 0.45 });
+    }
+    c.bars(bars, { y0: 0 });
+    var cd = 0, cl = 0, pts = [];
+    for (k = 0; k < full && k < ROUNDS; k++) { cd = st.cum[k]; cl = st.loan[k]; pts.push([k + 1, cd]); }
+    if (full < ROUNDS && f > 0.001) {
+      cd += st.dep[full] * f;
+      cl += st.dep[full] * (1 - st.rr) * f;
+      pts.push([t, cd]);
+    }
+    if (pts.length > 1) c.path(pts, { color: '#a3701a', width: 2.5 });
+    c.hline(st.total, { color: '#5d5749' });
+    c.text(1, st.total, 'Theoretical ceiling ¥' + fmt(st.total) + ' (D÷rr)', { dx: 6, dy: -8, color: '#5d5749' });
+    c.legend([{ color: '#0d5c4f', text: 'New deposits each round' }, { color: '#a3701a', text: 'Cumulative deposits' }]);
+    oDep.textContent = '¥' + fmt(cd);
+    oLoan.textContent = '¥' + fmt(cl);
+    oMm.textContent = (cd / st.D).toFixed(2);
+    oTm.textContent = (1 / st.rr).toFixed(2);
+  }
+  function renderFinal() {
+    token++;
+    var st = series(params());
+    build(st);
+    draw(st, ROUNDS);
+  }
+  function animate() {
+    var my = ++token;
+    var st = series(params());
+    build(st);
+    draw(st, 0.3);
+    FChart.tween(0.3, ROUNDS, ROUNDS * 240, function (v) {
+      if (my === token) draw(st, v);
+    }, function () {
+      if (my === token) draw(st, ROUNDS);
+    });
+  }
+  function onSlide() {
+    vD.textContent = fmt(parseFloat(elD.value));
+    vR.textContent = elR.value + '%';
+    renderFinal();
+  }
+  elD.addEventListener('input', onSlide);
+  elR.addEventListener('input', onSlide);
+  runBtn.addEventListener('click', animate);
+  onSlide();
+})();
+</script>
+</body></html>

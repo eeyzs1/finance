@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Financial Markets &amp; Institutions · Lesson 1: The Journey of Funds — Direct and Indirect Finance · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Financial Markets &amp; Institutions, Lesson 1: The Journey of Funds — Direct and Indirect Finance. An interactive lesson with a simulator and a quiz, usable offline.">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<a class="lang-switch" href="../../01-金融市场与机构/0001-直接融资与间接融资.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Financial Markets &amp; Institutions</a><span class="sep">/</span>Lesson 1</div>
+
+<header class="lesson-header">
+  <div class="kicker">Financial Markets &amp; Institutions · Lesson 1</div>
+  <h1>The journey of funds: direct and indirect finance</h1>
+  <div class="meta">
+    <span class="tag">About 15 minutes</span>
+    <span>Difficulty: Beginner</span>
+    <span>Prerequisites: none (start of this branch)</span>
+  </div>
+</header>
+
+<p class="lead">Every day, countless funds move between strangers: Auntie Zhang’s savings become the second production line at Boss Li’s bakery, and behind your mortgage stand the savings of thousands of households. The first problem the financial system has to solve is moving funds from <strong>people with spare money</strong> to <strong>projects that need money</strong>. There are two main routes for the journey: transfer through a bank, or straight across a market. In this lesson we follow ¥100 of savings down each road in turn.</p>
+
+<h2>1. Who needs money, and who has it</h2>
+<p>Let’s first sketch the roles at the two ends.</p>
+<p><strong>Surplus units</strong> are usually <strong>households</strong>: once wages arrive and spending is done, money is left over; kept in savings, they fear it will lose value, and investing it themselves is beyond them. Taken as a whole, the household sector is the economy’s largest net saver.</p>
+<p><strong>Deficit units</strong> are mainly <strong>firms and governments</strong>: firms want to expand output, do R&amp;D, and build plants — the returns look good but cash on hand falls short; governments must build roads and schools, spending ahead of tax receipts. They need “today’s money” to earn “tomorrow’s returns.”</p>
+<div class="callout callout-info">
+  <span class="callout-title">A plain but stubborn problem</span>
+  <p>Auntie Zhang has ¥100,000 of spare money; Boss Li’s bakery wants to borrow ¥500,000 to open a second shop. Auntie Zhang doesn’t know Boss Li, and she has no way to judge a bakery’s business; Boss Li, for his part, cannot go knocking on doors to borrow it. Between the two of them lie three gaps: <strong>information</strong> (who can tell who is trustworthy), <strong>risk</strong> (what if the money never comes back), and <strong>cost</strong> (matching small sums one by one is far too expensive). The solutions for crossing these three gaps make up the entire financial system.</p>
+</div>
+<p>Two main roads cross the gaps: hand your money to an <strong>intermediary institution</strong> that lends it out for you (indirect finance), or buy outright a <span class="term" data-def="A transferable certificate entitling its holder to future payoffs; the two most basic types are stocks (ownership) and bonds (debt claims).">security</span> that a firm issues (direct finance).</p>
+
+<h2>2. The two roads: indirect finance and direct finance</h2>
+<p><strong>Route A: <span class="term" data-def="Surplus units place money with an intermediary such as a bank, which lends it on to borrowers; the intermediary itself bears the credit risk on both sides.">indirect finance</span></strong> — Auntie Zhang deposits her money at a bank, and the bank lends it to Boss Li. Note the defining feature: Auntie Zhang deals only with the bank (she receives deposit interest), and Boss Li owes only the bank (he pays loan interest); <strong>the bank stands in the middle and bears the credit risk of default itself</strong>. What the bank earns is the difference between the two rates.</p>
+<p><strong>Route B: <span class="term" data-def="Borrowers raise funds by selling securities (stocks, bonds) directly to surplus units through the financial markets, with no bank in between.">direct finance</span></strong> — Boss Li skips the bank and issues securities directly on the market: issuing stock invites Auntie Zhang in as a part-owner, or issuing bonds borrows from her outright. Borrowers sell securities directly to surplus units through the financial market, with no bank transferring the money.</p>
+<p>Take the market road and the bank no longer stands in the middle collecting the difference — but the market itself is not free either: issuing securities costs underwriting fees, and trading costs commissions (Lesson 3 introduces the institutions that live on those fees). For now, this lesson simplifies the market channel to zero cost so the core contrast stands out.</p>
+
+<div class="formula">
+  Bank’s annual spread income = loans outstanding × (lending rate − deposit rate)
+  <div class="formula-note">With a 2% deposit rate and a 5% lending rate, the spread is 3 percentage points: on ¥60 of loans, the bank earns 60 × 3% = <b>¥1.8</b> a year. That ¥1.8 is return given up by savers and extra cost paid by firms — it is the price of the “transfer service.”</div>
+</div>
+
+<div class="widget">
+  <div class="widget-title">🏦 Interactive · The journey of ¥100: a funds-flow simulator</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row">
+        <label>Split the funds: how much goes through the bank (indirect), how much through the market (direct)<span class="val" id="split-val"></span></label>
+        <input type="range" id="split-range" min="0" max="100" step="5" value="60" aria-label="Amount going through indirect finance; the remainder goes to direct finance">
+      </div>
+      <div class="slider-row">
+        <label>&nbsp;</label>
+        <button class="btn" id="inject" type="button">Inject ¥100 of savings</button>
+      </div>
+    </div>
+
+    <div class="chart">
+      <svg id="flow-svg" viewBox="0 0 720 400" role="img" aria-label="Animated diagram: funds set out from household savings and flow to firms via the bank or the securities market">
+        <defs>
+          <marker id="m-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#a9a290"></path>
+          </marker>
+        </defs>
+        <g font-family="Segoe UI, system-ui, sans-serif">
+          <!-- Legend -->
+          <circle cx="52" cy="24" r="7" fill="#0d5c4f" opacity="0.9"></circle>
+          <text x="66" y="28" font-size="12" fill="#5d5749">Via bank (indirect)</text>
+          <circle cx="182" cy="24" r="7" fill="#a3701a" opacity="0.9"></circle>
+          <text x="196" y="28" font-size="12" fill="#5d5749">Via market (direct)</text>
+
+          <!-- Principal channels (solid lines, animation paths) -->
+          <path id="p-in-bank" d="M158,182 L300,104" stroke="#0d5c4f" stroke-width="3" fill="none" opacity="0.5"></path>
+          <path id="p-loan" d="M420,104 L562,182" stroke="#0d5c4f" stroke-width="3" fill="none" opacity="0.5" marker-end="url(#m-gray)"></path>
+          <path id="p-buy" d="M158,218 L292,296" stroke="#a3701a" stroke-width="3" fill="none" opacity="0.5"></path>
+          <path id="p-issue" d="M428,296 L562,218" stroke="#a3701a" stroke-width="3" fill="none" opacity="0.5" marker-end="url(#m-gray)"></path>
+
+          <!-- Interest flowing back (dashed) -->
+          <path d="M300,124 L162,200" stroke="#0d5c4f" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.75" marker-end="url(#m-gray)"></path>
+          <path d="M562,196 L420,124" stroke="#0d5c4f" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.75" marker-end="url(#m-gray)"></path>
+          <path d="M562,222 L428,312" stroke="#a3701a" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.75" marker-end="url(#m-gray)"></path>
+          <path d="M292,312 L162,224" stroke="#a3701a" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.55" marker-end="url(#m-gray)"></path>
+
+          <!-- Interest labels (white halo for readability) -->
+          <text x="172" y="150" font-size="11" fill="#0a463c" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">Deposit rate 2%</text>
+          <text x="452" y="150" font-size="11" fill="#0a463c" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">Loan rate 5%</text>
+          <text x="452" y="302" font-size="11" fill="#7a5414" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">Bond coupon 4.5%</text>
+          <text x="172" y="302" font-size="11" fill="#7a5414" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">Interest passed to savers</text>
+
+          <!-- Node: household savings -->
+          <rect x="38" y="168" width="124" height="64" rx="12" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+          <text x="100" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#0a463c">Household savings</text>
+          <text x="100" y="217" text-anchor="middle" font-size="11" fill="#5d5749">Surplus units</text>
+
+          <!-- Node: commercial bank -->
+          <rect x="298" y="56" width="124" height="64" rx="12" fill="#f5ead1" stroke="#a3701a" stroke-width="2"></rect>
+          <text x="360" y="84" text-anchor="middle" font-size="15" font-weight="700" fill="#7a5414">Commercial bank</text>
+          <text x="360" y="105" text-anchor="middle" font-size="11" fill="#5d5749">Intermediary · earns the spread</text>
+          <text id="t-bank-badge" x="360" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="#a3701a"></text>
+
+          <!-- Node: securities market -->
+          <rect x="288" y="280" width="144" height="64" rx="12" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+          <text x="360" y="308" text-anchor="middle" font-size="15" font-weight="700" fill="#0a463c">Securities market</text>
+          <text x="360" y="329" text-anchor="middle" font-size="11" fill="#5d5749">Direct-finance channel</text>
+
+          <!-- Node: firms and government -->
+          <rect x="558" y="168" width="124" height="64" rx="12" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+          <text x="620" y="196" text-anchor="middle" font-size="15" font-weight="700" fill="#0a463c">Firms · Government</text>
+          <text x="620" y="217" text-anchor="middle" font-size="11" fill="#5d5749">Deficit units</text>
+
+          <!-- Money packets (animated elements) -->
+          <g id="pk1" style="display:none">
+            <circle r="15" fill="#0d5c4f" opacity="0.95"></circle>
+            <text y="4.5" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">¥60</text>
+          </g>
+          <g id="pk2" style="display:none">
+            <circle r="15" fill="#a3701a" opacity="0.95"></circle>
+            <text y="4.5" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">¥40</text>
+          </g>
+          <g id="pk3" style="display:none">
+            <circle r="15" fill="#0d5c4f" opacity="0.95"></circle>
+            <text y="4.5" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">¥60</text>
+          </g>
+          <g id="pk4" style="display:none">
+            <circle r="15" fill="#a3701a" opacity="0.95"></circle>
+            <text y="4.5" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">¥40</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <div class="readout">
+      <span class="pill">Bank deposits taken <b id="ro-bank-in">¥0</b></span>
+      <span class="pill">Bank loans made <b id="ro-bank-out">¥0</b></span>
+      <span class="pill">Market direct funding <b id="ro-mkt-in">¥0</b></span>
+      <span class="pill">Total reaching firms <b id="ro-firm">¥0</b></span>
+      <span class="pill">After 1 year: saver interest income <b id="ro-saver">¥0</b></span>
+      <span class="pill">After 1 year: firm interest expense <b id="ro-cost">¥0</b></span>
+      <span class="pill">After 1 year: bank spread income <b id="ro-margin">¥0</b></span>
+    </div>
+    <p class="formula-note">How the numbers relate: firm interest expense = saver interest income + bank spread (example: with ¥60 routed through the bank, 3.00 + 1.80 = ¥4.80). The market channel pays savers the 4.5% coupon directly; this diagram omits underwriting fees and commissions.</p>
+  </div>
+</div>
+
+<p>After you click “Inject ¥100 of savings,” notice three things. <strong>First</strong>, whichever road is taken, the money reaching the firms is that same ¥100 — both roads move funds with equal efficiency. <strong>Second</strong>, on the green channel the bank keeps a spread: after one year savers get 2%, firms pay 5%, and the 3 percentage points in between go to the bank. <strong>Third</strong>, on the gold channel the 4.5% savers receive is exactly equal to the 4.5% firms pay — the market squeezes out the middleman’s markup, and the price is that savers must face the risk of the firm not repaying on their own.</p>
+
+<h2>3. What each method is good and bad at</h2>
+<p>If the market’s direct connection is “cheaper,” why haven’t banks been competed out of existence? Because each road wins on its own ground. The heart of the matter is <span class="term" data-def="One side of a transaction knows more than the other: the borrower knows best whether he will repay, while the lender can hardly tell — the root cause of why financial intermediaries exist.">information asymmetry</span>:</p>
+<table class="data">
+  <thead>
+    <tr><th>Dimension</th><th>Indirect finance (banks)</th><th>Direct finance (markets)</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Information processing</td>
+      <td class="good">Banks screen borrowers professionally and keep monitoring after the loan; Auntie Zhang need not understand the bakery business</td>
+      <td class="bad">Investors must judge securities themselves (or buy ratings); the information cost lands on each of them individually</td>
+    </tr>
+    <tr>
+      <td>Risk bearing</td>
+      <td class="good">The bank absorbs default risk; depositors are barely touched</td>
+      <td class="bad">Investors bear default and price swings directly, and can lose every cent</td>
+    </tr>
+    <tr>
+      <td>Cost of funds</td>
+      <td class="bad">The spread is permanent — a “toll” shared by savers and borrowers alike</td>
+      <td class="good">No spread to pay; for large, high-quality issuers, bond funding usually costs less than bank loans</td>
+    </tr>
+    <tr>
+      <td>Thresholds and flexibility</td>
+      <td class="good">Small deposits go in and out at will; the bank can even handle small loans one by one</td>
+      <td class="bad">Issuing securities has scale and disclosure thresholds that keep small firms out</td>
+    </tr>
+    <tr>
+      <td>Demands on the firm</td>
+      <td class="good">No need to publish operating details; terms are negotiated one-on-one with the bank</td>
+      <td class="bad">Must disclose financial statements and accept continuous market pricing (which is also a discipline)</td>
+    </tr>
+  </tbody>
+</table>
+<div class="callout callout-tip">
+  <span class="callout-title">Remember this division of labor</span>
+  <p><strong>Banks are good at handling money that is small, scattered, and information-hard</strong> — exactly what households’ scattered savings needs; <strong>markets are good at financing that is large, standardized, and information-transparent</strong> — which is why those issuing stocks and bonds are mostly mature, large firms. In reality the two roads coexist, and their relative size varies with how a financial system is structured: systems where markets carry more (as in the United States) are called <span class="term" data-def="A financial system dominated by direct finance (the stock and bond markets); the United States is the typical example.">market-based financial systems</span>, and those where banks carry more (as in China, Germany, and Japan) are called <span class="term" data-def="A financial system dominated by bank credit (indirect finance); China, Germany, and Japan are typical examples.">bank-based financial systems</span>.</p>
+</div>
+
+<h2>4. The financial system map at a glance</h2>
+<p>Put the two roads on one map, add all the supporting players, and you have the skeleton of the entire financial system. Surplus units stand on the left, deficit units on the right, and between them run the two channels: <span class="term" data-def="An institution linking surplus units with deficit units: commercial banks, investment banks, mutual funds, insurance companies, pension funds, and others.">financial intermediaries</span> and <strong>financial markets</strong>. Above them sit the central bank and the regulators, who make the rules and act as lender of last resort; the return line along the bottom reminds you — funds are not a one-way ticket, and interest, dividends, and claims flow back to surplus units in a steady stream.</p>
+
+<div class="chart">
+  <svg viewBox="0 0 720 340" role="img" aria-label="Financial system map: funds flow from surplus units through intermediaries or markets to deficit units, regulators sit above, and returns flow back below">
+    <defs>
+      <marker id="map-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#5d5749"></path>
+      </marker>
+    </defs>
+    <g font-family="Segoe UI, system-ui, sans-serif">
+      <!-- Regulators -->
+      <rect x="470" y="6" width="224" height="46" rx="8" fill="none" stroke="#b3372f" stroke-width="1.5" stroke-dasharray="6 4"></rect>
+      <text x="582" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#b3372f">Central bank &amp; regulators</text>
+      <text x="582" y="44" text-anchor="middle" font-size="11" fill="#5d5749">Sets the rules · Lender of last resort</text>
+      <path d="M540,52 L400,110" stroke="#b3372f" stroke-width="1.3" stroke-dasharray="5 4" fill="none" opacity="0.7" marker-end="url(#map-arrow)"></path>
+      <path d="M600,52 L410,238" stroke="#b3372f" stroke-width="1.3" stroke-dasharray="5 4" fill="none" opacity="0.7" marker-end="url(#map-arrow)"></path>
+      <text x="500" y="84" font-size="11" fill="#b3372f" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">Regulation</text>
+
+      <!-- Surplus units -->
+      <rect x="24" y="140" width="150" height="76" rx="10" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+      <text x="99" y="170" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0a463c">Surplus units</text>
+      <text x="99" y="192" text-anchor="middle" font-size="11.5" fill="#5d5749">Household savings · Cash-rich firms</text>
+
+      <!-- Financial intermediaries -->
+      <rect x="282" y="76" width="180" height="68" rx="10" fill="#f5ead1" stroke="#a3701a" stroke-width="2"></rect>
+      <text x="372" y="104" text-anchor="middle" font-size="14.5" font-weight="700" fill="#7a5414">Financial intermediaries</text>
+      <text x="372" y="126" text-anchor="middle" font-size="11.5" fill="#5d5749">Banks · Funds · Insurers · Pensions</text>
+
+      <!-- Financial markets -->
+      <rect x="282" y="224" width="180" height="68" rx="10" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+      <text x="372" y="252" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0a463c">Financial markets</text>
+      <text x="372" y="274" text-anchor="middle" font-size="11.5" fill="#5d5749">Stocks · Bonds · Money market</text>
+
+      <!-- Deficit units -->
+      <rect x="546" y="140" width="150" height="76" rx="10" fill="#e3eeea" stroke="#0d5c4f" stroke-width="2"></rect>
+      <text x="621" y="170" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0a463c">Deficit units</text>
+      <text x="621" y="192" text-anchor="middle" font-size="11.5" fill="#5d5749">Business investment · Government spending</text>
+
+      <!-- Funds flow -->
+      <path d="M174,162 L282,112" stroke="#a3701a" stroke-width="2.5" fill="none" marker-end="url(#map-arrow)"></path>
+      <path d="M174,194 L282,258" stroke="#0d5c4f" stroke-width="2.5" fill="none" marker-end="url(#map-arrow)"></path>
+      <path d="M462,112 L546,162" stroke="#a3701a" stroke-width="2.5" fill="none" marker-end="url(#map-arrow)"></path>
+      <path d="M462,258 L546,194" stroke="#0d5c4f" stroke-width="2.5" fill="none" marker-end="url(#map-arrow)"></path>
+      <text x="210" y="122" font-size="11" fill="#7a5414" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">Indirect finance</text>
+      <text x="210" y="244" font-size="11" fill="#0a463c" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">Direct finance</text>
+
+      <!-- Returns flowing back -->
+      <path d="M560,216 C 420,330 260,330 100,222" stroke="#5d5749" stroke-width="1.5" stroke-dasharray="6 4" fill="none" opacity="0.8" marker-end="url(#map-arrow)"></path>
+      <text x="330" y="326" text-anchor="middle" font-size="11" fill="#5d5749" stroke="#f9f6ef" stroke-width="3" paint-order="stroke">Interest · Dividends · Claims (funds flow back to surplus units)</text>
+    </g>
+  </svg>
+</div>
+<p>This map rewards a few extra looks: Lesson 2 of this branch zooms into the “financial markets” box (primary/secondary markets), Lesson 3 zooms into the “financial intermediaries” box (six types of institutions), and the next branch zooms into the “central bank.”</p>
+
+<div class="win-card">
+  <div class="win-title">✓ Key takeaways</div>
+  <ul>
+    <li>You can point out the surplus units (households) and the deficit units (firms, government), and name the three gaps between them: information, risk, and cost;</li>
+    <li>You can tell indirect finance from direct finance at a glance by asking whether a bank stands in the middle bearing the credit risk;</li>
+    <li>You can compute the spread with the formula: ¥60 × (5% − 2%) = ¥1.8, and explain it as return savers give up and extra cost firms pay;</li>
+    <li>You now hold the financial system map in your head: surplus units → (intermediaries | markets) → deficit units, with regulation overhead and returns flowing back below.</li>
+  </ul>
+</div>
+
+<div class="quiz">
+<script type="application/json">
+{
+  "title": "Quiz · The journey of funds",
+  "questions": [
+    {
+      "q": "Xiao Li deposits ¥50,000 at a bank, and the bank lends the money on to a furniture factory. This flow of funds is:",
+      "options": ["Direct finance", "Indirect finance", "Internal fundraising", "A government grant"],
+      "answer": 1,
+      "explain": "Xiao Li has only a deposit relationship with the bank, the factory owes repayment only to the bank, and the bank stands in the middle bearing the credit risk itself — precisely the definition of indirect finance. Only if Xiao Li had bought bonds or stock issued directly by the factory would it count as direct finance."
+    },
+    {
+      "q": "The “spread,” an important profit source for commercial banks, refers to:",
+      "options": ["The gap between FX buying and selling prices", "Commissions earned for distributing funds", "The gap between lending and deposit rates", "Subsidy interest paid by the central bank"],
+      "answer": 2,
+      "explain": "Spread = lending rate − deposit rate. In this lesson’s example, 5% − 2% = 3 percentage points, so ¥60 of loans earns the bank ¥1.8 a year — its pay for screening, monitoring, and absorbing risk."
+    },
+    {
+      "q": "A company issues new shares to raise funds in the primary market. This means:",
+      "options": ["Money flows from investors to the issuer for the first time", "Investors trade existing shares among themselves", "A bank lends depositors’ money on to the firm", "The central bank lends to the company directly"],
+      "answer": 0,
+      "explain": "The defining feature of the primary market is that securities are issued and sold for the first time, with the proceeds entering the issuer’s account. Old shares changing hands between investors is the secondary market; a bank re-lending deposits is indirect finance; and direct central bank lending simply does not apply."
+    }
+  ]
+}
+</script>
+</div>
+
+<div class="sources">
+  <div class="sources-title">Recommended reading (primary sources)</div>
+  <ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#security">security</a> · <a href="../reference/glossary.html#indirect-finance">indirect finance</a> · <a href="../reference/glossary.html#direct-finance">direct finance</a> · <a href="../reference/glossary.html#information-asymmetry">information asymmetry</a> · <a href="../reference/glossary.html#市场主导型">market-based financial system</a> · <a href="../reference/glossary.html#银行主导型">bank-based financial system</a> · <a href="../reference/glossary.html#financial-intermediary">financial intermediary</a></li>
+
+    <li><a href="https://www.investopedia.com/terms/d/direct-finance.asp">Investopedia · Direct Finance</a> — definition, examples, and trade-offs of direct finance.</li>
+    <li><a href="https://www.investopedia.com/terms/f/financialintermediary.asp">Investopedia · Financial Intermediary</a> — why financial intermediaries exist and which institutions count as one.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Financial_intermediary">Wikipedia · Financial Intermediary</a> — the financial intermediary entry; read it alongside this lesson’s map.</li>
+    <li><a href="http://www.pbc.gov.cn/">People’s Bank of China (official site)</a> — the source for official reports on China’s financial system and financial stability.</li>
+    <li><a href="../reference/glossary.html">This course’s glossary</a> — the canonical reference for direct finance, indirect finance, financial intermediary, and related entries.</li>
+  </ul>
+</div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+  <a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch overview: Financial Markets &amp; Institutions</span></a>
+  <a class="next" href="0002-stock-and-bond-markets.html"><span class="nav-label">Next lesson</span><span class="nav-title">The two most basic securities: stock and bond markets</span></a>
+</nav>
+
+<footer class="lesson-footer">
+  <span>Financial Markets &amp; Institutions · Lesson 1</span>
+  <span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span>
+</footer>
+
+</div>
+<script src="../assets/charts.js"></script>
+<script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  "use strict";
+  function $(id) { return document.getElementById(id); }
+
+  var RATE_DEPOSIT = 0.02, RATE_LOAN = 0.05, RATE_BOND = 0.045;
+  var range = $("split-range"), splitVal = $("split-val"), btn = $("inject");
+
+  var packets = { toBank: $("pk1"), toMkt: $("pk2"), bankOut: $("pk3"), mktOut: $("pk4") };
+  var paths = { toBank: $("p-in-bank"), toMkt: $("p-buy"), bankOut: $("p-loan"), mktOut: $("p-issue") };
+
+  function amtInd() { return parseFloat(range.value); }
+  function amtDir() { return 100 - amtInd(); }
+  function fmt(n) { return n.toFixed(2); }
+
+  function updateEcon() {
+    var a = amtInd(), b = amtDir();
+    $("ro-saver").textContent = "¥" + fmt(a * RATE_DEPOSIT + b * RATE_BOND);
+    $("ro-cost").textContent = "¥" + fmt(a * RATE_LOAN + b * RATE_BOND);
+    $("ro-margin").textContent = "¥" + fmt(a * (RATE_LOAN - RATE_DEPOSIT));
+  }
+  function updateFlows() {
+    var a = amtInd(), b = amtDir();
+    $("ro-bank-in").textContent = "¥" + a;
+    $("ro-bank-out").textContent = "¥" + a;
+    $("ro-mkt-in").textContent = "¥" + b;
+    $("ro-firm").textContent = "¥100";
+  }
+  function updateBadge() {
+    var a = amtInd();
+    $("t-bank-badge").textContent = a > 0 ? "Annual spread income ¥" + fmt(a * (RATE_LOAN - RATE_DEPOSIT)) : "";
+  }
+  function refresh() {
+    splitVal.textContent = "Indirect ¥" + amtInd() + " / Direct ¥" + amtDir();
+    updateFlows(); updateBadge(); updateEcon();
+  }
+  range.addEventListener("input", refresh);
+
+  function setPacket(p, amt) {
+    p.querySelector("text").textContent = "¥" + amt;
+    p.style.display = "";
+  }
+  function hidePacket(p) { p.style.display = "none"; }
+  function move(p, path, dur, done) {
+    var len = path.getTotalLength(), t0 = null;
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var k = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - k, 3);
+      var pt = path.getPointAtLength(len * eased);
+      p.setAttribute("transform", "translate(" + pt.x.toFixed(1) + "," + pt.y.toFixed(1) + ")");
+      if (k < 1) requestAnimationFrame(frame);
+      else if (done) done();
+    }
+    requestAnimationFrame(frame);
+  }
+  function seq(steps) {
+    var i = 0;
+    function next() { if (i < steps.length) steps[i](next); }
+    next();
+  }
+
+  var running = false;
+  btn.addEventListener("click", function () {
+    if (running) return;
+    running = true;
+    btn.disabled = true;
+    btn.textContent = "Funds on the move…";
+    var a = amtInd(), b = amtDir(), firm = 0;
+
+    Object.keys(packets).forEach(function (k) { hidePacket(packets[k]); });
+    $("ro-bank-in").textContent = "¥0";
+    $("ro-bank-out").textContent = "¥0";
+    $("ro-mkt-in").textContent = "¥0";
+    $("ro-firm").textContent = "¥0";
+    $("t-bank-badge").textContent = "";
+
+    var steps = [];
+    if (a > 0) steps.push(function (nx) {
+      setPacket(packets.toBank, a);
+      move(packets.toBank, paths.toBank, 900, function () {
+        hidePacket(packets.toBank);
+        $("ro-bank-in").textContent = "¥" + a;
+        nx();
+      });
+    });
+    if (b > 0) steps.push(function (nx) {
+      setPacket(packets.toMkt, b);
+      move(packets.toMkt, paths.toMkt, 900, function () {
+        hidePacket(packets.toMkt);
+        $("ro-mkt-in").textContent = "¥" + b;
+        nx();
+      });
+    });
+    if (a > 0) steps.push(function (nx) {
+      setPacket(packets.bankOut, a);
+      move(packets.bankOut, paths.bankOut, 900, function () {
+        hidePacket(packets.bankOut);
+        $("ro-bank-out").textContent = "¥" + a;
+        firm += a;
+        $("ro-firm").textContent = "¥" + firm;
+        nx();
+      });
+    });
+    if (b > 0) steps.push(function (nx) {
+      setPacket(packets.mktOut, b);
+      move(packets.mktOut, paths.mktOut, 900, function () {
+        hidePacket(packets.mktOut);
+        firm += b;
+        $("ro-firm").textContent = "¥" + firm;
+        nx();
+      });
+    });
+    steps.push(function (nx) {
+      updateBadge();
+      updateEcon();
+      running = false;
+      btn.disabled = false;
+      btn.textContent = "Inject ¥100 of savings";
+      nx();
+    });
+    seq(steps);
+  });
+
+  refresh();
+})();
+</script>
+</body>
+</html>

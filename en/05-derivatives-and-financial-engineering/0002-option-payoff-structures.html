@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derivatives &amp; Financial Engineering · Lesson 2: Option Payoff Structures · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Lesson 2 of the Derivatives &amp; Financial Engineering branch of the Finance Self-Study Course: Option Payoff Structures — an interactive lesson with a chart simulator and an inline quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../05-衍生品与金融工程/0002-期权收益结构.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Derivatives &amp; Financial Engineering</a><span class="sep">/</span>Lesson 2</div>
+<header class="lesson-header"><div class="kicker">Derivatives &amp; Financial Engineering · Lesson 2</div><h1>Option Payoff Structures</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced</span><span>Prerequisites: Lesson 1 of this branch</span></div></header>
+
+<p class="lead">A futures contract is a promise you must keep; an option swaps the “must” for a “may” — you pay a sum to buy the <strong>right</strong> to buy or sell at an agreed price in the future, and if the market turns against you, you can simply walk away. This lesson teaches you to draw the payoff diagram at expiration for any option position: it is the lingua franca of the derivatives world, and once you can read it, every “fancy strategy” resolves into a collage of a few bent lines.</p>
+
+<h2>Options: paying for a “may, not must”</h2>
+<p>An <span class="term" data-def="A “right, not an obligation” obtained by paying the premium: a call option grants the right to buy at the strike price, a put option the right to sell.">option</span> is a contract: after the buyer pays the <span class="term" data-def="The price paid for an option = intrinsic value + time value; it is the option buyer’s maximum loss and the seller’s maximum gain.">premium</span>, it gains the <strong>right — but not the obligation</strong> to buy or sell the underlying at the <span class="term" data-def="The price at which the option contract is exercised; the dividing line that decides whether the option has value at expiration.">strike price</span> on the expiration date; the seller pockets the premium and assumes the <strong>obligation</strong> to honor the buyer’s exercise whenever the buyer chooses.</p>
+<p>Two directions and two roles combine into four basic positions:</p>
+<ul>
+<li><span class="term" data-def="An option giving its holder the right to buy the underlying at the strike price.">call option</span>: bets on the underlying rising. The buyer has the right to buy at K — exercise if it rises, walk away if it falls;</li>
+<li><span class="term" data-def="An option giving its holder the right to sell the underlying at the strike price.">put option</span>: bets on the underlying falling. The buyer has the right to sell at K — exercise if it falls, walk away if it rises.</li>
+</ul>
+<p>Remember one maxim: <strong>the premium is the buyer’s maximum loss and the seller’s maximum gain</strong>. The buyer can lose no more than the premium; the seller can earn no more than the premium — but in exchange the seller shoulders an obligation that may be bottomlessly deep.</p>
+
+<h2>The four basic positions: one table to see them all</h2>
+<p>Let S<sub>T</sub> be the underlying’s price on the expiration date, K the strike price, and P the premium. Payoffs at expiration for the four positions (per share / per unit of the underlying):</p>
+<table class="data">
+<thead><tr><th>Position</th><th>When S<sub>T</sub> &lt; K</th><th>When S<sub>T</sub> &gt; K</th><th>Maximum gain</th><th>Maximum loss</th><th>Break-even point</th></tr></thead>
+<tbody>
+<tr><td><strong>Long call</strong></td><td>−P (flat segment)</td><td>S<sub>T</sub>−K−P (slope +1)</td><td class="good">Unlimited</td><td class="bad">−P</td><td>K + P</td></tr>
+<tr><td><strong>Short call</strong></td><td>+P</td><td>P−(S<sub>T</sub>−K) (slope −1)</td><td class="good">+P</td><td class="bad">Unlimited</td><td>K + P</td></tr>
+<tr><td><strong>Long put</strong></td><td>(K−S<sub>T</sub>)−P (slope −1)</td><td>−P</td><td class="good">K−P (if the underlying hits zero)</td><td class="bad">−P</td><td>K − P</td></tr>
+<tr><td><strong>Short put</strong></td><td>P−(K−S<sub>T</sub>)</td><td>+P</td><td class="good">+P</td><td class="bad">−(K−P) (if the underlying hits zero)</td><td>K − P</td></tr>
+</tbody>
+</table>
+
+<div class="formula">Long call payoff at expiration = max(S<sub>T</sub> − K, 0) − P　　Long put = max(K − S<sub>T</sub>, 0) − P
+<div class="formula-note"><b>Three rules</b>: ① The seller’s payoff = the buyer’s payoff × (−1) — mirror images; ② every bent line kinks at S<sub>T</sub> = K; ③ break-even point = strike price ± premium (+ for calls, − for puts).</div></div>
+
+<h2>Break-even point: strike price ± premium</h2>
+<p>Check one example: strike price K = ¥100, premium P = ¥8.</p>
+<ul>
+<li><strong>Long call</strong>: at an expiration price of ¥108, exercising earns 108−100 = ¥8, exactly offsetting the ¥8 premium — break-even point = 100 + 8 = <strong>¥108</strong>; at an expiration price of 120 the gain is 120−100−8 = ¥12; at 92 (&lt;100) the buyer lets the option lapse, capping the loss at ¥8.</li>
+<li><strong>Long put</strong>: at an expiration price of ¥92, exercising earns 100−92 = ¥8, exactly offsetting the premium — break-even point = 100 − 8 = <strong>¥92</strong>; if the underlying falls to 0, the gain is at its maximum = 100−0−8 = ¥92.</li>
+</ul>
+<p>Intuitive reading: the break-even point is the price at which the market has earned your premium back for you. The pricier the premium, the farther the market must travel before you break even.</p>
+
+<div class="widget">
+  <div class="widget-title">🎛 Option Payoff Diagram Generator · All four positions, one drag away</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row"><label>Option type</label>
+        <div style="display:flex; gap:8px; margin-top:4px;">
+          <button type="button" class="btn" id="btn-call">Call</button>
+          <button type="button" class="btn ghost" id="btn-put">Put</button>
+        </div></div>
+      <div class="slider-row"><label>Side</label>
+        <div style="display:flex; gap:8px; margin-top:4px;">
+          <button type="button" class="btn" id="btn-buy">Buy (pay premium)</button>
+          <button type="button" class="btn ghost" id="btn-sell">Sell (collect premium)</button>
+        </div></div>
+      <div class="slider-row"><label for="opt-k">Strike price K <span class="val" id="opt-k-val"></span></label>
+        <input type="range" id="opt-k" min="50" max="150" step="1" value="100"></div>
+      <div class="slider-row"><label for="opt-p">Premium P <span class="val" id="opt-p-val"></span></label>
+        <input type="range" id="opt-p" min="1" max="30" step="1" value="8"></div>
+    </div>
+    <div class="chart" id="payoff-chart"></div>
+    <div class="readout">
+      <span class="pill" id="ro-pos"></span>
+      <span class="pill" id="ro-gain"></span>
+      <span class="pill" id="ro-loss"></span>
+      <span class="pill" id="ro-be"></span>
+    </div>
+    <p class="formula-note" style="margin-top:10px">Switch to “Sell” to see the mirror image: the buyer’s green valley flips into the seller’s red mountain. Try to answer: why is a short put’s maximum loss K−P rather than unlimited? (Hint: the underlying’s price can fall only as far as 0.)</p>
+  </div>
+</div>
+
+<h2>Intrinsic value and time value: the two pieces of an option’s price</h2>
+<p>Options trade before their expiration date, and the market price splits into two pieces:</p>
+<div class="formula">Premium P = <span class="term" data-def="What exercising immediately would deliver: max(S−K, 0) or max(K−S, 0); never negative.">intrinsic value</span> + <span class="term" data-def="The part of the premium above intrinsic value, paid for the chance that the future may still turn more favorable.">time value</span></div>
+<p>Example: a stock trades at ¥105. A call with strike 100 is quoted at ¥9 — exercising immediately earns 105−100 = ¥5 (intrinsic value 5), and the other ¥4 buys the chance that it may keep rising before expiration (time value 4). A call with strike 120 is quoted at ¥3 — intrinsic value 0 (no one exercises at a loss), so all ¥3 is time value. Why that “chance” is worth money — and how much — is exactly the subject of Lesson 3.</p>
+
+<h2>Putting them together: buying “insurance” and collecting “rent” on your stock</h2>
+<p>An option’s greatest power lies in combining it with a spot position. The two classics:</p>
+<p><strong>Protective put</strong>: hold the stock and buy a put alongside it — the equivalent of <strong>buying insurance for the stock</strong>. Suppose the shares were bought at ¥100 and you buy a put with strike 90 and premium 8: if the share price crashes to 0, the stock loses 100 while the put earns 90−8 = 82, for a total loss of only ¥18. Step-by-step check: maximum loss = (cost of the shares − strike price) + premium = (100−90) + 8 = <strong>¥18</strong>; the price is a break-even point raised to 100 + 8 = ¥108. The strike at 90 works like the “deductible” in an insurance policy — it covers crashes below 90, while the smaller damage between 90 and 100 is yours to bear.</p>
+
+<div class="chart" id="pp-chart"></div>
+
+<p><strong>Covered call</strong>: hold the stock and <strong>sell</strong> a call against it — the equivalent of <strong>collecting rent on the stock</strong>. The premium lands in your pocket and boosts returns; the cost is that if the share price soars, your stock gets “called away” at the strike price, capping your upside. It suits holders who do not plan to sell and do not expect much near-term movement. The two combinations — one defensive, one offensive — are the option strategies institutions and individuals use most.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>An option = a right, not an obligation; the premium is the buyer’s maximum loss and the seller’s maximum gain;</li>
+<li>Payoff diagrams of the four basic positions: long call (loss limited, gain unlimited), short call (mirror image), long put (a bent line with slope 0/−1), short put (mirror image) — all kinked at K;</li>
+<li>Break-even point = strike price ± premium (with K=100 and P=8: 108 for a call, 92 for a put);</li>
+<li>Premium = intrinsic value + time value; the protective put installs a “floor” under the stock, the covered call collects “rent” on it.</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">{
+  "title": "Quiz · Option Payoff Structures",
+  "questions": [
+    {"q": "What is the essence of an option?", "options": ["Both buyer and seller must transact at the agreed price on the expiration date", "Paying the premium buys the obligation to trade at the agreed price", "Paying the premium buys the right to trade at the agreed price", "The holder must exercise, while the seller may choose whether to perform"], "answer": 2, "explain": "An option buyer buys a right, not an obligation: exercise when the market is favorable, walk away when it is not, with the premium as the maximum loss. The party obliged to perform is the seller, who collected the premium."},
+    {"q": "You pay ¥8 for a call option with a strike price of ¥100; at expiration the underlying is at ¥92. What is your payoff per share?", "options": ["A loss of ¥8", "A loss of ¥16", "A payoff of ¥0", "A gain of ¥8"], "answer": 0, "explain": "The expiration price of 92 is below the strike of 100, so the call is worthless paper: the buyer lets it lapse and loses the entire ¥8 premium — exactly the cap on a buyer’s loss."},
+    {"q": "You sell one naked put option (per share). What is its maximum loss?", "options": ["Its maximum gain is the premium, a limited and known amount", "Its maximum loss has no cap and grows as the underlying falls", "Its maximum loss is the premium, regardless of the underlying’s moves", "Its maximum loss is the strike price minus the premium"], "answer": 3, "explain": "The seller’s nightmare is the underlying hitting zero: obliged to buy a worthless underlying at strike K, the seller loses K per share, less the premium P received, so maximum loss = K−P (with K=100 and P=8, ¥92). It is the buyer, not the seller, whose loss is capped at the premium."},
+    {"q": "Your stock cost ¥100 and you buy a put with strike 90 and premium 12. If the share price falls to 0, what is your total payoff per share?", "options": ["A loss of ¥12", "A loss of ¥22", "A loss of ¥78", "A loss of ¥90"], "answer": 1, "explain": "The stock loses ¥100; exercising the put earns 90−12=¥78; total = −100+78=−¥22. Check: maximum loss = (share cost − strike) + premium = (100−90)+12 = ¥22 — that is the insurance “floor”."}
+  ]
+}</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (glossary anchors): <a href="../reference/glossary.html#option">option</a> · <a href="../reference/glossary.html#strike">strike price</a> · <a href="../reference/glossary.html#premium">premium</a></li>
+<li>Investopedia: Option — <a href="https://www.investopedia.com/terms/o/option.asp">investopedia.com/terms/o/option.asp</a></li>
+<li>CBOE Education (the options exchange’s official education site) — <a href="https://www.cboe.com/education/">cboe.com/education</a></li>
+<li>Wikipedia: Option (finance) — <a href="https://en.wikipedia.org/wiki/Option_(finance)">en.wikipedia.org/wiki/Option_(finance)</a></li>
+<li>Wikipedia entry for Hull’s Options, Futures, and Other Derivatives — <a href="https://en.wikipedia.org/wiki/Options,_Futures_and_Other_Derivatives">en.wikipedia.org/wiki/Options,_Futures_and_Other_Derivatives</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+  <a href="0001-futures-and-hedging.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Futures and Hedging</span></a>
+  <a class="next" href="0003-the-intuition-of-option-pricing.html"><span class="nav-label">Next lesson</span><span class="nav-title">The Intuition Behind Option Pricing</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>Derivatives &amp; Financial Engineering · Lesson 2</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var kIn = document.getElementById("opt-k"), pIn = document.getElementById("opt-p");
+  var btnCall = document.getElementById("btn-call"), btnPut = document.getElementById("btn-put");
+  var btnBuy = document.getElementById("btn-buy"), btnSell = document.getElementById("btn-sell");
+  if (!kIn || !pIn || !btnCall || typeof FChart === "undefined") return;
+  kIn._out = document.getElementById("opt-k-val");
+  pIn._out = document.getElementById("opt-p-val");
+  var kind = "call", side = "buy";
+  var chart = new FChart(document.getElementById("payoff-chart"), {
+    height: 380,
+    x: { min: 0, max: 200, label: "Underlying price at expiration (¥)" },
+    y: { min: -160, max: 160, label: "Payoff per share (¥)" },
+    title: "Option payoff at expiration (kink at K, break-even at K±P)"
+  });
+  function refreshBtns() {
+    btnCall.className = "btn" + (kind === "call" ? "" : " ghost");
+    btnPut.className = "btn" + (kind === "put" ? "" : " ghost");
+    btnBuy.className = "btn" + (side === "buy" ? "" : " ghost");
+    btnSell.className = "btn" + (side === "sell" ? "" : " ghost");
+  }
+  function update() {
+    var K = FChart.slider(kIn, function (v) { return "¥" + v; });
+    var P = FChart.slider(pIn, function (v) { return "¥" + v; });
+    var sign = side === "buy" ? 1 : -1;
+    function pnl(S) {
+      var v = kind === "call" ? Math.max(S - K, 0) : Math.max(K - S, 0);
+      return sign * (v - P);
+    }
+    chart.clear();
+    chart.hline(0, { color: "#a9a290", dash: "none", width: 1.5 });
+    var col = side === "buy" ? "#0d5c4f" : "#b3372f";
+    chart.path([[0, pnl(0)], [K, pnl(K)], [200, pnl(200)]], { color: col, width: 3 });
+    chart.vline(K, { color: "#a9a290", dash: "2 4", width: 1 });
+    var be = kind === "call" ? K + P : K - P;
+    chart.vline(be, { color: "#a3701a", label: "Break-even " + be });
+    chart.scatter([[be, 0, "#a3701a"]], { r: 5 });
+    var name = (side === "buy" ? "Long " : "Short ") + (kind === "call" ? "call" : "put");
+    document.getElementById("ro-pos").innerHTML = "Current position: <b>" + name + "</b> (K=" + K + ", P=" + P + ")";
+    var gain, loss;
+    if (side === "buy") {
+      loss = "<b>−¥" + P + "</b> (= the premium)";
+      gain = kind === "call" ? "<b>Unlimited</b> (the higher the expiration price, the bigger the gain)" : "<b>¥" + (K - P) + "</b> (when the underlying falls to 0)";
+    } else {
+      gain = "<b>+¥" + P + "</b> (= the premium)";
+      loss = kind === "call" ? "<b>Unlimited</b> (the higher the expiration price, the bigger the loss)" : "<b>−¥" + (K - P) + "</b> (when the underlying falls to 0)";
+    }
+    document.getElementById("ro-gain").innerHTML = "Maximum gain: " + gain;
+    document.getElementById("ro-loss").innerHTML = "Maximum loss: " + loss;
+    document.getElementById("ro-be").innerHTML = "Break-even point: <b>¥" + be + "</b> (" + (kind === "call" ? "K+P" : "K−P") + ")";
+  }
+  btnCall.addEventListener("click", function () { kind = "call"; refreshBtns(); update(); });
+  btnPut.addEventListener("click", function () { kind = "put"; refreshBtns(); update(); });
+  btnBuy.addEventListener("click", function () { side = "buy"; refreshBtns(); update(); });
+  btnSell.addEventListener("click", function () { side = "sell"; refreshBtns(); update(); });
+  kIn.addEventListener("input", update);
+  pIn.addEventListener("input", update);
+  refreshBtns();
+  update();
+
+  var ppEl = document.getElementById("pp-chart");
+  if (ppEl) {
+    var c = new FChart(ppEl, {
+      height: 340,
+      x: { min: 0, max: 200, label: "Stock price at expiration (¥)" },
+      y: { min: -120, max: 120, label: "Payoff per share (¥)" },
+      title: "Protective put: stock held at ¥100 + long put with strike 90, premium 8"
+    });
+    c.hline(0, { color: "#a9a290", dash: "none", width: 1.5 });
+    c.path([[0, -100], [200, 100]], { color: "#5d5749", width: 2, dash: "7 5" });
+    c.path([[0, -18], [90, -18], [200, 92]], { color: "#0d5c4f", width: 3 });
+    c.hline(-18, { color: "#2e7d4f", label: "Maximum loss −18", dash: "6 5" });
+    c.vline(108, { color: "#a3701a", label: "Break-even 108" });
+    c.legend([{ color: "#5d5749", text: "Stock only (cost 100)", dash: "7 5" }, { color: "#0d5c4f", text: "Stock + long put (K=90, P=8)" }]);
+  }
+})();
+</script></body></html>

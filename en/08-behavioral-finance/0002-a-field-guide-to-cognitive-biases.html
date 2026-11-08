@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Behavioral Finance · Lesson 2: A Field Guide to Cognitive Biases · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Behavioral Finance, Lesson 2: A Field Guide to Cognitive Biases — an interactive lesson with a chart simulator and a quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../08-行为金融学/0002-认知偏差图鉴.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Behavioral Finance</a><span class="sep">/</span>Lesson 2</div>
+<header class="lesson-header"><div class="kicker">Behavioral Finance · Lesson 2</div><h1>A Field Guide to Cognitive Biases</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Beginner</span><span>Prerequisites: Lesson 1</span></div></header>
+<p class="lead">Lesson 1 showed that the brain habitually handles complex problems with &ldquo;fast thinking,&rdquo; and pays for the shortcut with systematic errors. This lesson organizes the six cognitive biases investors meet most often into a &ldquo;field guide&rdquo;: each comes with a little story, a finance scenario, and a one-line countermeasure. The goal is not to eliminate biases — they cannot be eliminated — but to make you ask one more question before placing an order: &ldquo;Am I committing one of these right now?&rdquo;</p>
+
+<h2>1. Opening Experiment: See &ldquo;Anchoring&rdquo; With Your Own Eyes</h2>
+<p>Before meeting the six biases, run a small experiment. It replicates the classic study Kahneman and Tversky published in the journal <i>Science</i> in 1974: a wheel of fortune that spits out a random number, and a general-knowledge question that has nothing to do with the wheel.</p>
+
+<div class="widget">
+  <div class="widget-title">A little anchoring experiment: the wheel of fortune and the United Nations</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <button id="spin-btn" type="button" style="padding:8px 18px;font-size:16px;background:#0d5c4f;color:#fff;border:none;border-radius:6px;cursor:pointer;">🎲 Spin the wheel</button>
+    </div>
+    <div id="anchor-num" style="display:none;text-align:center;font-size:64px;font-weight:700;color:#0d5c4f;line-height:1.2;margin:12px 0 4px;">10</div>
+    <p id="anchor-note" style="display:none;text-align:center;color:#5d5749;">The wheel stopped on this number. Remember it, then answer the question below — it has nothing to do with the correct answer.</p>
+    <div id="step2" style="display:none;margin-top:10px;">
+      <p style="margin:6px 0;"><label for="guess-input">Your guess: roughly what percentage of UN member states are African countries? (0–100)</label></p>
+      <p style="margin:6px 0;"><input type="number" id="guess-input" min="0" max="100" step="1" placeholder="Enter a number from 0–100" style="padding:6px 10px;font-size:16px;width:220px;">
+      <button id="submit-btn" type="button" style="padding:8px 18px;font-size:16px;background:#a3701a;color:#fff;border:none;border-radius:6px;cursor:pointer;">Submit guess</button></p>
+      <p id="err-msg" style="color:#b3372f;margin:4px 0;"></p>
+    </div>
+    <div id="result" style="display:none;margin-top:12px;">
+      <div class="readout">
+        <span class="pill" id="pill-anchor"></span>
+        <span class="pill" id="pill-guess"></span>
+      </div>
+      <p id="kt-result" style="margin:10px 0 6px;"></p>
+      <p id="interp" style="margin:6px 0;"></p>
+      <button id="reset-btn" type="button" style="padding:6px 16px;font-size:14px;background:#5d5749;color:#fff;border:none;border-radius:6px;cursor:pointer;">🔄 Try another number</button>
+    </div>
+  </div>
+</div>
+
+<p>Whether the wheel lands on 10 or on 65, the number is random and unrelated to the question — yet it visibly dragged both groups&rsquo; estimates. That is this lesson&rsquo;s first bias: <span class="term" data-def="the tendency for an early number or piece of information to drag subsequent judgments toward it">anchoring</span>. In investing, your purchase cost is that &ldquo;wheel-of-fortune number&rdquo;: it does not change the stock&rsquo;s value, yet it firmly anchors your decision to &ldquo;sell only once I break even.&rdquo;</p>
+
+<h2>2. Quick-Reference Table: The Six Biases</h2>
+<table class="data">
+  <thead><tr><th>Bias</th><th>One-line symptom</th><th>Typical finance scenario</th><th>Countermeasure</th></tr></thead>
+  <tbody>
+    <tr><td>Anchoring</td><td>The first number drags the judgment</td><td>Purchase cost becomes the &ldquo;break-even&rdquo; anchor: &ldquo;no selling before I&rsquo;m even&rdquo;</td><td>Decide by rules that ignore your cost</td></tr>
+    <tr><td>Availability heuristic</td><td>Memorable examples get treated as the norm</td><td>Limit-up stories stick; the share of profitable traders gets overestimated</td><td>Check long-run statistics, not anecdotes</td></tr>
+    <tr><td>Overconfidence</td><td>Overestimating one&rsquo;s own judgment</td><td>Frequent trading; concentrated bets on a single stock</td><td>Cap trade frequency; keep score of hits and misses</td></tr>
+    <tr><td>Confirmation bias</td><td>Collecting only evidence that agrees with you</td><td>After buying, reading only the bullish case</td><td>Force yourself to write down the bear case</td></tr>
+    <tr><td>Mental accounting</td><td>Sticking different labels on money</td><td>Salary sits untouched, bonuses get spent; different risk appetite for principal vs. paper gains</td><td>Look at all assets as one pool</td></tr>
+    <tr><td>Disposition effect</td><td>Selling winners, holding losers</td><td>Not selling a paper loss = self-deception that it isn&rsquo;t &ldquo;realized&rdquo;</td><td>Set sell rules in advance; execute when triggered</td></tr>
+  </tbody>
+</table>
+
+<h2>3. Meet Them One by One: Six Little Stories</h2>
+
+<h3>1. Anchoring: the market doesn&rsquo;t know your cost basis</h3>
+<p>Xiao Lin bought a hot stock at ¥32; it then fell to ¥21. Asked what he planned to do, he said: &ldquo;The moment it gets back to ¥32 I&rsquo;ll sell — I&rsquo;m absolutely not selling before I break even.&rdquo; The problem: the number 32 means nothing to the market. It is merely Xiao Lin&rsquo;s own cost — the random &ldquo;wheel number&rdquo; spinning in his head. What a stock is worth depends on the company&rsquo;s future cash flows, not on anyone&rsquo;s purchase price.</p>
+<p><strong>Countermeasure:</strong> set buy/sell conditions in advance — tie &ldquo;sell or not&rdquo; to cost-unrelated indicators such as fundamental changes or valuation percentiles, write them into your investment journal, and execute when triggered.</p>
+
+<h3>2. Availability heuristic: those posting wins are the survivors</h3>
+<p>The <span class="term" data-def="a mental shortcut that estimates probability by how easily examples come to mind">availability heuristic</span> has us estimate probabilities from &ldquo;the examples that come easily to mind.&rdquo; Lao Zhang&rsquo;s coworker posted limit-up screenshots two days in a row; the group chat filled with talk of &ldquo;financial freedom,&rdquo; and Lao Zhang thought: so many people really do make money in stocks. What he couldn&rsquo;t see: those posting their trades are the survivors, while most people who lose stay silent. The saying long circulated in Chinese markets — &ldquo;seven lose, two break even, one wins&rdquo;: roughly seven in ten lose, two in ten break even, one in ten profits — describes the whole population of participants.</p>
+<p><strong>Countermeasure:</strong> fight memorable stories with long-run statistics. In your investment journal, record the gain or loss and the reasoning for every trade; tally the account at year-end and become your own &ldquo;source of statistics.&rdquo;</p>
+
+<h3>3. Overconfidence: the more you trade, the less you make</h3>
+<p>The hallmark of <span class="term" data-def="the tendency to overrate the accuracy of one&rsquo;s own judgment and the quality of one&rsquo;s information">overconfidence</span>: after three good calls in a row, you feel you have &ldquo;a knack for the tape.&rdquo; That is how Xiao Zhou opened a margin account and chased hot stocks every day. Barber and Odean studied 66,465 individual brokerage accounts (1991–1996) and found that the highest-turnover group earned an average net return about 7 percentage points per year lower than the lowest-turnover group; follow-up research found that men trade more frequently than women and also earn worse net returns (Barber &amp; Odean, 2000/2001). The finding in one sentence: the more frequent the trading, the worse the net return — especially for men.</p>
+<p><strong>Countermeasure:</strong> make trade frequency rule-based — for example, act only at the quarterly rebalancing; the rest of the time, no watching the tape or placing orders.</p>
+
+<h3>4. Confirmation bias: once you own it, all you see is good news</h3>
+<p><span class="term" data-def="the tendency to seek out and remember only evidence that supports an existing view">Confirmation bias</span> leads people to gather only supporting evidence once an opinion has formed. After Xiao Wu loaded up on a renewable-energy stock, his follow list was wall-to-wall bullish commentators; he swiped past every bearish report, reassuring himself that &ldquo;these people don&rsquo;t understand the industry.&rdquo; Half a year later the bad news landed, and he discovered the counterevidence had been there all along — he had simply never read it seriously.</p>
+<p><strong>Countermeasure:</strong> add a mandatory column to your investment journal, &ldquo;the strongest argument for the other side&rdquo;; before every intended add-on purchase, first seek out and finish one high-quality bearish article.</p>
+
+<h3>5. Mental accounting: the same ¥10,000, different fates</h3>
+<p><span class="term" data-def="the tendency to label money by its source in one&rsquo;s head and treat it differently">Mental accounting</span> means money carries different labels in the mind. The same ¥10,000: earned as salary, it sits in the account untouched; received as a year-end bonus, it is casually spent on a new phone. It is even more common in investing — a 5% loss on principal keeps you up at night, while a 20% drawdown in &ldquo;paper gains&rdquo; goes unnoticed, so the paper profits get carved out to &ldquo;take a shot.&rdquo; Yet to your total wealth, a yuan lost from paper gains is exactly a yuan lost from principal.</p>
+<p><strong>Countermeasure:</strong> consolidate every account into one balance sheet and manage it as a whole; evaluate only the portfolio&rsquo;s overall risk and return, and give no sum of money &ldquo;special treatment.&rdquo;</p>
+
+<h3>6. Disposition effect: the self-deception of selling winners and holding losers</h3>
+<p>Xiao Zheng holds two stocks: one is up 15%, the other down 20%. He sells the winner to &ldquo;lock in the profit&rdquo; and keeps the loser to &ldquo;wait for it to come back&rdquo; — that is the disposition effect: rushing to realize gains while clinging to losses. It is the direct product of Lesson 1&rsquo;s loss aversion: as long as you don&rsquo;t sell, the loss isn&rsquo;t yet &ldquo;realized&rdquo; and psychologically seems not to exist — a self-deception, while the account balance settles honestly every single day.</p>
+<p><strong>Countermeasure:</strong> set buy/sell conditions in advance, and test every holding with a single question: &ldquo;If I were all in cash today, would I still buy it at this price?&rdquo; If the answer is no, sell — regardless of your cost.</p>
+
+<div class="callout callout-info"><span class="callout-title">Biases ≠ stupidity</span><p>These shortcuts are mostly effort-saving and effective in everyday life, and smart people commit them just the same — they are System 1&rsquo;s default way of working. The goal of learning about biases is not to switch System 1 off, but to deliberately call on System 2 for a check before major decisions. Three all-purpose weapons: rule-based decisions, an investment journal, and pre-set buy/sell conditions.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Name the six common cognitive biases, their symptoms, and the matching finance scenarios</li>
+<li>Replicate the anchoring experiment yourself and grasp that &ldquo;even an irrelevant number drags judgment&rdquo;</li>
+<li>Remember the empirical evidence: studies of tens of thousands of accounts show that more frequent trading means worse net returns</li>
+<li>Master the three all-purpose countermeasures: rule-based decisions, an investment journal, pre-set buy/sell conditions</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"Xiao Wang buys a stock at ¥50; after it falls to ¥35 he declares \u2018I won\u2019t sell until I break even.\u2019 Which bias is most at work here?","options":["Confirmation bias","Anchoring","Mental accounting","Overconfidence"],"answer":1,"explain":"The purchase cost becomes the \u2018break-even\u2019 anchor: anchoring makes him treat his cost price — an irrelevant number — as the reference for a fair price, when the market itself has no idea what he paid."},
+{"q":"Repeatedly citing the long-run statistic \u2018seven lose, two break even, one wins\u2019 most directly corrects which of the following ideas?","options":["Money-making stories from people around me","My own analytical skill is a cut above","My purchase price is the fair price","Paper gains and principal deserve different treatment"],"answer":0,"explain":"The availability heuristic makes people estimate probabilities from easily recalled examples: limit-up screenshots are everywhere while losers mostly stay silent; long-run population statistics correct exactly this overgeneralization."},
+{"q":"What is the most direct psychological root of the disposition effect (selling winners, holding losers)?","options":["Overconfidence","Mental accounting","Confirmation bias","Loss aversion"],"answer":3,"explain":"Selling a position at a paper loss \u2018realizes\u2019 the loss, which in Lesson 1\u2019s value function amounts to confirming it — loss aversion would rather keep holding and pretend the loss doesn\u2019t exist."},
+{"q":"Which practice most systematically constrains cognitive biases?","options":["Go all-in alongside the group chat","Trade in and out daily chasing rallies","Place orders by pre-set buy/sell rules","Read only bullish news and hold firm"],"answer":2,"explain":"Pre-set buy/sell conditions, an investment journal, and rule-based decisions all replace heat-of-the-moment judgment, which is vulnerable to emotion, with rules written down in advance."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#anchoring">anchoring</a> · <a href="../reference/glossary.html#availability-heuristic">availability heuristic</a> · <a href="../reference/glossary.html#overconfidence">overconfidence</a> · <a href="../reference/glossary.html#confirmation-bias">confirmation bias</a> · <a href="../reference/glossary.html#mental-accounting">mental accounting</a></li>
+
+<li>Wikipedia: the entry for <i>Thinking, Fast and Slow</i> (Kahneman&rsquo;s popular book on the two systems and biases): <a href="https://zh.wikipedia.org/wiki/思考，快与慢">zh.wikipedia.org/wiki/思考，快与慢</a></li>
+<li>Investopedia: Anchoring Bias: <a href="https://www.investopedia.com/terms/a/anchoring-bias.asp">investopedia.com/terms/a/anchoring-bias.asp</a></li>
+<li>Investopedia: Overconfidence Bias: <a href="https://www.investopedia.com/terms/o/overconfidence-bias.asp">investopedia.com/terms/o/overconfidence-bias.asp</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0001-loss-aversion-and-prospect-theory.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Loss Aversion and Prospect Theory</span></a>
+<a class="next" href="0003-bubbles-and-market-anomalies.html"><span class="nav-label">Next lesson</span><span class="nav-title">Bubbles and Market Anomalies</span></a>
+</nav>
+<footer class="lesson-footer"><span>Behavioral Finance · Lesson 2</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var spinBtn=document.getElementById("spin-btn");
+  var anchorNum=document.getElementById("anchor-num");
+  var anchorNote=document.getElementById("anchor-note");
+  var step2=document.getElementById("step2");
+  var guessInput=document.getElementById("guess-input");
+  var submitBtn=document.getElementById("submit-btn");
+  var resultBox=document.getElementById("result");
+  var pillAnchor=document.getElementById("pill-anchor");
+  var pillGuess=document.getElementById("pill-guess");
+  var ktText=document.getElementById("kt-result");
+  var interpText=document.getElementById("interp");
+  var resetBtn=document.getElementById("reset-btn");
+  var errMsg=document.getElementById("err-msg");
+  var anchor=null;
+  function spin(){
+    anchor=Math.random()<0.5?10:65;
+    anchorNum.textContent=String(anchor);
+    anchorNum.style.display="block";
+    anchorNote.style.display="block";
+    step2.style.display="block";
+    resultBox.style.display="none";
+    guessInput.value="";
+    errMsg.textContent="";
+    guessInput.focus();
+  }
+  function submit(){
+    var g=parseFloat(guessInput.value);
+    if(isNaN(g)||g<0||g>100){errMsg.textContent="Please enter a number between 0 and 100.";return;}
+    errMsg.textContent="";
+    g=Math.round(g);
+    pillAnchor.textContent="Wheel number: "+anchor;
+    pillGuess.textContent="Your estimate: "+g+"%";
+    var other=(anchor===10)?65:10;
+    var mine=(anchor===10)?"about 25%":"about 45%";
+    var theirs=(anchor===10)?"about 45%":"about 25%";
+    ktText.innerHTML="Results from Kahneman and Tversky’s original 1974 experiment: the group shown "+anchor+" gave an average estimate of "+mine+"; the other group, shown "+other+", averaged "+theirs+" (figures as reported in the original experiment). The true answer is around 30% — and has nothing to do with the wheel.";
+    interpText.innerHTML="A random number spun from a wheel, wholly unrelated to the answer, yet it pulled the two groups’ estimates about 20 percentage points apart — that is anchoring. In investing: your purchase cost is that “wheel-of-fortune number.” It doesn’t change what the stock is worth, yet it firmly anchors the “no selling before I break even” decision. The market neither knows nor cares about your cost basis.";
+    resultBox.style.display="block";
+  }
+  function reset(){
+    anchor=null;
+    anchorNum.style.display="none";
+    anchorNote.style.display="none";
+    step2.style.display="none";
+    resultBox.style.display="none";
+    guessInput.value="";
+    errMsg.textContent="";
+  }
+  spinBtn.addEventListener("click",spin);
+  submitBtn.addEventListener("click",submit);
+  resetBtn.addEventListener("click",reset);
+  guessInput.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();submit();}});
+})();
+</script>
+</body></html>

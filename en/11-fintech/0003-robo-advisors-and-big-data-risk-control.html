@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinTech · Lesson 3: Robo-Advisors and Big-Data Risk Control · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, FinTech Lesson 3, “Robo-Advisors and Big-Data Risk Control”: an interactive lesson with charts, simulators, and a quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+/* Private styles for this lesson’s interactive widgets (the public stylesheet is untouched) */
+.ra-q{margin-bottom:12px;}
+.ra-qtitle{font-weight:600;color:#3a362c;margin-bottom:6px;}
+.ra-q label{display:inline-flex;align-items:center;gap:6px;margin:0 14px 6px 0;cursor:pointer;font-size:14px;color:#3a362c;}
+.ra-btn{border:none;border-radius:6px;padding:9px 18px;font-size:14px;cursor:pointer;color:#fff;background:#0d5c4f;}
+.ra-flex{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:14px;}
+#ra-pie{flex:0 0 220px;max-width:100%;}
+#ra-legend{flex:1;min-width:180px;}
+</style>
+</head>
+<body>
+<a class="lang-switch" href="../../11-金融科技/0003-智能投顾与大数据风控.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">FinTech</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header">
+<div class="kicker">FinTech · Lesson 3</div>
+<h1>Robo-Advisors and Big-Data Risk Control</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: Lesson 2</span></div>
+</header>
+<p class="lead">In the first two lessons we watched money move and ledgers being kept. This lesson visits two scenes of algorithms taking over finance: on one side, the robo-advisor that manages your money; on the other, the big-data risk control that decides whether to lend to you. They are cheap, fast, and everywhere — but they bring new problems of their own.</p>
+
+<h2>1. Robo-Advisors: Packing the Advisor into an Algorithm</h2>
+<p>Traditional investment advisors charge by assets under management; their human service is costly and usually reserved for big clients. The <span class="term" data-def="An investment service in which an algorithm handles profiling, allocation, execution, and rebalancing.">robo-advisor</span> hands an entire standardized process over to an algorithm: you answer a questionnaire, it builds a portfolio, the system executes the trades automatically, and it periodically moves the proportions back to target — the entry bar is so low that a few hundred yuan can get you started.</p>
+<table class="data">
+<thead><tr><th>Step</th><th>What you do</th><th>What the algorithm does</th></tr></thead>
+<tbody>
+<tr><td>1 · Risk profiling</td><td>Answer honestly about age, horizon, goals, and the loss you can bear</td><td>Assigns a risk tier and matches a stock/bond mix</td></tr>
+<tr><td>2 · Portfolio recommendation</td><td>Review and confirm the plan</td><td class="good">Delivers a stock-and-bond portfolio, mostly low-cost index funds</td></tr>
+<tr><td>3 · Automatic execution</td><td>Link a card, fund the account, set up auto-investing</td><td>Places the orders that build the position at target weights</td></tr>
+<tr><td>4 · Periodic rebalancing</td><td>Mostly hands-off</td><td class="good">Sells a little of what ran up, buys a little of what fell, back to target weights</td></tr>
+</tbody>
+</table>
+<div class="callout callout-tip"><span class="callout-title">The soul of the portfolio is the stock/bond mix</span><p>Why the mix is set this way and how it shifts across the life cycle: see the lesson <a href="../10-personal-finance/0002-asset-allocation-and-the-life-cycle.html">Asset Allocation and the Life Cycle</a> in the Personal Finance branch. Rebalancing is, in essence, a disciplined “sell high, buy low”, executed by the system so you can beat the itch to chase rallies and panic-sell.</p></div>
+
+<div class="widget">
+<div class="widget-title">🤖 Interactive 1: Mini Robo-Advisor</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="ra-q">
+<div class="ra-qtitle">① Your age bracket?</div>
+<label><input type="radio" name="ra-age" value="0">Under 30</label>
+<label><input type="radio" name="ra-age" value="1">30–45</label>
+<label><input type="radio" name="ra-age" value="2">46–60</label>
+<label><input type="radio" name="ra-age" value="3">Over 60</label>
+</div>
+<div class="ra-q">
+<div class="ra-qtitle">② How big a one-year loss would keep you up at night?</div>
+<label><input type="radio" name="ra-loss" value="0">Losing up to 5%</label>
+<label><input type="radio" name="ra-loss" value="1">Losing 5%–20%</label>
+<label><input type="radio" name="ra-loss" value="2">I could take a 20% drop</label>
+</div>
+<div class="ra-q">
+<div class="ra-qtitle">③ The main goal for this money?</div>
+<label><input type="radio" name="ra-goal" value="0">Hold value safely</label>
+<label><input type="radio" name="ra-goal" value="1">Grow steadily</label>
+<label><input type="radio" name="ra-goal" value="2">Chase maximum returns</label>
+</div>
+<button type="button" id="ra-go" class="ra-btn">Build my portfolio</button>
+</div>
+<div id="ra-result" style="display:none;">
+<div id="ra-name" style="font-size:18px;font-weight:700;color:#0d5c4f;margin-bottom:8px;"></div>
+<div class="ra-flex">
+<svg id="ra-pie" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="Asset allocation pie chart"></svg>
+<div id="ra-legend"></div>
+</div>
+<p id="ra-note" style="margin:10px 0 0;font-size:14px;line-height:1.7;"></p>
+<p style="margin:6px 0 0;font-size:12px;color:#5d5749;">Teaching demo, not investment advice; real products run suitability matching far more complex than these three questions.</p>
+</div>
+<div class="readout"><span class="pill" id="ra-pill">Waiting for answers…</span></div>
+</div>
+</div>
+
+<h2>2. Why It’s Cheap: The Marginal-Cost Story</h2>
+<p>A human advisor serving 1,000 clients sees costs rise roughly in line; an algorithm serving its 10,000th client has a <strong>marginal cost close to zero</strong> — and with counters and headcount cut out, prices can be pushed down. Typical ranges: robo-advisors charge roughly <strong>0.2%–0.5%</strong> a year, while traditional human channels often run <strong>above 1%</strong> (both are common ranges that vary widely by platform, region, and asset size — not precise figures).</p>
+<p>Don’t dismiss a fraction of a percentage point — compounding can blow a fee gap up into the price of a car:</p>
+
+<div class="widget">
+<div class="widget-title">💰 Interactive 2: Fee Compounding Calculator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row">
+<label>Traditional channel annual fee <span class="val" id="fee-val">1%</span>
+<input type="range" id="fee" min="0.5" max="2" step="0.05" value="1">
+</label>
+</div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill" id="fee-pill">20-year fee gap: …</span>
+<span class="pill">Assumes 5%/yr gross return · ¥100,000 principal · taxes and fees excluded · teaching illustration</span>
+</div>
+</div>
+</div>
+
+<div class="callout callout-tip"><span class="callout-title">Two reminders</span><p>A low fee does not mean high returns; the fee only decides how much is deducted from you. On top of the robo-advisor fee, the underlying index funds charge their own management fees — watch both.</p></div>
+
+<h2>3. Big-Data Risk Control: The Models Behind Instant Approval</h2>
+<p>Ten years ago, applying for a loan meant bringing pay records, an employer’s letter, even collateral; today a few taps on a phone and a credit line appears within seconds. The change is not that banks got more diligent — it is that risk control swapped engines. <span class="term" data-def="A system that uses models to score how likely a borrower is to default.">Credit scoring</span> uses models to score “the probability that you repay on time”; <span class="term" data-def="New data sources beyond traditional income records and collateral, such as spending and behavior records.">alternative data</span> fills out the profile beyond the credit-bureau record: e-commerce spending, utility payments, repayment history on past products, usage-behavior features… A model finishes in milliseconds what once took a traditional loan officer a week.</p>
+<div class="callout callout-info"><span class="callout-title">Who benefits most?</span><p>The greatest value of alternative data is that “credit invisibles” — people with no credit card and no mortgage — can be assessed for the first time. The instantly approved credit line is simply the score the model assigns.</p></div>
+
+<div class="widget">
+<div class="widget-title">📊 Interactive 3: Credit-Score Factor Bar Chart</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row">
+<label>Months of on-time repayment <span class="val" id="pay-val">24</span>
+<input type="range" id="pay" min="0" max="36" step="1" value="24">
+</label>
+</div>
+</div>
+<div class="chart" id="chart2"></div>
+<div class="readout">
+<span class="pill" id="score-pill">Illustrative score: 603</span>
+<span class="pill">Base 600 · factors and weights are teaching illustrations</span>
+</div>
+</div>
+</div>
+<p style="font-size:13px;color:#5d5749;">Note: the factors and weights in the chart above (on-time repayment +35, high debt load −25, frequent inquiries −10, long account history +15) are teaching illustrations, not the weights of any real scorecard; models differ enormously across institutions and are never published.</p>
+
+<h2>4. The Algorithm’s Shadow: The Price of Cheap and Fast</h2>
+<p>Algorithms are not neutral referees. The most discussed problem is <span class="term" data-def="The phenomenon of a model perpetuating or even amplifying historical discrimination embedded in its training data.">algorithmic bias</span>: if historical lending data is itself discriminatory (some groups long found it harder to get loans), the model learns that pattern as a “rule” and carries it — even amplifies it — into future approvals.</p>
+<div class="callout callout-warn"><span class="callout-title">Four shadows</span><p>① Algorithmic bias: historical discrimination in the training data is carried forward by the model, and the rejected applicant never even knows they were labeled; ② Privacy boundaries: does one grant of authorization mean authorization forever? Who was the data shared with? ③ Black boxes: when a model declines a loan it often cannot give a reason a human can understand, making appeals and corrections hard; ④ Big-data price discrimination: the same product or service shows different prices to different people, with longtime customers paying more.</p></div>
+<p>So “deciding with data” does not automatically mean “fairer” — data is history’s child, and history is not always clean.</p>
+
+<h2>5. RegTech in One Paragraph</h2>
+<p>However fast algorithms run in finance, regulators must chase just as fast. <strong>RegTech</strong> means regulators, too, are using algorithms to police algorithms: monitoring suspicious transactions in real time, filing reports automatically, and spotting violations. Machines watching machines is becoming the norm — technology never belongs to financial institutions alone.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Recite the four robo-advisor steps: profile → portfolio → execution → rebalancing</li>
+<li>Understand where the low price comes from — near-zero algorithmic marginal cost plus the cut in labor — and feel the weight of a fee gap through the intuition of compounding</li>
+<li>Know that behind “instant approval” stand credit-scoring models and alternative data</li>
+<li>Stay alert to the algorithm’s four shadows: bias, privacy, black boxes, price discrimination — and ask one more “why” whenever a “smart” decision lands on you</li>
+<li>Remember RegTech: machines watching machines is becoming the norm</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"In the standard robo-advisor process, what is usually the first step?","options":["Buy hot stocks with the entire balance","Pick a star fund manager","Fill out a risk-profiling questionnaire"],"answer":2,"explain":"The robo-advisor has four steps: a risk-profiling questionnaire → a recommended stock/bond portfolio (mostly index funds) → automatic execution → periodic rebalancing; everything starts with knowing how much risk you can bear."},
+{"q":"What is the main reason robo-advisor fees can be lower than traditional human advisors’?","options":["The underlying funds charge no fees at all","Serving one more client costs an algorithm nearly nothing","It promises returns will always be higher"],"answer":1,"explain":"An algorithm’s marginal cost of serving one more client is close to zero, and it saves the human advisor’s labor costs; typical annual fees run about 0.2%–0.5% (the range varies by platform), with underlying fund fees still charged on top."},
+{"q":"Which of the following counts as “alternative data” in credit risk control?","options":["The appraised value of pledged real-estate collateral","Bank account flows and pay slips","Records in the central bank’s credit report","Digital footprints of spending behavior"],"answer":3,"explain":"Collateral, account flows, and credit-bureau reports are traditional credit data; digital footprints of spending and behavior are alternative data, used to help assess people who lack a traditional credit history."},
+{"q":"What does “algorithmic bias” refer to?","options":["Historical discrimination carried forward by a model","Computers occasionally miscalculating numbers","Programmers deliberately coding in bias"],"answer":0,"explain":"Algorithmic bias means the model learns discriminatory patterns already present in its training data and perpetuates or even amplifies them in decisions such as lending — often not deliberate wrongdoing, but the shadow the data casts."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#robo-advisor">robo-advisor</a> · <a href="../reference/glossary.html#credit-scoring">credit scoring</a> · <a href="../reference/glossary.html#alternative-data">alternative data</a> · <a href="../reference/glossary.html#algorithmic-bias">algorithmic bias</a></li>
+
+<li>Investopedia: Robo-Advisor — <a href="https://www.investopedia.com/terms/r/roboadvisor-roboadviser.asp">investopedia.com/terms/r/roboadvisor-roboadviser.asp</a></li>
+<li>Investopedia: Credit Scoring — <a href="https://www.investopedia.com/terms/c/credit_scoring.asp">investopedia.com/terms/c/credit_scoring.asp</a></li>
+<li>Investopedia: Algorithmic Bias — <a href="https://www.investopedia.com/terms/a/algorithmic-bias.asp">investopedia.com/terms/a/algorithmic-bias.asp</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0002-blockchain-and-digital-currencies.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Blockchain and Digital Currencies</span></a>
+<a href="../index.html" class="next"><span class="nav-label">End of the learning path</span><span class="nav-title">Return to Course Home</span></a>
+</nav>
+<footer class="lesson-footer"><span>FinTech · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  'use strict';
+  function $(id) { return document.getElementById(id); }
+  function pick(name) {
+    var r = document.querySelector('input[name="' + name + '"]:checked');
+    return r ? parseInt(r.value, 10) : null;
+  }
+
+  /* ---------- Interactive 1: mini robo-advisor (SVG pie chart) ---------- */
+  var AGE_PTS = [3, 2, 1, 0];
+  var LOSS_PTS = [0, 1, 2];
+  var GOAL_PTS = [0, 1, 2];
+  var TYPES = {
+    conservative: { name: 'Conservative', alloc: [20, 65, 15], note: 'Bonds and cash form a stable base with a little stock to fend off inflation: low volatility, and relatively lower long-run expected returns.' },
+    balanced: { name: 'Balanced', alloc: [50, 40, 10], note: 'Stocks and bonds roughly balanced: equity funds attack, bonds defend; volatility and expected returns both sit in the middle.' },
+    growth: { name: 'Growth', alloc: [75, 20, 5], note: 'Mostly equity funds: big short-term swings, suited to long-horizon money you can hold through losses; keep only a small cash buffer for emergencies.' }
+  };
+  function piePath(cx, cy, r, a0, a1) {
+    var x0 = cx + r * Math.cos(a0), y0 = cy + r * Math.sin(a0);
+    var x1 = cx + r * Math.cos(a1), y1 = cy + r * Math.sin(a1);
+    var large = (a1 - a0) > Math.PI ? 1 : 0;
+    return 'M ' + cx + ' ' + cy + ' L ' + x0.toFixed(1) + ' ' + y0.toFixed(1) +
+      ' A ' + r + ' ' + r + ' 0 ' + large + ' 1 ' + x1.toFixed(1) + ' ' + y1.toFixed(1) + ' Z';
+  }
+  function drawPie(alloc) {
+    var items = [
+      { name: 'Stock funds', pct: alloc[0], color: '#b3372f' },
+      { name: 'Bond funds', pct: alloc[1], color: '#0d5c4f' },
+      { name: 'Cash', pct: alloc[2], color: '#a3701a' }
+    ];
+    var cx = 110, cy = 110, r = 92, a = -Math.PI / 2, parts = [];
+    items.forEach(function (it) {
+      var a2 = a + it.pct / 100 * Math.PI * 2;
+      parts.push('<path d="' + piePath(cx, cy, r, a, a2) + '" fill="' + it.color + '" stroke="#fdfcf7" stroke-width="2"></path>');
+      if (it.pct >= 8) {
+        var mid = (a + a2) / 2;
+        parts.push('<text x="' + (cx + r * 0.62 * Math.cos(mid)).toFixed(1) + '" y="' + (cy + r * 0.62 * Math.sin(mid)).toFixed(1) + '" dy="0.35em" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">' + it.pct + '%</text>');
+      }
+      a = a2;
+    });
+    $('ra-pie').innerHTML = parts.join('');
+    $('ra-legend').innerHTML = items.map(function (it) {
+      return '<div style="display:flex;align-items:center;gap:8px;margin:4px 0;"><span style="width:12px;height:12px;border-radius:3px;background:' + it.color + ';display:inline-block;"></span><span style="font-size:14px;color:#3a362c;">' + it.name + ' ' + it.pct + '%</span></div>';
+    }).join('');
+  }
+  $('ra-go').addEventListener('click', function () {
+    var a = pick('ra-age'), l = pick('ra-loss'), g = pick('ra-goal');
+    var pill = $('ra-pill');
+    if (a === null || l === null || g === null) {
+      pill.textContent = 'Please answer all 3 quick questions first';
+      pill.style.background = '#a3701a';
+      pill.style.color = '#fff';
+      $('ra-result').style.display = 'none';
+      return;
+    }
+    var score = AGE_PTS[a] + LOSS_PTS[l] + GOAL_PTS[g];
+    var t;
+    if (l === 0) t = TYPES.conservative;
+    else if (score >= 5) t = TYPES.growth;
+    else if (score >= 3) t = TYPES.balanced;
+    else t = TYPES.conservative;
+    drawPie(t.alloc);
+    $('ra-name').textContent = 'Your portfolio: ' + t.name;
+    $('ra-note').textContent = t.note + (l === 0 && score >= 3 ? ' (Note: you chose “losing more than 5% would keep me up at night”, so the portfolio automatically steps down to Conservative — suitability comes first.)' : '');
+    $('ra-result').style.display = 'block';
+    pill.textContent = 'Risk score ' + score + '/7 → ' + t.name;
+    pill.style.background = '#0d5c4f';
+    pill.style.color = '#fff';
+  });
+
+  /* ---------- Interactive 2: fee compounding calculator ---------- */
+  var PRINCIPAL = 100000, GROSS = 0.05, ROBO_FEE = 0.0035;
+  function bal(t, fee) { return PRINCIPAL * Math.pow(1 + GROSS - fee, t); }
+  var feeEl = $('fee'), feeChart = null;
+  function drawFee() {
+    if (typeof FChart !== 'function' || !$('chart1')) return;
+    var v = parseFloat(feeEl.value);
+    $('fee-val').textContent = (+v.toFixed(2)) + '%';
+    if (!feeChart) {
+      feeChart = new FChart($('chart1'), {
+        height: 340,
+        x: { min: 0, max: 20, label: 'Years invested' },
+        y: { min: 80000, max: 280000, label: 'Account value (¥)' }
+      });
+    }
+    feeChart.clear();
+    feeChart.path(function (x) { return bal(x, ROBO_FEE); }, { color: '#0d5c4f', width: 2.5 });
+    feeChart.path(function (x) { return bal(x, v / 100); }, { color: '#b3372f', width: 2.5 });
+    feeChart.hline(PRINCIPAL, { label: 'Principal ¥100,000', color: '#5d5749' });
+    feeChart.legend([
+      { color: '#0d5c4f', text: 'Robo-advisor 0.35% (illustrative)' },
+      { color: '#b3372f', text: 'Traditional channel ' + (+v.toFixed(2)) + '% (adjustable)' }
+    ]);
+    var diff = bal(20, ROBO_FEE) - bal(20, v / 100);
+    $('fee-pill').textContent = '20-year fee gap: about ¥' + Math.round(diff).toLocaleString('zh-CN');
+  }
+  feeEl.addEventListener('input', drawFee);
+  drawFee();
+
+  /* ---------- Interactive 3: score-factor bar chart ---------- */
+  var payEl = $('pay'), months = 24, scoreChart = null;
+  function factors() {
+    return [
+      { label: 'On-time repayment', v: +(months / 36 * 35).toFixed(1), color: '#0d5c4f' },
+      { label: 'Long account history', v: 15, color: '#0d5c4f' },
+      { label: 'High debt load', v: -25, color: '#b3372f' },
+      { label: 'Frequent inquiries', v: -10, color: '#b3372f' }
+    ];
+  }
+  function drawScore() {
+    if (typeof FChart !== 'function' || !$('chart2')) return;
+    if (!scoreChart) {
+      scoreChart = new FChart($('chart2'), {
+        height: 340,
+        x: { min: 0, max: 4, label: '', ticks: [], fmt: function () { return ''; } },
+        y: { min: -35, max: 45, label: 'Impact on illustrative score (points)' }
+      });
+    }
+    scoreChart.clear();
+    scoreChart.hline(0, { color: '#5d5749' });
+    var fs = factors();
+    scoreChart.bars(fs.map(function (f, i) {
+      return { x0: i + 0.18, x1: i + 0.82, y: f.v, color: f.color, label: f.label };
+    }), { y0: 0 });
+    var total = 600;
+    fs.forEach(function (f) { total += f.v; });
+    $('score-pill').textContent = 'Illustrative score: ' + Math.round(total);
+  }
+  payEl.addEventListener('input', function () {
+    months = parseFloat(payEl.value);
+    $('pay-val').textContent = months;
+    drawScore();
+  });
+  drawScore();
+})();
+</script>
+</body>
+</html>

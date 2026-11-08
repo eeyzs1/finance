@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derivatives &amp; Financial Engineering · Branch Overview · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Branch overview of the Derivatives &amp; Financial Engineering branch of the Finance Self-Study Course: knowledge map and lesson list, with entries to the interactive lessons.">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<a class="lang-switch" href="../../05-衍生品与金融工程/index.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+
+  <div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span>Derivatives &amp; Financial Engineering</div>
+
+  <header class="branch-hero">
+    <div class="kicker">Branch 05 · Derivatives &amp; Financial Engineering</div>
+    <h1>Derivatives &amp; Financial Engineering</h1>
+    <p>Derivatives are “contracts about the future”: they produce nothing themselves, and one party’s gain is necessarily the other party’s loss (<strong>zero-sum</strong>). Nor does their value come from within — it is entirely “derived” from the <strong>underlying asset</strong> they are tied to: oil, soybeans, stocks, indexes, interest rates — almost anything can serve as the underlying.</p>
+  </header>
+
+  <div class="callout callout-key">
+    <span class="callout-title">After this branch, you can…</span>
+    <ul>
+      <li>decode what financial news is really saying when it mentions “<span class="term" data-def="A state in which the futures price sits below the spot price of the underlying; the opposite state is contango. Index futures discount often reflects dividends and hedging demand.">stock index futures discount</span>”;</li>
+      <li>understand why options have a price at all, and what makes them more or less expensive;</li>
+      <li>use the <span class="term" data-def="A line chart with the underlying’s price at expiration on the horizontal axis and the position’s payoff on the vertical axis; the lingua franca of the options world.">payoff diagram</span> to draw any simple option strategy (protective puts, covered calls, …).</li>
+    </ul>
+  </div>
+
+  <h2>Knowledge map</h2>
+  <p>The backbone of this branch is two lessons on the derivative “building blocks” (futures, options) plus one lesson on the intuition of pricing; swaps, structured products, and quant practice are extension directions the course does not develop, but we leave you signposts.</p>
+  <div class="map-grid">
+    <div class="map-cell">
+      <b><a href="0001-futures-and-hedging.html">Forwards &amp; Futures</a></b>
+      <ul>
+        <li>Forwards vs. futures: customization vs. standardization</li>
+        <li>Marking to market and the margin system</li>
+        <li>Hedging: locking in tomorrow’s price today</li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b><a href="0002-option-payoff-structures.html">Options</a></b>
+      <ul>
+        <li>Calls/puts × buyers/sellers: four basic positions</li>
+        <li>Payoff diagrams at expiration and break-even points</li>
+        <li>Intrinsic value and time value</li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b>Swaps (extension topic)</b>
+      <ul>
+        <li>Contracts that agree to exchange cash flows in the future</li>
+        <li>Interest rate swaps and currency swaps are the most common</li>
+        <li>Further reading: <a href="https://www.investopedia.com/terms/s/swap.asp">Investopedia: Swap</a></li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b><a href="0003-the-intuition-of-option-pricing.html">Pricing Theory</a></b>
+      <ul>
+        <li>The one-step binomial tree and risk-neutral probability</li>
+        <li>The idea behind the Black-Scholes (BS) model</li>
+        <li>Volatility: the heartbeat of option prices</li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b>Structured Products (extension topic)</b>
+      <ul>
+        <li>Wealth-management products assembled from bonds + options</li>
+        <li>What “principal protection + a shot at high returns” really costs</li>
+        <li>Best revisited after Lessons 2 and 3</li>
+      </ul>
+    </div>
+    <div class="map-cell">
+      <b>Quant &amp; Financial Engineering Practice (extension topic)</b>
+      <ul>
+        <li>Pricing, hedging, and market-making with math and code</li>
+        <li>Volatility trading and derivatives risk management</li>
+        <li>A starter map of related career directions</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Lessons</h2>
+  <div class="cards">
+    <div class="card">
+      <span class="card-no">Lesson 1</span>
+      <span class="card-title"><a href="0001-futures-and-hedging.html">Futures and Hedging</a></span>
+      <p>How does an airline use futures to “settle today” the price of jet fuel it will need three months from now? Forwards versus futures, marking to market, margin, and why speculators are indispensable.</p>
+      <span class="card-meta">Includes a hedging simulator · 4-question quiz</span>
+    </div>
+    <div class="card">
+      <span class="card-no">Lesson 2 · Signature lesson</span>
+      <span class="card-title"><a href="0002-option-payoff-structures.html">Option Payoff Structures</a></span>
+      <p>A right, not an obligation: payoff diagrams at expiration for the four positions formed by calls/puts × buyers/sellers, break-even points, intrinsic and time value, plus the protective put — buying “insurance” for your stock.</p>
+      <span class="card-meta">Includes an option payoff diagram generator · 4-question quiz</span>
+    </div>
+    <div class="card">
+      <span class="card-no">Lesson 3</span>
+      <span class="card-title"><a href="0003-the-intuition-of-option-pricing.html">The Intuition Behind Option Pricing</a></span>
+      <p>Why do bigger swings and more time make an option more expensive? A one-step binomial tree works a complete numerical example step by step, then we meet the “replication” idea behind the Black-Scholes model.</p>
+      <span class="card-meta">Includes a binomial tree calculator · 4-question quiz</span>
+    </div>
+  </div>
+
+  <h2>Where this sits in your learning path</h2>
+  <p>You have just come from Behavioral Finance — you already know how systematically people go astray when money is on the line. Derivatives happen to be the arena with the hardest rules and the harshest leverage, holding behavioral biases under a magnifying glass. The next stop, Risk Management, flips this branch’s tools around: the goal is not to make money, but to survive.</p>
+  <nav class="lesson-nav">
+    <a href="../08-behavioral-finance/index.html"><span class="nav-label">Previous branch</span><span class="nav-title">08 Behavioral Finance</span></a>
+    <a class="next" href="../06-risk-management/index.html"><span class="nav-label">Next branch</span><span class="nav-title">06 Risk Management</span></a>
+  </nav>
+
+  <div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+  <footer class="lesson-footer">
+    <span>Branch 05 · Derivatives &amp; Financial Engineering</span>
+    <span><a href="../index.html">Course Home</a> · <a href="../reference/glossary.html">Glossary</a></span>
+  </footer>
+</div>
+</body>
+</html>

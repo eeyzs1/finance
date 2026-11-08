@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derivatives &amp; Financial Engineering · Lesson 1: Futures and Hedging · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Lesson 1 of the Derivatives &amp; Financial Engineering branch of the Finance Self-Study Course: Futures and Hedging — an interactive lesson with a chart simulator and an inline quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../05-衍生品与金融工程/0001-期货与套期保值.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Derivatives &amp; Financial Engineering</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header"><div class="kicker">Derivatives &amp; Financial Engineering · Lesson 1</div><h1>Futures and Hedging</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced</span><span>Prerequisites: 08 Behavioral Finance (bridge)</span></div></header>
+
+<p class="lead">What an airline fears most is not a high oil price, but an unknown one. The first mission of derivatives is to let a company fix a future price today. In this lesson we follow an airline that must buy 1,000 tons of jet fuel three months from now, and learn forwards, futures, and hedging — and iron the cost curve flat with our own hands.</p>
+
+<h2>Derivatives: a contract about the future</h2>
+<p><span class="term" data-def="A contract whose value depends on (is derived from) the price of an underlying asset, such as a forward, future, option, or swap.">derivative</span> is a special kind of contract: it is not an asset itself, but an <strong>agreement about the future price of an underlying asset</strong>. The underlying can be oil, soybeans, gold, a stock index, an interest rate — even the weather or freight rates.</p>
+<p>Two keys unlock derivatives:</p>
+<ul>
+<li><strong>The value is “derived”</strong>: the price of a jet-fuel future tracks the jet-fuel spot price step for step — detached from its underlying, the contract is worthless;</li>
+<li><strong>The market is zero-sum</strong>: every yuan a futures long earns comes out of a short’s pocket. Derivatives trading creates no new value; what it does is <strong>transfer risk and redistribute gains and losses</strong>.</li>
+</ul>
+<p>The derivatives family has three basic building blocks: forwards/futures, options (the star of Lesson 2), and <span class="term" data-def="A contract in which two parties agree to exchange cash flows in the future under agreed rules, such as fixed-for-floating interest rate payments.">swap</span> (not developed in this course; see the extension signposts on the branch home page). This lesson covers the first.</p>
+
+<h2>Forwards and futures: one bloodline, two temperaments</h2>
+<p>The <span class="term" data-def="A customized contract in which two parties agree today to deliver an asset on a future date at a price fixed now; performance at maturity is obligatory.">forward contract</span> is the oldest derivative: buyer and seller privately agree that “three months from now, I will buy 1,000 tons of jet fuel from you at ¥6,000 per ton.” The terms are fully customized, and both parties must perform at maturity.</p>
+<p>The <span class="term" data-def="An exchange-traded, standardized, daily-settled forward contract; its main uses are hedging and speculation.">futures contract</span> is the “exchange-traded version of a forward”: the contract is standardized — quantity, quality, and delivery date are fixed uniformly — it does not matter who trades with whom, and the exchange stands in the middle as guarantor. The differences between the two come down to four points:</p>
+<table class="data">
+<thead><tr><th>Dimension</th><th>Forward contract</th><th>Futures contract</th></tr></thead>
+<tbody>
+<tr><td>Trading venue</td><td>Over-the-counter (OTC), one-on-one negotiation</td><td>Centralized exchange auction</td></tr>
+<tr><td>Contract terms</td><td>Customized: quantity, date, and quality are negotiable</td><td>Standardized: fixed uniformly by the exchange</td></tr>
+<tr><td>Settlement</td><td>Settled once at maturity</td><td><span class="term" data-def="Futures gains and losses are transferred daily at the settlement price into the margin account; losses must be covered the same day.">marking to market</span>: gains and losses booked daily</td></tr>
+<tr><td>Performance guarantee</td><td>Relies on counterparty credit; default risk exists</td><td><span class="term" data-def="A performance deposit held in futures trading; losses deplete it and shortfalls must be topped up.">margin</span> system + clearinghouse guarantee</td></tr>
+<tr><td>Early exit</td><td>Difficult; requires the counterparty’s consent</td><td>Any time, by closing out with an offsetting trade</td></tr>
+</tbody>
+</table>
+<p>Marking to market is the soul of futures: if you buy today at ¥6,000 per ton and the day’s settlement price rises to ¥6,100, a floating gain of ¥100 per ton is credited to your account at once; if it falls, the debit is just as immediate, and a margin shortfall must be topped up. Gains and losses are “settled up” every day, which drives default risk to near zero — at the cost of facing account swings daily.</p>
+
+<h2>Hedging: the airline’s 1,000 tons of jet fuel</h2>
+<p><span class="term" data-def="Using derivatives to take a position opposite to an existing exposure, locking out price fluctuations.">hedging</span>, also called “offsetting,” comes down to one sentence: <strong>take a position in the futures market opposite to your spot-market risk, so that gains and losses on the two sides cancel each other out</strong>.</p>
+<p>Set the case: an airline must procure 1,000 tons of jet fuel three months from now, and today’s spot price is ¥6,000 per ton. Its nightmare is a fuel-price spike. So today it buys futures at an entry price of K = ¥6,000 per ton, for 1,000 tons. Three months later the contracts expire; consider two scenarios (futures payoff = price at expiration − entry price, per ton):</p>
+
+<table class="data">
+<thead><tr><th>Item (per ton)</th><th>Scenario 1: oil rises to 7,000</th><th>Scenario 2: oil falls to 5,000</th></tr></thead>
+<tbody>
+<tr><td>Spot-market cost of fuel</td><td class="bad">¥7,000</td><td class="good">¥5,000</td></tr>
+<tr><td>Futures long payoff (entry at 6,000)</td><td class="good">+¥1,000 (7,000−6,000)</td><td class="bad">−¥1,000 (5,000−6,000)</td></tr>
+<tr><td><strong>Combined effective cost</strong></td><td><strong>7,000 − 1,000 = ¥6,000</strong></td><td><strong>5,000 + 1,000 = ¥6,000</strong></td></tr>
+<tr><td>Total cost for 1,000 tons</td><td>¥6,000,000</td><td>¥6,000,000</td></tr>
+</tbody>
+</table>
+
+<p>Step-by-step check: in Scenario 1 the airline pays ¥1,000 more per ton in the spot market and earns ¥1,000 per ton back on the futures (7,000−6,000), so combined 7,000−1,000=¥6,000; in Scenario 2 it saves ¥1,000 per ton in the spot market and loses ¥1,000 per ton on the futures, so combined 5,000+1,000=¥6,000. Both roads lead to the same number — <strong>after hedging, the cost always equals the entry price of ¥6,000 per ton, whatever the oil price at expiration</strong>.</p>
+
+<div class="formula">Post-hedge cost per ton = spot price S − futures gain (S − K) = K
+<div class="formula-note"><b>Reading</b>: S is the spot price at expiration; K is the futures entry price. If the oil price rises, the extra paid in the spot market is earned back by the futures; if it falls, the spot-market savings are surrendered to the futures loss. Hedging is not about “getting a bargain” — it is <b>trading away accidental gains to eliminate accidental losses</b>. That is the core function of derivatives: locking tomorrow’s price today.</div></div>
+
+<div class="widget">
+  <div class="widget-title">🎛 Hedging Simulator · Lock jet-fuel cost in the vault</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row"><label for="in-k">Futures entry price K <span class="val" id="in-k-val"></span></label>
+        <input type="range" id="in-k" min="5000" max="7000" step="50" value="6000"></div>
+      <div class="slider-row"><label for="in-s">Spot price at expiration S <span class="val" id="in-s-val"></span></label>
+        <input type="range" id="in-s" min="4000" max="8000" step="100" value="7000"></div>
+    </div>
+    <div class="chart" id="hedge-chart"></div>
+    <div class="readout">
+      <span class="pill" id="ro-raw"></span>
+      <span class="pill" id="ro-hedged"></span>
+      <span class="pill" id="ro-diff"></span>
+    </div>
+    <p class="formula-note" style="margin-top:10px">The red dashed line is the leave-it-to-fate unhedged cost (always = S); the green solid line is the hedged cost (locked at K). Drag S to see how the two lines complement each other; then drag K to see what locking in each different price costs.</p>
+  </div>
+</div>
+
+<h2>Speculators: the risk porters take the job</h2>
+<p>Who takes on the risk the airline wants to offload? The answer is <strong>speculators</strong>. They hold no jet fuel and need none; they are purely betting on price. In the scenario where oil rises to 7,000, the shorts — mostly speculators — lose ¥1,000 per ton, which is exactly what the hedgers earn. Conversely, when oil falls to 5,000 the speculators profit, pocketing the “accidental gains” the hedgers gave up.</p>
+<p>So zero-sum is not a bad thing: hedgers pay money to buy “certainty,” while speculators collect money to sell “certainty” and bet on direction. The risk does not disappear; it merely moves from those who cannot bear it (an airline lives on selling tickets and cannot afford to gamble on fuel prices) to those willing to bear it (speculators betting spare money). Without speculators supplying liquidity, the hedgers’ price-locking orders could never be filled.</p>
+
+<div class="callout callout-warn">
+  <span class="callout-warn-title callout-title">⚠ A one-sentence risk warning</span>
+  <p>Margin carries built-in leverage: a 10% margin requirement means 10× leverage, and a 5% price move swings your capital by 50%. In China’s 2020 “Crude Oil Treasure” incident, investors thought “oil has fallen this low, buying the dip must be safe,” without understanding margin, leverage, or the contract-rollover rules — when the May WTI contract settled at −US$37.63 per barrel, the dip-buyers lost their entire principal and even ended up owing the bank. In 2022, the London “demon nickel” squeeze sent nickel from about US$30,000 per ton to above US$100,000 per ton in two trading days, blowing shorts’ losses through their margin. Until you understand the rules and your maximum loss, stay away from derivatives.</p>
+</div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>A forward is a customized OTC contract; a futures contract is its standardized + mark-to-market + margin version;</li>
+<li>Hedging = locking in a future price with an offsetting position: the post-hedge cost always equals the entry price K (¥6,000 per ton in this example);</li>
+<li>Hedging is zero-sum risk transfer: hedgers buy certainty, while speculators sell certainty and supply liquidity;</li>
+<li>Leverage cuts both ways: the lessons of the Crude Oil Treasure and demon-nickel episodes — understand the rules and your maximum loss before chasing returns.</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">{
+  "title": "Quiz · Futures and Hedging",
+  "questions": [
+    {"q": "Which statement about the difference between forwards and futures is the most accurate?", "options": ["Forwards trade on exchanges, with fully standardized contract terms", "Futures are standardized and marked to market daily; forwards are customized contracts", "Futures are settled only on the expiration day; forwards require daily marking to market", "Forwards have a margin system, and futures involve no default risk"], "answer": 1, "explain": "A futures contract is in essence the “exchange-traded forward”: standardized terms, daily marking to market, and performance guaranteed by margin and the clearinghouse; a forward is a customized OTC contract, settled in a single payment at maturity and resting on counterparty credit."},
+    {"q": "An airline buys jet-fuel futures at ¥6,000 per ton to hedge, and at expiration the spot price rises to ¥7,000 per ton. What is its effective post-hedge purchase cost per ton?", "options": ["¥5,000/ton", "¥6,500/ton", "¥7,000/ton", "¥6,000/ton"], "answer": 3, "explain": "The airline pays ¥1,000 more per ton in the spot market and earns ¥1,000 back per ton on the futures (7,000−6,000); the two offset: 7,000−1,000=¥6,000 per ton — exactly the entry price locked in at the start."},
+    {"q": "What is the essence of hedging?", "options": ["Using an offsetting position to lock out price swings and eliminate uncertainty", "Using an offsetting position to cut costs, so it is always cheaper than not hedging", "Profiting by accurately forecasting future prices and buying low to sell high", "Selling all spot holdings for cash, thereby avoiding price risk"], "answer": 0, "explain": "Hedging uses an offsetting position to remove price uncertainty: if oil rises, the futures earn back what the spot market charges extra; if oil falls, the futures loss is covered by the cheaper spot purchase. It locks in cost but does not guarantee being cheaper than not hedging — in Scenario 2 the hedge actually costs ¥1,000 per ton more than staying unhedged. What you buy is a good night’s sleep."},
+    {"q": "What is the core lesson of the 2020 “Crude Oil Treasure” incident for ordinary investors?", "options": ["Products sold through bank channels are always safer than those sold through brokers", "Futures prices can never fall below zero, and dip-buying losses have no cap", "Buying the dip without understanding leverage and the rules can wipe out your entire principal", "Buying several contracts across different months diversifies away all the risk"], "answer": 2, "explain": "Most Crude Oil Treasure investors did not understand margin leverage or the contract-rollover rules; when the May WTI contract settled at −US$37.63 per barrel, the “dip buyers” not only lost their entire principal but ended up owing money. Do not touch derivatives before you understand the rules and your maximum loss."}
+  ]
+}</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (glossary anchors): <a href="../reference/glossary.html#forward">forward contract</a> · <a href="../reference/glossary.html#futures">futures contract</a> · <a href="../reference/glossary.html#hedging">hedging</a></li>
+<li>Investopedia: Futures — <a href="https://www.investopedia.com/terms/f/futures.asp">investopedia.com/terms/f/futures.asp</a></li>
+<li>Investopedia: Forward Contract — <a href="https://www.investopedia.com/terms/f/forwardcontract.asp">investopedia.com/terms/f/forwardcontract.asp</a></li>
+<li>Wikipedia: Futures contract — <a href="https://en.wikipedia.org/wiki/Futures_contract">en.wikipedia.org/wiki/Futures_contract</a></li>
+<li>Wikipedia entry for Hull’s Options, Futures, and Other Derivatives — <a href="https://en.wikipedia.org/wiki/Options,_Futures_and_Other_Derivatives">en.wikipedia.org/wiki/Options,_Futures_and_Other_Derivatives</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+  <a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch home · Derivatives &amp; Financial Engineering</span></a>
+  <a class="next" href="0002-option-payoff-structures.html"><span class="nav-label">Next lesson</span><span class="nav-title">Option Payoff Structures</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>Derivatives &amp; Financial Engineering · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var kIn = document.getElementById("in-k"), sIn = document.getElementById("in-s");
+  if (!kIn || !sIn || typeof FChart === "undefined") return;
+  kIn._out = document.getElementById("in-k-val");
+  sIn._out = document.getElementById("in-s-val");
+  var chart = new FChart(document.getElementById("hedge-chart"), {
+    height: 360,
+    x: { min: 4000, max: 8000, label: "Spot price at expiration S (¥/ton)", ticks: [4000, 5000, 6000, 7000, 8000] },
+    y: { min: 4000, max: 8000, label: "Effective cost per ton (¥)", ticks: [4000, 5000, 6000, 7000, 8000] },
+    title: "Unhedged cost drifts with the oil price; hedged cost locks at K"
+  });
+  function n(v) { return Math.round(v).toLocaleString("zh-CN"); }
+  function update() {
+    var K = FChart.slider(kIn, function (v) { return "¥" + n(v) + "/ton"; });
+    var S = FChart.slider(sIn, function (v) { return "¥" + n(v) + "/ton"; });
+    chart.clear();
+    chart.path([[4000, 4000], [8000, 8000]], { color: "#b3372f", width: 2.5, dash: "7 5" });
+    chart.path([[4000, K], [8000, K]], { color: "#0d5c4f", width: 3 });
+    chart.vline(S, { color: "#a3701a", width: 1.2 });
+    chart.scatter([[S, S, "#b3372f", "Unhedged " + n(S)], [S, K, "#0d5c4f", "Hedged " + n(K)]], { r: 6 });
+    chart.legend([{ color: "#b3372f", text: "Unhedged: cost = S", dash: "7 5" }, { color: "#0d5c4f", text: "Hedged: cost = K" }]);
+    var d = S - K;
+    document.getElementById("ro-raw").innerHTML = "Unhedged cost: <b>¥" + n(S) + "/ton</b> (1,000 tons: ¥" + n(S * 1000) + " in total)";
+    document.getElementById("ro-hedged").innerHTML = "Hedged cost: <b>¥" + n(K) + "/ton</b> (1,000 tons: ¥" + n(K * 1000) + " in total)";
+    var diffEl = document.getElementById("ro-diff");
+    if (d > 0) diffEl.innerHTML = "Hedging result: <b>saves ¥" + n(d) + "/ton</b> (¥" + n(d * 1000) + " in total)";
+    else if (d < 0) diffEl.innerHTML = "Hedging result: <b>pays ¥" + n(-d) + "/ton more</b> (¥" + n(-d * 1000) + " in total) — the extra is the price of “certainty”";
+    else diffEl.innerHTML = "Hedging result: <b>no gain, no loss</b> — the cost equals K exactly";
+  }
+  kIn.addEventListener("input", update);
+  sIn.addEventListener("input", update);
+  update();
+})();
+</script></body></html>

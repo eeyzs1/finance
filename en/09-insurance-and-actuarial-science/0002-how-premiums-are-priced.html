@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insurance &amp; Actuarial Science · Lesson 2: How Premiums Are Priced · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Insurance &amp; Actuarial Science, Lesson 2: How Premiums Are Priced — an interactive lesson with a chart simulator and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<a class="lang-switch" href="../../09-保险与精算/0002-保费是怎么算出来的.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Insurance &amp; Actuarial Science</a><span class="sep">/</span>Lesson 2</div>
+<header class="lesson-header">
+<div class="kicker">Insurance &amp; Actuarial Science · Lesson 2</div>
+<h1>How Premiums Are Priced</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: Lesson 1</span></div>
+</header>
+<p class="lead">Last lesson we saw that putting many people’s risks into one pool irons individual uncertainty out into a computable expectation. This lesson answers a more practical question: how does an insurer actually price you? The answer is a plain piece of arithmetic — premium = expected payouts + costs + profit. Once you can read that sum, you can take apart the price of any policy, and you can see why the same cover costs one person less and another more.</p>
+
+<h2>Piece one: the pure premium — charging for the expected payouts</h2>
+<p>The largest slice of the premium has to be kept to pay future claims; this slice is the <span class="term" data-def="the portion of the premium that covers expected claims, equal to the insured amount times the claim probability">pure premium</span>. It is a direct application of Lesson 1’s expected value: the probability of a claim, times the money paid out if the claim happens.</p>
+<div class="formula">Pure premium = insured amount × claim probability
+<div class="formula-note">Worked example: insured amount ¥1,000,000, annual claim probability 0.3% → pure premium = 1,000,000 × 0.3% = ¥3,000 per year.</div>
+</div>
+<p>Check where that number comes from: suppose 10,000 people buy the policy, each with a 0.3% claim probability. The expected number of claims is 10,000 × 0.3% = 30; each claim pays ¥1,000,000, so ¥30,000,000 is needed in total; spread across 10,000 people, that is exactly ¥3,000 each. A premium is not picked out of thin air — it is simply “the whole pool’s expected claims ÷ headcount”.</p>
+<div class="callout callout-key"><span class="callout-title">The core intuition</span><p>What an insurer sells is not a promise that nothing will happen; it swaps everyone’s small certain outlays (premiums) for a few people’s large uncertain losses (claims). The pure premium is the fair price of that swap.</p></div>
+
+<h2>Piece two: the loading — costs, profit, and a safety cushion</h2>
+<p>Collect only the pure premium and the company has nothing left over: it must pay salaries and rent, advertise, pay commissions to sales channels, retain a profit, and hold a buffer for “claims run heavier than expected this year”. All of this is bundled into the <span class="term" data-def="the portion of the premium covering operating costs, profit, and risk reserves, often charged as a percentage of the pure premium">loading</span>.</p>
+<div class="formula">Gross premium = pure premium + loading
+<div class="formula-note">Loading = operating costs + profit + risk reserve; in practice it is often simplified to a percentage of the pure premium. Example: at a 25% loading rate, gross premium = 3,000 × (1 + 25%) = ¥3,750 per year.</div>
+</div>
+<div class="callout callout-tip"><span class="callout-title">Channels and commissions, in one sentence</span><p>To judge whether a policy is expensive, look first at what it covers, then at the gross premium, and only last at “how much comes back to you” — return-of-premium products usually carry a much heavier loading, and the extra money you pay is typically just rolled at a very low return before being handed back.</p></div>
+
+<h2>Risk classification: why smokers and older applicants pay more</h2>
+<p>Why does the same product cost one person less and another more? Because the insurer is practicing <span class="term" data-def="sorting applicants into groups by claim probability and pricing each group separately">risk classification</span>: people of similar risk go into the same pool, and each group’s pure premium is computed from its own claim probability. Smokers and the elderly have markedly higher death probabilities, so their pure premiums are naturally higher — this is not discrimination but a “fair premium” that has everyone pay close to their own true risk.</p>
+<p>Think it through in reverse: if the insurer charges everyone one price based on average risk, the healthy are subsidizing the high-risk. The healthy find it a bad deal and leave, the pool’s high-risk share rises, and premiums have to rise — that is the star of the next lesson: <span class="term" data-def="the tendency for the high-risk to buy insurance while the low-risk drop out, steadily worsening the pool">adverse selection</span>. Risk classification is the first line of defense against it.</p>
+
+<h2>Deductibles and coinsurance: shoulder a little yourself, and the premium drops a notch</h2>
+<p>A <span class="term" data-def="the amount the insured bears out of pocket after a claim, which the insurer does not pay">deductible</span> is the part you absorb yourself after a claim; <span class="term" data-def="the percentage of losses above the deductible that the insured pays">coinsurance</span> is the percentage of the remainder you share. Both cut the pure premium directly — because what you transfer to the insurer is only “the stretch you couldn’t bear”:</p>
+<div class="formula">Pure premium after deductible = (insured amount − deductible) × claim probability
+<div class="formula-note">Example: with a ¥50,000 deductible, (1,000,000 − 50,000) × 0.3% = ¥2,850 per year — ¥150 saved versus no deductible.</div>
+</div>
+<p>Even better is the side effect: small losses come out of your own pocket, so the “I’m insured anyway” trips for minor ailments and minor repairs are restrained — every yuan you spend is first your own yuan. Consider this an advance preview of the next lesson’s “<span class="term" data-def="the tendency for behavior to change after buying insurance — becoming more careless or more claim-prone">moral hazard</span>”.</p>
+<div class="callout callout-warn"><span class="callout-title">Don’t overshoot</span><p>Pick a deductible within the range you could pay “without flinching”. Insurance exists for risks you cannot bear; pushing the deductible up to a bone-breaking level just to save a little money puts the cart before the horse.</p></div>
+
+<div class="widget">
+<div class="widget-title">Premium Calculator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label for="amt">Insured amount <span class="val" id="amt-val">¥1,000,000</span></label><input type="range" id="amt" min="10" max="300" step="5" value="100"></div>
+<div class="slider-row"><label for="prob">Annual claim probability <span class="val" id="prob-val">0.3%</span></label><input type="range" id="prob" min="0.05" max="3" step="0.05" value="0.3"></div>
+<div class="slider-row"><label for="load">Expense &amp; profit loading rate (of pure premium) <span class="val" id="load-val">25%</span></label><input type="range" id="load" min="10" max="50" step="1" value="25"></div>
+<div class="slider-row"><label for="ded">Deductible <span class="val" id="ded-val">¥0</span></label><input type="range" id="ded" min="0" max="5" step="0.5" value="0"></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout">
+<span class="pill">Pure premium = insured amount × probability: <b id="out-pure">¥3,000</b></span>
+<span class="pill">Pure premium after deductible = (insured amount − deductible) × probability: <b id="out-ded">¥3,000</b></span>
+<span class="pill">Gross premium = after-deductible pure × (1 + loading rate): <b id="out-total">¥3,750</b></span>
+<span class="pill">Saved per year by the deductible: <b id="out-gap">¥0</b></span>
+</div>
+</div>
+</div>
+<p>Drag the “deductible” slider and watch all three bars fall together: the more you self-insure, the less expected claims you transfer to the insurer, and the cheaper the premium becomes. Then push “claim probability” higher and feel what risk classification means — double the probability, double the pure premium.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Break a gross premium into “pure premium + loading”, and compute for yourself that a ¥1,000,000 sum insured at 0.3% probability means a ¥3,000 pure premium;</li>
+<li>Know that the loading covers operating costs, profit, and a risk reserve, and that a policy should be judged by its cover first, not by its “cash back”;</li>
+<li>Understand the double duty of deductibles and coinsurance: cheaper premiums and no overuse for minor ailments;</li>
+<li>See that risk classification matches premiums to risk — it is not discrimination, and it is the first line of defense against adverse selection.</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"A ¥500,000 insured amount and an annual claim probability of 0.4%: what is the pure premium?","options":["¥2,500","¥2,000","¥5,000"],"answer":1,"explain":"Pure premium = insured amount × claim probability: 500,000 × 0.4% = ¥2,000 per year."},
+{"q":"What does the loading mainly cover?","options":["Operating costs and profit","The money paid out in claims","The policy’s cash value"],"answer":0,"explain":"The loading covers operating costs, profit, and a risk reserve; the claims themselves are borne by the pure premium."},
+{"q":"What is the double effect of a deductible?","options":["Raises premiums and payouts","Adds cost and widens cover","Cuts premiums and curbs overuse"],"answer":2,"explain":"You absorb small losses yourself, so the pure premium falls; and since small spending is your own money, overuse for minor ailments is restrained."},
+{"q":"What is the main purpose of risk-classified pricing?","options":["To shut high-risk people out","To match each premium to its risk","To make prices harder to grasp"],"answer":1,"explain":"Grouped pricing has each group pay a fair premium close to its own risk, so the healthy don’t end up subsidizing the high-risk."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#pure-premium">pure premium</a> · <a href="../reference/glossary.html#loading">loading</a> · <a href="../reference/glossary.html#risk-classification">risk classification</a> · <a href="../reference/glossary.html#adverse-selection">adverse selection</a> · <a href="../reference/glossary.html#deductible">deductible</a> · <a href="../reference/glossary.html#coinsurance">coinsurance</a> · <a href="../reference/glossary.html#moral-hazard">moral hazard</a></li>
+
+<li><a href="https://www.investopedia.com/terms/i/insurance-premium.asp">Insurance Premium — Investopedia</a> — what a premium is made of and the factors that drive its pricing.</li>
+<li><a href="https://www.investopedia.com/terms/d/deductible.asp">Deductible — Investopedia</a> — how a deductible lowers the premium and shifts part of the risk.</li>
+<li><a href="https://zh.wikipedia.org/wiki/精算师">Actuary — Wikipedia</a> — the profession behind premium and reserve calculations.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0001-law-of-large-numbers-and-risk-pooling.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Law of Large Numbers and Risk Pooling</span></a>
+<a class="next" href="0003-adverse-selection-and-moral-hazard.html"><span class="nav-label">Next lesson</span><span class="nav-title">Adverse Selection and Moral Hazard</span></a>
+</nav>
+<footer class="lesson-footer"><span>Insurance &amp; Actuarial Science · Lesson 2</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var amtEl = document.getElementById('amt');
+  var probEl = document.getElementById('prob');
+  var loadEl = document.getElementById('load');
+  var dedEl = document.getElementById('ded');
+  var amtVal = document.getElementById('amt-val');
+  var probVal = document.getElementById('prob-val');
+  var loadVal = document.getElementById('load-val');
+  var dedVal = document.getElementById('ded-val');
+  var box = document.getElementById('chart1');
+  var outPure = document.getElementById('out-pure');
+  var outDed = document.getElementById('out-ded');
+  var outTotal = document.getElementById('out-total');
+  var outGap = document.getElementById('out-gap');
+  function fmt(n) { return Math.round(n).toLocaleString('zh-CN'); }
+  function render() {
+    var amt = parseFloat(amtEl.value) * 10000;
+    var prob = parseFloat(probEl.value) / 100;
+    var load = parseFloat(loadEl.value) / 100;
+    var ded = parseFloat(dedEl.value) * 10000;
+    amtVal.textContent = '¥' + fmt(amtEl.value * 10000);
+    probVal.textContent = probEl.value + '%';
+    loadVal.textContent = loadEl.value + '%';
+    dedVal.textContent = '¥' + fmt(dedEl.value * 10000);
+    var pure = amt * prob;
+    var adj = (amt - ded) * prob;
+    var loadAmt = adj * load;
+    var total = adj + loadAmt;
+    outPure.textContent = '¥' + fmt(pure);
+    outDed.textContent = '¥' + fmt(adj);
+    outTotal.textContent = '¥' + fmt(total);
+    outGap.textContent = '¥' + fmt(pure * (1 + load) - total);
+    var ymax = Math.max(4000, Math.ceil(total * 1.3 / 1000) * 1000);
+    box.innerHTML = '';
+    var c = new FChart(box, { height: 340, x: { min: 0, max: 4, label: 'Premium components' }, y: { min: 0, max: ymax, label: '¥ per year' } });
+    c.bars([
+      { x0: 0.7, x1: 1.3, y: adj, color: '#0d5c4f', label: 'Pure premium (after deductible)' },
+      { x0: 1.7, x1: 2.3, y: loadAmt, color: '#a3701a', label: 'Loading' },
+      { x0: 2.7, x1: 3.3, y: total, color: '#5d5749', label: 'Gross premium' }
+    ], { y0: 0 });
+    c.text(1, adj + ymax * 0.03, '¥' + fmt(adj), { dx: 8 });
+    c.text(2, loadAmt + ymax * 0.03, '¥' + fmt(loadAmt), { dx: 8 });
+    c.text(3, total + ymax * 0.03, '¥' + fmt(total), { dx: 8 });
+    if (ded > 0) { c.hline(pure, { label: 'Pure premium before deductible ¥' + fmt(pure) }); }
+    c.legend([
+      { color: '#0d5c4f', text: 'Pure premium (after deductible)' },
+      { color: '#a3701a', text: 'Loading' },
+      { color: '#5d5749', text: 'Gross premium' }
+    ]);
+  }
+  [amtEl, probEl, loadEl, dedEl].forEach(function (el) { el.addEventListener('input', render); });
+  render();
+})();
+</script>
+</body>
+</html>

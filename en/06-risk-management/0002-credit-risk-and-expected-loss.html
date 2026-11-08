@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Risk Management · Lesson 2: Credit Risk and Expected Loss · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Risk Management, Lesson 2: Credit Risk and Expected Loss — an interactive lesson with chart simulators and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../06-风险管理/0002-信用风险与预期损失.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Risk Management</a><span class="sep">/</span>Lesson 2</div>
+<header class="lesson-header"><div class="kicker">Risk Management · Lesson 2</div><h1>Credit Risk and Expected Loss</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced</span><span>Prerequisites: Lesson 1</span></div></header>
+<p class="lead">Before you lend out ¥1 million, answer three questions: Will the borrower default? If he defaults, how much do I lose? And how much does he owe me in total? This lesson multiplies the three answers together into the expected loss — the number banks compute every day — turning a vague fear of “what if he doesn’t pay” into a multiplication problem you can check.</p>
+
+<h2>The Three Building Blocks of Credit Risk: PD, LGD, and EAD</h2>
+<p>The moment you lend money to a person or a company, or buy a bond, you have taken on credit risk. Taken apart, it consists of three building blocks, and not one of them can be missing.</p>
+<p>The first block is <span class="term" data-def="the likelihood that a borrower defaults within a given period, expressed as a percentage">probability of default (PD)</span>: will he pay back? PD usually uses a one-year observation window, and PD = 2% means: over the coming year, about 2 out of 100 otherwise-similar borrowers will default. It answers “how likely is a default”.</p>
+<p>The second block is <span class="term" data-def="the share of the exposure at risk that is ultimately unrecoverable after default; the better the collateral, the lower this share">loss given default (LGD)</span>: what share do I lose after a default? Default does not mean losing everything — with real-estate collateral, selling the property recovers a large part and LGD might be only 20%; with unsecured credit loans, collections often recover little, and LGD can run as high as 60%–90%. The pattern is intuitive: <strong>the stronger the collateral, the lower the LGD</strong>.</p>
+<p>The third block is <span class="term" data-def="the outstanding amount exposed to risk at the moment default occurs">exposure at default (EAD)</span>: how much does he owe me in total at the moment of default? EAD is the money actually at risk — the loan principal you have lent out and not yet recovered.</p>
+
+<h2>The Core Formula: Expected Loss Is a Multiplication Problem</h2>
+<p>Multiply the three blocks together and you get <span class="term" data-def="the amount expected to be lost on average, equal to PD × LGD × EAD">expected loss (EL)</span> — how much such a loan loses per loan, on average:</p>
+<div class="formula">EL = PD × LGD × EAD<div class="formula-note">Worked example: lend ¥1,000,000 with PD = 2% and LGD = 40%. Check: EL = 2% × 40% × ¥1,000,000 = 0.8% × ¥1,000,000 = ¥8,000. Watch the units: when multiplying the three numbers, PD and LGD must first be written as decimals (0.02 × 0.4 × 1,000,000 = 8,000).</div></div>
+<h3>The pricing implication: EL hides inside the interest rate</h3>
+<p>EL does not vanish into thin air; someone must pay for it. Lending ¥1,000,000 with an EL of ¥8,000 means <strong>EL ÷ amount lent = 0.8%</strong>: the interest rate must exceed funding and operating costs by at least this 0.8%, or the deal loses money. As an illustrative tally: with funding and operating costs at 2%, the break-even rate floor = 0.8% + 2% = 2.8%; only after adding profit and competitive factors do you reach the final quoted rate.</p>
+<div class="callout callout-tip"><span class="callout-title">Why unsecured loan rates run far above mortgage rates</span><p>At the same PD, an unsecured credit loan carries a far higher LGD than a mortgage backed by property, so its EL is higher and the risk premium the bank charges is higher too. Interest rates are not set arbitrarily: they must at least cover “average loss + costs + profit”.</p></div>
+
+<h2>Credit Ratings: Letter Labels for Default Probability</h2>
+<p>A <span class="term" data-def="a rating agency’s graded assessment of a borrower’s likelihood of default, from AAA down to D">credit rating</span> translates PD into letters anyone can read: AAA means an extremely low likelihood of default, the likelihood climbs notch by notch as you move down the scale, and C/D means already defaulted. In the S&amp;P system, <strong>BBB− and above is investment grade, BB+ and below is speculative grade</strong> (the familiar “high-yield” or “junk” territory) — a line that is many institutional investors’ threshold for buying at all.</p>
+<table class="data">
+<thead><tr><th>Rating (illustrative)</th><th>Meaning</th><th>Illustrative annual PD</th><th>Tier</th></tr></thead>
+<tbody>
+<tr><td>AAA</td><td>Extremely strong capacity to repay</td><td>≈0.02%</td><td class="good">Investment grade</td></tr>
+<tr><td>AA</td><td>Very strong capacity to repay</td><td>≈0.04%</td><td class="good">Investment grade</td></tr>
+<tr><td>A</td><td>Strong, but somewhat exposed to the economy</td><td>≈0.07%</td><td class="good">Investment grade</td></tr>
+<tr><td>BBB</td><td>Adequate capacity, more economy-sensitive</td><td>≈0.2%</td><td class="good">Investment grade (BBB− is the cutoff)</td></tr>
+<tr><td>BB</td><td>Speculative elements, faces uncertainty</td><td>≈1%</td><td>Speculative grade</td></tr>
+<tr><td>B</td><td>Clearly speculative</td><td>≈5%</td><td>Speculative grade</td></tr>
+<tr><td>CCC</td><td>Default risk already present</td><td>≈25%</td><td class="bad">Speculative grade</td></tr>
+<tr><td>C / D</td><td>Near default or already defaulted</td><td>Defaulted</td><td class="bad">Default</td></tr>
+</tbody>
+</table>
+<p>Note: the default probabilities in the table are <strong>illustrative magnitudes</strong> (roughly in line with long-run historical averages for each rating), not precise figures published by any agency. What matters is the direction: the lower the rating, the higher the PD.</p>
+
+<h2>Interactive: The Expected Loss Calculator</h2>
+<p>Drag the three sliders and watch EL rise linearly with PD (the chart holds the current LGD and EAD fixed as its backdrop) and the break-even rate floor move with it. The defaults are the worked example above: ¥1,000,000 × 2% × 40% = ¥8,000.</p>
+<div class="widget">
+<div class="widget-title">Expected loss calculator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Probability of default (PD)<span class="val" id="pd-val">2.0%</span><input type="range" id="pd" min="0.2" max="20" step="0.1" value="2"></label></div>
+<div class="slider-row"><label>Loss given default (LGD)<span class="val" id="lgd-val">40%</span><input type="range" id="lgd" min="10" max="90" step="1" value="40"></label></div>
+<div class="slider-row"><label>Exposure at default (EAD)<span class="val" id="ead-val">¥1,000,000</span><input type="range" id="ead" min="10" max="500" step="5" value="100"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pill-el">Expected loss EL: ¥8,000</span><span class="pill" id="pill-ratio">EL / EAD: 0.80%</span><span class="pill" id="pill-rate">Break-even rate floor: 2.80% (incl. 2% operating cost)</span></div>
+</div>
+</div>
+
+<h2>The Portfolio View: Same EL, Wildly Different Volatility</h2>
+<div class="callout callout-key"><span class="callout-title">Concentration is credit risk’s amplifier</span><p>Plan A: lend the entire ¥1,000,000 to 1 person. Plan B: lend to 100 people, ¥10,000 each (same PD and LGD). The expected loss is exactly the same: under Plan A, EL = 2% × 40% × ¥1,000,000 = ¥8,000; under Plan B, EL per borrower = 2% × 40% × ¥10,000 = ¥80, which totals 80 × 100 = ¥8,000. But <strong>the spread of actual outcomes is night and day</strong>. Plan A is “all fine or a huge loss” — a 98% chance of walking away whole, a 2% chance of losing ¥400,000 outright (¥1,000,000 × 40%). Plan B’s most likely outcome is about 2 defaults and a loss around ¥8,000 (each default costs ¥10,000 × 40% = ¥4,000), and a total wipeout is nearly impossible. That is the intuition of the binomial distribution (no formula needed): diversification does not reduce expected loss, but it pins outcomes tightly to the expected value — the overnight blow-up is off the table.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Break down any “lending someone money” transaction into its three ingredients: PD, LGD, and EAD</li>
+<li>Compute EL = PD × LGD × EAD and derive the break-even rate floor = EL ÷ amount lent + costs + profit</li>
+<li>Read a credit rating table and know that the investment-grade/speculative-grade line sits at S&amp;P’s BBB−</li>
+<li>Understand concentration: diversification does not change expected loss, but it sharply reduces the volatility of losses</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[{"q":"A loan of ¥2,000,000 with PD = 1% and LGD = 50%: what is the expected loss?","options":["¥5,000","¥10,000","¥20,000","¥50,000"],"answer":1,"explain":"EL = ¥2,000,000 × 1% × 50% = ¥10,000. Just multiply the three ingredients — and convert PD and LGD to decimals first."},{"q":"What does LGD (loss given default) measure?","options":["The probability a default occurs","The principal still outstanding at default","The size of a rating downgrade","Loss after default as a share of exposure"],"answer":3,"explain":"LGD is the share of EAD lost after default, and the better the collateral, the lower it is; option A describes PD, and option B describes EAD."},{"q":"Other things equal, a downgrade from BBB to BB usually means what?","options":["The default probability rises markedly","The default probability falls markedly","The default probability stays unchanged","The loss given default falls to zero"],"answer":0,"explain":"A rating is essentially a label for PD: the lower the rating, the higher the default probability. BBB− is S&P’s line between investment grade and speculative grade, so BB is speculative grade."},{"q":"With the same PD and LGD, which lending pattern shows the least variation in realized losses?","options":["Concentrated in one large borrower","Split evenly between two borrowers","Spread across a hundred borrowers","Randomly placed with five borrowers"],"answer":2,"explain":"The expected loss is identical, but after diversifying, the impact of any single default is diluted and realized outcomes stay closer to the average — concentration is credit risk’s amplifier."}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#pd">probability of default (PD)</a> · <a href="../reference/glossary.html#loss-given-default-lgd">loss given default (LGD)</a> · <a href="../reference/glossary.html#exposure-at-default-ead">exposure at default (EAD)</a> · <a href="../reference/glossary.html#expected-loss">expected loss (EL)</a> · <a href="../reference/glossary.html#credit-rating">credit rating</a></li>
+
+<li><a href="https://www.investopedia.com/terms/e/expectedloss.asp">Investopedia: Expected Loss</a> — the standard definition and explanation of expected loss.</li>
+<li><a href="https://www.investopedia.com/terms/c/creditrating.asp">Investopedia: Credit Rating</a> — a beginner’s guide to credit rating scales.</li>
+<li><a href="https://www.spglobal.com/ratings/zh/">S&amp;P Global Ratings (Chinese site)</a> — real rating criteria and research reports.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0001-risk-map-and-var.html"><span class="nav-label">Previous lesson</span><span class="nav-title">The Risk Map and VaR</span></a>
+<a class="next" href="0003-stress-testing-and-hedging.html"><span class="nav-label">Next lesson</span><span class="nav-title">Stress Testing and Hedging</span></a>
+</nav>
+<footer class="lesson-footer"><span>Risk Management · Lesson 2</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var pdS=document.getElementById('pd'),lgdS=document.getElementById('lgd'),eadS=document.getElementById('ead');
+  var pdV=document.getElementById('pd-val'),lgdV=document.getElementById('lgd-val'),eadV=document.getElementById('ead-val');
+  var pEl=document.getElementById('pill-el'),pRa=document.getElementById('pill-ratio'),pRt=document.getElementById('pill-rate');
+  var chartEl=document.getElementById('chart1');
+  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+  function draw(){
+    var pdp=parseFloat(pdS.value),lgdp=parseFloat(lgdS.value),eadw=parseFloat(eadS.value);
+    var pd=pdp/100,lgd=lgdp/100,ead=eadw*10000;
+    pdV.textContent=pdp.toFixed(1)+'%';
+    lgdV.textContent=lgdp.toFixed(0)+'%';
+    eadV.textContent='¥'+(eadw*10000).toLocaleString('en-US');
+    var el=pd*lgd*ead;
+    pEl.textContent='Expected loss EL: ¥'+fmt(el);
+    pRa.textContent='EL / EAD: '+(el/ead*100).toFixed(2)+'%';
+    pRt.textContent='Break-even rate floor: '+((el/ead+0.02)*100).toFixed(2)+'% (incl. 2% operating cost)';
+    if(!window.FChart){return;}
+    var ymax=0.20*lgd*ead/10000*1.05;
+    var c=new FChart(chartEl,{height:340,x:{min:0,max:20,label:'Probability of default PD (%)'},y:{min:0,max:ymax,label:'Expected loss EL (¥10k)'}});
+    c.path(function(x){return x/100*lgd*ead/10000;},{color:'#0d5c4f',width:2.5});
+    c.vline(pdp,{color:'#b3372f',label:'Current PD'});
+    c.scatter([[pdp,el/10000,'#a3701a','Current loan']],{r:5});
+    c.legend([{color:'#0d5c4f',text:'EL = PD × LGD × EAD'},{color:'#a3701a',text:'Current loan'}]);
+  }
+  [pdS,lgdS,eadS].forEach(function(s){s.addEventListener('input',draw);});
+  draw();
+})();
+</script>
+</body></html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Corporate Finance · Lesson 2: Capital Structure and Leverage · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Corporate Finance, Lesson 2: Capital Structure and Leverage — an interactive lesson with chart simulators and an inline quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg">
+<style>.scn-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}.scn-tip{font-size:13px;color:#5d5749}.scn-btn{padding:6px 14px;border:1px solid #0d5c4f;background:#fff;color:#0d5c4f;border-radius:999px;cursor:pointer;font-size:13px}.scn-btn.active{background:#0d5c4f;color:#fff}</style>
+</head><body>
+<a class="lang-switch" href="../../03-公司金融/0002-资本结构与杠杆.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Corporate Finance</a><span class="sep">/</span>Lesson 2</div>
+<header class="lesson-header"><div class="kicker">Corporate Finance · Lesson 2</div><h1>Capital Structure and Leverage</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: Lesson 1 on NPV</span></div></header>
+<p class="lead">Running a company takes money, and money has only two sources: borrowed (debt), or put up by the shareholders themselves (equity). That mixing ratio is <span class="term" data-def="The mix of debt and equity in a company’s funding">capital structure</span>. Using a single ¥10 million balance sheet, this lesson shows how debt magnifies shareholders’ returns and their risks at the same time — and when it turns from friend into enemy.</p>
+
+<h2>1. Two sources of money: debt and equity</h2>
+<p>Suppose a company will invest ¥10 million in a new plant. That ¥10 million is either borrowed or put up by shareholders. The two kinds of money have utterly different temperaments:</p>
+<p><strong>Debt: creditors with a fixed slice.</strong> Bank loans and corporate bonds both belong here. Three key features: ① <strong>fixed interest</strong> — borrow ¥4 million at 5% and, however bad the year, ¥0.2 million of interest still falls due; ② <strong>priority in liquidation</strong> — if the company goes bankrupt, creditors line up ahead of shareholders and get paid first; ③ <strong>interest is tax-deductible</strong> — interest is deducted from pre-tax profit, as though the government ceded part of its tax take; the money saved this way is called the <span class="term" data-def="The tax saving created by deducting interest from pre-tax profit">tax shield</span>.</p>
+<p><strong>Equity: everything left over is yours.</strong> The company pays wages, then interest, then income tax; only what remains goes to shareholders — the so-called “residual claim”. The price is standing last in line for returns; the perks are no maturity date (the principal never has to be repaid) and no ceiling on the upside.</p>
+<div class="callout callout-info"><span class="callout-title">One-line memory hook</span><p>Creditors take a “fixed slice”; shareholders take “everything left over”. The ratio in which debt and equity cut this pie is the capital structure — and how you cut it completely changes how violently shareholder returns swing.</p></div>
+
+<h2>2. A leverage worked example: one company, two recipes</h2>
+<p>Hold the assets fixed, vary the debt ratio, and the swings in shareholder returns are magnified — that is <span class="term" data-def="The mechanism by which fixed-cost debt magnifies shareholders’ returns and risks">financial leverage</span>. Let the company hold ¥10 million of assets, with earnings before interest and taxes (EBIT) moving with the economy: ¥2 million in a boom, ¥1 million in a normal year, ¥0.4 million in a recession. Compare two structures:</p>
+<p><strong>Structure A</strong>: zero debt; shareholders put up all ¥10 million. <strong>Structure B</strong>: borrow ¥4 million (a 40% debt ratio, at 5% interest, for annual interest of 400 × 5% = ¥0.2 million); shareholders put up only ¥6 million.</p>
+<div class="formula">ROE = (EBIT − interest) ÷ shareholders’ equity<div class="formula-note">To keep the leverage effect in focus, income taxes are simplified away throughout this example; Structure B’s interest = 400 × 5% = ¥0.2 million.</div></div>
+<table class="data">
+<thead><tr><th>Scenario</th><th>EBIT (¥ million)</th><th>Structure A: no debt (equity ¥10M)</th><th>Structure B: 40% debt (equity ¥6M)</th></tr></thead>
+<tbody>
+<tr><td>Boom</td><td>2.0</td><td>2.0÷10 = <strong>20.0%</strong></td><td class="good">(2.0−0.2)÷6 = <strong>30.0%</strong></td></tr>
+<tr><td>Normal</td><td>1.0</td><td>1.0÷10 = <strong>10.0%</strong></td><td class="good">(1.0−0.2)÷6 = <strong>13.3%</strong></td></tr>
+<tr><td>Recession</td><td>0.4</td><td>0.4÷10 = <strong>4.0%</strong></td><td class="bad">(0.4−0.2)÷6 = <strong>3.3%</strong></td></tr>
+</tbody>
+</table>
+<p>Check each cell: Structure B in a boom, (2.0−0.2)÷6 = 1.8÷6 = 30%; in a normal year, (1.0−0.2)÷6 = 0.8÷6 ≈ 13.3%; in a recession, (0.4−0.2)÷6 = 0.2÷6 ≈ 3.3%.</p>
+<div class="callout callout-key"><span class="callout-title">To tell whether leverage is helper or enemy, look at one thing only</span><p>Whether the return on assets (ROA = EBIT ÷ 10) exceeds the interest rate. In the boom and normal scenarios ROA is 20% and 10%, both above the 5% rate, so leverage lifts shareholder returns from 20% to 30% and from 10% to 13.3% — borrow at 5% to run a business earning 20%, and the spread belongs to shareholders. In the recession ROA is only 4%, <strong>below</strong> the 5% rate, and leverage turns on its master: 3.3% now trails the unlevered 4.0%.</p></div>
+<div class="callout callout-warn"><span class="callout-title">How thin is the cushion in a recession?</span><p>Structure B owes ¥0.2 million of interest every year; with recession EBIT of ¥0.4 million, only ¥0.2 million of profit is left. The moment EBIT drops below ¥0.2 million, shareholders take nothing or lose money, and the company may fail to cover even its interest — and the costs that follow, the lawyers’ fees, fire-sale disposals, and lost customers and talent, are the <span class="term" data-def="Costs such as legal fees, fire-sale asset disposals, and lost customers that arise as default risk climbs">financial distress costs</span>. Structure A carries no such death sentence.</p></div>
+
+<div class="widget">
+<div class="widget-title">Interactive lab · Leverage simulator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Debt ratio <span class="val" id="lev-val">40%</span><input type="range" id="lev" min="0" max="80" step="1" value="40"></label></div>
+<div class="slider-row"><label>Interest rate <span class="val" id="rate-val">5.0%</span><input type="range" id="rate" min="3" max="8" step="0.5" value="5"></label></div>
+<div class="scn-row"><span class="scn-tip">Scenario:</span><button type="button" class="scn-btn" data-i="0">Boom EBIT 200</button><button type="button" class="scn-btn" data-i="1">Normal EBIT 100</button><button type="button" class="scn-btn" data-i="2">Recession EBIT 40</button></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="p-roe"></span><span class="pill" id="p-roa"></span><span class="pill" id="p-cov"></span></div>
+<p>Live check of the formula: ROE = (EBIT − D×i) ÷ (1000 − D), with assets fixed at 1000 (that is, ¥10 million). Green bars = ROE at the current debt ratio; gray bars = the unlevered benchmark; interest coverage (EBIT ÷ interest) flashes red below 1.5×. Try dragging the debt ratio to 80% and the interest rate to 8%, then switching to the recession scenario, and watch leverage bite back.</p>
+</div>
+</div>
+
+<h2>3. The MM theorem: slicing the pie does not change its size</h2>
+<p>Modigliani and Miller’s famous 1958 theorem says: in a <strong>perfect market</strong> — no taxes, no bankruptcy costs, fully transparent information — a company’s value depends only on how well its assets generate cash flow. How the pie is sliced does not change the total: no matter how much is borrowed, creditors plus shareholders together always receive the same whole pie, and whatever shareholders gain is exactly eaten up by creditors’ compensation for risk.</p>
+<p>The real world is imperfect in precisely the opposite way: the tax deductibility of interest (the tax shield) encourages more debt, while financial distress costs warn against borrowing too much. The two forces tug in opposite directions, and out comes a not-too-high, not-too-low <strong>optimal capital structure</strong> — which is why most mature companies hold their debt ratios in the middle range rather than at 0% or 90%.</p>
+<div class="callout callout-tip"><span class="callout-title">How to remember it</span><p>The MM theorem gives you the ideal reference frame: slicing does not matter. The tug-of-war between the tax shield and bankruptcy costs gives you the real-world answer: slicing does matter, and there is a middle optimum.</p></div>
+
+<h2>4. WACC: the blended cost of financing</h2>
+<p>A company both borrows and issues shares — so what is its overall cost of funds? Weight the two by their shares of market value and average them, and you get the <span class="term" data-def="The overall cost of a company’s debt and equity, weighted by market-value shares">weighted average cost of capital (WACC)</span>:</p>
+<div class="formula">WACC = (D÷V) × interest rate on debt × (1 − tax rate) + (E÷V) × cost of equity<div class="formula-note">D and E are the market values of debt and equity, V = D + E; multiplying the cost of debt by (1 − tax rate) is precisely how the tax shield shows up in the accounting.</div></div>
+<p>Intuitively: debt is <strong>cheap</strong> — its interest rate is low (there is a tax shield, and priority in liquidation provides a backstop) — but as borrowing piles up, creditors’ risk rises, interest rates climb, and cheap money turns expensive. Equity is <strong>dear but resilient</strong> — shareholders stand last in line and therefore demand a high return, yet the company never has to repay them principal or interest, so one stumble does not starve it of funds. WACC is the weighted outcome of this trade-off, and it is the discount rate most often used in next lesson’s valuation.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>The essential contrast between debt and equity: fixed interest + priority in liquidation + tax shield vs. residual claim + no maturity date</li>
+<li>Leverage magnifies ROE only while ROA exceeds the interest rate; the point of no return is EBIT falling below interest</li>
+<li>The MM theorem is the ideal reference frame; in reality the tax shield and financial distress costs tug their way to an optimal capital structure</li>
+<li>WACC intuition: debt is cheap but dearer the more you use; equity is dear but resilient; the weighted blend is the overall cost</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[{"q":"A company has no debt, shareholders’ equity of ¥10 million, and EBIT of ¥1.2 million. What is its ROE?","options":["10%","12%","20%","24%"],"answer":1,"explain":"With no debt there is no interest: ROE = EBIT ÷ shareholders’ equity = 1.2 ÷ 10 = 12%."},{"q":"What is the precondition for leverage to magnify shareholder returns (rather than losses)?","options":["Returns exceed the interest rate","Returns fall below the interest rate","Returns equal the interest rate","Return volatility increases"],"answer":0,"explain":"Only when the return on assets (ROA) exceeds the interest rate does the spread earned on borrowed money accrue to shareholders; when ROA is below the rate, the same leverage magnifies losses instead — as in this lesson’s recession scenario, where 3.3% lands below 4.0%."},{"q":"According to the MM theorem, in a perfect market (no taxes, no bankruptcy costs):","options":["More debt always raises firm value","The debt-free firm is always worth the most","Capital structure does not affect firm value","Running on debt must end in bankruptcy"],"answer":2,"explain":"MM theorem: in a perfect market, how the pie is sliced does not change its total, so the debt-equity split leaves the whole firm’s value unchanged; it is the real-world tug-of-war between the tax shield and bankruptcy costs that creates an optimal capital structure."},{"q":"Which statement about WACC (weighted average cost of capital) is correct?","options":["The average cost of debt interest only","The company’s actual income-tax rate","The ceiling on required shareholder returns","The weighted average of debt and equity costs"],"answer":3,"explain":"WACC weights the cost of debt (usually multiplied by 1 − tax rate to reflect the tax shield) together with the cost of equity by market-value weights, giving the company’s overall financing cost."}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#capital-structure">capital structure</a> · <a href="../reference/glossary.html#tax-shield">tax shield</a> · <a href="../reference/glossary.html#financial-leverage">financial leverage</a> · <a href="../reference/glossary.html#financial-distress-costs">financial distress costs</a> · <a href="../reference/glossary.html#wacc">weighted average cost of capital</a></li>
+
+<li><a href="https://www.investopedia.com/terms/c/capitalstructure.asp">Capital Structure — Investopedia</a> — the definition of capital structure and the debt-equity trade-off</li>
+<li><a href="https://www.investopedia.com/terms/w/wacc.asp">WACC — Investopedia</a> — computing and applying the weighted average cost of capital</li>
+<li><a href="https://en.wikipedia.org/wiki/Modigliani–Miller_theorem">Modigliani–Miller theorem — Wikipedia</a> — the original MM argument and its later amendments</li>
+</ul></div>
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0001-time-value-of-money-and-npv.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Time Value of Money and NPV</span></a>
+<a href="0003-introduction-to-valuation.html" class="next"><span class="nav-label">Next lesson</span><span class="nav-title">Introduction to Valuation</span></a>
+</nav>
+<footer class="lesson-footer"><span>Corporate Finance · Lesson 2</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var ASSET = 1000;
+  var SCN = [
+    { name: "Boom", ebit: 200 },
+    { name: "Normal", ebit: 100 },
+    { name: "Recession", ebit: 40 }
+  ];
+  var curIdx = 1;
+  var levEl = document.getElementById("lev");
+  var rateEl = document.getElementById("rate");
+  var levVal = document.getElementById("lev-val");
+  var rateVal = document.getElementById("rate-val");
+  var pRoe = document.getElementById("p-roe");
+  var pRoa = document.getElementById("p-roa");
+  var pCov = document.getElementById("p-cov");
+  var chart = new FChart(document.getElementById("chart1"), {
+    height: 340,
+    x: { min: 0, max: 9, label: "Scenarios: Boom 200 → Normal 100 → Recession 40 (EBIT, ¥10k)" },
+    y: { min: -25, max: 85, label: "ROE (%)" }
+  });
+  function f1(v) { return (Math.round(v * 10) / 10).toFixed(1); }
+  function draw() {
+    var lev = parseFloat(levEl.value) / 100;
+    var rate = parseFloat(rateEl.value) / 100;
+    levVal.textContent = Math.round(lev * 100) + "%";
+    rateVal.textContent = (rate * 100).toFixed(1) + "%";
+    var D = ASSET * lev;
+    var E = ASSET - D;
+    var it = D * rate;
+    var bars = [];
+    for (var k = 0; k < SCN.length; k++) {
+      var s = SCN[k];
+      var cx = 1.5 + k * 3;
+      var base = s.ebit / ASSET * 100;
+      var levRoe = (s.ebit - it) / E * 100;
+      bars.push({ x0: cx - 1.05, x1: cx - 0.15, y: base, color: "#5d5749", label: s.name });
+      bars.push({ x0: cx + 0.15, x1: cx + 1.05, y: levRoe, color: "#0d5c4f", label: f1(levRoe) + "%" });
+    }
+    chart.clear();
+    chart.bars(bars, { y0: 0 });
+    chart.legend([{ color: "#5d5749", text: "Unlevered (equity ¥10M)" }, { color: "#0d5c4f", text: "Current leverage" }]);
+    var cur = SCN[curIdx];
+    var roe = (cur.ebit - it) / E * 100;
+    var roa = cur.ebit / ASSET * 100;
+    pRoe.textContent = cur.name + " ROE " + f1(roe) + "%";
+    pRoa.textContent = "ROA " + f1(roa) + "%";
+    if (it <= 0) {
+      pCov.textContent = "Interest coverage ∞ (no debt)";
+      pCov.style.color = "";
+    } else {
+      var cov = cur.ebit / it;
+      if (cov < 1.5) {
+        pCov.textContent = "⚠ Interest coverage " + f1(cov) + "× (danger)";
+        pCov.style.color = "#b3372f";
+      } else {
+        pCov.textContent = "Interest coverage " + f1(cov) + "×";
+        pCov.style.color = "";
+      }
+    }
+  }
+  var btns = document.querySelectorAll(".scn-btn");
+  for (var b = 0; b < btns.length; b++) {
+    (function (btn) {
+      btn.addEventListener("click", function () {
+        curIdx = parseInt(btn.getAttribute("data-i"), 10);
+        for (var j = 0; j < btns.length; j++) btns[j].classList.remove("active");
+        btn.classList.add("active");
+        draw();
+      });
+    })(btns[b]);
+  }
+  btns[curIdx].classList.add("active");
+  levEl.addEventListener("input", draw);
+  rateEl.addEventListener("input", draw);
+  draw();
+})();
+</script>
+</body></html>

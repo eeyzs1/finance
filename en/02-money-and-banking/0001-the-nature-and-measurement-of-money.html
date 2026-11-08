@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Money &amp; Banking · Lesson 1: The Nature and Measurement of Money · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Money &amp; Banking, Lesson 1 “The Nature and Measurement of Money”: an interactive lesson with chart simulators and an inline quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.widget-controls button{cursor:pointer;font:inherit;padding:6px 14px;border:1px solid #0d5c4f;background:#0d5c4f;color:#fff;border-radius:6px;margin:0 8px 8px 0;}
+.widget-controls button:hover{opacity:.85;}
+.log-line{font-size:14px;margin:3px 0;color:#3c372c;}
+.log-line.good{color:#0d5c4f;font-weight:600;}
+.log-line.bad{color:#b3372f;font-weight:600;}
+#barter-svg,#pyramid-svg{width:100%;height:auto;display:block;}
+#pyramid-svg g{cursor:pointer;}
+.pyramid-wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;}
+.pyramid-wrap .chart{flex:1 1 300px;min-width:260px;}
+.pyramid-panel{flex:1 1 240px;min-width:220px;}
+.m-info{font-size:14px;line-height:1.8;color:#3c372c;margin-top:10px;}
+</style>
+</head><body>
+<a class="lang-switch" href="../../02-货币银行学/0001-货币的本质与度量.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Money &amp; Banking</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header"><div class="kicker">Money &amp; Banking · Lesson 1</div><h1>The Nature and Measurement of Money</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Beginner</span><span>Prerequisites: none</span></div></header>
+<p class="lead">What is money? Your first thought is probably the balance on your phone or the notes in your pocket. This lesson starts from money's three functions, first revisiting a barter world with no money to see why money was bound to appear; it then follows cowries, coins, and paper notes all the way to today's digital payments; and finally clarifies what the central bank is actually counting when it talks about M0, M1, and M2. By the end, you will be able to answer: what exactly is the difference between the money in WeChat Pay and cash?</p>
+
+<h2>1. What Is Money: The Three Functions</h2>
+<p>Finance's definition of <span class="term" data-def="Anything widely accepted in payment and in the settlement of debts">money</span> is surprisingly plain: anything generally accepted in payment counts as money — whether cowries, gold, or a string of digits on your phone. To judge whether something qualifies as “money,” see whether it performs all three of the functions below.</p>
+<h3>Function 1: Medium of exchange — the moment you scan to pay</h3>
+<p>The <span class="term" data-def="An intermediary that both buyers and sellers will accept, so exchange need not be barter">medium of exchange</span> is the “middle thing” that both sides of a trade will accept. You scan a code at the convenience store to pay ¥15 for breakfast: the shopkeeper is not taking your old sofa — they are taking money that everyone recognizes. With a medium of exchange, the fish seller no longer has to stumble upon a “baker who happens to want fish”; the barrier to trade drops to the floor.</p>
+<h3>Function 2: Unit of account — the price on the menu</h3>
+<p>The <span class="term" data-def="A common yardstick that expresses the value of all goods in one shared unit">unit of account</span> is the shared yardstick that measures all prices. The menu says “beef noodles ¥22,” and you instantly know how much pricier that is than the ¥18 vegetable noodles — the value of every good is converted into one unit, “yuan,” just as a ruler standardizes length. Without this yardstick, working out how many fish, how many pairs of shoes, or how many bags of salt a phone is worth would be an endless chain of conversions.</p>
+<h3>Function 3: Store of value — the money in Yu'e Bao</h3>
+<p>The <span class="term" data-def="The ability to carry today's purchasing power forward for future use">store of value</span> lets purchasing power travel through time. Your salary is not spent the day it arrives; the money in Yu'e Bao can still be spent next month or next year — money stores “today's labor” as “tomorrow's purchasing power.” Of course, inflation quietly erodes that store, a story later lessons will unpack.</p>
+<div class="callout callout-key"><span class="callout-title">The one-sentence test</span><p>Can pay the bill (medium of exchange), can price the goods (unit of account), can be kept for later spending (store of value) — all three together make something money in the full sense. A credit card limit can pay the bill, but it is not your money: it is borrowed money.</p></div>
+
+<h2>2. A World Without Money: The Barter Problem</h2>
+<p>Imagine the day money disappears: a fisherman catches fish and wants bread for dinner; the baker has baked bread but walking has worn out his shoes and he wants a new pair; the shoemaker has finished the shoes and wants fish to eat after work. The three men's supplies and wants form a perfect-looking circle — or do they?</p>
+<p>The fisherman first takes fish to the baker, who shakes his head: “I don't eat fish.” The baker takes bread to the shoemaker, who waves him off: “I have plenty of bread at home.” The shoemaker takes shoes to the fisherman, who shrugs: “I don't need shoes.” Three attempts, three failures. Economists call this hurdle the <span class="term" data-def="The precondition for a barter deal: each side happens to want exactly what the other holds">double coincidence of wants</span>: for a trade to happen, “you happen to have what I want” and “I happen to have what you want” must hold at the same time. The condition is so strict it almost never occurs — so most exchanges simply never take place.</p>
+
+<div class="widget">
+<div class="widget-title">Interactive · ① Barter vs. Money: Click a Button to See the Ending</div>
+<div class="widget-body">
+<div class="widget-controls">
+<button type="button" id="btn-barter">Start bartering</button>
+<button type="button" id="btn-money">Trade with money</button>
+<button type="button" id="btn-reset">Reset</button>
+</div>
+<div class="chart" id="chart1">
+<svg id="barter-svg" viewBox="0 0 560 300" role="img" aria-label="Diagram of barter versus money exchange">
+<defs>
+<marker id="ah-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0d5c4f"></path></marker>
+<marker id="ah-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b3372f"></path></marker>
+</defs>
+<g id="arrow-layer"></g>
+<g><text x="140" y="42" text-anchor="middle" font-size="13" fill="#5d5749">Has fish · wants bread</text><circle cx="140" cy="84" r="28" fill="#0d5c4f"></circle><text x="140" y="90" text-anchor="middle" font-size="15" fill="#ffffff">Fisherman</text></g>
+<g><text x="420" y="42" text-anchor="middle" font-size="13" fill="#5d5749">Has bread · wants shoes</text><circle cx="420" cy="84" r="28" fill="#a3701a"></circle><text x="420" y="90" text-anchor="middle" font-size="15" fill="#ffffff">Baker</text></g>
+<g><circle cx="280" cy="232" r="28" fill="#5d5749"></circle><text x="280" y="238" text-anchor="middle" font-size="15" fill="#ffffff">Shoemaker</text><text x="280" y="286" text-anchor="middle" font-size="13" fill="#5d5749">Has shoes · wants fish</text></g>
+</svg>
+</div>
+<div class="readout"><span class="pill" id="barter-status">Click “Start bartering” to see what happens</span></div>
+<div id="barter-log"></div>
+</div>
+</div>
+
+<p>Run the demo above: barter fails all three rounds; switch to money and the same two deals close in two steps — the fisherman pays for bread, then the baker pays for shoes. Money was born precisely to break this deadlock: as long as everyone believes “money” can be exchanged for goods, trade no longer needs coincidence — just a counterparty willing to accept money, and such people are everywhere.</p>
+
+<h2>3. The Evolution of Money: From Cowries to the Digital Yuan</h2>
+<p>Money was not “invented” one day; it was selected, over and over, across thousands of years. The table below shows its five main forms:</p>
+<table class="data">
+<thead><tr><th>Form</th><th>Examples</th><th>Key features</th><th>Why it is accepted</th></tr></thead>
+<tbody>
+<tr><td>Commodity money</td><td>Cowries, salt, cloth</td><td>Has use value in its own right; being money is a side job</td><td>Scarce, durable, universally wanted</td></tr>
+<tr><td>Metal coins</td><td>Copper cash, silver ingots, gold coins</td><td>Stable in value, divisible, easy to carry</td><td>The metal itself is valuable; purity and weight can be verified</td></tr>
+<tr><td>Paper money (gold standard)</td><td>Banknotes redeemable in gold</td><td>Light and portable, but issuance was constrained by gold reserves</td><td>A promise to redeem in gold at a fixed rate on demand</td></tr>
+<tr><td>Fiat money</td><td>Renminbi, US dollar, Japanese yen</td><td class="bad">Almost no intrinsic value of its own</td><td>State credit stands behind it + legal-tender laws force acceptance</td></tr>
+<tr><td>Electronic payments and central bank digital currency</td><td>WeChat Pay, the digital yuan (e-CNY)</td><td class="good">A number on a ledger; payment settles instantly</td><td>Equivalent to cash (see the <a href="../11-fintech/index.html">FinTech branch</a>)</td></tr>
+</tbody>
+</table>
+<p>Notice the turning point: the ¥100 note in your wallet costs far less to print than its face value and cannot be exchanged for gold. It still buys ¥100 of goods because the state's credit backs it, the law requires it to be accepted, and the central bank controls its quantity. Money has gone from “a commodity valuable in itself” to “a trusted bookkeeping symbol” — digital payments simply push that logic to its extreme: money becomes numbers flickering on a screen.</p>
+
+<h2>4. How Much Money Is There: The Aggregates M0 / M1 / M2</h2>
+<p>Money comes in many forms, so to “count it” the central bank layers it by how easily it converts to cash. The key concept here is <span class="term" data-def="How easily an asset can be converted into cash without losing value">liquidity</span>: cash is already cash, so it is the most liquid; a time deposit must wait until maturity or be withdrawn early; a house sells slowly and possibly at a discount, so it is less liquid.</p>
+
+<div class="widget">
+<div class="widget-title">Interactive · ② The Money Pyramid: Click to Get to Know M0 / M1 / M2</div>
+<div class="widget-body">
+<div class="pyramid-wrap">
+<div class="chart" id="chart2">
+<svg id="pyramid-svg" viewBox="0 0 380 310" role="img" aria-label="Nested M0/M1/M2 pyramid">
+<g id="m2-g"><rect id="m2-rect" x="8" y="26" width="364" height="276" rx="10" fill="#efede4" stroke="#5d5749" stroke-width="2"></rect><text x="190" y="52" text-anchor="middle" font-size="15" font-weight="bold" fill="#5d5749">M2 · Broad money</text><text x="190" y="71" text-anchor="middle" font-size="12" fill="#5d5749">M1 + time deposits and other quasi-money</text></g>
+<g id="m1-g"><rect id="m1-rect" x="42" y="86" width="296" height="188" rx="8" fill="#f5ead2" stroke="#a3701a" stroke-width="2"></rect><text x="190" y="112" text-anchor="middle" font-size="15" font-weight="bold" fill="#a3701a">M1 · Narrow money</text><text x="190" y="131" text-anchor="middle" font-size="12" fill="#a3701a">M0 + demand deposits</text></g>
+<g id="m0-g"><rect id="m0-rect" x="80" y="146" width="220" height="100" rx="8" fill="#d9e8e3" stroke="#0d5c4f" stroke-width="2"></rect><text x="190" y="188" text-anchor="middle" font-size="15" font-weight="bold" fill="#0d5c4f">M0 · Cash in circulation</text><text x="190" y="210" text-anchor="middle" font-size="12" fill="#0d5c4f">Notes and coins held by the public</text></g>
+</svg>
+</div>
+<div class="pyramid-panel">
+<div class="readout"><span class="pill" id="m-pill">Inner layers are most liquid; outer layers are largest</span></div>
+<div class="m-info" id="m-info">Click any layer of the pyramid to see what it contains and how liquid it is.</div>
+</div>
+</div>
+</div>
+</div>
+
+<p>The three layers nest outward: M0 is cash in circulation (notes and coins held by the public, excluding vault cash inside the banking system); M1 (narrow money) = M0 + demand deposits — money you can spend right away, representing active purchasing power; M2 (broad money) wraps on another layer of “quasi-money” — time deposits, savings deposits, and the like — which must be withdrawn before it can be spent, representing potential purchasing power.</p>
+<div class="formula">M2 = M1 + time deposits + savings deposits + other deposits (quasi-money)<div class="formula-note">Definitions differ slightly across countries: for example, from its January 2025 data onward, the People's Bank of China includes personal demand deposits and non-bank payment institutions' customer reserve funds in M1; the United States also folded savings deposits into M1 in 2020. Always defer to the definitions published by your own central bank.</div></div>
+<p>That raises the boundary question of “what counts as money”: which layer does WeChat change (lingqian) belong to? It is backed by reserve funds deposited by the payment institution and can be spent with a scan, so it behaves like a demand deposit — under China's new definitions from 2025 it is already counted in M1; whereas money-market fund products such as Yu'e Bao involve a settlement lag on redemption, making them “edge money” outside M2, though most of their underlying assets flow back into bank deposits. In the digital age, the boundary of money is getting blurrier and blurrier.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Use the three functions (medium of exchange, unit of account, store of value) to judge what is money and what is not.</li>
+<li>Explain why the double coincidence of wants makes barter grind to a halt, and how money breaks the deadlock.</li>
+<li>Retell money's evolution from cowries and coins to paper, fiat money, and digital payment, and understand how state credit replaced gold.</li>
+<li>Distinguish the nesting of M0 / M1 / M2, and say which layer a time deposit and WeChat change each belong to.</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"Xiao Zhou scans a QR code at a convenience store to pay ¥15 for breakfast. At that moment, which function of money is mainly at work?","options":["Medium of exchange","Unit of account","Store of value"],"answer":0,"explain":"Scanning to pay is “money for goods”: money acts as the intermediary between buyer and seller, performing the medium-of-exchange function. The unit of account shows up in the price tag (the ¥15 on the label); the store of value is money set aside to spend later."},
+{"q":"In barter, what does the “double coincidence of wants” refer to?","options":["Both sides happen to live in the same village","Both sides happen to want each other's goods","Both sides happen to quote prices in the same good"],"answer":1,"explain":"The fisherman wants bread, but the baker does not want fish, so no deal happens. Only when “I want yours and you also happen to want mine” holds at the same time can a barter trade close — the condition is so strict that money emerged to replace it."},
+{"q":"You put ¥20,000 into a three-year time deposit. Which money aggregate does it fall into?","options":["M0, cash in circulation","M1, narrow money","M2, broad money"],"answer":2,"explain":"A time deposit cannot be spent directly at will; it is “quasi-money” and counts in M2, since M2 = M1 + time deposits + savings deposits + other deposits. If you withdraw it early into a demand deposit, it “moves back up” into M1."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#货币">money</a> · <a href="../reference/glossary.html#交易媒介">medium of exchange</a> · <a href="../reference/glossary.html#价值尺度">unit of account</a> · <a href="../reference/glossary.html#价值储藏">store of value</a> · <a href="../reference/glossary.html#需求双重巧合">double coincidence of wants</a> · <a href="../reference/glossary.html#liquidity">liquidity</a></li>
+
+<li><a href="https://zh.wikipedia.org/wiki/货币">Wikipedia: Money</a> — a Chinese-language overview of money's definition, functions, and evolving forms.</li>
+<li><a href="https://www.investopedia.com/terms/m/money.asp">Investopedia: Money</a> — an authoritative English entry on the three functions of money and the history of commodity money.</li>
+<li><a href="http://www.pbc.gov.cn/">People's Bank of China official website</a> — official definitions of M0/M1/M2 and monthly data, searchable under the Survey and Statistics section.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch Overview</span></a><a class="next" href="0002-fractional-reserve-banking-and-money-creation.html"><span class="nav-label">Next lesson</span><span class="nav-title">Fractional Reserve Banking and Money Creation</span></a></nav>
+<footer class="lesson-footer"><span>Money &amp; Banking · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var GREEN="#0d5c4f", RED="#b3372f";
+  var NS="http://www.w3.org/2000/svg";
+  var layer=document.getElementById("arrow-layer");
+  var log=document.getElementById("barter-log");
+  var pill=document.getElementById("barter-status");
+  var timers=[];
+  function clearTimers(){while(timers.length){clearTimeout(timers.pop());}}
+  function later(ms,fn){timers.push(setTimeout(fn,ms));}
+  function resetView(){
+    while(layer.firstChild){layer.removeChild(layer.firstChild);}
+    log.innerHTML="";
+  }
+  function logLine(text,cls){
+    var d=document.createElement("div");
+    d.className="log-line"+(cls?" "+cls:"");
+    d.textContent=text;
+    log.appendChild(d);
+  }
+  function arrow(x1,y1,x2,y2,color,label){
+    var g=document.createElementNS(NS,"g");
+    var line=document.createElementNS(NS,"line");
+    line.setAttribute("x1",x1);line.setAttribute("y1",y1);
+    line.setAttribute("x2",x2);line.setAttribute("y2",y2);
+    line.setAttribute("stroke",color);line.setAttribute("stroke-width",3);
+    line.setAttribute("marker-end",color===GREEN?"url(#ah-g)":"url(#ah-r)");
+    var t=document.createElementNS(NS,"text");
+    t.setAttribute("x",(x1+x2)/2);t.setAttribute("y",(y1+y2)/2-10);
+    t.setAttribute("text-anchor","middle");t.setAttribute("font-size","14");
+    t.setAttribute("fill",color);t.setAttribute("paint-order","stroke");
+    t.setAttribute("stroke","#f7f5ef");t.setAttribute("stroke-width","4");
+    t.textContent=label;
+    g.appendChild(line);g.appendChild(t);layer.appendChild(g);
+  }
+  function runBarter(){
+    clearTimers();resetView();
+    pill.textContent="Barter: three attempts…";pill.style.color="";
+    later(400,function(){arrow(172,84,386,84,RED,"Fish for bread ✗");logLine("Round 1: the fisherman takes fish to the baker — the baker doesn't want fish; refused ✗","bad");});
+    later(1500,function(){arrow(398,107,307,205,RED,"Bread for shoes ✗");logLine("Round 2: the baker takes bread to the shoemaker — the shoemaker doesn't want bread; refused ✗","bad");});
+    later(2600,function(){arrow(258,209,167,111,RED,"Shoes for fish ✗");logLine("Round 3: the shoemaker takes shoes to the fisherman — the fisherman doesn't want shoes; refused ✗","bad");});
+    later(3400,function(){logLine("All three attempts fail: no pair has a “double coincidence of wants,” so nobody gets what they want.");pill.textContent="Match failed: no double coincidence of wants";pill.style.color=RED;});
+  }
+  function runMoney(){
+    clearTimers();resetView();
+    pill.textContent="Trading with money: two steps to done…";pill.style.color="";
+    later(400,function(){arrow(172,84,386,84,GREEN,"Pay ¥3, get bread ✓");logLine("Step 1: the fisherman pays the baker ¥3 and gets bread ✓","good");});
+    later(1500,function(){arrow(398,107,307,205,GREEN,"Pay ¥20, get shoes ✓");logLine("Step 2: the baker pays the shoemaker ¥20 and gets shoes ✓","good");});
+    later(2300,function(){logLine("Both deals close: everyone accepts money, and nobody needs to happen to want the other's goods — money breaks the deadlock.");pill.textContent="Match made: two steps, two deals";pill.style.color=GREEN;});
+  }
+  function resetAll(){
+    clearTimers();resetView();
+    pill.textContent="Click “Start bartering” to see what happens";pill.style.color="";
+  }
+  document.getElementById("btn-barter").addEventListener("click",runBarter);
+  document.getElementById("btn-money").addEventListener("click",runMoney);
+  document.getElementById("btn-reset").addEventListener("click",resetAll);
+})();
+
+(function(){
+  var INFO={
+    m2:{title:"M2 · Broad money",pill:"Liquidity: ★ lower (must be converted before spending)",body:"Contains: M1 plus time deposits, savings deposits, and other deposits, together known as “quasi-money.” Less liquid: a time deposit must first become a demand deposit or cash before it can be spent. M2 reflects society's total and potential purchasing power and is one of the aggregates central banks watch most closely."},
+    m1:{title:"M1 · Narrow money",pill:"Liquidity: ★★ strong (spendable at any time)",body:"Contains: M0 plus demand deposits. Highly liquid: demand deposits are instantly usable by card or transfer and, together with cash, form the purchasing power that is ready to spend. From its January 2025 data onward, China also includes personal demand deposits and payment institutions' reserve funds in M1."},
+    m0:{title:"M0 · Cash in circulation",pill:"Liquidity: ★★★ highest (it is cash itself)",body:"Contains: notes and coins held by the public (vault cash inside the banking system is excluded). The most liquid layer — it is cash itself and can pay in any setting, instantly. M0 is the foundation of the entire money supply."}
+  };
+  var rects={m0:document.getElementById("m0-rect"),m1:document.getElementById("m1-rect"),m2:document.getElementById("m2-rect")};
+  var pill=document.getElementById("m-pill");
+  var info=document.getElementById("m-info");
+  function pick(k){
+    var d=INFO[k];
+    for(var id in rects){
+      rects[id].setAttribute("stroke-width",id===k?"4":"2");
+      rects[id].setAttribute("fill-opacity",id===k?"1":"0.85");
+    }
+    pill.textContent=d.pill;
+    info.innerHTML="<strong>"+d.title+"</strong><br>"+d.body;
+  }
+  ["m0","m1","m2"].forEach(function(k){
+    document.getElementById(k+"-g").addEventListener("click",function(){pick(k);});
+  });
+})();
+</script>
+</body></html>

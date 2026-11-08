@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derivatives &amp; Financial Engineering · Lesson 3: The Intuition Behind Option Pricing · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Lesson 3 of the Derivatives &amp; Financial Engineering branch of the Finance Self-Study Course: The Intuition Behind Option Pricing — an interactive lesson with a chart simulator and an inline quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../05-衍生品与金融工程/0003-期权定价的直觉.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Derivatives &amp; Financial Engineering</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header"><div class="kicker">Derivatives &amp; Financial Engineering · Lesson 3</div><h1>The Intuition Behind Option Pricing</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced</span><span>Prerequisites: Lesson 2 of this branch</span></div></header>
+
+<p class="lead">Last lesson we drew the option’s payoff diagram at expiration, but we have not yet answered the most crucial question: <strong>what is this option actually worth today?</strong> This lesson first answers “what makes an option more expensive” with intuition, then uses a one-step binomial tree to work a complete numerical example down to the last cent — high-school math is all it takes. Finally, we take one look at what the Nobel Prize–level Black-Scholes model is really “thinking.”</p>
+
+<h2>The two pieces of an option’s price: recap and deepening</h2>
+<p>The conclusion of Lesson 2: <span class="term" data-def="The price paid for an option = intrinsic value + time value; it is the option buyer’s maximum loss and the seller’s maximum gain.">premium</span> = <span class="term" data-def="What exercising immediately would deliver: max(S−K, 0) or max(K−S, 0); never negative.">intrinsic value</span> + <span class="term" data-def="The part of the premium above intrinsic value, arising from the chance that the market may still turn favorable.">time value</span>. Intrinsic value can be computed at a glance; the real puzzle is time value: what makes a mere chance worth money — and how much?</p>
+<p>The conclusion up front: <strong>the higher the volatility and the longer the time remaining, the more expensive the option</strong>. The reason is the innate asymmetry of option payoffs — <strong>the upside is uncapped, the downside has a floor</strong> (at worst the option expires worthless). Volatility can only push the underlying toward either extreme, and the option benefits from just one of them: a wild rally brings a big gain, while a hard slump still costs only the premium. The wilder the swings, the larger the expected value of the “wild rally” half — and the pricier the option.</p>
+
+<h2>A numerical experiment: same expectation, 4× the price</h2>
+<p>Stocks A and B, with their prices one year from now and the probabilities:</p>
+<table class="data">
+<thead><tr><th>Stock</th><th>Pessimistic scenario (50%)</th><th>Optimistic scenario (50%)</th><th>Expected price</th><th>Expected payoff of a strike-100 call</th></tr></thead>
+<tbody>
+<tr><td>A (low volatility)</td><td>90</td><td>110</td><td>100</td><td>0.5×0 + 0.5×10 = <strong>¥5</strong></td></tr>
+<tr><td>B (high volatility)</td><td>60</td><td>140</td><td>100</td><td>0.5×0 + 0.5×40 = <strong>¥20</strong></td></tr>
+</tbody>
+</table>
+<p>Check: for A’s call at expiration, the pessimistic state pays max(90−100,0)=0 and the optimistic state max(110−100,0)=10, so the expectation is ¥5; for B, the pessimistic state pays max(60−100,0)=0 (note: however deep the fall, the payoff is floored at 0) and the optimistic state max(140−100,0)=40, so the expectation is ¥20. The two stocks have exactly the same expected price, yet <strong>the more volatile B makes the very same option 4× as expensive</strong>. Time works the same way: the more time remains, the farther the underlying can “travel,” and the more exaggerated the extremes on both ends — while the option harvests only the upside end.</p>
+<p>A side note on the <span class="term" data-def="A U-shaped curve traced by the implied volatilities backed out of options of the same expiration across different strike prices, higher at the deep in-the-money and out-of-the-money ends.">volatility smile</span>: plot the <span class="term" data-def="The underlying volatility backed out of option market prices; the market’s pricing of volatility.">implied volatility</span> of options at each strike for the same expiration, and in theory it should be a flat line, while in reality it often curves into a “smiling” U — the premium the market demands for extreme moves is greedier than the model assumes.</p>
+
+<h2>The one-step binomial tree: pricing to the exact cent</h2>
+<p>After intuition, some precision. The <span class="term" data-def="A model that reduces the underlying’s future price to two states, up and down, and prices the option with a no-arbitrage argument.">binomial option pricing model</span> assumes: a stock trades at ¥100 today, and one year from now there are only two possibilities — a rise to 120 (up-factor u = 1.2) or a fall to 80 (d = 0.8). Find the fair price today of a <em>call option</em> with strike K = 100, with the risk-free rate r = 5%.</p>
+<p><strong>Step 1: Write down the option’s payoff in the two future states.</strong></p>
+<ul>
+<li>Up: the stock is 100×1.2 = 120, payoff C<sub>up</sub> = max(120−100, 0) = <strong>¥20</strong>;</li>
+<li>Down: the stock is 100×0.8 = 80, payoff C<sub>down</sub> = max(80−100, 0) = <strong>¥0</strong>.</li>
+</ul>
+<p><strong>Step 2: Compute the risk-neutral probability p.</strong> We do not forecast the true probabilities of up and down; instead we ask: <strong>which set of probabilities makes the stock’s expected growth exactly equal the risk-free rate?</strong></p>
+<div class="formula">p = <span class="frac"><span>1 + r − d</span><span>u − d</span></span> = <span class="frac"><span>1.05 − 0.80</span><span>1.20 − 0.80</span></span> = <span class="frac"><span>0.25</span><span>0.40</span></span> = 0.625
+<div class="formula-note"><b>Check</b>: p×120 + (1−p)×80 = 0.625×120 + 0.375×80 = 75 + 30 = 105 = 100×1.05 ✓ Under this set of “probabilities,” the stock is expected to grow at exactly the risk-free rate. <b>No-arbitrage condition</b>: d &lt; 1+r &lt; u must hold, otherwise p escapes [0,1], signaling that the parameters themselves contain an arbitrage opportunity.</div></div>
+<p><strong>Step 3: Use p to compute the expected payoff, then discount at the risk-free rate.</strong></p>
+<div class="formula">C = <span class="frac"><span>p×C<sub>up</sub> + (1−p)×C<sub>down</sub></span><span>1 + r</span></span> = <span class="frac"><span>0.625×20 + 0.375×0</span><span>1.05</span></span> = <span class="frac"><span>12.5</span><span>1.05</span></span> ≈ <strong>¥11.90</strong></div>
+<p>Step-by-step check: expected payoff = 0.625×20 + 0.375×0 = 12.5 + 0 = ¥12.5; discounted = 12.5 ÷ 1.05 = 11.904… ≈ <strong>¥11.90</strong>. This option should trade at roughly ¥11.90 today.</p>
+
+<div class="callout callout-info">
+  <span class="callout-title">⇄ Cross-check: the replicating portfolio (a different method, the same answer)</span>
+  <p>Today, buy 0.5 shares of the stock and borrow ¥38.10 at 5%: one year later the up-state value is 0.5×120 − 38.10×1.05 = 60 − 40 = ¥20, and the down-state value is 0.5×80 − 40 = 40 − 40 = ¥0 — identical to the option’s payoffs. The replica costs 0.5×100 − 38.10 = <strong>¥11.90</strong> today. The two methods converge on the same number, which is exactly the power of no-arbitrage pricing: an option = a homemade mini-portfolio.</p>
+</div>
+
+<div class="widget">
+  <div class="widget-title">🎛 One-Step Binomial Tree Calculator · Take a pricing machine apart yourself</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row"><label for="bin-u">Up-factor u <span class="val" id="bin-u-val"></span></label>
+        <input type="range" id="bin-u" min="1.05" max="1.5" step="0.01" value="1.2"></div>
+      <div class="slider-row"><label for="bin-d">Down-factor d <span class="val" id="bin-d-val"></span></label>
+        <input type="range" id="bin-d" min="0.5" max="0.95" step="0.01" value="0.8"></div>
+      <div class="slider-row"><label for="bin-k">Strike price K <span class="val" id="bin-k-val"></span></label>
+        <input type="range" id="bin-k" min="80" max="130" step="1" value="100"></div>
+      <div class="slider-row"><label for="bin-r">Risk-free rate r <span class="val" id="bin-r-val"></span></label>
+        <input type="range" id="bin-r" min="0.01" max="0.1" step="0.005" value="0.05"></div>
+    </div>
+    <div class="chart">
+      <svg id="bt-svg" viewBox="0 0 680 300" role="img" aria-label="One-step binomial tree diagram">
+        <line x1="152" y1="124" x2="505" y2="86" stroke="#c9c2b0" stroke-width="2"></line>
+        <line x1="152" y1="156" x2="505" y2="194" stroke="#c9c2b0" stroke-width="2"></line>
+        <text id="bt-up" x="300" y="92" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" fill="#5d5749">Up ×1.20 · probability p = 0.625</text>
+        <text id="bt-down" x="300" y="196" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" fill="#5d5749">Down ×0.80 · probability 1−p = 0.375</text>
+        <circle cx="110" cy="140" r="40" fill="#0d5c4f"></circle>
+        <text x="110" y="147" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="19" font-weight="700" fill="#fffdf8">100</text>
+        <text x="110" y="204" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="12.5" fill="#5d5749">Today t=0 · spot 100</text>
+        <text id="bt-c0" x="110" y="226" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700" fill="#a3701a">Option fair value ≈ ¥11.90</text>
+        <circle cx="545" cy="70" r="38" fill="#2e7d4f"></circle>
+        <text id="bt-su" x="545" y="77" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700" fill="#fffdf8">120</text>
+        <text id="bt-cu" x="545" y="130" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="600" fill="#2e7d4f">Option payoff 20.00</text>
+        <circle cx="545" cy="210" r="38" fill="#a3701a"></circle>
+        <text id="bt-sd" x="545" y="217" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700" fill="#fffdf8">80</text>
+        <text id="bt-cd" x="545" y="270" text-anchor="middle" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="600" fill="#a3701a">Option payoff 0.00</text>
+      </svg>
+    </div>
+    <div class="readout">
+      <span class="pill" id="ro-p"></span>
+      <span class="pill" id="ro-c"></span>
+      <span class="pill" id="ro-cu"></span>
+      <span class="pill" id="ro-cd"></span>
+      <span class="pill" id="ro-arb" style="display:none; border-color:#b3372f; color:#b3372f;"></span>
+    </div>
+    <p class="formula-note" style="margin-top:10px">Watch closely: drag u from 1.2 to 1.5 (a wider divergence) and the option’s fair value climbs steadily from 11.90 — the arithmetic version of “volatility is the heartbeat of options.”</p>
+  </div>
+</div>
+
+<div class="widget">
+  <div class="widget-title">📈 Volatility and Option Value · The wider the divergence, the pricier the premium</div>
+  <div class="widget-body">
+    <div class="chart" id="vol-chart"></div>
+    <p class="formula-note">With the strike fixed at 100, the risk-free rate at 5%, and the spot at 100, let the up-factor u = 1+m and the down-factor d = 1−m grow together from 0.06 to 0.5 (for smaller m, u = 1+m ≤ 1+r = 1.05, violating the no-arbitrage condition d &lt; 1+r &lt; u and breaking the pricing): the option’s value rises monotonically — the unlimited-upside, floored-downside asymmetry converts all of the volatility into expected payoff.</p>
+  </div>
+</div>
+
+<h2>Risk-neutral probability: not a forecast, but a measuring stick</h2>
+<p>Many beginners get stuck on p: “Why use 0.625 instead of the up-probability I believe in?” The answer: p is not a forecast of the future at all, but a <strong>measuring stick</strong>. The logic of pricing is “the option is worth whatever its replica is worth” (see the cross-check above): since the option can be replicated exactly with “stock + risk-free asset,” its price depends only on this yardstick, not on how bullish or bearish you and I feel. True probabilities do of course affect the stock’s own price — but that is already reflected in today’s ¥100. This view of “calibrating the world to the risk-free rate” is called <span class="term" data-def="A hypothetical pricing framework in which every asset’s expected return equals the risk-free rate; risk ends up priced into the value rather than the discount rate.">risk-neutral</span> pricing — the most counterintuitive, and most beautiful, step in the finance of derivatives.</p>
+
+<h2>The Black-Scholes model: turning the tree into a continuous world</h2>
+<p>Slice the binomial tree’s “one step” ever finer — chop a year into ten thousand instants, and the two up/down states approach a continuous price path. In 1973, Black, Scholes, and Merton followed this road to a closed-form answer: the <span class="term" data-def="The option pricing formula devised by Black and Scholes; its idea is to replicate the option dynamically with the underlying and a risk-free asset.">Black-Scholes model</span>. Its idea fits in one sentence: <strong>an option can be replicated dynamically with “underlying stock + risk-free asset,” and the cost of that replication is the option’s price</strong> — precisely the continuous-time version of the Δ=0.5 shares + ¥38.10 borrowed example above. The formula contains the normal distribution function and is not required knowledge; remember the one word “replication” and you hold its soul. For the full formula, see <a href="https://www.investopedia.com/terms/b/blackscholes.asp">Investopedia: Black-Scholes Model</a>. The work won the 1997 Nobel Prize in Economic Sciences and has underpinned the derivatives industry for the half-century since.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Option price = intrinsic value + time value; the bigger the swings and the longer the time, the higher the time value;</li>
+<li>Asymmetry (uncapped upside, floored downside) is the root of the option’s “appetite for volatility” — at the same expected price, the option on the high-volatility stock costs 4× as much;</li>
+<li>The one-step binomial tree in three moves: payoffs in the two states → p = (1+r−d)/(u−d) → expected payoff ÷ (1+r); the worked example gives ¥11.90, matching the replicating-portfolio method;</li>
+<li>The soul of the Black-Scholes model is replication: an option = a homemade portfolio assembled from the underlying and a risk-free asset.</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">{
+  "title": "Quiz · The Intuition Behind Option Pricing",
+  "questions": [
+    {"q": "All else equal, which call option is the most expensive?", "options": ["1 month left, underlying volatility 20%", "6 months left, underlying volatility 40%", "6 months left, underlying volatility 20%", "1 month left, underlying volatility 10%"], "answer": 1, "explain": "More time and bigger swings make it more likely the underlying ends deep in the money, while the downside stays floored at 0. Both factors enlarge only the upside expectation, so the one that wins on both counts is the priciest."},
+    {"q": "In the binomial tree example (u=1.2, d=0.8, r=5%), what is the risk-neutral probability p?", "options": ["p = 0.375", "p = 0.500", "p = 0.625", "p = 0.950"], "answer": 2, "explain": "p = (1+r−d)/(u−d) = (1.05−0.80)/(1.20−0.80) = 0.25/0.40 = 0.625. Check: 0.625×120+0.375×80 = 105 = 100×1.05 ✓"},
+    {"q": "When the underlying’s spot price exactly equals the strike price (an at-the-money option), what is that call option’s price made of?", "options": ["Entirely time value, with zero intrinsic value", "Entirely intrinsic value, with zero time value", "Half intrinsic value and half time value", "Negative time value and positive intrinsic value"], "answer": 0, "explain": "At the money, S=K: exercising immediately earns nothing, so intrinsic value = max(S−K,0) = 0; yet as long as the option has not expired, a rise remains possible, so the entire price is time value. Out-of-the-money options are the same — their price is all time value."},
+    {"q": "What exactly is the risk-neutral probability p in binomial tree pricing?", "options": ["The market’s estimate of the true up-probability, drawn from historical statistics", "An up-probability set subjectively by market makers and readjusted daily", "The up-probability subjectively felt by investors when they are risk-averse", "The weights that make the underlying’s expected growth equal the risk-free rate"], "answer": 3, "explain": "p is not a forecast but a measuring stick: under these weights the stock’s expected growth equals the risk-free rate exactly, so the option’s expected payoff can be discounted at 1+r. The resulting no-arbitrage price does not depend on the true up/down probabilities — their influence is already embedded in the spot price."}
+  ]
+}</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (glossary anchors): <a href="../reference/glossary.html#option">option</a> · <a href="../reference/glossary.html#premium">premium</a></li>
+<li>Investopedia: Black-Scholes Model — <a href="https://www.investopedia.com/terms/b/blackscholes.asp">investopedia.com/terms/b/blackscholes.asp</a></li>
+<li>Wikipedia: Binomial options pricing model — <a href="https://en.wikipedia.org/wiki/Binomial_options_pricing_model">en.wikipedia.org/wiki/Binomial_options_pricing_model</a></li>
+<li>Wikipedia: Black–Scholes model — <a href="https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model">en.wikipedia.org/wiki/Black–Scholes_model</a></li>
+<li>CBOE Education (includes introductory material on volatility and pricing) — <a href="https://www.cboe.com/education/">cboe.com/education</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+  <a href="0002-option-payoff-structures.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Option Payoff Structures</span></a>
+  <a class="next" href="../06-risk-management/index.html"><span class="nav-label">Next lesson</span><span class="nav-title">Next branch · 06 Risk Management</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>Derivatives &amp; Financial Engineering · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var uIn = document.getElementById("bin-u"), dIn = document.getElementById("bin-d");
+  var kIn = document.getElementById("bin-k"), rIn = document.getElementById("bin-r");
+  if (!uIn || !dIn || !kIn || !rIn || typeof FChart === "undefined") return;
+  uIn._out = document.getElementById("bin-u-val");
+  dIn._out = document.getElementById("bin-d-val");
+  kIn._out = document.getElementById("bin-k-val");
+  rIn._out = document.getElementById("bin-r-val");
+  var S0 = 100;
+  function f2(v) { return (Math.round(v * 100) / 100).toFixed(2); }
+  function f3(v) { return (Math.round(v * 1000) / 1000).toFixed(3); }
+  function price(u, d, K, r) {
+    var Cu = Math.max(S0 * u - K, 0), Cd = Math.max(S0 * d - K, 0);
+    var p = (1 + r - d) / (u - d);
+    return { p: p, Cu: Cu, Cd: Cd, C: (p * Cu + (1 - p) * Cd) / (1 + r) };
+  }
+  var tSu = document.getElementById("bt-su"), tSd = document.getElementById("bt-sd");
+  var tCu = document.getElementById("bt-cu"), tCd = document.getElementById("bt-cd");
+  var tUp = document.getElementById("bt-up"), tDn = document.getElementById("bt-down");
+  var tC0 = document.getElementById("bt-c0");
+  var roP = document.getElementById("ro-p"), roC = document.getElementById("ro-c");
+  var roCu = document.getElementById("ro-cu"), roCd = document.getElementById("ro-cd");
+  var warn = document.getElementById("ro-arb");
+  function update() {
+    var u = FChart.slider(uIn, function (v) { return "×" + f2(v); });
+    var d = FChart.slider(dIn, function (v) { return "×" + f2(v); });
+    var K = FChart.slider(kIn, function (v) { return "¥" + v; });
+    var r = FChart.slider(rIn, function (v) { return Math.round(v * 1000) / 10 + "%"; });
+    var res = price(u, d, K, r);
+    if (tSu) tSu.textContent = FChart.trimNum(S0 * u);
+    if (tSd) tSd.textContent = FChart.trimNum(S0 * d);
+    if (tCu) tCu.textContent = "Option payoff " + f2(res.Cu);
+    if (tCd) tCd.textContent = "Option payoff " + f2(res.Cd);
+    if (tUp) tUp.textContent = "Up ×" + f2(u) + " · probability p = " + f3(res.p);
+    if (tDn) tDn.textContent = "Down ×" + f2(d) + " · probability 1−p = " + f3(1 - res.p);
+    if (tC0) tC0.textContent = "Option fair value ≈ ¥" + f2(res.C);
+    if (roP) roP.innerHTML = "Risk-neutral probability: <b>p = " + f3(res.p) + "</b> (1−p = " + f3(1 - res.p) + ")";
+    if (roC) roC.innerHTML = "Option fair value: <b>C = ¥" + f2(res.C) + "</b>";
+    if (roCu) roCu.innerHTML = "Up-state payoff: <b>¥" + f2(res.Cu) + "</b> (stock " + FChart.trimNum(S0 * u) + ")";
+    if (roCd) roCd.innerHTML = "Down-state payoff: <b>¥" + f2(res.Cd) + "</b> (stock " + FChart.trimNum(S0 * d) + ")";
+    if (warn) {
+      var ok = res.p >= 0 && res.p <= 1;
+      warn.style.display = ok ? "none" : "inline-block";
+      if (!ok) warn.textContent = "⚠ p out of range: the no-arbitrage condition d < 1+r < u is broken (the parameters imply an arbitrage opportunity; the model price is distorted)";
+    }
+  }
+  [uIn, dIn, kIn, rIn].forEach(function (i) { i.addEventListener("input", update); });
+  update();
+
+  var volEl = document.getElementById("vol-chart");
+  if (volEl) {
+    var vc = new FChart(volEl, {
+      height: 300,
+      x: { min: 0.06, max: 0.5, label: "Single-step move size m (u = 1+m, d = 1−m)" },
+      y: { min: 0, max: 30, label: "Call option value (¥)" },
+      title: "The bigger the swings, the pricier the option (spot 100, K = 100, r = 5%)"
+    });
+    var pts = [];
+    for (var i = 6; i <= 50; i++) {
+      var m = i / 100;
+      pts.push([m, price(1 + m, 1 - m, 100, 0.05).C]);
+    }
+    vc.area(pts, { fill: "#a3701a", fillOpacity: 0.15, color: "#a3701a", width: 3 });
+    var eg = price(1.2, 0.8, 100, 0.05);
+    vc.scatter([[0.2, eg.C, "#b3372f", "Worked example m = 0.2 → ¥" + f2(eg.C)]], { r: 5.5 });
+  }
+})();
+</script></body></html>

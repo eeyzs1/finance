@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>International Finance · Lesson 3: Balance of Payments and Capital Flows · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, International Finance, Lesson 3: Balance of Payments and Capital Flows — an interactive lesson with a chart simulator and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<a class="lang-switch" href="../../07-国际金融/0003-国际收支与资本流动.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">International Finance</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header">
+<div class="kicker">International Finance · Lesson 3</div>
+<h1>Balance of Payments and Capital Flows</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced</span><span>Prerequisites: Lesson 2</span></div>
+</header>
+<p class="lead">Why do exchange rates move? Last lesson's answer was “money is flowing”. This lesson opens the ledger of those flows — the balance of payments: it shows where every payment between a country and the world comes from and where it goes. Read this ledger well and you hold the force behind exchange rates — and you can follow the drama of a “currency crisis” as it plays out.</p>
+
+<h2>1. A Ledger That Always Balances</h2>
+<p>The <span class="term" data-def="a statistical statement that systematically records all of a country's economic transactions with the rest of the world over a period, using double-entry bookkeeping">balance of payments account</span> (BOP) records all of a country's residents' transactions with the rest of the world over a period: a shipment of exported phones, one share of a US stock bought, a foreign firm setting up a plant in China, the central bank buying US Treasuries… every entry goes in the book. It uses <strong>double-entry bookkeeping</strong>: each transaction is entered once on the debit side and once on the credit side, so the whole table must sum to zero — the ledger always balances; the only question is “balanced by what”.</p>
+<p>The ledger falls into three blocks: the <span class="term" data-def="the account that records flows of real resources: goods, services, primary income, and current transfers">current account</span>, which records trade in goods and services; the <span class="term" data-def="the account that records cross-border asset transactions: direct investment, portfolio investment, and other investment">capital and financial account</span>, which records cross-border purchases and sales of assets; and the change in the central bank's pocket — the change in <span class="term" data-def="increases and decreases in official reserve assets held by the central bank, such as foreign exchange and gold">reserve assets</span>.</p>
+
+<table class="data">
+<thead><tr><th>Block</th><th>What it records</th><th>Main items</th><th>What a surplus means</th></tr></thead>
+<tbody>
+<tr><td><strong>Current account</strong></td><td>Flows of real resources and income</td><td>Goods + services + primary income (interest, dividends, wages) + current transfers (aid, remittances)</td><td class="good">Selling more to the world than buying from it</td></tr>
+<tr><td><strong>Capital and financial account</strong></td><td>Cross-border purchases and sales of assets</td><td><span class="term" data-def="investment that acquires lasting control of an enterprise in another country, by building plants or acquiring firms; recorded in the capital and financial account">foreign direct investment (FDI)</span> + portfolio investment + other investment and derivatives</td><td>Net acquisition of foreign assets (net capital outflow)</td></tr>
+<tr><td><strong>Change in reserve assets</strong></td><td>Changes in the central bank's official pocket</td><td>Foreign exchange reserves, gold, special drawing rights, IMF position</td><td class="bad">Central bank net buys foreign exchange; reserves accumulate</td></tr>
+</tbody>
+</table>
+
+<h2>2. One Identity, Two Destinies</h2>
+
+<div class="formula">
+Current account balance + capital and financial account balance + change in reserve assets = 0
+<div class="formula-note">The three blocks must sum to zero. A surplus country necessarily “lends to the world” in some form: either private-sector investment abroad, or an accumulation of central bank reserves — the ledger allows no third way.</div>
+</div>
+
+<p><strong>Application one: China's export-surplus era.</strong> Exports grew at high speed through the 2000s, and in 2007 — the peak year — the current account surplus approached 10% of GDP. Where did such a huge surplus go? Part became outward investment by firms and households (a capital and financial account deficit); the larger part was absorbed by the central bank buying foreign exchange — foreign exchange reserves climbed from about US$0.17 trillion in 2000 to a peak of nearly US$4 trillion in 2014.</p>
+<p><strong>Application two: America's “thirty-year deficit”.</strong> The US current account has not posted a single surplus year since 1991; in 2023 the deficit was about US$820 billion, roughly 3% of GDP. What fills the gap? The rest of the world persistently buying dollar assets net — a capital and financial account surplus. This is the so-called “exorbitant privilege”: because the world accepts its currency, it can consume on credit for decades. But the privilege is also a hidden danger: once confidence wavers and funds flee, the dollar and US assets come under pressure together.</p>
+
+<p>Turn the identity into a toy in your hands: drag the left pan and watch the right pan get balanced passively.</p>
+
+<div class="widget">
+<div class="widget-title">Interactive · BOP balance scale: the ledger must balance</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Current account CA / GDP (%)<span class="val" id="ca-val">+2.0</span><input type="range" id="ca-input" min="-6" max="6" step="0.5" value="2"></label></div>
+<div class="slider-row">
+<button type="button" class="preset" data-ca="4" data-note="China 2010: CA surplus of about +4%; the −4% on the right pan is made of “capital outflows + reserve accumulation” — the central bank kept buying foreign exchange, and reserves climbed a step every year.">China 2010</button>
+<button type="button" class="preset" data-ca="-3" data-note="US 2023: CA about −3%, imports exceeding exports; the gap is filled by foreigners persistently buying dollar assets net — the world's preference for dollar assets is the counterweight of this scale.">US 2023</button>
+<button type="button" class="preset" data-ca="-8" data-note="Thailand 1996: CA about −8%, the balance propped up by net inflows of “hot money” such as short-term foreign borrowing; once the hot money turned and fled, the fixed rate and the reserves were pierced within weeks — in July the next year the baht gave way.">Thailand 1996</button>
+</div>
+</div>
+<svg id="seesaw" viewBox="0 0 420 220" role="img" aria-label="Balance-of-payments scale illustration">
+<polygon points="210,86 192,210 228,210" fill="#5d5749" opacity="0.55"></polygon>
+<g id="beam-g">
+<rect x="60" y="78" width="300" height="8" rx="4" fill="#5d5749"></rect>
+<circle cx="210" cy="82" r="9" fill="#5d5749"></circle>
+<line x1="90" y1="86" x2="90" y2="112" stroke="#5d5749" stroke-width="3"></line>
+<rect x="36" y="112" width="108" height="46" rx="8" fill="#0d5c4f"></rect>
+<text x="90" y="130" text-anchor="middle" fill="#ffffff" font-size="12">Current account CA</text>
+<text id="ca-svg" x="90" y="150" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">+2.0%</text>
+<line x1="330" y1="86" x2="330" y2="112" stroke="#5d5749" stroke-width="3"></line>
+<rect x="276" y="112" width="108" height="46" rx="8" fill="#a3701a"></rect>
+<text x="330" y="130" text-anchor="middle" fill="#ffffff" font-size="12">Capital + reserves</text>
+<text id="ka-svg" x="330" y="150" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">−2.0%</text>
+</g>
+</svg>
+<p id="preset-note" style="min-height:2.6em;margin:0.6em 0 0;font-size:0.92em;color:#5d5749;">Drag the slider or click a preset: the scale tilts with the sign of CA — the two sides of the ledger are always equal, and that is the intuition of the BOP identity.</p>
+<div class="readout">
+<span class="pill">Left: current account <b id="ca-read">+2.0%</b></span>
+<span class="pill">Right: capital + reserves <b id="ka-read">−2.0%</b></span>
+<span class="pill">Both sides total <b>0.0% ✓</b></span>
+</div>
+</div>
+</div>
+
+<h2>3. Crisis Sketch: Thailand, 1997</h2>
+<div class="callout callout-warn"><span class="callout-title">Currency crisis sketch: the Thai baht, 1997</span><p>Three things stacked that year: <strong>a fixed exchange rate + a chronic current account deficit + reliance on short-term foreign debt</strong>. The current account deficit was propped up by short-term dollar borrowing (a capital and financial account surplus filled the gap); once exports weakened and markets doubted the fixed rate could hold, capital fled in panic; the central bank defended the rate with its reserves, but they were far too thin against the short-term debt and were exhausted within weeks. On July 2, 1997 Thailand was forced to abandon the fixed rate, and the baht fell from about 25 to the dollar to around 50 by early the next year — nearly halved. The depreciation then inflated the local-currency value of foreign debt, firms and banks fell in a chain, and the crisis spread across Asia. The lesson: filling a current account hole with “hot” money is the most fragile kind of balance.</p></div>
+
+<h2>4. The Savings View: S − I = CA</h2>
+<p>A national accounts identity: the current account balance = national saving − domestic investment. A surplus country has not simply “won” — it <strong>saves more than it invests at home and lends the difference to the world</strong>; a deficit country invests more than it saves and borrows from the world to fill the gap. Next time you see the word “surplus”, what should come to mind is “net saving abroad”, not a simple victory.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div>
+<ul>
+<li>The BOP is the ledger of all a country's transactions with the world, kept by double entry, always summing to zero.</li>
+<li>Three blocks: the current account (goods + services + primary income + transfers), the capital and financial account (FDI + portfolio + other), and the change in reserve assets.</li>
+<li>The identity CA + capital and financial account + reserve change = 0 — China's surplus era ended in reserve accumulation; America's thirty-year deficit is sustained by the world holding dollar assets.</li>
+<li>Thailand 1997: fixed rate + current deficit + short-term debt → capital flight → reserves exhausted → devaluation.</li>
+<li>S − I = CA: a surplus = net saving abroad, the difference lent to the world.</li>
+</ul>
+</div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"Which of the following is recorded in the current account?","options":["A bank enters a forward contract","Exports and imports of goods","A foreign firm builds a plant in China","The central bank buys more US Treasuries"],"answer":1,"explain":"The current account records trade in goods and services, primary income (interest, dividends, wages), and current transfers; a forward contract belongs to the financial account, plant-building to direct investment, and the central bank's Treasury purchases to reserve assets."},
+{"q":"A country runs a current account surplus of US$300 billion with reserve assets unchanged. Per the BOP identity, what happens to the capital and financial account?","options":["It shows a deficit","It shows a surplus","Its balance is zero","It cannot be determined"],"answer":0,"explain":"The three blocks always sum to zero: current account + capital and financial account + reserve change = 0. With a US$300 billion surplus and unchanged reserves, the capital and financial account must show an equal deficit — the foreign exchange earned becomes investment abroad, i.e. net capital outflow."},
+{"q":"Which sequence correctly traces the 1997 Thai currency crisis?","options":["Capital flight → current deficit → devaluation","Devaluation → capital flight → current deficit","Current deficit → capital flight → devaluation","Current deficit → devaluation → worse flight"],"answer":2,"explain":"Thailand ran a chronic current deficit propped up by short-term foreign debt at a fixed exchange rate; speculation and panic triggered capital flight, reserves were rapidly exhausted, and in July 1997 it was forced to abandon the fixed rate — the baht nearly halved against the dollar."},
+{"q":"In a given year, a country's central bank adds US$400 billion to its reserve assets. What does that most likely mean?","options":["It net sold foreign exchange, withdrawing local currency","The country's current account must be in deficit","The country's capital must be flowing out net","It net bought foreign exchange, issuing local currency"],"answer":3,"explain":"Rising reserves mean the central bank net bought foreign exchange in the market, selling local currency — exactly surplus-era China: to restrain appreciation pressure, the dollars it kept buying piled up into reserves."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div>
+<ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#bop">balance of payments (BOP)</a> · <a href="../reference/glossary.html#current-account">current account</a> · <a href="../reference/glossary.html#capital-and-financial-account">capital and financial account</a> · <a href="../reference/glossary.html#reserve-assets">reserve assets</a> · <a href="../reference/glossary.html#fdi">foreign direct investment (FDI)</a></li>
+
+<li><a href="https://www.imf.org/external/np/sta/bop/">IMF: Balance of Payments Statistics</a> — the Balance of Payments Manual and country data.</li>
+<li><a href="https://www.safe.gov.cn/">State Administration of Foreign Exchange</a> — official data on China's balance of payments.</li>
+<li><a href="https://zh.wikipedia.org/wiki/1997年亚洲金融危机">1997 Asian Financial Crisis — Wikipedia</a> — the full story of the Thailand chapter.</li>
+</ul>
+</div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0002-what-determines-exchange-rates.html"><span class="nav-label">Previous lesson</span><span class="nav-title">What Determines Exchange Rates</span></a>
+<a class="next" href="../10-personal-finance/index.html"><span class="nav-label">Next branch: Personal Finance</span><span class="nav-title">Personal Finance</span></a>
+</nav>
+
+<footer class="lesson-footer"><span>International Finance · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var DEFAULT_NOTE = 'Drag the slider or click a preset: the scale tilts with the sign of CA — the two sides of the ledger are always equal, and that is the intuition of the BOP identity.';
+  var input = document.getElementById('ca-input');
+  var val = document.getElementById('ca-val');
+  var beam = document.getElementById('beam-g');
+  var caSvg = document.getElementById('ca-svg');
+  var kaSvg = document.getElementById('ka-svg');
+  var caRead = document.getElementById('ca-read');
+  var kaRead = document.getElementById('ka-read');
+  var note = document.getElementById('preset-note');
+  var curAngle = 0;
+
+  function fmt(x) {
+    var sign = x > 0 ? '+' : (x < 0 ? '−' : '');
+    return sign + Math.abs(x).toFixed(1) + '%';
+  }
+
+  function setAngle(a) {
+    curAngle = a;
+    beam.setAttribute('transform', 'rotate(' + a + ' 210 82)');
+  }
+
+  function apply(ca, noteText) {
+    var angle = Math.max(-12, Math.min(12, ca * 2));
+    var target = -angle;
+    FChart.tween(curAngle, target, 400, setAngle);
+    caSvg.textContent = fmt(ca);
+    kaSvg.textContent = fmt(-ca);
+    caRead.textContent = fmt(ca);
+    kaRead.textContent = fmt(-ca);
+    val.textContent = fmt(ca);
+    input.value = Math.max(-6, Math.min(6, ca));
+    note.textContent = noteText || DEFAULT_NOTE;
+  }
+
+  input.addEventListener('input', function () {
+    apply(parseFloat(input.value), null);
+  });
+
+  var btns = document.querySelectorAll('.preset');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function () {
+      var ca = parseFloat(this.getAttribute('data-ca'));
+      apply(ca, this.getAttribute('data-note'));
+    });
+  }
+
+  apply(2, null);
+})();
+</script>
+</body>
+</html>

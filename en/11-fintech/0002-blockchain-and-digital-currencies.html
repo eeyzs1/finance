@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinTech · Lesson 2: Blockchain and Digital Currencies · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, FinTech Lesson 2, “Blockchain and Digital Currencies”: an interactive lesson with charts, a demonstrator, and a quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+/* Private styles for this lesson’s demonstrator (the public stylesheet is untouched) */
+.bc-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.bc-btn{border:none;border-radius:6px;padding:8px 14px;font-size:14px;cursor:pointer;color:#fff;background:#0d5c4f;}
+.bc-btn.warn{background:#b3372f;}
+.bc-btn.ghost{background:#5d5749;}
+.bc-btn:disabled{opacity:.4;cursor:not-allowed;}
+#bc-input{flex:1;min-width:220px;padding:8px 10px;border:1px solid #5d5749;border-radius:6px;font-size:14px;font-family:inherit;}
+.bc-block{border:2px solid #0d5c4f;border-radius:10px;padding:10px 14px;background:rgba(13,92,79,.05);}
+.bc-link{text-align:center;color:#5d5749;font-size:12px;line-height:1;margin:5px 0;}
+.bc-mono{font-family:Consolas,'Courier New',monospace;font-size:13px;color:#5d5749;}
+.bc-badge{font-size:12px;border-radius:999px;padding:2px 10px;font-weight:600;white-space:nowrap;}
+.bc-warnbox{display:none;border:2px dashed #b3372f;border-radius:10px;padding:12px 14px;margin:12px 0 0;background:rgba(179,55,47,.08);color:#7c231d;font-size:14px;line-height:1.7;}
+</style>
+</head>
+<body>
+<a class="lang-switch" href="../../11-金融科技/0002-区块链与数字货币.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">FinTech</a><span class="sep">/</span>Lesson 2</div>
+<header class="lesson-header">
+<div class="kicker">FinTech · Lesson 2</div>
+<h1>Blockchain and Digital Currencies</h1>
+<div class="meta"><span class="tag">About 18 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: Lesson 1</span></div>
+</header>
+<p class="lead">You have probably heard the word “blockchain” countless times, yet few people explain what problem it actually solves. This lesson is not about trading coins: with nothing more than a classroom ledger game, it makes distributed ledgers, hash pointers, and consensus mechanisms click all at once — and then coolly tallies up the risks.</p>
+
+<h2>1. Two Ledgers: The Bank Keeps the Books, or Everyone Does</h2>
+<p>Start with the scenario you know best. The balance on your bank card is, in essence, one row of numbers in the bank’s database: the bank keeps the books, and you look them up. Why can it be trusted never to mis-record or renege? Because a license, regulators, and the law stand behind it — what you trust is the institution. This is a <strong>centralized ledger</strong>: one maintainer, trusted by all.</p>
+<p><span class="term" data-def="A distributed ledger in which many parties each hold a copy and cross-check one another with cryptography.">blockchain</span> offers a different answer: have every participant <strong>keep an identical copy of the ledger</strong>. Each new transaction is broadcast to the whole network; everyone records it and cross-checks. If someone secretly edits their copy the next day, everyone else’s ledgers expose them at once. The beauty is that participants need not trust each other at all to reconcile a single consistent ledger — <strong>even mutual distrust can still reconcile the books</strong>.</p>
+<div class="callout callout-tip"><span class="callout-title">A one-line mantra</span><p>Decentralization does not mean “nobody is in charge”; it means “no single party can unilaterally alter the books”.</p></div>
+<table class="data">
+<thead><tr><th>Dimension</th><th>Bank ledger (centralized)</th><th>Blockchain ledger (distributed)</th></tr></thead>
+<tbody>
+<tr><td>Who keeps the books</td><td>Only the bank; customers can only view their own accounts</td><td class="good">Every node on the network keeps a copy; anyone can reconcile</td></tr>
+<tr><td>Where trust comes from</td><td>Trust in the institution, regulation, and law</td><td>Trust in rules and cryptography; no mutual trust needed</td></tr>
+<tr><td>Single point of failure</td><td class="bad">If the central system goes down, service is disrupted</td><td class="good">Any node can go offline; the others still hold the full ledger</td></tr>
+<tr><td>Difficulty of altering the books</td><td class="bad">An insider with access could, in theory, change them</td><td class="good">Changing one block means redoing all later blocks and overpowering most nodes</td></tr>
+</tbody>
+</table>
+
+<h2>2. Blocks and Hash Pointers: Why Changing One Block Means Redoing Them All</h2>
+<p>A blockchain packs a window of transactions into a “block”, like one page of a ledger. Each page records three things: the batch of <strong>transactions</strong>, the <strong>timestamp</strong> at packing time, and the <span class="term" data-def="A function that turns any data into a fixed-length fingerprint; change one character and the output changes entirely.">hash</span> of the previous block — that last thread is called the hash pointer.</p>
+<p>A hash function works like a juicer: whether you drop in a whole novel or a single number, what comes out is a fixed-length “fingerprint”; change so much as one punctuation mark in the original and the fingerprint becomes unrecognizable; and the original cannot be recovered from the fingerprint.</p>
+<div class="formula">Block hash = H (this block’s transactions ‖ timestamp ‖ previous block’s hash)<div class="formula-note">H is the hash function; ‖ means the contents are concatenated. Real blockchains (such as Bitcoin) use SHA-256, whose output is 64 hexadecimal characters; the demonstrator below switches to a simplified 8-character hash so you can eyeball it.</div></div>
+<p>So the blocks interlock, one ring inside the next: block 2 records block 1’s fingerprint, block 3 records block 2’s… Sneak a single character into block 1 and block 1’s hash changes on the spot; yet the “previous block hash” recorded in block 2 is still the old value and no longer matches — from block 2 onward the whole chain unravels. Try it with your own hands:</p>
+
+<div class="widget">
+<div class="widget-title">🔗 Interactive 1: Blockchain Demonstrator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="bc-row">
+<label for="bc-input" style="font-weight:600;color:#5d5749;">Transaction</label>
+<input type="text" id="bc-input" value="Wang Wu → Zhao Liu: transfer ¥5" placeholder="Type any transaction, e.g.: Wang Wu → Zhao Liu transfer ¥5">
+<button type="button" id="bc-add" class="bc-btn">Pack a new block</button>
+<button type="button" id="bc-tamper" class="bc-btn warn">Tamper with block 1</button>
+<button type="button" id="bc-reset" class="bc-btn ghost">Reset the demo</button>
+</div>
+<p style="margin:10px 0 0;font-size:13px;color:#5d5749;">The demonstrator uses a simplified djb2-variant hash (8 hexadecimal characters); real blockchains use SHA-256. The previous block hash is the hash of the block before it, chaining block to block.</p>
+</div>
+<div id="bc-chain" aria-live="polite"></div>
+<div id="bc-warn" class="bc-warnbox"></div>
+<div class="readout"><span class="pill" id="bc-status">Chain status: ✅ Valid</span><span class="pill" id="bc-count">Blocks: 3</span></div>
+</div>
+</div>
+
+<div class="callout callout-key"><span class="callout-title">What “tamper-proof” really means</span><p>The precise statement is “tampering is prohibitively expensive”, not absolutely impossible: an attacker must redo every block after the altered one and control a majority of the network’s bookkeeping nodes (for example, overpowering 51% of its hash power) before the network might accept the rewritten chain. The smaller the network, the more fragile; the larger, the closer to truly tamper-proof — smaller networks really have suffered majority-hash-power attacks.</p></div>
+
+<h2>3. Consensus Mechanisms: Whose Ledger Governs</h2>
+<p>A new problem arrives: everyone keeps the books, so whose copy counts? The rules that decide this are called the <span class="term" data-def="The rules by which a distributed network agrees on whose recorded ledger is valid.">consensus mechanism</span>. The two most common:</p>
+<p><span class="term" data-def="A consensus mechanism in which bookkeeping rights are contested with computing power; it consumes large amounts of electricity.">Proof of work</span> (PoW): the whole network pits computing power against a puzzle with no shortcuts; whoever solves it first packs the next block and claims the reward — bookkeeping rights are bought with real money spent on electricity. Bitcoin uses this.</p>
+<p><strong>Proof of stake (PoS)</strong>: bookkeeping rights are drawn by lot, weighted by how many coins you stake and for how long; misbehavior gets your stake slashed — energy use is dramatically lower, at the cost of giving bigger holders more say. Ethereum moved from PoW to PoS in September 2022.</p>
+<div class="callout callout-info"><span class="callout-title">Remember in one sentence</span><p>PoW buys trust with electricity; PoS posts its coins as collateral.</p></div>
+
+<h2>4. The Crypto-Asset Spectrum: Don’t Confuse Three Different Things</h2>
+<p>“Assets that run on a blockchain” are often lumped together as “coins”, but they actually sit along a spectrum: at one end, Bitcoin with its fully decentralized issuance; at the other, a central bank digital currency backed by national credit; in between, the <span class="term" data-def="A crypto asset pegged to assets such as fiat currency that aims to hold a stable price.">stablecoin</span> anchored to fiat money.</p>
+<table class="data">
+<thead><tr><th>Crypto asset</th><th>Issuance &amp; credit basis</th><th>Key characteristics</th><th>Typical role</th></tr></thead>
+<tbody>
+<tr><td>Bitcoin (BTC)</td><td>Issued by a decentralized network under preset rules; no central issuer</td><td>Hard cap of 21 million coins; new supply roughly halves every four years</td><td>The “digital gold” story: a bet on scarcity, with violently volatile prices</td></tr>
+<tr><td>Stablecoins (e.g., USDT, USDC)</td><td>Issued by private institutions, claimed to be backed by reserve assets</td><td>Pegged to fiat (e.g., 1 coin ≈ US$1); price aims to stay stable</td><td>The crypto market’s “cash runway” and its on-ramp/off-ramp medium</td></tr>
+<tr><td>Central bank digital currency (CBDC, e.g., the e-CNY)</td><td class="good">Issued by the central bank, backed by national credit</td><td>Positioned as M0: the digital form of cash in circulation (<a href="../02-money-and-banking/index.html">see the Money &amp; Banking branch</a>)</td><td>The digital form of legal tender</td></tr>
+</tbody>
+</table>
+<p>Bitcoin’s “scarcity” is hard-coded in the protocol: a hard cap of 21 million coins, block rewards roughly halving every four years — issuance is an ever-slowing asymptote that approaches the cap without ever passing it:</p>
+<div class="chart" id="chart1"></div>
+<p style="font-size:13px;color:#5d5749;">(Drawn from an idealized “supply halves about every 4 years” model; the horizontal axis is years since Bitcoin’s launch. Real block production drifts slightly, and the total is not essentially fully issued until around 2140.)</p>
+
+<h2>5. A Risk Checklist: Blockchain ≠ Guaranteed Profit</h2>
+<p>The mechanics are done — now for three buckets of cold water. The real risks ordinary people face when touching “on-chain assets” include at least these:</p>
+<div class="callout callout-warn"><span class="callout-title">Three buckets of cold water</span><p>① Violent price swings: a 10% rise or fall in a single day is not rare for Bitcoin — never participate with money you will need next month; ② Regulatory uncertainty: policies differ greatly across jurisdictions and keep changing, and an asset’s compliance status can shift at any time; ③ Platforms and scams: exchange hacks, platforms that vanish, fake coins, and “guaranteed high-return” schemes are endless — on-chain transfers are irreversible, and a lost private key cannot be reissued. In one sentence: blockchain ≠ guaranteed profit.</p></div>
+<div class="callout callout-info"><span class="callout-title">Technology is neutral</span><p>Distributed ledgers themselves are being put to serious uses such as trade settlement, supply-chain traceability, and bond registration. Look at “ledger technology” and “coin speculation” separately, and you will stay much cooler-headed.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>See the essential difference between the two ledgers: the centralized one rests on trusting an institution; the distributed one rests on rules and cryptography, reconciling books even amid mutual distrust</li>
+<li>Explain how blocks interlock through the “previous block hash”, and why changing one block means redoing them all</li>
+<li>State the PoW vs. PoS difference in one sentence: one buys trust with electricity, the other posts its coins as collateral</li>
+<li>Place Bitcoin, stablecoins, and central bank digital currencies on a single spectrum instead of lumping them together</li>
+<li>Remember the three risks: violent volatility, shifting regulation, platforms and scams — blockchain ≠ guaranteed profit</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"What is the main purpose of the “previous block hash” (the hash pointer) recorded in a block?","options":["To record this block’s transaction details","To bind this block to the one before it","To compress data and save space"],"answer":1,"explain":"The previous block hash works like a seal: change even one character of the earlier block and its hash changes, so the pointer recorded in this block immediately fails to match — tampering is exposed on the spot."},
+{"q":"Which statement about blockchain’s “tamper-resistance” is most accurate?","options":["Tampering is so costly as to be nearly infeasible","Once written, the ledger can never be changed","Whoever gets the private key can alter it at will"],"answer":0,"explain":"“Tamper-proof” precisely means tampering is prohibitively expensive: altering one block requires redoing every block after it and overpowering a majority of the network’s bookkeeping power. It is not physically impossible — smaller networks really have suffered majority-hash-power attacks."},
+{"q":"How do PoW and PoS differ in how bookkeeping rights are contested?","options":["By competing on fees and network speed","By competing on tenure and credit scores","By competing on computing power and coin holdings","By competing on balances and follower counts"],"answer":2,"explain":"Proof of work (PoW) competes with computing power, buying bookkeeping rights with electricity; proof of stake (PoS) assigns bookkeeping rights by the amount and duration of staked coins, with far lower energy use."},
+{"q":"What is the most fundamental difference between a central bank digital currency (such as the e-CNY) and Bitcoin?","options":["Decentralized issuance with a fixed hard cap","More stable prices and faster transfers","Redeemable for gold or dollars at any time","Issued by the central bank with state credit behind it"],"answer":3,"explain":"The e-CNY is issued by the People’s Bank of China and backed by national credit, positioned as M0 (cash in digital form); Bitcoin is issued by a decentralized network under preset rules, with a hard cap of 21 million coins and violently volatile prices."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#blockchain">blockchain</a> · <a href="../reference/glossary.html#hash">hash</a> · <a href="../reference/glossary.html#consensus-mechanism">consensus mechanism</a> · <a href="../reference/glossary.html#proof-of-work">proof of work</a> · <a href="../reference/glossary.html#stablecoin">stablecoin</a></li>
+
+<li>Wikipedia: the “Blockchain” entry (Chinese) — <a href="https://zh.wikipedia.org/wiki/区块链">zh.wikipedia.org/wiki/区块链</a></li>
+<li>Investopedia: Blockchain — <a href="https://www.investopedia.com/terms/b/blockchain.asp">investopedia.com/terms/b/blockchain.asp</a></li>
+<li>The People’s Bank of China official website (search the site for the e-CNY to learn about the central bank digital currency) — <a href="http://www.pbc.gov.cn/">pbc.gov.cn</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0001-the-evolution-of-payments-and-clearing.html"><span class="nav-label">Previous lesson</span><span class="nav-title">The Evolution of Payments and Clearing</span></a>
+<a href="0003-robo-advisors-and-big-data-risk-control.html" class="next"><span class="nav-label">Next lesson</span><span class="nav-title">Robo-Advisors and Big-Data Risk Control</span></a>
+</nav>
+<footer class="lesson-footer"><span>FinTech · Lesson 2</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Simplified hash: djb2 variant, 8 hexadecimal characters ---------- */
+  function simHash(str) {
+    var h1 = 5381, h2 = 52711, i, c;
+    for (i = 0; i < str.length; i++) {
+      c = str.charCodeAt(i);
+      h1 = ((h1 << 5) + h1 + c) >>> 0;
+      h2 = ((h2 << 5) + h2 + c + i) >>> 0;
+    }
+    return ('000' + h1.toString(16)).slice(-4) + ('000' + h2.toString(16)).slice(-4);
+  }
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function nowStr() {
+    var d = new Date(), p = function (n) { return (n < 10 ? '0' : '') + n; };
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds());
+  }
+
+  var blocks = [], tampered = false, MAXB = 8;
+  var inputEl = document.getElementById('bc-input');
+  var addBtn = document.getElementById('bc-add');
+  var tamperBtn = document.getElementById('bc-tamper');
+  var resetBtn = document.getElementById('bc-reset');
+  var chainEl = document.getElementById('bc-chain');
+  var warnEl = document.getElementById('bc-warn');
+  var statusEl = document.getElementById('bc-status');
+  var countEl = document.getElementById('bc-count');
+
+  function calcHash(b) { return simHash(b.index + '|' + b.prevHash + '|' + b.content + '|' + b.ts); }
+  function pushBlock(content, ts) {
+    var prev = blocks.length ? blocks[blocks.length - 1].hash : '00000000';
+    var b = { index: blocks.length + 1, content: content, prevHash: prev, ts: ts || nowStr() };
+    b.hash = calcHash(b);
+    blocks.push(b);
+  }
+  function badge(state) {
+    if (state === 'tampered') return '<span class="bc-badge" style="background:rgba(163,112,26,.15);color:#a3701a;">Tampered</span>';
+    if (state === 'invalid') return '<span class="bc-badge" style="background:rgba(179,55,47,.15);color:#b3372f;">Invalid</span>';
+    return '<span class="bc-badge" style="background:rgba(13,92,79,.12);color:#0d5c4f;">Valid</span>';
+  }
+  function render() {
+    chainEl.innerHTML = '';
+    blocks.forEach(function (b, i) {
+      if (i > 0) {
+        var link = document.createElement('div');
+        link.className = 'bc-link';
+        link.textContent = '▼ Linked by the previous-block hash';
+        chainEl.appendChild(link);
+      }
+      var state = 'valid';
+      if (tampered && i === 0) state = 'tampered';
+      else if (tampered && i > 0) state = 'invalid';
+      var border = state === 'invalid' ? '#b3372f' : (state === 'tampered' ? '#a3701a' : '#0d5c4f');
+      var bg = state === 'invalid' ? 'rgba(179,55,47,.08)' : (state === 'tampered' ? 'rgba(163,112,26,.10)' : 'rgba(13,92,79,.05)');
+      var note = '';
+      if (tampered && i > 0 && blocks[i - 1].hash !== b.prevHash) {
+        note = ' <span style="color:#b3372f;font-weight:600;">← no longer matches the block above’s new hash ' + blocks[i - 1].hash + '!</span>';
+      }
+      var card = document.createElement('div');
+      card.className = 'bc-block';
+      card.style.borderColor = border;
+      card.style.background = bg;
+      card.innerHTML =
+        '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">' +
+          '<strong style="color:#0d5c4f;">Block #' + b.index + '</strong>' +
+          '<span style="font-size:12px;color:#5d5749;">Timestamp: ' + esc(b.ts) + '</span>' +
+          badge(state) +
+        '</div>' +
+        '<div style="margin:6px 0;font-size:14px;">Contents: <strong>' + esc(b.content) + '</strong></div>' +
+        '<div class="bc-mono">This block’s hash: <b style="color:#0d5c4f;">' + b.hash + '</b></div>' +
+        '<div class="bc-mono">Previous block’s hash: <b>' + b.prevHash + '</b>' + note + '</div>';
+      chainEl.appendChild(card);
+    });
+    countEl.textContent = 'Blocks: ' + blocks.length;
+    addBtn.disabled = tampered;
+    tamperBtn.disabled = tampered;
+    if (tampered) {
+      statusEl.textContent = 'Chain status: ❌ Broken';
+      statusEl.style.background = '#b3372f';
+      statusEl.style.color = '#fff';
+    } else {
+      statusEl.textContent = 'Chain status: ✅ Valid';
+      statusEl.style.background = '#0d5c4f';
+      statusEl.style.color = '#fff';
+    }
+  }
+
+  addBtn.addEventListener('click', function () {
+    if (tampered) return;
+    if (blocks.length >= MAXB) {
+      statusEl.textContent = 'The chain has hit the demo limit — reset first';
+      statusEl.style.background = '#a3701a';
+      statusEl.style.color = '#fff';
+      return;
+    }
+    pushBlock(inputEl.value.trim() || 'Sample transaction: red packet ¥88');
+    render();
+  });
+  inputEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') addBtn.click(); });
+  tamperBtn.addEventListener('click', function () {
+    if (tampered || blocks.length < 2) return;
+    tampered = true;
+    blocks[0].content = 'Pay me ¥1,000,000';
+    blocks[0].hash = calcHash(blocks[0]);
+    warnEl.style.display = 'block';
+    warnEl.innerHTML = '<strong>⚠ Every block after it is now invalid: that is what tamper-resistance means.</strong> Block 1’s contents were changed → its hash changed on the spot → every later block’s “previous block hash” no longer matches, and the whole chain breaks in cascade. Want to hide it from the network? Only by redoing every block after it and controlling a majority of the network’s bookkeeping nodes — tampering is prohibitively expensive, not absolutely impossible.';
+    render();
+  });
+  resetBtn.addEventListener('click', function () {
+    warnEl.style.display = 'none';
+    resetChain();
+  });
+
+  function resetChain() {
+    tampered = false;
+    blocks = [];
+    pushBlock('Genesis block: the start of the chain', '2018-06-30 09:15:01');
+    pushBlock('Zhang San → Li Si: transfer ¥50', '2018-06-30 09:16:20');
+    pushBlock('Li Si → Wang Wu: transfer ¥20', '2018-06-30 09:17:43');
+    render();
+  }
+  resetChain();
+
+  /* ---------- Bitcoin cumulative supply (idealized) ---------- */
+  if (typeof FChart === 'function' && document.getElementById('chart1')) {
+    var c1 = new FChart(document.getElementById('chart1'), {
+      height: 340,
+      x: { min: 0, max: 116, label: 'Years since launch' },
+      y: { min: 0, max: 24, label: 'Cumulative supply (millions)' }
+    });
+    var supply = function (x) { return 21 * (1 - Math.pow(0.5, x / 4)); };
+    c1.area(supply, { fill: '#0d5c4f', fillOpacity: 0.15, y0: 0, color: '#0d5c4f', width: 2.5 });
+    c1.hline(21, { label: 'Hard cap: 21 million coins', color: '#a3701a' });
+    c1.text(7, 4.5, 'New supply halves ~every 4 years', { dx: 8 });
+    c1.legend([{ color: '#0d5c4f', text: 'Bitcoin cumulative supply (idealized)' }]);
+  }
+})();
+</script>
+</body>
+</html>

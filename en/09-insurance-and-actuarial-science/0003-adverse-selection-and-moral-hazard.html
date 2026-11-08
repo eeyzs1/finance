@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insurance &amp; Actuarial Science · Lesson 3: Adverse Selection and Moral Hazard · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Insurance &amp; Actuarial Science, Lesson 3: Adverse Selection and Moral Hazard — an interactive lesson with chart simulators and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<a class="lang-switch" href="../../09-保险与精算/0003-逆向选择与道德风险.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Insurance &amp; Actuarial Science</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header">
+<div class="kicker">Insurance &amp; Actuarial Science · Lesson 3</div>
+<h1>Adverse Selection and Moral Hazard</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: Lesson 2</span></div>
+</header>
+<p class="lead">Lesson 2 ended on a cliffhanger: if the insurer charges everyone one price, the healthy are subsidizing the high-risk — and then what? This lesson is the heart of the entire insurance branch: whether the insurance business succeeds or fails depends almost entirely on controlling two problems born of “information asymmetry”. By the end you will understand why health insurance must be mandatory, why auto policies carry no-claim discounts, and why you should buy insurance while you are still healthy.</p>
+
+<h2>Information asymmetry: the insurer knows less than you do</h2>
+<p>You know your own body, your driving habits, and how sturdy your door lock is far better than any insurer does. When the two sides of a trade hold different amounts of information, that is <span class="term" data-def="the two sides of a trade hold different amounts of information, and the better-informed side can profit from it">information asymmetry</span>. Lesson 2’s pricing formula assumed “claim probability known”; information asymmetry means the true probability is known only to you — the ground is pulled out from under the formula.</p>
+<p>The trouble it causes falls into two kinds by timing: one before the contract is signed, called adverse selection; one after the contract is signed, called moral hazard.</p>
+
+<h2>Adverse selection: a mine buried before you sign</h2>
+<p>The ex-ante problem is <span class="term" data-def="the selection effect by which the high-risk are more willing to buy and the low-risk more likely to drop out, steadily worsening the pool">adverse selection</span>: those most eager to buy insurance are often the ones who know their own risk is highest. When the company prices everyone at average risk, the healthy find it expensive and quietly leave, while the high-risk find it a bargain and enthusiastically stay — the pool deteriorates under the surface while the price stands still.</p>
+<div class="callout callout-warn"><span class="callout-title">The death spiral</span><p>Low-risk members leave → the high-risk share rises → per-member claim costs rise → premiums have no choice but to rise → more low-risk members leave → … This self-reinforcing loop is the <span class="term" data-def="a self-reinforcing loop in which the pool keeps worsening and premiums keep rising until the market collapses">death spiral</span>.</p></div>
+<p>The classic source is economist Akerlof’s 1970 “market for lemons” paper — in the used-car market, sellers know the car’s condition and buyers don’t, buyers will only pay the average price, good cars exit the market, and what remains grows ever more “lemon”. The idea earned him the 2001 Nobel Prize in Economics. The insurance market is the same story replayed.</p>
+<h3>The insurer’s three weapons</h3>
+<ul>
+<li><strong>Mandatory enrollment</strong>: universal health coverage keeps the healthy in the pool too. Health insurance must be mandatory for economic reasons, not out of bureaucratic habit;</li>
+<li><strong>Group insurance</strong>: the whole company enrolls as one, good risks mixed with bad, so the pool is naturally stable;</li>
+<li><strong>Underwriting exams</strong>: <span class="term" data-def="the insurer’s process of reviewing health, occupation, and other risk information before issuing a policy, deciding whether to cover and at what rate">underwriting</span> identifies high risks before the policy is issued — rating them up, excluding conditions, or politely declining.</li>
+</ul>
+
+<h2>Moral hazard: once you’ve signed, you change</h2>
+<p>The ex-post problem is <span class="term" data-def="the tendency for behavior to change after buying insurance — becoming more careless or more claim-prone">moral hazard</span>: stop locking the door once you have theft cover? Ask for extra prescriptions once you have medical cover? When losses are no longer fully your own, behavior quietly shifts — note that most people are not deliberately defrauding the insurer; they simply stop being quite so careful.</p>
+<p>Auto insurance’s “no-claim discount (NCD)” is a purpose-built design: consecutive claim-free years earn a discount on next year’s premium; one claim and next year’s price rises — turning “driving carefully” into something that pays cash. Its cousins are the deductible and coinsurance from Lesson 2, plus bonus-malus rates; they all share one common point: as long as you always bear part of the consequences, your behavior won’t drift.</p>
+
+<h2>One table to tell them apart</h2>
+<table class="data">
+<thead><tr><th>Dimension</th><th>Adverse selection</th><th>Moral hazard</th></tr></thead>
+<tbody>
+<tr><td>Timing</td><td>Before signing — hidden information</td><td>After signing — hidden action</td></tr>
+<tr><td>What happens</td><td>High-risk people slip into the pool</td><td>The policyholder’s behavior quietly changes</td></tr>
+<tr><td>Classic examples</td><td>Buying cover with a pre-existing condition; the healthy lapsing</td><td>Leaving doors unlocked; overtreating minor ailments</td></tr>
+<tr><td>Countermeasures</td><td class="good">Mandatory enrollment, group insurance, underwriting exams</td><td class="good">Deductibles, coinsurance, bonus-malus rates (NCD)</td></tr>
+</tbody>
+</table>
+
+<h2>Run it yourself: the risk-pool deterioration simulator</h2>
+<p>Setup: the pool starts with 1,000 members — 20% high-risk (expected annual claims ¥6,000) and 80% low-risk (expected annual claims ¥1,500). First-year cost per member = 0.2×6000 + 0.8×1500 = 1200 + 1200 = ¥2,400. Each later year’s premium is priced on the previous year’s per-member cost, and low-risk members drain away at the exit rate (the high-risk never leave). Click “Run 10 years” to watch the premium spiral upward at the default 8% exit rate; then tick mandatory enrollment and watch the curve flatten on the spot.</p>
+
+<div class="widget">
+<div class="widget-title">Risk-Pool Deterioration Simulator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label for="exit">Low-risk annual exit rate <span class="val" id="exit-val">8%</span></label><input type="range" id="exit" min="0" max="30" step="1" value="8"></div>
+<div class="slider-row"><label><input type="checkbox" id="mandate"> Enable mandatory enrollment (low-risk members stop leaving)</label></div>
+<div class="slider-row"><button type="button" id="run-btn">Run 10 years</button></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="chart" id="chart2"></div>
+<div class="readout">
+<span class="pill">First-year cost per member = 0.2×6000 + 0.8×1500: <b>¥2,400</b></span>
+<span class="pill">Year-10 premium per member: <b id="r-prem">¥3,058</b></span>
+<span class="pill">Year-10 high-risk share: <b id="r-share">36.5%</b></span>
+<span class="pill">Low-risk members remaining: <b id="r-low">348 people</b></span>
+</div>
+<table class="data">
+<thead><tr><th>Year</th><th>Low-risk members</th><th>High-risk share</th><th>Premium per member</th></tr></thead>
+<tbody id="pool-tbody"></tbody>
+</table>
+</div>
+</div>
+<p>Push the exit rate above 20% and watch the spiral accelerate: the premium curve grows ever steeper, and within ten years the pool is dominated by the high-risk. That is why a single-price pool of voluntary buyers rarely survives for long — either classify and price by risk, make enrollment mandatory, or accept the spiral.</p>
+
+<h2>What this means for you personally</h2>
+<div class="callout callout-key"><span class="callout-title">Two golden rules</span><p>① Buy insurance while you are healthy: wait until a check-up finds something, and underwriting may decline you, rate you up, or exclude the condition — insurance is the one product that is easiest to buy when you need it least. ② Insure only the “unbearable” risks: small risks you can absorb are cheaper to retain behind a deductible, so concentrate your premium budget on the losses that would truly break through your finances.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Tell adverse selection from moral hazard in one sentence: hidden information before signing versus hidden action after;</li>
+<li>Watch the death spiral unfold with your own runs: the pool worsens → prices rise → more people leave → it worsens further;</li>
+<li>Read the insurer’s arsenal: mandatory enrollment, group insurance, underwriting exams, plus deductibles, coinsurance, and bonus-malus rates (NCD);</li>
+<li>Remember the personal lesson: insure early while healthy, and hand insurance only the risks you could not bear.</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"At what point in time does adverse selection occur?","options":["Before signing — hidden information","After signing — hidden action","After claims — stalling and squabbling"],"answer":0,"explain":"Hidden information before signing is adverse selection; hidden action after signing is moral hazard."},
+{"q":"Which chain correctly describes the death spiral?","options":["The healthy join, premiums rise, the high-risk leave","The high-risk join, premiums rise, the healthy leave","Premiums fall, the pool improves, everyone enrolls"],"answer":1,"explain":"High-risk share rises → per-member cost rises → premiums rise → the healthy leave → the pool worsens further; the loop reinforces itself."},
+{"q":"Which tools best target moral hazard after purchase?","options":["Mandatory enrollment and underwriting","Group insurance and tax subsidies","Deductibles and coinsurance shares"],"answer":2,"explain":"Deductibles, coinsurance, and bonus-malus rates keep part of the consequences on the policyholder; mandatory enrollment and underwriting target adverse selection."},
+{"q":"Which lesson is most useful personally?","options":["Hand every risk over to insurance","Buy early while you are healthy","Pricier premiums mean better goods"],"answer":1,"explain":"Fail underwriting and you cannot buy at all; small risks you can bear are cheaper to retain yourself, so save insurance for the losses you could not bear."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#information-asymmetry">information asymmetry</a> · <a href="../reference/glossary.html#adverse-selection">adverse selection</a> · <a href="../reference/glossary.html#death-spiral">death spiral</a> · <a href="../reference/glossary.html#underwriting-2">underwriting</a> · <a href="../reference/glossary.html#moral-hazard">moral hazard</a></li>
+
+<li><a href="https://www.investopedia.com/terms/a/adverseselection.asp">Adverse Selection — Investopedia</a> — definition, examples, and how it plays out in insurance markets.</li>
+<li><a href="https://www.investopedia.com/terms/m/moralhazard.asp">Moral Hazard — Investopedia</a> — definition and classic settings.</li>
+<li><a href="https://zh.wikipedia.org/wiki/柠檬市场">The Market for Lemons — Wikipedia</a> — Akerlof’s 1970 paper and the starting point of information economics.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0002-how-premiums-are-priced.html"><span class="nav-label">Previous lesson</span><span class="nav-title">How Premiums Are Priced</span></a>
+<a class="next" href="../11-fintech/index.html"><span class="nav-label">Next branch: FinTech</span><span class="nav-title">FinTech</span></a>
+</nav>
+<footer class="lesson-footer"><span>Insurance &amp; Actuarial Science · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var exitEl = document.getElementById('exit');
+  var exitVal = document.getElementById('exit-val');
+  var mandEl = document.getElementById('mandate');
+  var runBtn = document.getElementById('run-btn');
+  var c1 = document.getElementById('chart1');
+  var c2 = document.getElementById('chart2');
+  var rPrem = document.getElementById('r-prem');
+  var rShare = document.getElementById('r-share');
+  var rLow = document.getElementById('r-low');
+  var tbody = document.getElementById('pool-tbody');
+  function fmt(n) { return Math.round(n).toLocaleString('zh-CN'); }
+  function simulate() {
+    var r = mandEl.checked ? 0 : parseFloat(exitEl.value) / 100;
+    var low = 800, high = 200;
+    var premium = (low * 1500 + high * 6000) / (low + high);
+    var rows = [];
+    for (var y = 0; y <= 10; y++) {
+      var pool = low + high;
+      var cost = (low * 1500 + high * 6000) / pool;
+      rows.push({ y: y, low: low, share: high / pool * 100, prem: premium });
+      low = low * (1 - r);
+      premium = cost;
+    }
+    return rows;
+  }
+  function fillTable(rows) {
+    var html = '';
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      var premCell;
+      if (i === rows.length - 1) {
+        var cls = r.prem > 2400 * 1.1 ? 'bad' : 'good';
+        premCell = '<td class="' + cls + '">¥' + fmt(r.prem) + '</td>';
+      } else {
+        premCell = '<td>¥' + fmt(r.prem) + '</td>';
+      }
+      html += '<tr><td>' + r.y + '</td><td>' + fmt(r.low) + '</td><td>' + r.share.toFixed(1) + '%</td>' + premCell + '</tr>';
+    }
+    tbody.innerHTML = html;
+  }
+  function paint(rows, t) {
+    var k = Math.min(Math.floor(t), 10);
+    var f = t - k;
+    function take(fn) {
+      var pts = rows.map(fn);
+      var arr = pts.slice(0, k + 1);
+      if (k < 10 && f > 0) {
+        arr.push([k + f, pts[k][1] + (pts[k + 1][1] - pts[k][1]) * f]);
+      }
+      return arr;
+    }
+    var prem = take(function (r) { return [r.y, r.prem]; });
+    var share = take(function (r) { return [r.y, r.share]; });
+    var maxPrem = 0, maxShare = 0, i;
+    for (i = 0; i <= 10; i++) {
+      if (rows[i].prem > maxPrem) { maxPrem = rows[i].prem; }
+      if (rows[i].share > maxShare) { maxShare = rows[i].share; }
+    }
+    var lastP = prem[prem.length - 1];
+    var lastS = share[share.length - 1];
+    c1.innerHTML = '';
+    var g1 = new FChart(c1, { height: 340, x: { min: 0, max: 10.8, label: 'Years' }, y: { min: 0, max: Math.ceil(maxPrem * 1.15 / 500) * 500, label: 'Premium per member (¥)' } });
+    g1.hline(2400, { label: 'First year ¥2,400' });
+    g1.path(prem, { color: '#0d5c4f', width: 2.5 });
+    g1.text(lastP[0], lastP[1], '¥' + fmt(lastP[1]), { dx: 8 });
+    g1.legend([{ color: '#0d5c4f', text: 'Premium per member (priced on the prior-year pool)' }]);
+    c2.innerHTML = '';
+    var g2 = new FChart(c2, { height: 340, x: { min: 0, max: 10.8, label: 'Years' }, y: { min: 0, max: Math.max(40, Math.ceil(maxShare * 1.15 / 10) * 10), label: 'High-risk share (%)' } });
+    g2.hline(20, { label: 'Initial 20%' });
+    g2.path(share, { color: '#a3701a', width: 2.5 });
+    g2.text(lastS[0], lastS[1], lastS[1].toFixed(1) + '%', { dx: 8 });
+    g2.legend([{ color: '#a3701a', text: 'High-risk share (%)' }]);
+  }
+  function run(animate) {
+    var rows = simulate();
+    fillTable(rows);
+    rPrem.textContent = '¥' + fmt(rows[10].prem);
+    rShare.textContent = rows[10].share.toFixed(1) + '%';
+    rLow.textContent = fmt(rows[10].low) + ' people';
+    if (animate) {
+      FChart.tween(0, 10, 900, function (t) { paint(rows, t); });
+    } else {
+      paint(rows, 10);
+    }
+  }
+  exitEl.addEventListener('input', function () { exitVal.textContent = exitEl.value + '%'; });
+  exitEl.addEventListener('change', function () { run(false); });
+  mandEl.addEventListener('change', function () { run(true); });
+  runBtn.addEventListener('click', function () { run(true); });
+  run(true);
+})();
+</script>
+</body>
+</html>

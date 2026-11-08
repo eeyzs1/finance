@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinTech · Lesson 1: The Evolution of Payments and Clearing · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, FinTech Lesson 1, “The Evolution of Payments and Clearing”: an interactive lesson with diagrams, a simulator, and a quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg">
+<style>
+.wbtn{border:1px solid #c9c3b4;background:#fff;color:#5d5749;padding:7px 16px;border-radius:999px;font-size:14px;line-height:1.4;cursor:pointer;margin:0 8px 10px 0}
+.wbtn:hover{border-color:#0d5c4f;color:#0d5c4f}
+.wbtn.active{background:#0d5c4f;border-color:#0d5c4f;color:#fff}
+.wbtn:disabled{opacity:.55;cursor:default}
+#pay-stage{width:100%;height:auto;display:block;background:#faf9f6;border:1px solid #e3dfd4;border-radius:10px;margin-top:6px}
+#pay-status{min-height:2.6em;display:inline-block}
+</style>
+</head>
+<body>
+<a class="lang-switch" href="../../11-金融科技/0001-支付与清算的演进.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">FinTech</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header"><div class="kicker">FinTech · Lesson 1</div><h1>The Evolution of Payments and Clearing: What Happens the Moment You Scan</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Beginner</span><span>Prerequisites: <a href="../02-money-and-banking/index.html">02 Money &amp; Banking</a> recommended</span></div></header>
+
+<p class="lead">Your phone beeps and the checkout screen says payment successful — yet in that instant, no money has flown from your account into the merchant’s pocket. What finishes within seconds is a relay of authorization messages; the actual transfer of funds waits for end-of-day <span class="term" data-def="The process, after a transaction, of checking messages among the parties and netting out who owes whom how much — it happens before any actual transfer of funds.">clearing</span>. This lesson takes that invisible chain apart, link by link, then contrasts it with the e-CNY, which lets “money” fly peer-to-peer again.</p>
+
+<h2>1. Four Steps Up: How Payments Got to Today</h2>
+<p>Compress payment history into four steps and each one answers the same question: how can two people who never meet and don’t know each other hand over money safely?</p>
+<table class="data">
+<tr><th>Step</th><th>How you pay</th><th>Information flow vs. funds flow</th><th>What changed</th></tr>
+<tr><td>Cash</td><td>Money and goods change hands together</td><td>United: the deal is done when the money arrives</td><td>Instant and anonymous, but requires both parties face to face</td></tr>
+<tr><td>Bank card</td><td>The card is authorized; the bank moves the money</td><td>Separation begins: authorize first, clear later</td><td>A clearing intermediary enters; for the first time a transaction can happen without meeting</td></tr>
+<tr><td>Mobile payment / QR code</td><td>Scan; done in one step</td><td>Still separate: one step up front, while the back-end chain is no shorter</td><td>Authorization in seconds and a minimalist experience — the chain is hidden inside the phone</td></tr>
+<tr><td>Central bank digital currency</td><td>The e-CNY moves peer-to-peer</td><td>Converging again: value moves together with the transaction</td><td>Managed anonymity, <span class="term" data-def="A payment that completes even when neither the payer nor the payee has network access; it posts to the ledger once they reconnect.">dual offline payment</span>, and positioning as an M0 replacement (see <a href="../02-money-and-banking/index.html">02 Money &amp; Banking</a>)</td></tr>
+</table>
+<p>Note the third step in particular: the QR code reduces the act of “paying” to a single step, but it does <b>not</b> shorten the clearing chain — it only hides the chain inside the experience. The fourth step is the one that truly tries to rewrite the chain.</p>
+
+<h2>2. The Four-Party Model: The Invisible Relay Behind a QR Payment</h2>
+<p>A bank-card or QR transaction typically has four parties present: the issuing bank on the payer’s side, the <span class="term" data-def="An institution that provides payment-acceptance services to merchants and forwards transactions to the clearing organization.">acquirer</span> on the merchant’s side, the <span class="term" data-def="A network that connects issuers and acquirers and sets the switching and clearing rules — for example UnionPay, NetsUnion Clearing, and the international card networks.">card network</span> switching in the middle, and the merchant that initiates the charge. This division of labor is the so-called four-party model.</p>
+<table class="data">
+<tr><th>Role</th><th>Which side</th><th>What it does</th><th>Where it earns fees</th></tr>
+<tr><td>Issuing bank</td><td>Payer’s side</td><td>Holds the payer’s account: verifies balance and risk controls, keeps the books</td><td>One of the main sharers of the merchant fee</td></tr>
+<tr><td>Acquirer</td><td>Merchant’s side</td><td>Provides the merchant’s QR code and acceptance services, passes transactions to the clearing organization</td><td>Charges the merchant an acceptance fee, then shares it by rule</td></tr>
+<tr><td>Card network (clearing)</td><td>Central hub</td><td>Switches messages, sets the rules, reconciles totals and nets positions</td><td>Collects network service fees under its clearing rules</td></tr>
+<tr><td>Merchant</td><td>Receiving side</td><td>Initiates the charge; displays the goods and the QR code</td><td>Ultimately bears the acceptance fee</td></tr>
+</table>
+<p>Exact rates at each link vary with the market and with regulation; this lesson memorizes mechanisms, not numbers.</p>
+
+<div class="callout callout-key"><span class="callout-title">The key picture: information flow and funds flow are separate</span><p>Scan ¥100 and the two flows sit apart in time. The <b>information flow</b> completes in seconds: merchant → acquirer → NetsUnion/UnionPay → issuing bank for verification, then an authorization receipt returns along the same path; the <b>funds flow</b> waits for end of day — only after the clearing organization nets positions does money actually move, through <span class="term" data-def="The step in which funds are actually transferred according to the clearing result — money and goods delivered.">settlement</span>, from the payer’s bank to the merchant’s bank. “Payment successful” refers to the former; “money received” refers to the latter.</p></div>
+
+<div class="formula">A participant’s net receivable = Σ (receivables) − Σ (payables)<div class="formula-note">The clearing organization does not move money trade by trade; it nets each participant’s transactions for the day into a single amount and transfers it in one sweep. This is one reason the funds flow waits for end of day: only when all the accounts are in can the netting be worked out.</div></div>
+
+<h2>3. Cutting the Direct Connections: Bringing the Funds Flow Back into Daylight</h2>
+<p>After mobile payments exploded, third-party payment providers were “directly connected” with each bank: a provider opened accounts at every bank and scattered its customer reserve funds across them, while transactions ran over the provider’s own rails. The result — no single bank could piece together the full picture of the funds, and the scattered reserves left room for misappropriation.</p>
+<p>The reform came in two steps. First, “cutting the direct connections”: network payment transactions that touch bank accounts must all switch through NetsUnion Clearing (or UnionPay), and providers may no longer connect with banks directly. Second, reserve funds moved from scattered holdings to centralized deposit with the People’s Bank of China.</p>
+<div class="callout callout-tip"><span class="callout-title">Remember in one sentence</span><p>NetsUnion’s direct-connection cutoff plus centralized custody of reserve funds is, in essence, about bringing the funds flow of third-party payments back, whole and visible, inside the clearing system and the regulator’s field of view.</p></div>
+
+<h2>4. The e-CNY: Making Money Peer-to-Peer Again</h2>
+<p>The e-CNY (digital renminbi) is issued by the People’s Bank of China and is a central bank liability — in plain words, it is “cash in digital form”. It differs in essence from a third-party payment balance: a balance is a liability of the payment provider or bank to you (deposit-like), while the e-CNY is the central bank’s direct promise to you. On the monetary aggregates it corresponds to M0 (currency in circulation), echoing the M0 concept in <a href="../02-money-and-banking/index.html">02 Money &amp; Banking</a>.</p>
+<table class="data">
+<tr><th>Dimension</th><th>Cash</th><th>Third-party payment balance</th><th>e-CNY</th></tr>
+<tr><td>What it is</td><td>Paper money issued by the central bank</td><td>A liability of the payment provider or bank</td><td>Digital cash issued by the central bank (an M0 replacement)</td></tr>
+<tr><td>Anonymity</td><td>Fully anonymous</td><td>Real-name account system</td><td>Managed anonymity: small amounts protect privacy; large amounts are traceable by law</td></tr>
+<tr><td>Offline capability</td><td>Offline by nature</td><td>Must be online</td><td>Dual offline payment: completes with neither side online</td></tr>
+<tr><td>When it arrives</td><td>Instant</td><td>Depends on the clearing chain; settles at day-end</td><td class="good">Payment-as-settlement: value transfers on the spot</td></tr>
+</table>
+<p>One-sentence comparison: QR payments optimize the “experience”, while the e-CNY rewrites “the form of money” — the former hides the four-party relay inside your phone; the latter lets value itself fly peer-to-peer.</p>
+
+<h2>5. Run It Yourself: Two Payment Worlds Compared</h2>
+<div class="widget">
+<div class="widget-title">The Two Worlds of a Single QR Payment</div>
+<div class="widget-body">
+<div class="widget-controls">
+<button type="button" class="wbtn active" id="mode-four">Mode 1: Four-party model</button>
+<button type="button" class="wbtn" id="mode-dcep">Mode 2: e-CNY</button>
+<button type="button" class="wbtn" id="pay-run">▶ Pay ¥100</button>
+</div>
+<svg id="pay-stage" viewBox="0 0 680 300" role="img" aria-label="Payment chain animation diagram"></svg>
+<div class="readout"><span class="pill" id="pay-phase">Awaiting payment</span><span id="pay-status">Click “Pay ¥100” and see what that ¥100 goes through.</span></div>
+</div>
+</div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Draw the five steps of a QR payment’s information flow: merchant → acquirer → clearing organization → issuing bank → authorization back along the same path</li>
+<li>Explain why the information flow (authorization in seconds) and the funds flow (day-end clearing and settlement) are two different things</li>
+<li>Remember the four roles of the four-party model: where the issuing bank, acquirer, card network, and merchant each sit, and where each earns its fees</li>
+<li>Understand which problems the direct-connection cutoff and centralized custody of reserve funds each solve</li>
+<li>Master three keywords of the e-CNY: managed anonymity, dual offline payment, M0 replacement</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[{"q":"After a QR-code payment, the checkout shows “Payment successful” within seconds, yet the merchant often receives the money a while later. What does this show?","options":["Information flow and funds flow are separate","Information flow and funds flow are synchronized","The QR code itself carries the money"],"answer":0,"explain":"“Payment successful” is the authorization receipt of the information flow; the actual funds flow completes only after the clearing organization nets and transfers at day-end. The separation of information flow and funds flow is the defining feature of modern payment systems."},{"q":"In the four-party model, which party aggregates everyone’s messages and nets out “who owes whom how much”?","options":["The issuing bank (payer’s account)","The card network (clearing hub)","The acquirer (merchant’s gateway)"],"answer":1,"explain":"Card networks — clearing institutions such as UnionPay and NetsUnion — perform the clearing function: switching messages, reconciling totals, and netting positions. The issuing bank manages the payer’s account and the acquirer serves the merchant; neither is the clearing hub."},{"q":"What was the main purpose of cutting the direct connections and centrally depositing third-party payment reserve funds with the central bank?","options":["To make QR code images sharper","To cut the interest cardholders pay","To make the funds flow visible and governable"],"answer":2,"explain":"Once direct connections were cut, transactions switched through NetsUnion and reserve funds were centrally deposited with the PBOC; the previously scattered funds flow became fully visible and governable, shrinking the room for misappropriation and regulatory arbitrage."},{"q":"Which statement accurately describes the positioning of the e-CNY (digital renminbi)?","options":["It is a fully anonymous digital currency","It is the digital form of M0","It is the digital form of M1"],"answer":1,"explain":"The e-CNY is issued by the People’s Bank of China as the digital replacement for M0 (currency in circulation), with payment-as-settlement; it applies managed anonymity rather than full anonymity, and it is not a deposit at the M1/M2 level."}]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#clearing">clearing</a> · <a href="../reference/glossary.html#offline-payment">dual offline payment</a> · <a href="../reference/glossary.html#acquirer">acquirer</a> · <a href="../reference/glossary.html#card-network">card network</a> · <a href="../reference/glossary.html#settlement">settlement</a></li>
+
+<li>The People’s Bank of China official website — search the site for the e-CNY to read official explanations and pilot-program progress: <a href="http://www.pbc.gov.cn/">http://www.pbc.gov.cn/</a></li>
+<li>NetsUnion Clearing — see the clearing infrastructure in place after the direct connections were cut: <a href="https://www.nucc.com.cn/">https://www.nucc.com.cn/</a></li>
+<li>Investopedia: Clearing — an introductory explanation of payment clearing: <a href="https://www.investopedia.com/terms/c/clearing.asp">Payment Clearing</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch Overview</span></a><a class="next" href="0002-blockchain-and-digital-currencies.html"><span class="nav-label">Next lesson</span><span class="nav-title">Blockchain and Digital Currencies</span></a></nav>
+<footer class="lesson-footer"><span>FinTech · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var stage = document.getElementById('pay-stage');
+  var statusEl = document.getElementById('pay-status');
+  var phaseEl = document.getElementById('pay-phase');
+  var btnFour = document.getElementById('mode-four');
+  var btnDcep = document.getElementById('mode-dcep');
+  var btnRun = document.getElementById('pay-run');
+  var MAIN = '#0d5c4f', GOLD = '#a3701a', RED = '#b3372f', GREY = '#5d5749', LINE = '#cfc9ba';
+  var timers = [], rafs = [], mode = 'four', running = false, S = {};
+  if (!stage) return;
+
+  function el(name, attrs, parent) {
+    var e = document.createElementNS(SVGNS, name);
+    for (var k in attrs) { e.setAttribute(k, attrs[k]); }
+    (parent || stage).appendChild(e);
+    return e;
+  }
+  function later(ms, fn) { timers.push(setTimeout(fn, ms)); }
+  function clearTimers() { timers.forEach(function (t) { clearTimeout(t); }); timers = []; }
+  function clearRafs() { rafs.forEach(function (h) { h.dead = true; cancelAnimationFrame(h.id); }); rafs = []; }
+  function anim(ms, step, done) {
+    var h = { id: 0, dead: false }, t0 = null;
+    function frame(t) {
+      if (h.dead) return;
+      if (t0 === null) t0 = t;
+      var k = Math.min(1, (t - t0) / ms);
+      step(k);
+      if (k < 1) { h.id = requestAnimationFrame(frame); }
+      else if (done) { done(); }
+    }
+    h.id = requestAnimationFrame(frame);
+    rafs.push(h);
+  }
+  function setStatus(phase, text) {
+    phaseEl.textContent = phase;
+    statusEl.textContent = text;
+  }
+  function setRunDisabled(v) { running = v; btnRun.disabled = v; }
+  function makeNode(cx, cy, label, sub) {
+    var g = el('g', {});
+    var c = el('circle', { cx: cx, cy: cy, r: 32, fill: '#ffffff', stroke: GREY, 'stroke-width': 2 }, g);
+    var t = el('text', { x: cx, y: cy + 5, 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 'bold', fill: GREY }, g);
+    t.textContent = label;
+    var s = el('text', { x: cx, y: cy + 54, 'text-anchor': 'middle', 'font-size': 11, fill: '#8a8375' }, g);
+    s.textContent = sub;
+    return { c: c, t: t };
+  }
+  function lightNode(n) {
+    n.c.setAttribute('fill', MAIN);
+    n.c.setAttribute('stroke', MAIN);
+    n.t.setAttribute('fill', '#ffffff');
+  }
+  function edge(xFrom, xTo, y) {
+    var dir = xTo > xFrom ? 1 : -1;
+    var line = el('line', { x1: xFrom, y1: y, x2: xTo - 9 * dir, y2: y, stroke: LINE, 'stroke-width': 3, 'stroke-linecap': 'round' });
+    var tri = el('path', { d: 'M' + xTo + ' ' + y + ' L' + (xTo - dir * 9) + ' ' + (y - 5.5) + ' L' + (xTo - dir * 9) + ' ' + (y + 5.5) + ' Z', fill: LINE });
+    return { x1: xFrom, y1: y, x2: xTo, y2: y, line: line, tri: tri };
+  }
+  function lightEdge(e, color, width) {
+    e.line.setAttribute('stroke', color);
+    e.line.setAttribute('stroke-width', width || 4);
+    e.tri.setAttribute('fill', color);
+  }
+  function packet(e, color, ms, dir) {
+    var c = el('circle', { r: 7, fill: color, stroke: '#ffffff', 'stroke-width': 2 });
+    anim(ms, function (k) {
+      var v = dir > 0 ? k : 1 - k;
+      c.setAttribute('cx', e.x1 + (e.x2 - e.x1) * v);
+      c.setAttribute('cy', e.y1 + (e.y2 - e.y1) * v);
+    }, function () { c.remove(); });
+  }
+  function caption(x, y, text, color) {
+    var t = el('text', { x: x, y: y, 'text-anchor': 'middle', 'font-size': 12, fill: color || '#8a8375' });
+    t.textContent = text;
+    return t;
+  }
+  function qPoint(p0, p1, p2, t) {
+    var u = 1 - t;
+    return [u * u * p0[0] + 2 * u * t * p1[0] + t * t * p2[0], u * u * p0[1] + 2 * u * t * p1[1] + t * t * p2[1]];
+  }
+
+  function buildFour() {
+    stage.innerHTML = '';
+    S = {};
+    var y = 120;
+    caption(340, 34, 'Information flow (seconds)');
+    S.payer = makeNode(60, y, 'Payer', 'Your wallet');
+    S.issuer = makeNode(195, y, 'Issuer', 'Your bank');
+    S.clearer = makeNode(330, y, 'Clearing', 'NetsUnion / UnionPay');
+    S.acquirer = makeNode(465, y, 'Acquirer', 'Serves merchants');
+    S.merchant = makeNode(600, y, 'Merchant', 'Payee');
+    S.e0 = el('line', { x1: 96, y1: y, x2: 159, y2: y, stroke: LINE, 'stroke-width': 2, 'stroke-dasharray': '4 5' });
+    S.e0cap = caption(128, y - 14, 'Verify account');
+    S.e1 = edge(564, 501, y);
+    S.e2 = edge(429, 366, y);
+    S.e3 = edge(294, 231, y);
+    S.arcPts = [[195, 196], [330, 262], [465, 196]];
+    S.arc = el('path', { d: 'M195 196 Q330 262 465 196', fill: 'none', stroke: RED, 'stroke-width': 2.5, 'stroke-dasharray': '7 6', opacity: 0 });
+    S.arcCap = el('text', { x: 330, y: 292, 'text-anchor': 'middle', 'font-size': 12, fill: RED, opacity: 0 });
+    S.arcCap.textContent = 'Funds flow: day-end clearing payout';
+  }
+
+  function runFour() {
+    buildFour();
+    setRunDisabled(true);
+    setStatus('Information flow', '① Merchant initiates: the checkout creates a ¥100 order — note that no money has moved yet; only information is moving.');
+    lightNode(S.merchant);
+    later(1100, function () {
+      setStatus('Information flow', '② Acquirer forwards: the acquirer accepts the merchant’s request and passes the transaction message to the clearing organization.');
+      lightEdge(S.e1, MAIN); packet(S.e1, MAIN, 650, -1); lightNode(S.acquirer);
+    });
+    later(2200, function () {
+      setStatus('Information flow', '③ Clearing routes: the clearing organization (NetsUnion/UnionPay) identifies the payer’s issuing bank and delivers the message to it.');
+      lightEdge(S.e2, MAIN); packet(S.e2, MAIN, 650, -1); lightNode(S.clearer);
+    });
+    later(3300, function () {
+      setStatus('Information flow', '④ Issuing bank verifies: it checks your account status and risk controls, then approves or declines.');
+      lightEdge(S.e3, MAIN); packet(S.e3, MAIN, 650, -1); lightNode(S.issuer);
+      S.e0.setAttribute('stroke', GOLD); S.e0cap.setAttribute('fill', GOLD);
+    });
+    later(4400, function () {
+      setStatus('Information flow', '⑤ Back along the path: the authorization result returns to the merchant in seconds, the checkout shows “Payment successful” — and the information flow ends here.');
+      packet(S.e3, GOLD, 500, 1);
+      later(300, function () { packet(S.e2, GOLD, 500, 1); });
+      later(600, function () { packet(S.e1, GOLD, 500, 1); });
+    });
+    later(6000, function () {
+      setStatus('Funds flow', 'End of day: the clearing organization nets everyone’s transactions for the day into one position; only then does money move from your bank to the merchant’s bank.');
+      S.arc.setAttribute('opacity', 1); S.arcCap.setAttribute('opacity', 1);
+      var c = el('circle', { r: 8, fill: RED, stroke: '#ffffff', 'stroke-width': 2 });
+      anim(1400, function (k) {
+        var p = qPoint(S.arcPts[0], S.arcPts[1], S.arcPts[2], k);
+        c.setAttribute('cx', p[0]); c.setAttribute('cy', p[1]);
+      }, function () { c.remove(); });
+    });
+    later(8200, function () {
+      setRunDisabled(false);
+      setStatus('Done', 'Information flow in seconds, funds flow at day-end — those are the “two worlds”. Switch to the e-CNY mode to compare.');
+    });
+  }
+
+  function buildDcep() {
+    stage.innerHTML = '';
+    S = {};
+    var y = 130;
+    caption(340, 48, 'Direct value transfer (payment-as-settlement)');
+    S.payer = makeNode(170, y, 'Payer', 'Digital wallet');
+    S.payee = makeNode(510, y, 'Payee', 'Digital wallet');
+    S.e = edge(206, 474, y);
+    S.badge = el('g', { opacity: 0 });
+    el('rect', { x: 178, y: 216, width: 324, height: 42, rx: 21, fill: '#fbf4e6', stroke: GOLD, 'stroke-width': 1.5 }, S.badge);
+    var bt = el('text', { x: 340, y: 243, 'text-anchor': 'middle', 'font-size': 14, 'font-weight': 'bold', fill: GOLD }, S.badge);
+    bt.textContent = 'Dual offline: no network needed';
+  }
+
+  function runDcep() {
+    buildDcep();
+    setRunDisabled(true);
+    setStatus('Peer-to-peer', '① Wallet to wallet: the e-CNY on your phone flows straight into the other wallet — like handing over a digital banknote.');
+    lightNode(S.payer);
+    later(800, function () { lightEdge(S.e, GOLD, 5); packet(S.e, GOLD, 1000, 1); });
+    later(1600, function () {
+      lightNode(S.payee);
+      setStatus('Peer-to-peer', '② One straight step: no acquirer–clearing–settlement relay — the value itself changes hands on the spot.');
+    });
+    later(2700, function () {
+      anim(400, function (k) { S.badge.setAttribute('opacity', k); });
+      setStatus('Dual offline', '③ Dual offline: it completes even with neither side online — the token moves between the two phones first and posts to the ledger once they reconnect.');
+    });
+    later(4600, function () {
+      setRunDisabled(false);
+      setStatus('Done', 'Compare: the four-party model runs 5 information-flow steps plus a day-end funds flow; this is a single step.');
+    });
+  }
+
+  function setMode(m) {
+    if (running) { clearTimers(); clearRafs(); setRunDisabled(false); }
+    mode = m;
+    btnFour.className = 'wbtn' + (m === 'four' ? ' active' : '');
+    btnDcep.className = 'wbtn' + (m === 'dcep' ? ' active' : '');
+    btnRun.textContent = m === 'four' ? '▶ Pay ¥100' : '▶ Pay ¥100 (dual offline)';
+    if (m === 'four') {
+      buildFour();
+      setStatus('Awaiting payment', 'This is the “four-party model” of QR payments: merchant, acquirer, clearing organization, issuing bank. Click “Pay ¥100” to watch the information flow run.');
+    } else {
+      buildDcep();
+      setStatus('Awaiting payment', 'This is the e-CNY: the payer’s wallet and the payee’s wallet transact directly. Click the button to feel the “one straight step”.');
+    }
+  }
+
+  btnFour.addEventListener('click', function () { setMode('four'); });
+  btnDcep.addEventListener('click', function () { setMode('dcep'); });
+  btnRun.addEventListener('click', function () {
+    if (running) return;
+    if (mode === 'four') { runFour(); } else { runDcep(); }
+  });
+
+  setMode('four');
+})();
+</script>
+</body>
+</html>

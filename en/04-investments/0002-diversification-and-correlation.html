@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Investments · Lesson 2: Diversification and Correlation · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, branch “Investments”, lesson 2: Diversification and Correlation — an interactive lesson with charts, a simulator, and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../04-投资学/0002-分散投资与相关系数.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Investments</a><span class="sep">/</span>Lesson 2</div>
+<header class="lesson-header"><div class="kicker">Investments · Lesson 2</div><h1>Diversification and Correlation</h1><div class="meta"><span class="tag">About 18 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: Lesson 1</span></div></header>
+<p class="lead">In Lesson 1 we learned to score assets with expected return and standard deviation. This lesson puts two assets into the same basket: you will find that return is just a simple weighted average, while risk can be “discounted” — and the size of the discount depends on a number called the <span class="term" data-def="a number measuring how closely two assets move up and down together, ranging from −1 to +1">correlation coefficient</span>. Once you understand it, you understand why <span class="term" data-def="not putting all your eggs in one basket: holding multiple assets whose correlations are low enough to reduce the portfolio’s overall risk">diversification</span> is called the only free lunch in finance.</p>
+
+<h2>1. The portfolio’s expected return: an honest weighted average</h2>
+<p>Put a fraction w of your money into asset A and (1−w) into asset B, and the portfolio’s expected return holds no surprises:</p>
+<div class="formula">μ<sub>p</sub> = w × μ<sub>A</sub> + (1 − w) × μ<sub>B</sub>
+<div class="formula-note">Example: if A’s expected return is μ<sub>A</sub> = 8% and B’s is μ<sub>B</sub> = 4%, with 50% invested in each, then μ<sub>p</sub> = 0.5×8% + 0.5×4% = 4% + 2% = 6%. The expected return is always the weighted average of the parts — putting the assets together neither adds to it nor takes away from it.</div></div>
+
+<h2>2. The portfolio’s risk: not a weighted average</h2>
+<p>Risk is computed entirely differently. The portfolio standard deviation formula is:</p>
+<div class="formula">σ<sub>p</sub> = √( w²σ<sub>A</sub>² + (1−w)²σ<sub>B</sub>² + 2·w·(1−w)·ρ·σ<sub>A</sub>·σ<sub>B</sub> )
+<div class="formula-note">Intuition: under the square root, the first two terms are the risks each asset contributes on its own; the third term is the key — it carries the correlation coefficient ρ on its back. When ρ is negative, the whole third term turns into a “subtraction” and shaves a chunk straight off the total risk; the closer ρ gets to −1, the deeper the cut.</div></div>
+<p>If risk were also a weighted average like return, then 50% A (σ<sub>A</sub>=15%) plus 50% B (σ<sub>B</sub>=5%) would carry 0.5×15% + 0.5×5% = 10% risk. But as long as ρ is below +1, the formula above is guaranteed to come out lower than 10%. That saved slice is diversification’s gift.</p>
+
+<h2>3. The correlation coefficient ρ: diversification’s master knob</h2>
+<p>ρ ranges from −1 to +1, and it sets the size of the discount. Stay with the example of 50% each in A (σ<sub>A</sub>=15%) and B (σ<sub>B</sub>=5%) and consider three typical cases:</p>
+<h3>ρ = +1: perfectly in step</h3>
+<p>The two assets move like conjoined twins, and the third term is added in full: σ<sub>p</sub> is exactly the weighted average, 10%. Buying two assets that “move the same way” diversifies nothing — a wasted effort.</p>
+<h3>ρ = 0: unrelated</h3>
+<p>The third term vanishes entirely: σ<sub>p</sub> = √(0.25×0.0225 + 0.25×0.0025) = √0.00625 ≈ 7.9%. Merely being “uncorrelated” already puts you 2.1 percentage points below 10%.</p>
+<h3>ρ = −1: a perfect hedge</h3>
+<p>When A rises, B falls by exactly the right proportion, and the third term becomes a subtraction: σ<sub>p</sub> = √(0.005625 + 0.000625 − 0.00375) = √0.0025 = 5%. Set the weights to 25% A + 75% B (15%×0.25 = 5%×0.75) and you can even squeeze the risk down to 0.</p>
+<p>Real stocks can rarely hedge perfectly: within the same market, most pairs of stocks show ρ between 0.2 and 0.4. The good news — that is already enough to cut risk substantially (we run the numbers with 0.3 below).</p>
+<table class="data">
+<thead><tr><th>Correlation ρ</th><th>σ<sub>p</sub> step-by-step check (50/50)</th><th>Result</th><th>Versus the 10% weighted average</th></tr></thead>
+<tbody>
+<tr><td>+1</td><td>0.5×15% + 0.5×5% (third term added in full)</td><td class="bad">10.0%</td><td class="bad">No discount; diversification wasted</td></tr>
+<tr><td>0</td><td>√(0.25×0.0225 + 0.25×0.0025) = √0.00625</td><td class="good">≈7.9%</td><td class="good">2.1 percentage points lower</td></tr>
+<tr><td>−1</td><td>√(0.005625 + 0.000625 − 0.00375) = √0.0025</td><td class="good">5.0%</td><td class="good">5 percentage points lower; can reach 0</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-key"><span class="callout-title">The only free lunch</span><p>In the example above, the portfolio’s expected return stays at 6% the whole time — not a cent less; yet the risk drops from the 10% weighted average to 7.9% (ρ=0) or even 5% (ρ=−1). Lower risk without sacrificing any expected return — which is why diversification is called the only free lunch in finance. What you pay is not return; it is simply the discipline of not staking everything on a single asset.</p></div>
+
+<h2>4. The efficient frontier: tuning the weights to the optimum</h2>
+<p>Turn the weight w slowly from 0 to 1: each w drops one point (σ<sub>p</sub>, μ<sub>p</sub>) on the risk–return plane, and all the points together trace out a bullet-shaped curve. The upper segment of the curve — the portfolios with the highest return at each level of risk — is called the <span class="term" data-def="the line connecting the highest-return portfolios achievable at each level of risk on the risk–return plane; rational investors choose only along this line">efficient frontier</span>. Rational investors pick their portfolio only along this stretch.</p>
+<p>The other approach is “adding names”: surprises unique to a single stock (a failed product, a lawsuit, trouble in the executive suite) are called <span class="term" data-def="risk unique to a single asset that diversification can eliminate; the counterpart of systematic risk">idiosyncratic risk</span>, and the more names you hold, the more cleanly they cancel one another out. As a rule of thumb, 20–30 stocks already diversify away most idiosyncratic risk; beyond that, each added name delivers diminishing risk reduction. An index fund buys hundreds of stocks at once — outsourcing this chore to a basket.</p>
+
+<h2>Hands-on: the two-asset portfolio simulator</h2>
+<div class="widget">
+<div class="widget-title">Two-asset portfolio simulator</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Correlation ρ = <span class="val" id="rho-val">0.30</span><input type="range" id="rho" min="-1" max="1" step="0.05" value="0.3"></label></div>
+<div class="slider-row"><label>Weight of A w = <span class="val" id="w-val">50%</span><input type="range" id="w" min="0" max="100" step="1" value="50"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="r-mu"></span><span class="pill" id="r-sigma"></span><span class="pill" id="r-cmp"></span></div>
+</div>
+</div>
+<p>Fixed at μ<sub>A</sub>=8%, σ<sub>A</sub>=15% and μ<sub>B</sub>=4%, σ<sub>B</sub>=5%. The green curve is every portfolio obtained by sweeping the weight from 0 to 1 (in steps of 0.02); the gold dot is the current weight; the leftmost green dot is the minimum-variance portfolio found by a numerical sweep. At the defaults ρ=0.3 and w=50%: σ<sub>p</sub> = √(0.25×0.0225 + 0.25×0.0025 + 2×0.25×0.3×0.15×0.05) = √(0.005625 + 0.000625 + 0.001125) = √0.007375 ≈ 8.6%.</p>
+<div class="callout callout-tip"><span class="callout-title">Try this</span><p>① Drag ρ to −1: the curve bends into a bullet and the minimum-variance portfolio hugs the far left. ② Drag ρ to +1: the curve stretches into a straight line and diversification fails completely. ③ Keep ρ=0.3 and slowly move the weight left from all-in A: the return falls a little while the risk falls a lot — that is the shape of the free lunch.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Compute a portfolio’s expected return as a weighted average, and know that portfolio risk is <b>not</b> a weighted average</li>
+<li>Read the formula’s third term, 2w(1−w)ρσ<sub>A</sub>σ<sub>B</sub>: when ρ is negative it becomes a subtraction, and that is where the discount comes from</li>
+<li>Remember the three cases: ρ=+1 diversifies nothing, ρ=0 already earns a discount, ρ=−1 hedges perfectly</li>
+<li>Understand the efficient frontier and the “20–30 stocks are enough” rule of thumb, and why index funds exist</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"What does the correlation coefficient ρ measure?","options":["How much two assets rise and fall together","How high the two assets’ expected returns are","How strong the two assets’ liquidity is"],"answer":0,"explain":"ρ captures only the direction and strength of two assets’ co-movement, ranging from −1 to +1; it is neither a level of return nor a measure of liquidity."},
+{"q":"Why is portfolio risk usually below the weighted average of the two assets’ risks?","options":["The portfolio’s expected return is higher","The covariance term can offset risk","The two weights always sum to one"],"answer":1,"explain":"The third term under the square root, 2w(1−w)ρσAσB, carries the correlation ρ: any ρ below +1 earns a discount, and a negative ρ makes it a direct subtraction; the other two options have nothing to do with reducing risk."},
+{"q":"What does ‘diversification is the only free lunch in finance’ mean?","options":["Returns double while risk is halved","Volatility vanishes and payoffs steady","Risk falls while returns do not"],"answer":2,"explain":"After diversifying, the portfolio’s expected return is still the weighted average of the assets (nothing is lost), while risk falls thanks to the correlation discount — risk reduction without sacrificing return."},
+{"q":"As a rule of thumb, roughly how many stocks are enough to diversify away most idiosyncratic risk?","options":["Two or three stocks are enough","Twenty to thirty will do","Over two hundred are needed"],"answer":1,"explain":"The often-cited rule of thumb is 20–30 stocks: enough to eliminate most idiosyncratic risk, with diminishing returns beyond that — and the reason an index fund can confidently buy hundreds at once."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#correlation">correlation coefficient</a> · <a href="../reference/glossary.html#diversification">diversification</a> · <a href="../reference/glossary.html#efficient-frontier">efficient frontier</a> · <a href="../reference/glossary.html#idiosyncratic-risk">idiosyncratic risk</a></li>
+
+<li><a href="https://www.investopedia.com/terms/d/diversification.asp">Investopedia: Diversification</a></li>
+<li><a href="https://www.investopedia.com/terms/c/correlationcoefficient.asp">Investopedia: Correlation Coefficient</a></li>
+<li><a href="https://www.investopedia.com/terms/m/modernportfoliotheory.asp">Investopedia: Modern Portfolio Theory</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0001-measuring-return-and-risk.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Measuring Return and Risk</span></a>
+<a class="next" href="0003-capm-and-the-security-market-line.html"><span class="nav-label">Next lesson</span><span class="nav-title">CAPM and the Security Market Line</span></a>
+</nav>
+<footer class="lesson-footer"><span>Investments · Lesson 2</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+var MU_A=8,SIG_A=15,MU_B=4,SIG_B=5;
+var rhoEl=document.getElementById("rho"),wEl=document.getElementById("w");
+var chart=new FChart(document.getElementById("chart1"),{height:340,x:{min:0,max:16,label:"Portfolio risk σp (%)"},y:{min:2,max:9,label:"Expected return μp (%)"}});
+function muP(w){return w*MU_A+(1-w)*MU_B;}
+function sigmaP(w,rho){var a=w*SIG_A,b=(1-w)*SIG_B;return Math.sqrt(a*a+b*b+2*rho*a*b);}
+function draw(){
+  var rho=parseFloat(rhoEl.value),w=parseFloat(wEl.value)/100;
+  document.getElementById("rho-val").textContent=rho.toFixed(2);
+  document.getElementById("w-val").textContent=Math.round(w*100)+"%";
+  chart.clear();
+  var pts=[];
+  for(var i=0;i<=50;i++){var ww=i/50;pts.push([sigmaP(ww,rho),muP(ww)]);}
+  chart.path(pts,{color:"#0d5c4f",width:2.5});
+  chart.scatter([[15,8,"#5d5749","All-in A"],[5,4,"#5d5749","All-in B"]],{r:4});
+  var bestW=0,bestS=Infinity;
+  for(var j=0;j<=1000;j++){var wj=j/1000;var sj=sigmaP(wj,rho);if(sj<bestS){bestS=sj;bestW=wj;}}
+  chart.scatter([[bestS,muP(bestW),"#0d5c4f",""]],{r:5});
+  chart.text(bestS,muP(bestW)-0.55,"Minimum-variance portfolio σp≈"+bestS.toFixed(1)+"%",{dx:8});
+  var s=sigmaP(w,rho),m=muP(w);
+  chart.scatter([[s,m,"#a3701a",""]],{r:6});
+  chart.text(s,m+0.4,"Current portfolio σp≈"+s.toFixed(1)+"%, μp≈"+m.toFixed(1)+"%",{dx:8});
+  chart.legend([{color:"#0d5c4f",text:"Portfolio curve / minimum variance"},{color:"#a3701a",text:"Current portfolio"},{color:"#5d5749",text:"All-in endpoints"}]);
+  document.getElementById("r-mu").textContent="Expected return μp ≈ "+m.toFixed(2)+"%";
+  document.getElementById("r-sigma").textContent="Portfolio risk σp ≈ "+s.toFixed(2)+"%";
+  var rd=Math.max(0,(SIG_A-s)/SIG_A*100),fd=Math.max(0,(MU_A-m)/MU_A*100);
+  document.getElementById("r-cmp").textContent="Versus all-in A: risk down about "+rd.toFixed(0)+"%, return down about "+fd.toFixed(0)+"%";
+}
+rhoEl.addEventListener("input",draw);
+wEl.addEventListener("input",draw);
+draw();
+})();
+</script>
+</body></html>

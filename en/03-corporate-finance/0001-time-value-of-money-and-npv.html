@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corporate Finance · Lesson 1: Time Value of Money and NPV · Finance Self-Study Course</title>
+<link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Corporate Finance, Lesson 1: Time Value of Money and NPV — an interactive lesson with chart simulators and an inline quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg">
+</head>
+<body>
+<a class="lang-switch" href="../../03-公司金融/0001-货币时间价值与npv.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Corporate Finance</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header">
+<div class="kicker">Corporate Finance · Lesson 1</div>
+<h1>Time Value of Money and NPV: Deciding Whether a Project Is Worth It</h1>
+<div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced beginner</span><span>Prerequisites: Lesson 1 of 04 Investments recommended</span></div>
+</header>
+
+<p class="lead">¥100 today and ¥100 a year from now carry the same face value but different worth — this plain intuition is the foundation of the entire edifice of finance. This lesson teaches you to convert “future money” step by step into “today’s money”, add it all up into a single number, and so answer every investment question with the same yardstick: this project — is it worth investing in?</p>
+
+<h2>1. Why ¥100 today is worth more than ¥100 a year from now</h2>
+<p><span class="term" data-def="A given sum of money is worth more received today than in the future; the foundation of all pricing in finance">time value of money</span> sounds abstract, but everyone already understands it: if someone borrows ¥100 from you and promises to return exactly ¥100 a year later, your gut says you lose out. Where is the loss? Three reasons:</p>
+<ul>
+<li><b>Opportunity cost</b>: parked in a wealth product yielding 5% a year, that ¥100 becomes ¥105. Lend it out, and you give up that ¥5.</li>
+<li><b>Uncertainty</b>: whether the borrower can — or will — repay a year from now is unknown. The longer the horizon, the more that can go wrong.</li>
+<li><b>Inflation</b>: if prices rise 3% a year, ¥100 a year from now buys only about ¥97 of today’s goods — its purchasing power has shrunk.</li>
+</ul>
+<p>Stack those three forces together and you get finance’s first axiom: <b>money has time value, so to compare money at different points in time, you must first convert it all to the same point in time.</b></p>
+
+<h2>2. Compounding and discounting: a pair of opposite operations</h2>
+<p>Pushing money forward along time is called <b>compounding</b>, and what it yields is <span class="term" data-def="The value of today’s money carried forward to a future date at a given interest rate; written FV">future value</span>; pulling money back against time is called <b>discounting</b>, and what it yields is <span class="term" data-def="How much future money is worth once converted to today; written PV">present value</span>. The per-period interest rate r in the formulas has its own name — the <span class="term" data-def="The per-period interest rate used to pull future money back to today; the price of time plus risk">discount rate</span>. It is the price of “time + risk”.</p>
+<div class="formula">FV = PV × (1 + r)<sup>n</sup>　　PV = FV ÷ (1 + r)<sup>n</sup>
+<div class="formula-note">r is the discount rate per period and n the number of (yearly) periods. The two formulas are inverses of each other: the larger r is, and the larger n is, the harder future money gets “discounted” on its way back to today.</div>
+</div>
+<p>With r = 10%, see what ¥100 in each future year is worth today:</p>
+<table class="data">
+<tr><th>Point in time</th><th>Future amount</th><th>Discounting arithmetic</th><th>Present value (today’s money)</th></tr>
+<tr><td>In 1 year</td><td>¥100</td><td>100 ÷ 1.1</td><td>¥90.9</td></tr>
+<tr><td>In 2 years</td><td>¥100</td><td>100 ÷ 1.21 (that is, 1.1²)</td><td>¥82.6</td></tr>
+<tr><td>In 3 years</td><td>¥100</td><td>100 ÷ 1.331 (that is, 1.1³)</td><td>¥75.1</td></tr>
+</table>
+<p>Check each row: 100 ÷ 1.1 = 90.909… ≈ 90.9; 100 ÷ 1.21 = 82.644… ≈ 82.6; 100 ÷ 1.331 = 75.131… ≈ 75.1. The pattern is intuitive: <b>every further year takes another 10% off</b> — which is where the “discount” in “discounting” comes from.</p>
+
+<h2>3. NPV: one number decides whether a project is worth it</h2>
+<p>Now that single sums can be discounted, a project is simply this: discount each year’s cash flow separately, add them up, then subtract the money paid in today. That number is the <span class="term" data-def="All future cash flows discounted to today and summed, minus the initial investment; positive NPV means wealth created">net present value (NPV)</span>:</p>
+<div class="formula">NPV = Σ [ CF<sub>t</sub> ÷ (1 + r)<sup>t</sup> ] − initial investment　(t = 1 … n)
+<div class="formula-note">CF<sub>t</sub> is the net cash flow (inflows minus outflows) at the end of year t; the initial investment happens today (year 0), is already “today’s money”, and is therefore not discounted.</div>
+</div>
+<div class="callout callout-key"><span class="callout-title">Decision rule</span>
+<p><b>NPV &gt; 0: invest</b> — the project earns back more present value than it soaks up, leaving you that much wealthier today; <b>NPV &lt; 0: walk away</b> — it cannot even recover the cost of the capital; NPV = 0 exactly breaks even, so investing or not makes no difference. NPV is denominated in “today’s money”, so values can be compared and summed directly.</p>
+</div>
+<h3>Full worked example: invest ¥5 million, collect ¥1.5 million per year for 5 years, r = 10%</h3>
+<p>With identical cash flows every year (an annuity), you can discount the whole stream at once using the <b>annuity factor</b>:</p>
+<div class="formula">Annuity factor = [ 1 − (1 + r)<sup>−n</sup> ] ÷ r
+<div class="formula-note">This is the sum of the year-1 through year-n discount factors, built for cash flows that are “the same amount every year”; the calculator below uses it too.</div>
+</div>
+<table class="data">
+<tr><th>Step</th><th>Arithmetic</th><th>Result</th></tr>
+<tr><td>① Annuity factor (r=10%, n=5)</td><td>[1 − 1.1⁻⁵] ÷ 0.1 = (1 − 0.6209) ÷ 0.1</td><td>3.7908</td></tr>
+<tr><td>② Total PV of the 5 years of cash flows</td><td>1.5 × 3.7908</td><td>¥5.686 million</td></tr>
+<tr><td>③ Subtract the initial investment</td><td>5.686 − 5</td><td>+¥0.686 million</td></tr>
+<tr><td>④ Conclusion</td><td>NPV = +¥0.686 million &gt; 0</td><td class="good">Worth investing</td></tr>
+</table>
+<p>Check: 1.1⁵ = 1.61051, so 1.1⁻⁵ = 1 ÷ 1.61051 = 0.6209; factor = (1 − 0.6209) ÷ 0.1 = 3.7908; total PV = 1.5 × 3.7908 = 5.6862 ≈ ¥5.686 million; NPV = 5.686 − 5 = <b>+¥0.686 million</b>. Taking this project is like gaining ¥0.686 million of wealth, out of thin air, today.</p>
+
+<h2>Try it yourself: a DCF calculator</h2>
+<p>The worked example above, made movable: drag the four sliders. In the left chart, watch how much of each year’s cash flow gets “discounted” away (gold bars are the nominal amounts, green bars the discounted present values); in the right chart, watch NPV slide downhill as the discount rate climbs from 0% to 25%, crossing exactly zero at the IRR (next section). The defaults are the worked example above, with NPV ≈ +¥0.686 million.</p>
+<div class="widget">
+<div class="widget-title">DCF calculator: run an NPV by hand</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Initial investment <span class="val" id="inv-val"></span><input type="range" id="inv" min="100" max="1000" step="10" value="500"></label></div>
+<div class="slider-row"><label>Annual net cash flow <span class="val" id="cfp-val"></span><input type="range" id="cfp" min="50" max="400" step="10" value="150"></label></div>
+<div class="slider-row"><label>Years <span class="val" id="yrs-val"></span><input type="range" id="yrs" min="3" max="10" step="1" value="5"></label></div>
+<div class="slider-row"><label>Discount rate <span class="val" id="rate-val"></span><input type="range" id="rate" min="4" max="20" step="0.5" value="10"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="chart" id="chart2"></div>
+<div class="readout">
+<span class="pill">Annuity factor <b id="af">–</b></span>
+<span class="pill">PV of cash flows <b id="pv">–</b></span>
+<span class="pill">NPV <b id="npv">–</b></span>
+<span class="pill" id="verdict">–</span>
+</div>
+</div>
+</div>
+
+<h2>4. IRR: NPV asked a different way (and its two traps)</h2>
+<p>NPV answers “how much wealth is gained”; the <span class="term" data-def="The discount rate at which NPV is exactly zero; the project’s built-in break-even rate of return">internal rate of return (IRR)</span> answers “how high is the rate of return”. One-sentence definition: <b>the IRR is the discount rate that makes NPV exactly 0</b>. Return to the worked example above: keep raising the discount rate and NPV falls steadily, reaching zero at about 15.2% — that is the IRR (slide the discount rate toward 15% in the calculator above and check whether the red line on the right chart sits near the zero line). Below the IRR, NPV is positive; above it, NPV is negative.</p>
+<div class="callout callout-warn"><span class="callout-title">Two IRR traps</span>
+<p><b>① Multiple roots</b>: when the cash-flow sign flips midway (invest, recover, then invest again), the IRR equation can have several roots, and the one your calculator reports need not be the sensible one. <b>② The reinvestment assumption</b>: IRR implicitly assumes that “cash recovered along the way can be reinvested at the IRR itself” — a 15.2% IRR does not mean you truly earn 15.2% the whole way through. So IRR is handy but not to be worshipped: whenever it conflicts with NPV, NPV always wins.</p>
+</div>
+
+<h2>5. Real life: a lottery jackpot — take it now, or in installments?</h2>
+<div class="callout callout-key"><span class="callout-title">The discount rate is the judge</span>
+<p>After winning, there are two ways to collect: Plan A pays ¥0.9 million in a lump sum now; Plan B pays ¥0.35 million a year for 3 years (¥1.05 million in nominal total). Discount Plan B at 8%: annuity factor = [1 − 1.08⁻³] ÷ 0.08 = (1 − 0.7938) ÷ 0.08 = 2.5771, so present value = 0.35 × 2.5771 ≈ ¥0.902 million ≈ ¥0.9 million — essentially equivalent to Plan A (check: 1.08³ = 1.259712, so 1.08⁻³ = 0.7938). The judge is the discount rate: if your money can reliably earn 10%, Plan B shrinks to 0.35 × 2.4869 ≈ ¥0.87 million — take Plan A; if it can only sit in a 3% deposit, Plan B swells to 0.35 × 2.8286 ≈ ¥0.99 million — take Plan B. Same cash flows: swap the discount rate, and the verdict flips — choosing the right r matters just as much as computing the NPV correctly.</p>
+</div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div>
+<ul>
+<li>Name the three sources of the time value of money: opportunity cost, uncertainty, inflation</li>
+<li>Use PV = FV ÷ (1 + r)ⁿ to pull money from any date back to today, and see why larger r and larger n mean steeper discounts</li>
+<li>Use NPV = Σ CFₜ ÷ (1 + r)ᵗ − initial investment to accept or reject a project, and master the annuity-factor shortcut</li>
+<li>Understand the IRR’s definition (the discount rate at which NPV is zero) and its two traps; when it conflicts with NPV, NPV wins</li>
+<li>Apply discounting to compare “lump sum vs. installments” choices in daily life, knowing the discount rate decides the answer</li>
+</ul>
+</div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"At a 10% discount rate, what is the present value of ¥100 received two years from now?","options":["¥75.1","¥82.6","¥90.9"],"answer":1,"explain":"100 ÷ 1.1² = 100 ÷ 1.21 = 82.64… ≈ ¥82.6. The more periods, the steeper the discount."},
+{"q":"A project’s future cash flows have a total present value of ¥3.6 million; the initial investment is ¥4 million. What is the NPV, and what should you do?","options":["−¥0.4 million; walk away","−¥0.4 million; invest","+¥0.4 million; invest"],"answer":0,"explain":"NPV = 3.6 − 4 = −¥0.4 million. The total present value does not even cover the outlay: a negative NPV destroys wealth, so walk away."},
+{"q":"A lottery pays ¥0.35 million a year for 3 years. Discounted at 8%, its present value is roughly:","options":["Under ¥0.8 million","Around ¥0.9 million","Above ¥0.98 million"],"answer":1,"explain":"Annuity factor = (1 − 1.08⁻³) ÷ 0.08 = 2.5771, so 0.35 × 2.5771 ≈ ¥0.902 million — essentially the same as ¥0.9 million now (the ¥1.05 million nominal total is an undiscounted illusion)."},
+{"q":"What, exactly, is the IRR (internal rate of return)?","options":["The average of the project’s yearly cash flows","The discount rate that makes NPV positive","The discount rate that makes NPV zero"],"answer":2,"explain":"The IRR is the discount rate at which NPV is exactly zero: below the IRR, NPV is positive; above it, NPV is negative."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div>
+<ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#time-value">time value of money</a> · <a href="../reference/glossary.html#future-value">future value</a> · <a href="../reference/glossary.html#present-value">present value</a> · <a href="../reference/glossary.html#discount-rate">discount rate</a> · <a href="../reference/glossary.html#npv">net present value</a> · <a href="../reference/glossary.html#internal-rate-of-return-irr">internal rate of return</a></li>
+
+<li><a href="https://www.investopedia.com/terms/n/npv.asp">Investopedia · Net Present Value (NPV)</a> — the authoritative NPV entry, with worked examples and the decision rule</li>
+<li><a href="https://www.khanacademy.org/economics-finance-domain/core-finance/interest-tutorial">Khan Academy · Interest and Debt</a> — a free video course running from compounding to discounting; ideal for rebuilding the foundations with zero background</li>
+<li><a href="https://en.wikipedia.org/wiki/Corporate_finance">Wikipedia · Corporate Finance</a> — a panoramic entry on corporate finance; afterwards, use it to see where this branch sits in the discipline</li>
+</ul>
+</div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch overview</span></a><a class="next" href="0002-capital-structure-and-leverage.html"><span class="nav-label">Next lesson</span><span class="nav-title">Capital Structure and Leverage</span></a></nav>
+<footer class="lesson-footer"><span>Corporate Finance · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  function $(id) { return document.getElementById(id); }
+  var invEl = $('inv'), cfpEl = $('cfp'), yrsEl = $('yrs'), rateEl = $('rate');
+  var c1 = new FChart($('chart1'), { height: 340, x: { min: 0, max: 11, label: 'Year' }, y: { min: 0, max: 420, label: 'Amount (¥10k)' } });
+  var c2 = new FChart($('chart2'), { height: 340, x: { min: 0, max: 25, label: 'Discount rate (%)' }, y: { min: -200, max: 600, label: 'NPV (¥10k)' } });
+
+  function af(r, n) { return r <= 0 ? n : (1 - Math.pow(1 + r, -n)) / r; }
+  function npvAt(rPct, cfp, n, inv) { return cfp * af(rPct / 100, n) - inv; }
+  function findIRR(cfp, n, inv) {
+    if (cfp * n - inv <= 0) return null;
+    var lo = 0, hi = 1;
+    for (var i = 0; i < 60; i++) {
+      var mid = (lo + hi) / 2;
+      if (npvAt(mid * 100, cfp, n, inv) > 0) { lo = mid; } else { hi = mid; }
+    }
+    return (lo + hi) / 2;
+  }
+
+  function draw() {
+    var inv = parseFloat(invEl.value);
+    var cfp = parseFloat(cfpEl.value);
+    var n = parseInt(yrsEl.value, 10);
+    var rPct = parseFloat(rateEl.value);
+    var r = rPct / 100;
+
+    $('inv-val').textContent = '¥' + inv / 100 + 'M';
+    $('cfp-val').textContent = '¥' + cfp / 100 + 'M';
+    $('yrs-val').textContent = n + ' years';
+    $('rate-val').textContent = rPct + '%';
+
+    var factor = af(r, n);
+    var pv = cfp * factor;
+    var npv = pv - inv;
+    $('af').textContent = factor.toFixed(4);
+    $('pv').textContent = '¥' + (pv / 100).toFixed(3) + 'M';
+    $('npv').textContent = (npv >= 0 ? '+' : '') + '¥' + (npv / 100).toFixed(3) + 'M';
+    $('verdict').textContent = npv > 0 ? '✓ Invest' : '✗ Walk away';
+
+    c1.clear();
+    var bars = [];
+    for (var t = 1; t <= n; t++) {
+      bars.push({ x0: t - 0.42, x1: t - 0.06, y: cfp, color: '#a3701a' });
+      bars.push({ x0: t + 0.06, x1: t + 0.42, y: cfp / Math.pow(1 + r, t), color: '#0d5c4f' });
+    }
+    c1.bars(bars, { y0: 0 });
+    c1.legend([{ color: '#a3701a', text: 'Nominal cash flow' }, { color: '#0d5c4f', text: 'Discounted present value' }]);
+
+    c2.clear();
+    var pts = [];
+    for (var x = 0; x <= 25.0001; x += 0.25) { pts.push([x, npvAt(x, cfp, n, inv)]); }
+    c2.path(pts, { color: '#0d5c4f', width: 2.5 });
+    c2.hline(0, { label: 'NPV = 0' });
+    c2.vline(rPct, { color: '#b3372f', label: 'Current discount rate' });
+    var irr = findIRR(cfp, n, inv);
+    if (irr !== null && irr * 100 <= 25) { c2.text(irr * 100, 0, 'IRR ≈ ' + (irr * 100).toFixed(1) + '%', { dx: 8 }); }
+    c2.legend([{ color: '#0d5c4f', text: 'NPV vs. discount rate' }, { color: '#b3372f', text: 'Current discount rate' }]);
+  }
+
+  [invEl, cfpEl, yrsEl, rateEl].forEach(function (el) { el.addEventListener('input', draw); });
+  draw();
+})();
+</script>
+</body>
+</html>

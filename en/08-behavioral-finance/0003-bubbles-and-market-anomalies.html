@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Behavioral Finance · Lesson 3: Bubbles and Market Anomalies · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Behavioral Finance, Lesson 3: Bubbles and Market Anomalies — an interactive lesson with a chart simulator and a quiz; works offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../08-行为金融学/0003-泡沫与市场异象.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Behavioral Finance</a><span class="sep">/</span>Lesson 3</div>
+<header class="lesson-header"><div class="kicker">Behavioral Finance · Lesson 3</div><h1>Bubbles and Market Anomalies</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Beginner</span><span>Prerequisites: Lesson 2</span></div></header>
+<p class="lead">In Lesson 2 the biases lived inside a single head — your own; this lesson scales them up to the whole market — when the biases of millions of people tilt in the same direction, you get herds and bubbles. We will dissect the five stages of a bubble&rsquo;s life, meet a few &ldquo;market anomalies,&rdquo; and finally put together a personal anti-bubble kit. This is also the final lesson of the Behavioral Finance branch.</p>
+
+<h2>1. Herding: Following the Crowd Isn&rsquo;t Pure Folly</h2>
+<p><span class="term" data-def="the phenomenon of investors imitating others&rsquo; buying and selling so that behavior converges">Herding</span> is often used as a term of mockery, but it has a rational component: other people&rsquo;s trades carry information in themselves — they may have studied something you haven&rsquo;t, so &ldquo;following along&rdquo; is sometimes the smart, effort-saving move. The danger is the informational cascade: once you discard your own information and simply imitate the people ahead of you, the people behind you will imitate you in turn. Once a cascade has formed, no new information enters the price — everyone&rsquo;s &ldquo;consensus&rdquo; actually rests on the first few accidental moves.</p>
+<p>The cascade&rsquo;s fuel is FOMO (the fear of missing out). The pain of watching others make money registers on the value function much like a real loss — the mirror image of Lesson 1&rsquo;s loss aversion: what is lost is not just &ldquo;money not made&rdquo; but &ldquo;money that could have been made.&rdquo; So the more prices rise, the more people buy; the more people buy, the more prices rise.</p>
+
+<h2>2. The Life of a Bubble: Kindleberger&rsquo;s Five Stages</h2>
+<p>The economic historian Charles Kindleberger, in <i>Manias, Panics, and Crashes</i>, distilled the life of a <span class="term" data-def="a market state in which prices run far beyond what fundamentals support and depend on a continuous relay of later buyers">bubble</span> into five stages:</p>
+<table class="data">
+  <thead><tr><th>Stage</th><th>What happens in the market</th><th>The novice at this point</th></tr></thead>
+  <tbody>
+    <tr><td>① Stealth</td><td>A new narrative appears; only a few notice, skeptics dominate, prices creep up</td><td>&ldquo;I don&rsquo;t get it&rdquo; — completely indifferent</td></tr>
+    <tr><td>② Expansion</td><td>Smart money enters, the media starts to follow, price gains accelerate</td><td>Aware of it, but says &ldquo;I&rsquo;ll buy the pullback&rdquo;</td></tr>
+    <tr><td>③ Euphoria</td><td>Leverage and new players flood in, valuation common sense stops working, &ldquo;this time is different&rdquo; is loudest</td><td class="bad">Afraid of missing out (FOMO), goes all-in chasing the top</td></tr>
+    <tr><td>④ Profit-taking</td><td>Insiders quietly exit, prices turn down, liquidity starts to dry up</td><td>Treats the decline as a pullback, buys more on every fall</td></tr>
+    <tr><td>⑤ Crash</td><td>Sellers can&rsquo;t find buyers, liquidity vanishes, a stampede is followed by a long bottoming</td><td class="bad">Deeply underwater: &ldquo;I&rsquo;ll sell the moment I break even&rdquo;</td></tr>
+  </tbody>
+</table>
+<p>Three historical footnotes, one sentence each: the Dutch tulip mania of 1637 — rare bulbs at one point traded for the price of a mansion on the canal, and after the crash countless contracts were voided; the NASDAQ dot-com bubble of 2000 — the index raced from about 2200 in early 1999 to 5048 in March 2000, then lost about 78% over the following two-plus years; crypto assets in 2021 — loose global liquidity pushed Bitcoin to an all-time high of about $69,000, and it drew down more than 70% within a year.</p>
+
+<div class="widget">
+  <div class="widget-title">A tour of the five bubble stages: drag the timeline to any moment</div>
+  <div class="widget-body">
+    <div class="widget-controls">
+      <div class="slider-row"><label>Timeline position <span class="val" id="tp-val">0</span><input type="range" id="tp" min="0" max="100" step="1" value="0"></label></div>
+      <button id="play-btn" type="button" style="padding:6px 16px;font-size:14px;background:#a3701a;color:#fff;border:none;border-radius:6px;cursor:pointer;">▶ Play the full run (9 s)</button>
+    </div>
+    <div class="chart" id="bubble-chart"></div>
+    <div class="readout">
+      <span class="pill" id="stage-pill">Current stage: ① Stealth</span>
+      <span class="pill" id="price-pill">Price index 100</span>
+    </div>
+    <p id="stage-desc">What marks this stage: a new narrative appears, prices creep up, skeptics dominate. The novice&rsquo;s typical thought at this point: &ldquo;I don&rsquo;t get it — nothing to do with me.&rdquo;</p>
+  </div>
+</div>
+
+<p>Drag the slider and you will notice: the most profitable spot is in ② Expansion, the most euphoric spot is at the top of ③ Euphoria, while the point where novices pile in is precisely around the boundary between ③ and ④ — exactly when insiders are handing their chips over to them.</p>
+
+<h2>3. Market Anomalies: The Regularities Hiding in Prices</h2>
+<p>If bubbles are the extreme eruption of biases, market anomalies are the everyday fingerprints biases leave behind. The two most famous anomalies are neatly complementary in time scale:</p>
+<p><span class="term" data-def="the tendency of winners over the past 3–12 months to keep outperforming losers in the short run">Momentum</span>: Jegadeesh and Titman (1993) found that a &ldquo;winner portfolio&rdquo; selected on the past 3–12 months of performance kept beating the &ldquo;loser portfolio&rdquo; on average over the following 3–12 months — the strong stay strong, and trends exist in the short-to-medium term. On the 3–5 year horizon, De Bondt and Thaler (1985) found a long-term reversal: the portfolio of the past few years&rsquo; most miserable stocks went on to lead on average — extreme performance eventually undergoes <span class="term" data-def="the tendency of extreme performance to fall back toward the average over the long run">mean reversion</span>. There are also calendar effects (seasonal patterns such as the &ldquo;January effect&rdquo;); they are small, come and go, and many weakened markedly once the papers were published.</p>
+<div class="callout callout-info"><span class="callout-title">Why haven&rsquo;t these anomalies been arbitraged away?</span><p>Because arbitrage is no free lunch: there are transaction costs and leverage constraints, and your clients or your boss will tolerate your being &ldquo;wrong&rdquo; for only a few months, while an anomaly can stay &ldquo;overdone&rdquo; for years — these are the limits of arbitrage (Shleifer &amp; Vishny, 1997). As Keynes&rsquo;s famous line is paraphrased: &ldquo;Markets can stay irrational longer than you can stay solvent.&rdquo;</p></div>
+
+<h2>4. The Five-Piece Anti-Bubble Kit</h2>
+<p>You cannot predict when the next bubble will begin, but you can write your rules for dealing with any bubble in advance. The most effective vehicle is an <span class="term" data-def="a written document that fixes investment objectives, rules, and discipline in advance">investment policy statement (IPS)</span> — treat it as a contract between you and the future &ldquo;FOMO-ing you.&rdquo;</p>
+<div class="callout callout-key"><span class="callout-title">The five-piece anti-bubble kit (write it into your investment policy statement)</span><p>① Write an investment policy statement that fixes objectives, position sizes, and discipline in advance; ② automate dollar-cost averaging so &ldquo;when to buy&rdquo; is set by the calendar, not by mood; ③ rebalance on a schedule (say, once a year) to force yourself to sell high and buy low; ④ cap any single position (for example, no more than 10% of total assets); ⑤ impose a 48-hour cooling-off period on major decisions — sleep on it before placing the order.</p></div>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Recite the five bubble stages in order and match historical cases to them</li>
+<li>Understand herding and informational cascades: following the crowd has a rational core, but once a cascade forms, information stops updating</li>
+<li>Distinguish the time scales of momentum (3–12 months) and long-term reversal (3–5 years)</li>
+<li>Explain why arbitrage cannot eliminate anomalies (limits of arbitrage)</li>
+<li>Use the five-piece anti-bubble kit: policy statement, dollar-cost averaging, rebalancing, position caps, a 48-hour cooling-off period</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"What is the correct order of Kindleberger\u2019s five bubble stages?","options":["Euphoria\u2192Stealth\u2192Expansion\u2192Profit-taking\u2192Crash","Stealth\u2192Expansion\u2192Euphoria\u2192Profit-taking\u2192Crash","Stealth\u2192Euphoria\u2192Expansion\u2192Crash\u2192Profit-taking","Expansion\u2192Stealth\u2192Profit-taking\u2192Euphoria\u2192Crash"],"answer":1,"explain":"The new narrative creeps in under skepticism, smart money drives the expansion, euphoria brings in leverage and novices, then insiders take profit, and finally liquidity vanishes and the crash stampedes."},
+{"q":"On what time scales do momentum and long-term reversal respectively appear?","options":["Momentum over years, reversal over months","Momentum over days, reversal over months","Both appear only over days","Momentum over months, reversal over years"],"answer":3,"explain":"Momentum persists over roughly 3–12 months (the strong stay strong); mean reversion appears on the 3–5 year horizon, where the past extreme winners actually underperform."},
+{"q":"The slogan \u2018this time is different\u2019 is most likely to appear in which stage?","options":["Stealth","Expansion","Euphoria","Profit-taking"],"answer":2,"explain":"In euphoria, leverage and new players flood in and prices shoot vertically; \u2018this time is different\u2019 is precisely the slogan for abandoning valuation common sense, and it is often a sign the top is near."},
+{"q":"What is the main effect of countermeasures such as automated dollar-cost averaging and scheduled rebalancing?","options":["They write decisions into rules in advance","They guarantee every investment makes money","They predict the timing of the next crash","They keep pace with the market majority"],"answer":0,"explain":"They do not forecast the market; they replace heat-of-the-moment decisions, which are vulnerable to emotion, with mechanical rules written down in advance, so herds and bubbles cannot wash away your plan."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">Glossary</a> anchors): <a href="../reference/glossary.html#herding">herding</a> · <a href="../reference/glossary.html#bubble">bubble</a> · <a href="../reference/glossary.html#momentum">momentum</a> · <a href="../reference/glossary.html#mean-reversion">mean reversion</a> · <a href="../reference/glossary.html#investment-policy-statement">investment policy statement</a></li>
+
+<li>Investopedia: Market Bubble: <a href="https://www.investopedia.com/terms/b/bubble.asp">investopedia.com/terms/b/bubble.asp</a></li>
+<li>Wikipedia: Tulip mania: <a href="https://zh.wikipedia.org/wiki/郁金香狂热">zh.wikipedia.org/wiki/郁金香狂热</a></li>
+<li>Investopedia: Momentum: <a href="https://www.investopedia.com/terms/m/momentum.asp">investopedia.com/terms/m/momentum.asp</a></li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn't: bring any passage that's unclear, or any example you'd like to probe, back to the chat until it truly clicks.</div>
+
+<nav class="lesson-nav">
+<a href="0002-a-field-guide-to-cognitive-biases.html"><span class="nav-label">Previous lesson</span><span class="nav-title">A Field Guide to Cognitive Biases</span></a>
+<a class="next" href="../05-derivatives-and-financial-engineering/index.html"><span class="nav-label">Next branch</span><span class="nav-title">Derivatives &amp; Financial Engineering</span></a>
+</nav>
+<footer class="lesson-footer"><span>Behavioral Finance · Lesson 3</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var el=document.getElementById("bubble-chart");
+  if(!el||typeof FChart==="undefined"){return;}
+  var c=new FChart(el,{height:340,x:{min:0,max:100,label:"Time (arbitrary units)"},y:{min:0,max:260,label:"Price index"}});
+  function fp(t){
+    if(t<=25){return 100+15*(t/25);}
+    if(t<=55){return 115+55*Math.pow((t-25)/30,1.8);}
+    if(t<=70){return 170+80*Math.sin(Math.PI/2*(t-55)/15);}
+    if(t<=85){return 250-160*Math.sin(Math.PI/2*(t-70)/15);}
+    if(t<=95){return 90-20*Math.pow((t-85)/10,0.9);}
+    return 70+5*((t-95)/5);
+  }
+  var pts=[];
+  for(var i=0;i<=200;i++){var tt=i/2;pts.push([tt,fp(tt)]);}
+  var stages=[
+    {name:"① Stealth",feat:"A new narrative appears, prices creep up, skeptics dominate.",idea:"“I don’t get it — nothing to do with me.”"},
+    {name:"② Expansion",feat:"Smart money enters, media follows, and the rise clearly accelerates.",idea:"“It’s up a lot; I’ll buy the pullback.”"},
+    {name:"③ Euphoria",feat:"Leverage plus a flood of novices sends prices vertical; “this time is different” is loudest.",idea:"“Board before it’s too late — all in!”"},
+    {name:"④ Profit-taking",feat:"Insiders quietly exit; prices break down and liquidity starts to dry up.",idea:"“Just a pullback — perfect chance to average down.”"},
+    {name:"⑤ Crash",feat:"A selling stampede, liquidity dries up, a long bottoming after the bleed.",idea:"“The day I break even I’ll sell everything and never touch this again.”"}
+  ];
+  function stageOf(t){if(t<25)return 0;if(t<55)return 1;if(t<70)return 2;if(t<85)return 3;return 4;}
+  var slider=document.getElementById("tp");
+  var valEl=document.getElementById("tp-val");
+  var stagePill=document.getElementById("stage-pill");
+  var pricePill=document.getElementById("price-pill");
+  var descEl=document.getElementById("stage-desc");
+  function draw(t){
+    c.clear();
+    c.area(fp,{fill:"#0d5c4f",fillOpacity:0.08,y0:0});
+    c.path(pts,{color:"#0d5c4f",width:2.5});
+    c.vline(25,{color:"#5d5749",label:""});
+    c.vline(55,{color:"#5d5749",label:""});
+    c.vline(70,{color:"#5d5749",label:""});
+    c.vline(85,{color:"#5d5749",label:""});
+    c.text(6,238,"① Stealth",{dx:8});
+    c.text(32,238,"② Expansion",{dx:8});
+    c.text(56,244,"③ Euphoria",{dx:8});
+    c.text(76,238,"④ Profit-taking",{dx:8});
+    c.text(90,238,"⑤ Crash",{dx:8});
+    c.scatter([[t,fp(t),"#b3372f","Current moment"]],{r:6});
+    c.legend([{color:"#0d5c4f",text:"Typical bubble path"},{color:"#b3372f",text:"Current timeline position"}]);
+  }
+  function update(t){
+    var s=stages[stageOf(t)];
+    stagePill.textContent="Current stage: "+s.name;
+    pricePill.textContent="Price index "+Math.round(fp(t));
+    descEl.textContent="What marks this stage: "+s.feat+" The novice’s typical thought at this point: "+s.idea;
+  }
+  function refresh(){
+    var t=parseFloat(slider.value);
+    valEl.textContent=t;
+    draw(t);
+    update(t);
+  }
+  slider.addEventListener("input",refresh);
+  var playBtn=document.getElementById("play-btn");
+  var playing=false;
+  playBtn.addEventListener("click",function(){
+    if(playing||typeof FChart.tween!=="function"){return;}
+    playing=true;
+    FChart.tween(0,100,9000,function(v){
+      var t=Math.round(v);
+      slider.value=t;
+      valEl.textContent=t;
+      draw(t);
+      update(t);
+    });
+    setTimeout(function(){playing=false;},9200);
+  });
+  refresh();
+})();
+</script>
+</body></html>

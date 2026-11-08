@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Risk Management · Lesson 1: The Risk Map and VaR · Finance Self-Study Course</title><link rel="stylesheet" href="../assets/course.css">
+<meta name="description" content="Finance Self-Study Course, Risk Management, Lesson 1: The Risk Map and VaR — an interactive lesson with chart simulators and a quiz; works fully offline.">
+<link rel="icon" href="../assets/favicon.svg"></head><body>
+<a class="lang-switch" href="../../06-风险管理/0001-风险地图与var.html" lang="zh-CN" hreflang="zh-CN">中文</a>
+<div class="page">
+<div class="crumb"><a href="../index.html">Course Home</a><span class="sep">/</span><a href="index.html">Risk Management</a><span class="sep">/</span>Lesson 1</div>
+<header class="lesson-header"><div class="kicker">Risk Management · Lesson 1</div><h1>The Risk Map and VaR: “How Much Can I Lose?” in One Sentence</h1><div class="meta"><span class="tag">About 15 minutes</span><span>Difficulty: Advanced</span><span>Prerequisites: Lesson 1 of 04 Investments recommended</span></div></header>
+<p class="lead">Return answers “how much can I make”; risk answers “how much can I lose”. This lesson first sorts the bewildering variety of risks into four great families and learns how each of them strikes; then it teaches VaR, the measuring language institutions use worldwide — one sentence that says “under normal conditions, this much at most” — and also shows you where that sentence falls short.</p>
+
+<h2>1. The Risk Families: Know Your Enemy First</h2>
+<p>With any institutional report in hand, step one is to slot each risk into its pigeonhole. Financial risks fall mainly into four types; each has its own modus operandi, and each calls for a different remedy.</p>
+<table class="data">
+<thead><tr><th>Risk type</th><th>Mechanism in one sentence</th><th>Classic case</th></tr></thead>
+<tbody>
+<tr><td><span class="term" data-def="the risk that price movements — in stocks, interest rates, exchange rates, or commodities — push asset values up or down">market risk</span></td><td>Prices move, P&amp;L appears instantly: swings in stock, interest-rate, FX, and commodity prices change asset value directly.</td><td>In China’s 2015 A-share crash, over a thousand stocks hit limit-down day after day; the heavier your position, the harder you fell.</td></tr>
+<tr><td><span class="term" data-def="the risk that a counterparty fails to honor its obligation and pay back the money at maturity">credit risk</span></td><td>A counterparty defaults: the promised repayment of principal and interest doesn’t arrive on schedule, and the value of the claim shrinks on the spot.</td><td>Property developers defaulted on their dollar bonds; the bonds crashed and holders took the loss.</td></tr>
+<tr><td><span class="term" data-def="the risk of losses caused by failures of people, processes, or systems inside the firm">operational risk</span></td><td>The enemy within: rogue employees, process loopholes, system failures — losses come from internal control breakdowns, not from the market.</td><td>In 1995, Nick Leeson’s unauthorized derivatives trades brought down Barings Bank, a 233-year-old institution.</td></tr>
+<tr><td><span class="term" data-def="the risk of being unable to sell except at a steep discount, or at all">liquidity risk</span></td><td>Can’t sell when you need to: buyers vanish in an instant, so you must accept a deep discount — or cannot trade at all.</td><td>In the March 2020 panic, even U.S. Treasuries — the safest asset there is — saw their liquidity evaporate.</td></tr>
+</tbody>
+</table>
+<div class="callout callout-info"><span class="callout-title">Risks travel in chains</span><p>The four types often erupt together: Barings’ direct losses came from market positions (market risk), but the root cause that let losses run wild was failed internal control (operational risk); a developer default (credit risk) often arrives alongside its bonds becoming unsellable (liquidity risk). Find the primary cause first, then trace the chain reaction.</p></div>
+
+<h2>2. VaR: Three Elements, None Optional</h2>
+<p>With the taxonomy done, the next question is “how big is it”. Institutions’ most common answer is <span class="term" data-def="a loss threshold that, at a given confidence level and horizon, losses are not expected to exceed">Value at Risk (VaR)</span>: it compresses the risk of an investment or a portfolio into a single sentence. A proper VaR statement must contain all three elements at once:</p>
+<ul>
+<li><b>Amount</b>: how large a loss (e.g. ¥1 million);</li>
+<li><b>Horizon</b>: the loss over what period (e.g. one trading day);</li>
+<li><b>Confidence level</b>: with what probability (e.g. 95%).</li>
+</ul>
+<div class="formula">95% confidence level · 1 trading day · VaR = ¥1 million<div class="formula-note">How to read it: under normal market conditions, on about 95% of trading days the loss will not exceed ¥1 million; on average about 1 trading day in 20 will exceed it (1 ÷ (1 − 95%) = 20).</div></div>
+<p>Confidence level and “once every N days” are reciprocals: 90% means once every 10 trading days, 95% once every 20, 99% once every 100. The higher the confidence level, the larger VaR must be — the more certainty you demand, the deeper the “safety line” has to be drawn.</p>
+<div class="callout callout-key"><span class="callout-title">A VaR quoted as a bare number is meaningless</span><p>“Our VaR is ¥1 million” — is that one day or one year? 95% confidence or 99%? The meanings are worlds apart. When you see an amount quoted with no horizon or confidence level, demand the other two elements before deciding whether to believe it.</p></div>
+
+<h2>3. VaR’s Two Blind Spots</h2>
+<div class="callout callout-warn"><span class="callout-title">Misreading warning</span><p>VaR is not the maximum loss: it only says “on about 95% of days you lose less than this” — on the remaining 5% of days you can still lose far more. Nor does VaR tell you how much you lose once it is exceeded — that is its “tail blind spot”. Treating VaR as a loss ceiling is the classic opening move of countless risk-management disasters.</p></div>
+<p>The standard fix for the tail blind spot is <b>ES (Expected Shortfall)</b>: average the losses on the days that exceed VaR. VaR answers “how much do I lose at most, usually”; ES answers “how much do I lose on average when it’s bad”. Another common term in reports is <b>maximum drawdown</b> — the fall from the highest point to the lowest — which measures the deepest spill along the path.</p>
+
+<h2>4. Hands On: What VaR Looks Like</h2>
+<p>Suppose your portfolio is worth ¥1 million and its daily return is approximately normal: mean μ = 0.05%, daily volatility σ = 1%. Drag the sliders and watch how the confidence level, volatility, and principal rewrite “how much can I lose”. The red region is the left tail that VaR covers, and its area is exactly 1 − confidence level.</p>
+<div class="widget">
+<div class="widget-title">VaR visualized: the left-tail area is exactly 1 − confidence level</div>
+<div class="widget-body">
+<div class="widget-controls">
+<div class="slider-row"><label>Confidence level <span class="val" id="conf-val">95%</span><input type="range" id="conf" min="90" max="99" step="0.5" value="95"></label></div>
+<div class="slider-row"><label>Daily volatility σ <span class="val" id="sig-val">1%</span><input type="range" id="sig" min="0.5" max="3" step="0.1" value="1"></label></div>
+<div class="slider-row"><label>Principal <span class="val" id="cap-val">¥1,000,000</span><input type="range" id="cap" min="10" max="500" step="10" value="100"></label></div>
+</div>
+<div class="chart" id="chart1"></div>
+<div class="readout"><span class="pill" id="pill-q">VaR quantile: -1.59%</span><span class="pill" id="pill-var">VaR amount ≈ ¥15,900</span><span class="pill" id="pill-day">About once every 20 trading days</span></div>
+</div>
+</div>
+<div class="formula">VaR amount = principal × |μ − z·σ|<div class="formula-note">z is set by the confidence level (90% → 1.2816, 95% → 1.6449, 99% → 2.3263); μ is the average daily return and σ the daily volatility. Check with the default parameters: ¥1,000,000 × |0.05% − 1.6449 × 1%| = ¥1,000,000 × 1.59% ≈ ¥15,900 (¥15,949).</div></div>
+<p>Try two comparisons. Drag the confidence level to 99% (z = 2.3263): the quantile becomes 0.05% − 2.3263% = −2.28%, and VaR ≈ ¥22,800 — the more certainty you demand, the deeper the safety line. Drag σ to 2%: the 95% VaR jumps to about ¥32,400 at once — volatility is VaR’s most sensitive driver; the bumpier the market, the scarier “how much can I lose” gets.</p>
+
+<div class="win-card"><div class="win-title">✓ Key takeaways</div><ul>
+<li>Sort risks into the four types — market, credit, operational, liquidity — and give a real case of each;</li>
+<li>Read “one-day VaR = ¥1 million at 95% confidence” in full, and convert between confidence levels and “once every N days”;</li>
+<li>Know that VaR is not the maximum loss and cannot see the tail — ES fills that blind spot;</li>
+<li>Use VaR ≈ principal × |μ − z·σ| to estimate VaR quickly under the normality assumption.</li>
+</ul></div>
+
+<div class="quiz"><script type="application/json">
+{"title":"Quiz","questions":[
+{"q":"Which three elements must a complete VaR statement contain at the same time?","options":["Amount, horizon, confidence level","Amount, tax rate, credit rating","Horizon, dividend, volatility"],"answer":0,"explain":"The amount answers how much you can lose, the horizon over what period, and the confidence level with what probability; drop any one and the statement cannot be interpreted. Tax rates and dividends are not among the elements."},
+{"q":"Which reading of “one-day VaR = ¥1 million at 95% confidence” is the most accurate?","options":["Loss that day surely stays under ¥1m","Once it is exceeded, losses are capped","On 95% of days the loss stays under it"],"answer":2,"explain":"The correct reading is that on about 95% of trading days the loss does not exceed ¥1 million, and on average about 1 day in 20 does exceed it; VaR is neither a loss cap, nor does it say how much is lost once it is exceeded."},
+{"q":"Barings Bank collapsed in 1995 after Leeson’s unauthorized derivatives trades. Which type of risk did this expose first?","options":["Market risk","Operational risk","Credit risk"],"answer":1,"explain":"Staff trading beyond their authority and failed internal controls are operational risk; the market position was only the form the loss took — what let it snowball until it sank the bank was the loss of internal control."},
+{"q":"A one-day VaR at 99% confidence is exceeded, on average, about once every how many trading days?","options":["About once in 100 days","About once in 20 days","About once in 10 days"],"answer":0,"explain":"The exceedance probability is 1 − 99% = 1%, so on average it happens once every 1 ÷ 1% = 100 trading days; likewise 95% corresponds to 20 days and 90% to 10 days."}
+]}
+</script></div>
+
+<div class="sources"><div class="sources-title">Recommended reading (primary sources)</div><ul>
+<li>Terms from this lesson (<a href="../reference/glossary.html">glossary</a> anchors): <a href="../reference/glossary.html#market-risk">market risk</a> · <a href="../reference/glossary.html#credit-risk">credit risk</a> · <a href="../reference/glossary.html#operational-risk">operational risk</a> · <a href="../reference/glossary.html#liquidity-risk">liquidity risk</a> · <a href="../reference/glossary.html#var">Value at Risk (VaR)</a></li>
+
+<li><a href="https://www.investopedia.com/terms/v/var.asp">Value at Risk (VaR) — Investopedia</a> — definition, calculation methods, and limitations of VaR; the go-to starter entry.</li>
+<li><a href="https://zh.wikipedia.org/wiki/巴林银行">Barings Bank — Wikipedia</a> — the full story of how this 233-year-old bank failed in 1995.</li>
+<li><a href="https://www.bis.org/">Bank for International Settlements (BIS)</a> — the official source for global banking regulation and risk frameworks.</li>
+</ul></div>
+
+<div class="ask-teacher">💬 The course pages are static, but your AI tutor isn’t: bring any passage that’s unclear, or any example you’d like to probe, back to the chat until it truly clicks.</div>
+<nav class="lesson-nav"><a href="index.html"><span class="nav-label">Previous lesson</span><span class="nav-title">Branch Overview</span></a><a class="next" href="0002-credit-risk-and-expected-loss.html"><span class="nav-label">Next lesson</span><span class="nav-title">Credit Risk and Expected Loss</span></a></nav>
+<footer class="lesson-footer"><span>Risk Management · Lesson 1</span><span><a href="index.html">Branch home</a> · <a href="../reference/glossary.html">Glossary</a></span></footer>
+</div>
+<script src="../assets/charts.js"></script><script src="../assets/quiz.js"></script>
+<script>
+(function(){
+  var box=document.getElementById("chart1");
+  var confEl=document.getElementById("conf");
+  var sigEl=document.getElementById("sig");
+  var capEl=document.getElementById("cap");
+  var confVal=document.getElementById("conf-val");
+  var sigVal=document.getElementById("sig-val");
+  var capVal=document.getElementById("cap-val");
+  var pillQ=document.getElementById("pill-q");
+  var pillV=document.getElementById("pill-var");
+  var pillD=document.getElementById("pill-day");
+  var ZTAB=[[90,1.2816],[95,1.6449],[97.5,1.9600],[99,2.3263]];
+  function zOf(c){
+    if(c<=ZTAB[0][0]){return ZTAB[0][1];}
+    for(var i=0;i<ZTAB.length-1;i++){
+      var a=ZTAB[i],b=ZTAB[i+1];
+      if(c>=a[0]&&c<=b[0]){return a[1]+(b[1]-a[1])*(c-a[0])/(b[0]-a[0]);}
+    }
+    return ZTAB[ZTAB.length-1][1];
+  }
+  function num(x){return (Math.round(x*10)/10).toString();}
+  function fmtAmt(w){
+    if(w>=1){return "¥"+(Math.round(w*100)*100).toLocaleString("en-US");}
+    return "¥"+Math.round(w*10000).toLocaleString("en-US");
+  }
+  function draw(){
+    var conf=parseFloat(confEl.value);
+    var sig=parseFloat(sigEl.value);
+    var cap=parseFloat(capEl.value);
+    var mu=0.05,z=zOf(conf);
+    var q=mu-z*sig;
+    confVal.textContent=num(conf)+"%";
+    sigVal.textContent=num(sig)+"%";
+    capVal.textContent="¥"+(cap*10000).toLocaleString("en-US");
+    var f=function(p){return Math.exp(-((p-mu)*(p-mu))/(2*sig*sig))/(sig*Math.sqrt(2*Math.PI));};
+    var tail=function(p){return p<=q?f(p):0;};
+    var peak=0.3989/sig;
+    box.innerHTML="";
+    var c=new FChart(box,{height:340,x:{min:Math.min(-4,q-0.6),max:Math.max(4,mu+3.3*sig),label:"Daily return (%)"},y:{min:0,max:peak*1.18,label:"Probability density"}});
+    c.area(tail,{fill:"#b3372f",fillOpacity:0.3,y0:0});
+    c.path(f,{color:"#0d5c4f",width:2.5});
+    c.vline(q,{color:"#b3372f",label:"VaR quantile "+q.toFixed(2)+"%"});
+    c.text(q,peak*0.42,"Left-tail probability "+num(100-conf)+"%",{dx:8});
+    c.legend([{color:"#0d5c4f",text:"Daily return distribution (normal)"},{color:"#b3372f",text:"VaR left tail"}]);
+    pillQ.textContent="VaR quantile: "+q.toFixed(2)+"%";
+    pillV.textContent="VaR amount ≈ "+fmtAmt(cap*Math.abs(q)/100);
+    pillD.textContent="About once every "+num(100/(100-conf))+" trading days";
+  }
+  [confEl,sigEl,capEl].forEach(function(e){e.addEventListener("input",draw);});
+  draw();
+})();
+</script>
+</body>
+</html>
